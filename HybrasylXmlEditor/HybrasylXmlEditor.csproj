@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF1F81E0-1D11-4234-9020-2DC95178EE74}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>HybrasylXmlEditor</RootNamespace>
+    <AssemblyName>HybrasylXmlEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UI\StatusesEffectsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\StatusesEffectsDialog.Designer.cs">
+      <DependentUpon>StatusesEffectsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\StatusViewModel.cs" />
+    <Compile Include="UI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Hybrasyl\XML\Node.cs" />
+    <Compile Include="Hybrasyl\XML\Serializer.cs" />
+    <Compile Include="Hybrasyl\XML\Utf8StringWriter.cs" />
+    <Compile Include="Hybrasyl\XML\XMLBase.cs" />
+    <Compile Include="Hybrasyl\XSD\Castables.Designer.cs" />
+    <Compile Include="Hybrasyl\XSD\Creatures.Designer.cs" />
+    <Compile Include="Hybrasyl\XSD\hybrasylConfig.Designer.cs" />
+    <Compile Include="Hybrasyl\XSD\hybrasylExtensions.cs" />
+    <Compile Include="Hybrasyl\XSD\hybrasylStrings.Designer.cs" />
+    <Compile Include="Hybrasyl\XSD\Items.Designer.cs" />
+    <Compile Include="Hybrasyl\XSD\Loot.Designer.cs" />
+    <Compile Include="Hybrasyl\XSD\Maps.Designer.cs" />
+    <Compile Include="Hybrasyl\XSD\Nations.Designer.cs" />
+    <Compile Include="Hybrasyl\XSD\Status.Designer.cs" />
+    <Compile Include="UI\StatusesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\StatusesDialog.Designer.cs">
+      <DependentUpon>StatusesDialog.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="UI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\StatusesDialog.resx">
+      <DependentUpon>StatusesDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\StatusesEffectsDialog.resx">
+      <DependentUpon>StatusesEffectsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Hybrasyl\XSD\Castables.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\CastableSupport.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\Creatures.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\hybrasylConfig.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\hybrasylStrings.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\hybrasylTypes.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\Items.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\Loot.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\Maps.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\Nations.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Hybrasyl\XSD\Status.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
