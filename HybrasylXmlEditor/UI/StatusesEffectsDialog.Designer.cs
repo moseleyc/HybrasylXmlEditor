@@ -149,7 +149,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxStatusEffects.Location = new System.Drawing.Point(12, 12);
             this.groupBoxStatusEffects.Name = "groupBoxStatusEffects";
             this.groupBoxStatusEffects.Size = new System.Drawing.Size(561, 665);
-            this.groupBoxStatusEffects.TabIndex = 3;
+            this.groupBoxStatusEffects.TabIndex = 0;
             this.groupBoxStatusEffects.TabStop = false;
             this.groupBoxStatusEffects.Text = "Effects";
             // 
@@ -159,7 +159,7 @@ namespace HybrasylXmlEditor.UI
             this.labelTitleValue.Location = new System.Drawing.Point(227, 27);
             this.labelTitleValue.Name = "labelTitleValue";
             this.labelTitleValue.Size = new System.Drawing.Size(42, 13);
-            this.labelTitleValue.TabIndex = 19;
+            this.labelTitleValue.TabIndex = 0;
             this.labelTitleValue.Text = "VALUE";
             // 
             // groupBoxConditions
@@ -171,7 +171,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxConditions.Location = new System.Drawing.Point(258, 398);
             this.groupBoxConditions.Name = "groupBoxConditions";
             this.groupBoxConditions.Size = new System.Drawing.Size(288, 260);
-            this.groupBoxConditions.TabIndex = 18;
+            this.groupBoxConditions.TabIndex = 7;
             this.groupBoxConditions.TabStop = false;
             this.groupBoxConditions.Text = "Conditions";
             // 
@@ -207,7 +207,7 @@ namespace HybrasylXmlEditor.UI
             this.listBoxCondUnset.Name = "listBoxCondUnset";
             this.listBoxCondUnset.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBoxCondUnset.Size = new System.Drawing.Size(273, 95);
-            this.listBoxCondUnset.TabIndex = 32;
+            this.listBoxCondUnset.TabIndex = 3;
             // 
             // listBoxCondSet
             // 
@@ -241,7 +241,7 @@ namespace HybrasylXmlEditor.UI
             this.listBoxCondSet.Name = "listBoxCondSet";
             this.listBoxCondSet.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.listBoxCondSet.Size = new System.Drawing.Size(273, 95);
-            this.listBoxCondSet.TabIndex = 19;
+            this.listBoxCondSet.TabIndex = 1;
             // 
             // labelConUnset
             // 
@@ -249,7 +249,7 @@ namespace HybrasylXmlEditor.UI
             this.labelConUnset.Location = new System.Drawing.Point(6, 138);
             this.labelConUnset.Name = "labelConUnset";
             this.labelConUnset.Size = new System.Drawing.Size(38, 13);
-            this.labelConUnset.TabIndex = 31;
+            this.labelConUnset.TabIndex = 2;
             this.labelConUnset.Text = "Unset:";
             // 
             // labelConSet
@@ -258,7 +258,7 @@ namespace HybrasylXmlEditor.UI
             this.labelConSet.Location = new System.Drawing.Point(6, 16);
             this.labelConSet.Name = "labelConSet";
             this.labelConSet.Size = new System.Drawing.Size(26, 13);
-            this.labelConSet.TabIndex = 30;
+            this.labelConSet.TabIndex = 0;
             this.labelConSet.Text = "Set:";
             // 
             // groupBoxMessages
@@ -276,7 +276,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxMessages.Location = new System.Drawing.Point(6, 234);
             this.groupBoxMessages.Name = "groupBoxMessages";
             this.groupBoxMessages.Size = new System.Drawing.Size(246, 148);
-            this.groupBoxMessages.TabIndex = 17;
+            this.groupBoxMessages.TabIndex = 3;
             this.groupBoxMessages.TabStop = false;
             this.groupBoxMessages.Text = "Messages";
             // 
@@ -285,7 +285,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxMessagesSource.Location = new System.Drawing.Point(53, 42);
             this.textBoxMessagesSource.Name = "textBoxMessagesSource";
             this.textBoxMessagesSource.Size = new System.Drawing.Size(183, 20);
-            this.textBoxMessagesSource.TabIndex = 13;
+            this.textBoxMessagesSource.TabIndex = 3;
             // 
             // labelMessagesSource
             // 
@@ -293,7 +293,7 @@ namespace HybrasylXmlEditor.UI
             this.labelMessagesSource.Location = new System.Drawing.Point(6, 45);
             this.labelMessagesSource.Name = "labelMessagesSource";
             this.labelMessagesSource.Size = new System.Drawing.Size(44, 13);
-            this.labelMessagesSource.TabIndex = 12;
+            this.labelMessagesSource.TabIndex = 2;
             this.labelMessagesSource.Text = "Source:";
             // 
             // textBoxMessagesGroup
@@ -301,7 +301,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxMessagesGroup.Location = new System.Drawing.Point(53, 68);
             this.textBoxMessagesGroup.Name = "textBoxMessagesGroup";
             this.textBoxMessagesGroup.Size = new System.Drawing.Size(183, 20);
-            this.textBoxMessagesGroup.TabIndex = 11;
+            this.textBoxMessagesGroup.TabIndex = 5;
             // 
             // labelMessagesGroup
             // 
@@ -309,7 +309,7 @@ namespace HybrasylXmlEditor.UI
             this.labelMessagesGroup.Location = new System.Drawing.Point(6, 71);
             this.labelMessagesGroup.Name = "labelMessagesGroup";
             this.labelMessagesGroup.Size = new System.Drawing.Size(39, 13);
-            this.labelMessagesGroup.TabIndex = 10;
+            this.labelMessagesGroup.TabIndex = 4;
             this.labelMessagesGroup.Text = "Group:";
             // 
             // textBoxMessagesSay
@@ -317,7 +317,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxMessagesSay.Location = new System.Drawing.Point(53, 94);
             this.textBoxMessagesSay.Name = "textBoxMessagesSay";
             this.textBoxMessagesSay.Size = new System.Drawing.Size(183, 20);
-            this.textBoxMessagesSay.TabIndex = 9;
+            this.textBoxMessagesSay.TabIndex = 7;
             // 
             // labelMessagesSay
             // 
@@ -325,7 +325,7 @@ namespace HybrasylXmlEditor.UI
             this.labelMessagesSay.Location = new System.Drawing.Point(6, 97);
             this.labelMessagesSay.Name = "labelMessagesSay";
             this.labelMessagesSay.Size = new System.Drawing.Size(28, 13);
-            this.labelMessagesSay.TabIndex = 8;
+            this.labelMessagesSay.TabIndex = 6;
             this.labelMessagesSay.Text = "Say:";
             // 
             // textBoxMessagesShout
@@ -333,7 +333,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxMessagesShout.Location = new System.Drawing.Point(53, 120);
             this.textBoxMessagesShout.Name = "textBoxMessagesShout";
             this.textBoxMessagesShout.Size = new System.Drawing.Size(183, 20);
-            this.textBoxMessagesShout.TabIndex = 7;
+            this.textBoxMessagesShout.TabIndex = 9;
             // 
             // labelMessagesShout
             // 
@@ -341,7 +341,7 @@ namespace HybrasylXmlEditor.UI
             this.labelMessagesShout.Location = new System.Drawing.Point(6, 123);
             this.labelMessagesShout.Name = "labelMessagesShout";
             this.labelMessagesShout.Size = new System.Drawing.Size(38, 13);
-            this.labelMessagesShout.TabIndex = 6;
+            this.labelMessagesShout.TabIndex = 8;
             this.labelMessagesShout.Text = "Shout:";
             // 
             // textBoxMessagesTarget
@@ -349,7 +349,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxMessagesTarget.Location = new System.Drawing.Point(53, 16);
             this.textBoxMessagesTarget.Name = "textBoxMessagesTarget";
             this.textBoxMessagesTarget.Size = new System.Drawing.Size(183, 20);
-            this.textBoxMessagesTarget.TabIndex = 5;
+            this.textBoxMessagesTarget.TabIndex = 1;
             // 
             // labelMessagesTarget
             // 
@@ -367,7 +367,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxSound.Location = new System.Drawing.Point(6, 186);
             this.groupBoxSound.Name = "groupBoxSound";
             this.groupBoxSound.Size = new System.Drawing.Size(246, 42);
-            this.groupBoxSound.TabIndex = 17;
+            this.groupBoxSound.TabIndex = 2;
             this.groupBoxSound.TabStop = false;
             this.groupBoxSound.Text = "Sound";
             // 
@@ -376,7 +376,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxSound_Id.Location = new System.Drawing.Point(31, 13);
             this.textBoxSound_Id.Name = "textBoxSound_Id";
             this.textBoxSound_Id.Size = new System.Drawing.Size(64, 20);
-            this.textBoxSound_Id.TabIndex = 21;
+            this.textBoxSound_Id.TabIndex = 1;
             this.textBoxSound_Id.Leave += new System.EventHandler(this.textBoxByteValidation_Leave);
             // 
             // labelSound_Id
@@ -385,7 +385,7 @@ namespace HybrasylXmlEditor.UI
             this.labelSound_Id.Location = new System.Drawing.Point(6, 16);
             this.labelSound_Id.Name = "labelSound_Id";
             this.labelSound_Id.Size = new System.Drawing.Size(19, 13);
-            this.labelSound_Id.TabIndex = 7;
+            this.labelSound_Id.TabIndex = 0;
             this.labelSound_Id.Text = "Id:";
             // 
             // groupBoxHeal
@@ -396,7 +396,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxHeal.Location = new System.Drawing.Point(6, 388);
             this.groupBoxHeal.Name = "groupBoxHeal";
             this.groupBoxHeal.Size = new System.Drawing.Size(246, 100);
-            this.groupBoxHeal.TabIndex = 17;
+            this.groupBoxHeal.TabIndex = 4;
             this.groupBoxHeal.TabStop = false;
             this.groupBoxHeal.Text = "Heal";
             // 
@@ -409,7 +409,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxHealSimple.Location = new System.Drawing.Point(6, 19);
             this.groupBoxHealSimple.Name = "groupBoxHealSimple";
             this.groupBoxHealSimple.Size = new System.Drawing.Size(230, 42);
-            this.groupBoxHealSimple.TabIndex = 10;
+            this.groupBoxHealSimple.TabIndex = 0;
             this.groupBoxHealSimple.TabStop = false;
             this.groupBoxHealSimple.Text = "Simple";
             // 
@@ -418,14 +418,14 @@ namespace HybrasylXmlEditor.UI
             this.textBoxHealSimpleMax.Location = new System.Drawing.Point(157, 13);
             this.textBoxHealSimpleMax.Name = "textBoxHealSimpleMax";
             this.textBoxHealSimpleMax.Size = new System.Drawing.Size(64, 20);
-            this.textBoxHealSimpleMax.TabIndex = 24;
+            this.textBoxHealSimpleMax.TabIndex = 3;
             // 
             // textBoxHealSimpleMin
             // 
             this.textBoxHealSimpleMin.Location = new System.Drawing.Point(39, 13);
             this.textBoxHealSimpleMin.Name = "textBoxHealSimpleMin";
             this.textBoxHealSimpleMin.Size = new System.Drawing.Size(64, 20);
-            this.textBoxHealSimpleMin.TabIndex = 23;
+            this.textBoxHealSimpleMin.TabIndex = 1;
             // 
             // labelHealSimpleMax
             // 
@@ -433,7 +433,7 @@ namespace HybrasylXmlEditor.UI
             this.labelHealSimpleMax.Location = new System.Drawing.Point(121, 16);
             this.labelHealSimpleMax.Name = "labelHealSimpleMax";
             this.labelHealSimpleMax.Size = new System.Drawing.Size(30, 13);
-            this.labelHealSimpleMax.TabIndex = 22;
+            this.labelHealSimpleMax.TabIndex = 2;
             this.labelHealSimpleMax.Text = "Max:";
             // 
             // labelHealSimpleMin
@@ -442,7 +442,7 @@ namespace HybrasylXmlEditor.UI
             this.labelHealSimpleMin.Location = new System.Drawing.Point(6, 16);
             this.labelHealSimpleMin.Name = "labelHealSimpleMin";
             this.labelHealSimpleMin.Size = new System.Drawing.Size(27, 13);
-            this.labelHealSimpleMin.TabIndex = 20;
+            this.labelHealSimpleMin.TabIndex = 0;
             this.labelHealSimpleMin.Text = "Min:";
             // 
             // textBoxHealFormula
@@ -450,7 +450,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxHealFormula.Location = new System.Drawing.Point(53, 67);
             this.textBoxHealFormula.Name = "textBoxHealFormula";
             this.textBoxHealFormula.Size = new System.Drawing.Size(183, 20);
-            this.textBoxHealFormula.TabIndex = 9;
+            this.textBoxHealFormula.TabIndex = 2;
             // 
             // labelHealFormula
             // 
@@ -458,7 +458,7 @@ namespace HybrasylXmlEditor.UI
             this.labelHealFormula.Location = new System.Drawing.Point(6, 70);
             this.labelHealFormula.Name = "labelHealFormula";
             this.labelHealFormula.Size = new System.Drawing.Size(47, 13);
-            this.labelHealFormula.TabIndex = 8;
+            this.labelHealFormula.TabIndex = 1;
             this.labelHealFormula.Text = "Formula:";
             // 
             // groupBoxDamage
@@ -473,7 +473,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxDamage.Location = new System.Drawing.Point(6, 494);
             this.groupBoxDamage.Name = "groupBoxDamage";
             this.groupBoxDamage.Size = new System.Drawing.Size(246, 164);
-            this.groupBoxDamage.TabIndex = 17;
+            this.groupBoxDamage.TabIndex = 5;
             this.groupBoxDamage.TabStop = false;
             this.groupBoxDamage.Text = "Damage";
             // 
@@ -483,7 +483,7 @@ namespace HybrasylXmlEditor.UI
             this.labelDamageType.Location = new System.Drawing.Point(9, 123);
             this.labelDamageType.Name = "labelDamageType";
             this.labelDamageType.Size = new System.Drawing.Size(34, 13);
-            this.labelDamageType.TabIndex = 28;
+            this.labelDamageType.TabIndex = 5;
             this.labelDamageType.Text = "Type:";
             // 
             // comboBoxDamageType
@@ -497,14 +497,14 @@ namespace HybrasylXmlEditor.UI
             this.comboBoxDamageType.Location = new System.Drawing.Point(49, 120);
             this.comboBoxDamageType.Name = "comboBoxDamageType";
             this.comboBoxDamageType.Size = new System.Drawing.Size(187, 21);
-            this.comboBoxDamageType.TabIndex = 27;
+            this.comboBoxDamageType.TabIndex = 6;
             // 
             // textBoxDamageFormula
             // 
             this.textBoxDamageFormula.Location = new System.Drawing.Point(53, 94);
             this.textBoxDamageFormula.Name = "textBoxDamageFormula";
             this.textBoxDamageFormula.Size = new System.Drawing.Size(183, 20);
-            this.textBoxDamageFormula.TabIndex = 26;
+            this.textBoxDamageFormula.TabIndex = 4;
             // 
             // labelDamageFormula
             // 
@@ -512,7 +512,7 @@ namespace HybrasylXmlEditor.UI
             this.labelDamageFormula.Location = new System.Drawing.Point(6, 97);
             this.labelDamageFormula.Name = "labelDamageFormula";
             this.labelDamageFormula.Size = new System.Drawing.Size(47, 13);
-            this.labelDamageFormula.TabIndex = 25;
+            this.labelDamageFormula.TabIndex = 3;
             this.labelDamageFormula.Text = "Formula:";
             // 
             // groupBoxDamageSimple
@@ -524,7 +524,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxDamageSimple.Location = new System.Drawing.Point(6, 46);
             this.groupBoxDamageSimple.Name = "groupBoxDamageSimple";
             this.groupBoxDamageSimple.Size = new System.Drawing.Size(230, 42);
-            this.groupBoxDamageSimple.TabIndex = 24;
+            this.groupBoxDamageSimple.TabIndex = 2;
             this.groupBoxDamageSimple.TabStop = false;
             this.groupBoxDamageSimple.Text = "Simple";
             // 
@@ -533,14 +533,14 @@ namespace HybrasylXmlEditor.UI
             this.textBoxDamageSimpleMax.Location = new System.Drawing.Point(157, 13);
             this.textBoxDamageSimpleMax.Name = "textBoxDamageSimpleMax";
             this.textBoxDamageSimpleMax.Size = new System.Drawing.Size(64, 20);
-            this.textBoxDamageSimpleMax.TabIndex = 26;
+            this.textBoxDamageSimpleMax.TabIndex = 3;
             // 
             // textBoxDamageSimpleMin
             // 
             this.textBoxDamageSimpleMin.Location = new System.Drawing.Point(39, 13);
             this.textBoxDamageSimpleMin.Name = "textBoxDamageSimpleMin";
             this.textBoxDamageSimpleMin.Size = new System.Drawing.Size(64, 20);
-            this.textBoxDamageSimpleMin.TabIndex = 25;
+            this.textBoxDamageSimpleMin.TabIndex = 1;
             // 
             // labelDamageSimpleMax
             // 
@@ -548,7 +548,7 @@ namespace HybrasylXmlEditor.UI
             this.labelDamageSimpleMax.Location = new System.Drawing.Point(121, 16);
             this.labelDamageSimpleMax.Name = "labelDamageSimpleMax";
             this.labelDamageSimpleMax.Size = new System.Drawing.Size(30, 13);
-            this.labelDamageSimpleMax.TabIndex = 22;
+            this.labelDamageSimpleMax.TabIndex = 2;
             this.labelDamageSimpleMax.Text = "Max:";
             // 
             // labelDamageSimpleMin
@@ -557,7 +557,7 @@ namespace HybrasylXmlEditor.UI
             this.labelDamageSimpleMin.Location = new System.Drawing.Point(6, 16);
             this.labelDamageSimpleMin.Name = "labelDamageSimpleMin";
             this.labelDamageSimpleMin.Size = new System.Drawing.Size(27, 13);
-            this.labelDamageSimpleMin.TabIndex = 20;
+            this.labelDamageSimpleMin.TabIndex = 0;
             this.labelDamageSimpleMin.Text = "Min:";
             // 
             // labelDamageFlags
@@ -566,7 +566,7 @@ namespace HybrasylXmlEditor.UI
             this.labelDamageFlags.Location = new System.Drawing.Point(9, 22);
             this.labelDamageFlags.Name = "labelDamageFlags";
             this.labelDamageFlags.Size = new System.Drawing.Size(60, 13);
-            this.labelDamageFlags.TabIndex = 14;
+            this.labelDamageFlags.TabIndex = 0;
             this.labelDamageFlags.Text = "Dmg Flags:";
             // 
             // comboBoxDamageFlags
@@ -581,7 +581,7 @@ namespace HybrasylXmlEditor.UI
             this.comboBoxDamageFlags.Location = new System.Drawing.Point(75, 19);
             this.comboBoxDamageFlags.Name = "comboBoxDamageFlags";
             this.comboBoxDamageFlags.Size = new System.Drawing.Size(161, 21);
-            this.comboBoxDamageFlags.TabIndex = 0;
+            this.comboBoxDamageFlags.TabIndex = 1;
             // 
             // groupBoxStatModifiers
             // 
@@ -626,7 +626,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxStatModifiers.Location = new System.Drawing.Point(258, 66);
             this.groupBoxStatModifiers.Name = "groupBoxStatModifiers";
             this.groupBoxStatModifiers.Size = new System.Drawing.Size(288, 319);
-            this.groupBoxStatModifiers.TabIndex = 17;
+            this.groupBoxStatModifiers.TabIndex = 6;
             this.groupBoxStatModifiers.TabStop = false;
             this.groupBoxStatModifiers.Text = "Stat Modifiers";
             // 
@@ -636,7 +636,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModDmgType.Location = new System.Drawing.Point(33, 286);
             this.labelStatModDmgType.Name = "labelStatModDmgType";
             this.labelStatModDmgType.Size = new System.Drawing.Size(77, 13);
-            this.labelStatModDmgType.TabIndex = 70;
+            this.labelStatModDmgType.TabIndex = 36;
             this.labelStatModDmgType.Text = "Damage Type:";
             // 
             // comboBoxStatModDmgType
@@ -650,14 +650,14 @@ namespace HybrasylXmlEditor.UI
             this.comboBoxStatModDmgType.Location = new System.Drawing.Point(116, 283);
             this.comboBoxStatModDmgType.Name = "comboBoxStatModDmgType";
             this.comboBoxStatModDmgType.Size = new System.Drawing.Size(147, 21);
-            this.comboBoxStatModDmgType.TabIndex = 69;
+            this.comboBoxStatModDmgType.TabIndex = 37;
             // 
             // textBoxStatModDmg
             // 
             this.textBoxStatModDmg.Location = new System.Drawing.Point(202, 21);
             this.textBoxStatModDmg.Name = "textBoxStatModDmg";
             this.textBoxStatModDmg.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModDmg.TabIndex = 68;
+            this.textBoxStatModDmg.TabIndex = 17;
             this.textBoxStatModDmg.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // textBoxStatModStr
@@ -665,7 +665,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModStr.Location = new System.Drawing.Point(43, 21);
             this.textBoxStatModStr.Name = "textBoxStatModStr";
             this.textBoxStatModStr.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModStr.TabIndex = 67;
+            this.textBoxStatModStr.TabIndex = 1;
             this.textBoxStatModStr.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // textBoxStatModReflectIntensity
@@ -673,7 +673,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModReflectIntensity.Location = new System.Drawing.Point(202, 203);
             this.textBoxStatModReflectIntensity.Name = "textBoxStatModReflectIntensity";
             this.textBoxStatModReflectIntensity.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModReflectIntensity.TabIndex = 66;
+            this.textBoxStatModReflectIntensity.TabIndex = 31;
             this.textBoxStatModReflectIntensity.Leave += new System.EventHandler(this.textBoxFloatValidation_Leave);
             // 
             // textBoxStatModReflectChance
@@ -681,7 +681,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModReflectChance.Location = new System.Drawing.Point(202, 177);
             this.textBoxStatModReflectChance.Name = "textBoxStatModReflectChance";
             this.textBoxStatModReflectChance.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModReflectChance.TabIndex = 65;
+            this.textBoxStatModReflectChance.TabIndex = 29;
             this.textBoxStatModReflectChance.Leave += new System.EventHandler(this.textBoxFloatValidation_Leave);
             // 
             // textBoxStatModHealMod
@@ -689,7 +689,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModHealMod.Location = new System.Drawing.Point(202, 151);
             this.textBoxStatModHealMod.Name = "textBoxStatModHealMod";
             this.textBoxStatModHealMod.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModHealMod.TabIndex = 64;
+            this.textBoxStatModHealMod.TabIndex = 27;
             this.textBoxStatModHealMod.Leave += new System.EventHandler(this.textBoxFloatValidation_Leave);
             // 
             // textBoxStatModDmgMod
@@ -697,7 +697,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModDmgMod.Location = new System.Drawing.Point(202, 125);
             this.textBoxStatModDmgMod.Name = "textBoxStatModDmgMod";
             this.textBoxStatModDmgMod.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModDmgMod.TabIndex = 63;
+            this.textBoxStatModDmgMod.TabIndex = 25;
             this.textBoxStatModDmgMod.Leave += new System.EventHandler(this.textBoxFloatValidation_Leave);
             // 
             // textBoxStatModMr
@@ -705,7 +705,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModMr.Location = new System.Drawing.Point(202, 99);
             this.textBoxStatModMr.Name = "textBoxStatModMr";
             this.textBoxStatModMr.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModMr.TabIndex = 62;
+            this.textBoxStatModMr.TabIndex = 23;
             this.textBoxStatModMr.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // textBoxStatModRegen
@@ -713,7 +713,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModRegen.Location = new System.Drawing.Point(202, 73);
             this.textBoxStatModRegen.Name = "textBoxStatModRegen";
             this.textBoxStatModRegen.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModRegen.TabIndex = 61;
+            this.textBoxStatModRegen.TabIndex = 21;
             this.textBoxStatModRegen.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // textBoxStatModAc
@@ -721,7 +721,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModAc.Location = new System.Drawing.Point(202, 47);
             this.textBoxStatModAc.Name = "textBoxStatModAc";
             this.textBoxStatModAc.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModAc.TabIndex = 60;
+            this.textBoxStatModAc.TabIndex = 19;
             this.textBoxStatModAc.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // textBoxStatModHit
@@ -729,7 +729,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModHit.Location = new System.Drawing.Point(43, 203);
             this.textBoxStatModHit.Name = "textBoxStatModHit";
             this.textBoxStatModHit.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModHit.TabIndex = 59;
+            this.textBoxStatModHit.TabIndex = 15;
             this.textBoxStatModHit.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // textBoxStatModMp
@@ -737,7 +737,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModMp.Location = new System.Drawing.Point(43, 177);
             this.textBoxStatModMp.Name = "textBoxStatModMp";
             this.textBoxStatModMp.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModMp.TabIndex = 58;
+            this.textBoxStatModMp.TabIndex = 13;
             this.textBoxStatModMp.Leave += new System.EventHandler(this.textBoxIntValidation_Leave);
             // 
             // textBoxStatModHp
@@ -745,7 +745,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModHp.Location = new System.Drawing.Point(43, 151);
             this.textBoxStatModHp.Name = "textBoxStatModHp";
             this.textBoxStatModHp.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModHp.TabIndex = 57;
+            this.textBoxStatModHp.TabIndex = 11;
             this.textBoxStatModHp.Leave += new System.EventHandler(this.textBoxIntValidation_Leave);
             // 
             // textBoxStatModDex
@@ -753,7 +753,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModDex.Location = new System.Drawing.Point(43, 125);
             this.textBoxStatModDex.Name = "textBoxStatModDex";
             this.textBoxStatModDex.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModDex.TabIndex = 56;
+            this.textBoxStatModDex.TabIndex = 9;
             this.textBoxStatModDex.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // textBoxStatModCon
@@ -761,7 +761,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModCon.Location = new System.Drawing.Point(43, 99);
             this.textBoxStatModCon.Name = "textBoxStatModCon";
             this.textBoxStatModCon.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModCon.TabIndex = 55;
+            this.textBoxStatModCon.TabIndex = 7;
             this.textBoxStatModCon.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // textBoxStatModWis
@@ -769,7 +769,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModWis.Location = new System.Drawing.Point(43, 73);
             this.textBoxStatModWis.Name = "textBoxStatModWis";
             this.textBoxStatModWis.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModWis.TabIndex = 54;
+            this.textBoxStatModWis.TabIndex = 5;
             this.textBoxStatModWis.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // textBoxStatModInt
@@ -777,7 +777,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxStatModInt.Location = new System.Drawing.Point(43, 47);
             this.textBoxStatModInt.Name = "textBoxStatModInt";
             this.textBoxStatModInt.Size = new System.Drawing.Size(64, 20);
-            this.textBoxStatModInt.TabIndex = 53;
+            this.textBoxStatModInt.TabIndex = 3;
             this.textBoxStatModInt.Leave += new System.EventHandler(this.textBoxSByteValidation_Leave);
             // 
             // comboBoxStatModOffElement
@@ -799,7 +799,7 @@ namespace HybrasylXmlEditor.UI
             this.comboBoxStatModOffElement.Location = new System.Drawing.Point(116, 229);
             this.comboBoxStatModOffElement.Name = "comboBoxStatModOffElement";
             this.comboBoxStatModOffElement.Size = new System.Drawing.Size(147, 21);
-            this.comboBoxStatModOffElement.TabIndex = 52;
+            this.comboBoxStatModOffElement.TabIndex = 33;
             // 
             // comboBoxStatModDefElement
             // 
@@ -820,7 +820,7 @@ namespace HybrasylXmlEditor.UI
             this.comboBoxStatModDefElement.Location = new System.Drawing.Point(116, 255);
             this.comboBoxStatModDefElement.Name = "comboBoxStatModDefElement";
             this.comboBoxStatModDefElement.Size = new System.Drawing.Size(147, 21);
-            this.comboBoxStatModDefElement.TabIndex = 51;
+            this.comboBoxStatModDefElement.TabIndex = 35;
             // 
             // labelStatModDefElement
             // 
@@ -828,7 +828,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModDefElement.Location = new System.Drawing.Point(11, 258);
             this.labelStatModDefElement.Name = "labelStatModDefElement";
             this.labelStatModDefElement.Size = new System.Drawing.Size(99, 13);
-            this.labelStatModDefElement.TabIndex = 48;
+            this.labelStatModDefElement.TabIndex = 34;
             this.labelStatModDefElement.Text = "Defensive Element:";
             // 
             // labelStatModOffElement
@@ -837,7 +837,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModOffElement.Location = new System.Drawing.Point(14, 232);
             this.labelStatModOffElement.Name = "labelStatModOffElement";
             this.labelStatModOffElement.Size = new System.Drawing.Size(96, 13);
-            this.labelStatModOffElement.TabIndex = 47;
+            this.labelStatModOffElement.TabIndex = 32;
             this.labelStatModOffElement.Text = "Offensive Element:";
             // 
             // ReflectIntensity
@@ -846,7 +846,7 @@ namespace HybrasylXmlEditor.UI
             this.ReflectIntensity.Location = new System.Drawing.Point(113, 206);
             this.ReflectIntensity.Name = "ReflectIntensity";
             this.ReflectIntensity.Size = new System.Drawing.Size(86, 13);
-            this.ReflectIntensity.TabIndex = 45;
+            this.ReflectIntensity.TabIndex = 30;
             this.ReflectIntensity.Text = "Reflect Intensity:";
             // 
             // labelStatModReflectChance
@@ -855,7 +855,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModReflectChance.Location = new System.Drawing.Point(115, 180);
             this.labelStatModReflectChance.Name = "labelStatModReflectChance";
             this.labelStatModReflectChance.Size = new System.Drawing.Size(84, 13);
-            this.labelStatModReflectChance.TabIndex = 43;
+            this.labelStatModReflectChance.TabIndex = 28;
             this.labelStatModReflectChance.Text = "Reflect Chance:";
             // 
             // labelStatModHealMod
@@ -864,7 +864,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModHealMod.Location = new System.Drawing.Point(143, 154);
             this.labelStatModHealMod.Name = "labelStatModHealMod";
             this.labelStatModHealMod.Size = new System.Drawing.Size(56, 13);
-            this.labelStatModHealMod.TabIndex = 41;
+            this.labelStatModHealMod.TabIndex = 26;
             this.labelStatModHealMod.Text = "Heal Mod:";
             // 
             // labelStatModDmgMod
@@ -873,7 +873,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModDmgMod.Location = new System.Drawing.Point(143, 128);
             this.labelStatModDmgMod.Name = "labelStatModDmgMod";
             this.labelStatModDmgMod.Size = new System.Drawing.Size(56, 13);
-            this.labelStatModDmgMod.TabIndex = 39;
+            this.labelStatModDmgMod.TabIndex = 24;
             this.labelStatModDmgMod.Text = "Dmg Mod:";
             // 
             // labelStatModMr
@@ -882,7 +882,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModMr.Location = new System.Drawing.Point(177, 102);
             this.labelStatModMr.Name = "labelStatModMr";
             this.labelStatModMr.Size = new System.Drawing.Size(22, 13);
-            this.labelStatModMr.TabIndex = 37;
+            this.labelStatModMr.TabIndex = 22;
             this.labelStatModMr.Text = "Mr:";
             // 
             // labelStatModRegen
@@ -891,7 +891,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModRegen.Location = new System.Drawing.Point(157, 76);
             this.labelStatModRegen.Name = "labelStatModRegen";
             this.labelStatModRegen.Size = new System.Drawing.Size(42, 13);
-            this.labelStatModRegen.TabIndex = 35;
+            this.labelStatModRegen.TabIndex = 20;
             this.labelStatModRegen.Text = "Regen:";
             // 
             // labelStatModAc
@@ -900,7 +900,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModAc.Location = new System.Drawing.Point(176, 50);
             this.labelStatModAc.Name = "labelStatModAc";
             this.labelStatModAc.Size = new System.Drawing.Size(23, 13);
-            this.labelStatModAc.TabIndex = 33;
+            this.labelStatModAc.TabIndex = 18;
             this.labelStatModAc.Text = "Ac:";
             // 
             // labelStatModDmg
@@ -909,7 +909,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModDmg.Location = new System.Drawing.Point(167, 24);
             this.labelStatModDmg.Name = "labelStatModDmg";
             this.labelStatModDmg.Size = new System.Drawing.Size(32, 13);
-            this.labelStatModDmg.TabIndex = 31;
+            this.labelStatModDmg.TabIndex = 16;
             this.labelStatModDmg.Text = "Dmg:";
             // 
             // labelStatModHit
@@ -918,7 +918,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModHit.Location = new System.Drawing.Point(14, 206);
             this.labelStatModHit.Name = "labelStatModHit";
             this.labelStatModHit.Size = new System.Drawing.Size(23, 13);
-            this.labelStatModHit.TabIndex = 29;
+            this.labelStatModHit.TabIndex = 14;
             this.labelStatModHit.Text = "Hit:";
             // 
             // labelStatModMp
@@ -927,7 +927,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModMp.Location = new System.Drawing.Point(12, 180);
             this.labelStatModMp.Name = "labelStatModMp";
             this.labelStatModMp.Size = new System.Drawing.Size(25, 13);
-            this.labelStatModMp.TabIndex = 27;
+            this.labelStatModMp.TabIndex = 12;
             this.labelStatModMp.Text = "Mp:";
             // 
             // labelStatModHp
@@ -936,7 +936,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModHp.Location = new System.Drawing.Point(13, 154);
             this.labelStatModHp.Name = "labelStatModHp";
             this.labelStatModHp.Size = new System.Drawing.Size(24, 13);
-            this.labelStatModHp.TabIndex = 25;
+            this.labelStatModHp.TabIndex = 10;
             this.labelStatModHp.Text = "Hp:";
             // 
             // labelStatModDex
@@ -945,7 +945,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModDex.Location = new System.Drawing.Point(8, 128);
             this.labelStatModDex.Name = "labelStatModDex";
             this.labelStatModDex.Size = new System.Drawing.Size(29, 13);
-            this.labelStatModDex.TabIndex = 23;
+            this.labelStatModDex.TabIndex = 8;
             this.labelStatModDex.Text = "Dex:";
             // 
             // labelStatModCon
@@ -954,7 +954,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModCon.Location = new System.Drawing.Point(8, 102);
             this.labelStatModCon.Name = "labelStatModCon";
             this.labelStatModCon.Size = new System.Drawing.Size(29, 13);
-            this.labelStatModCon.TabIndex = 21;
+            this.labelStatModCon.TabIndex = 6;
             this.labelStatModCon.Text = "Con:";
             // 
             // labelStatModWis
@@ -963,7 +963,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModWis.Location = new System.Drawing.Point(9, 76);
             this.labelStatModWis.Name = "labelStatModWis";
             this.labelStatModWis.Size = new System.Drawing.Size(28, 13);
-            this.labelStatModWis.TabIndex = 19;
+            this.labelStatModWis.TabIndex = 4;
             this.labelStatModWis.Text = "Wis:";
             // 
             // labelStatModInt
@@ -972,7 +972,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModInt.Location = new System.Drawing.Point(15, 50);
             this.labelStatModInt.Name = "labelStatModInt";
             this.labelStatModInt.Size = new System.Drawing.Size(22, 13);
-            this.labelStatModInt.TabIndex = 17;
+            this.labelStatModInt.TabIndex = 2;
             this.labelStatModInt.Text = "Int:";
             // 
             // labelStatModStr
@@ -981,7 +981,7 @@ namespace HybrasylXmlEditor.UI
             this.labelStatModStr.Location = new System.Drawing.Point(14, 24);
             this.labelStatModStr.Name = "labelStatModStr";
             this.labelStatModStr.Size = new System.Drawing.Size(23, 13);
-            this.labelStatModStr.TabIndex = 15;
+            this.labelStatModStr.TabIndex = 0;
             this.labelStatModStr.Text = "Str:";
             // 
             // groupBoxAnimations
@@ -991,7 +991,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxAnimations.Location = new System.Drawing.Point(6, 66);
             this.groupBoxAnimations.Name = "groupBoxAnimations";
             this.groupBoxAnimations.Size = new System.Drawing.Size(246, 114);
-            this.groupBoxAnimations.TabIndex = 16;
+            this.groupBoxAnimations.TabIndex = 1;
             this.groupBoxAnimations.TabStop = false;
             this.groupBoxAnimations.Text = "Animations";
             // 
@@ -1004,7 +1004,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxAnimationSpellEffects.Location = new System.Drawing.Point(6, 65);
             this.groupBoxAnimationSpellEffects.Name = "groupBoxAnimationSpellEffects";
             this.groupBoxAnimationSpellEffects.Size = new System.Drawing.Size(230, 42);
-            this.groupBoxAnimationSpellEffects.TabIndex = 18;
+            this.groupBoxAnimationSpellEffects.TabIndex = 1;
             this.groupBoxAnimationSpellEffects.TabStop = false;
             this.groupBoxAnimationSpellEffects.Text = "Spell Effects";
             // 
@@ -1013,7 +1013,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxAnimationSpellEffect_Speed.Location = new System.Drawing.Point(148, 13);
             this.textBoxAnimationSpellEffect_Speed.Name = "textBoxAnimationSpellEffect_Speed";
             this.textBoxAnimationSpellEffect_Speed.Size = new System.Drawing.Size(64, 20);
-            this.textBoxAnimationSpellEffect_Speed.TabIndex = 23;
+            this.textBoxAnimationSpellEffect_Speed.TabIndex = 3;
             this.textBoxAnimationSpellEffect_Speed.Leave += new System.EventHandler(this.textBoxShortValidation_Leave);
             // 
             // textBoxAnimationSpellEffect_Id
@@ -1021,7 +1021,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxAnimationSpellEffect_Id.Location = new System.Drawing.Point(31, 13);
             this.textBoxAnimationSpellEffect_Id.Name = "textBoxAnimationSpellEffect_Id";
             this.textBoxAnimationSpellEffect_Id.Size = new System.Drawing.Size(64, 20);
-            this.textBoxAnimationSpellEffect_Id.TabIndex = 22;
+            this.textBoxAnimationSpellEffect_Id.TabIndex = 1;
             this.textBoxAnimationSpellEffect_Id.Leave += new System.EventHandler(this.textBoxUShortValidation_Leave);
             // 
             // labelAnimationSpellEffect_Id
@@ -1030,7 +1030,7 @@ namespace HybrasylXmlEditor.UI
             this.labelAnimationSpellEffect_Id.Location = new System.Drawing.Point(6, 16);
             this.labelAnimationSpellEffect_Id.Name = "labelAnimationSpellEffect_Id";
             this.labelAnimationSpellEffect_Id.Size = new System.Drawing.Size(19, 13);
-            this.labelAnimationSpellEffect_Id.TabIndex = 16;
+            this.labelAnimationSpellEffect_Id.TabIndex = 0;
             this.labelAnimationSpellEffect_Id.Text = "Id:";
             // 
             // labelAnimationSpellEffect_Speed
@@ -1039,7 +1039,7 @@ namespace HybrasylXmlEditor.UI
             this.labelAnimationSpellEffect_Speed.Location = new System.Drawing.Point(101, 16);
             this.labelAnimationSpellEffect_Speed.Name = "labelAnimationSpellEffect_Speed";
             this.labelAnimationSpellEffect_Speed.Size = new System.Drawing.Size(41, 13);
-            this.labelAnimationSpellEffect_Speed.TabIndex = 17;
+            this.labelAnimationSpellEffect_Speed.TabIndex = 2;
             this.labelAnimationSpellEffect_Speed.Text = "Speed:";
             // 
             // groupBoxAnimationTarget
@@ -1051,7 +1051,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxAnimationTarget.Location = new System.Drawing.Point(6, 19);
             this.groupBoxAnimationTarget.Name = "groupBoxAnimationTarget";
             this.groupBoxAnimationTarget.Size = new System.Drawing.Size(230, 40);
-            this.groupBoxAnimationTarget.TabIndex = 18;
+            this.groupBoxAnimationTarget.TabIndex = 0;
             this.groupBoxAnimationTarget.TabStop = false;
             this.groupBoxAnimationTarget.Text = "Target";
             // 
@@ -1060,7 +1060,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxAnimationTarget_Speed.Location = new System.Drawing.Point(148, 13);
             this.textBoxAnimationTarget_Speed.Name = "textBoxAnimationTarget_Speed";
             this.textBoxAnimationTarget_Speed.Size = new System.Drawing.Size(64, 20);
-            this.textBoxAnimationTarget_Speed.TabIndex = 21;
+            this.textBoxAnimationTarget_Speed.TabIndex = 3;
             this.textBoxAnimationTarget_Speed.Leave += new System.EventHandler(this.textBoxShortValidation_Leave);
             // 
             // textBoxAnimationTarget_Id
@@ -1068,7 +1068,7 @@ namespace HybrasylXmlEditor.UI
             this.textBoxAnimationTarget_Id.Location = new System.Drawing.Point(31, 13);
             this.textBoxAnimationTarget_Id.Name = "textBoxAnimationTarget_Id";
             this.textBoxAnimationTarget_Id.Size = new System.Drawing.Size(64, 20);
-            this.textBoxAnimationTarget_Id.TabIndex = 20;
+            this.textBoxAnimationTarget_Id.TabIndex = 1;
             this.textBoxAnimationTarget_Id.Leave += new System.EventHandler(this.textBoxUShortValidation_Leave);
             // 
             // labelAnimationTarget_Id
@@ -1077,7 +1077,7 @@ namespace HybrasylXmlEditor.UI
             this.labelAnimationTarget_Id.Location = new System.Drawing.Point(6, 16);
             this.labelAnimationTarget_Id.Name = "labelAnimationTarget_Id";
             this.labelAnimationTarget_Id.Size = new System.Drawing.Size(19, 13);
-            this.labelAnimationTarget_Id.TabIndex = 12;
+            this.labelAnimationTarget_Id.TabIndex = 0;
             this.labelAnimationTarget_Id.Text = "Id:";
             // 
             // labelAnimationTarget_Speed
@@ -1086,7 +1086,7 @@ namespace HybrasylXmlEditor.UI
             this.labelAnimationTarget_Speed.Location = new System.Drawing.Point(101, 16);
             this.labelAnimationTarget_Speed.Name = "labelAnimationTarget_Speed";
             this.labelAnimationTarget_Speed.Size = new System.Drawing.Size(41, 13);
-            this.labelAnimationTarget_Speed.TabIndex = 13;
+            this.labelAnimationTarget_Speed.TabIndex = 2;
             this.labelAnimationTarget_Speed.Text = "Speed:";
             // 
             // buttonCloseReturn
@@ -1094,7 +1094,7 @@ namespace HybrasylXmlEditor.UI
             this.buttonCloseReturn.Location = new System.Drawing.Point(475, 683);
             this.buttonCloseReturn.Name = "buttonCloseReturn";
             this.buttonCloseReturn.Size = new System.Drawing.Size(98, 23);
-            this.buttonCloseReturn.TabIndex = 20;
+            this.buttonCloseReturn.TabIndex = 1;
             this.buttonCloseReturn.Text = "Save && Return";
             this.buttonCloseReturn.UseVisualStyleBackColor = true;
             this.buttonCloseReturn.Click += new System.EventHandler(this.buttonCloseReturn_Click);

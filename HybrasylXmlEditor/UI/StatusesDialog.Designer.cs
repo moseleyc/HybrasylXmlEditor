@@ -49,12 +49,12 @@
             this.buttonOnTick = new System.Windows.Forms.Button();
             this.buttonOnApply = new System.Windows.Forms.Button();
             this.groupBoxCastRestriction = new System.Windows.Forms.GroupBox();
+            this.labelCastRestReceive = new System.Windows.Forms.Label();
+            this.labelCastRestUse = new System.Windows.Forms.Label();
+            this.textBoxCastRestReceive = new System.Windows.Forms.TextBox();
+            this.textBoxCastRestUse = new System.Windows.Forms.TextBox();
             this.buttonNewXML = new System.Windows.Forms.Button();
             this.buttonSaveXML = new System.Windows.Forms.Button();
-            this.textBoxCastRestUse = new System.Windows.Forms.TextBox();
-            this.textBoxCastRestReceive = new System.Windows.Forms.TextBox();
-            this.labelCastRestUse = new System.Windows.Forms.Label();
-            this.labelCastRestReceive = new System.Windows.Forms.Label();
             this.groupBoxStatusAttributes.SuspendLayout();
             this.groupBoxEffects.SuspendLayout();
             this.groupBoxCastRestriction.SuspendLayout();
@@ -66,7 +66,7 @@
             this.labelStatusIcon.Location = new System.Drawing.Point(26, 51);
             this.labelStatusIcon.Name = "labelStatusIcon";
             this.labelStatusIcon.Size = new System.Drawing.Size(31, 13);
-            this.labelStatusIcon.TabIndex = 7;
+            this.labelStatusIcon.TabIndex = 2;
             this.labelStatusIcon.Text = "Icon:";
             // 
             // buttonLoadStatusXML
@@ -74,7 +74,7 @@
             this.buttonLoadStatusXML.Location = new System.Drawing.Point(262, 370);
             this.buttonLoadStatusXML.Name = "buttonLoadStatusXML";
             this.buttonLoadStatusXML.Size = new System.Drawing.Size(75, 23);
-            this.buttonLoadStatusXML.TabIndex = 8;
+            this.buttonLoadStatusXML.TabIndex = 11;
             this.buttonLoadStatusXML.Text = "Load XML";
             this.buttonLoadStatusXML.UseVisualStyleBackColor = true;
             this.buttonLoadStatusXML.Click += new System.EventHandler(this.buttonLoadStatusXML_Click);
@@ -84,7 +84,7 @@
             this.textBoxStatusName.Location = new System.Drawing.Point(63, 23);
             this.textBoxStatusName.Name = "textBoxStatusName";
             this.textBoxStatusName.Size = new System.Drawing.Size(215, 20);
-            this.textBoxStatusName.TabIndex = 10;
+            this.textBoxStatusName.TabIndex = 1;
             // 
             // labelStatusName
             // 
@@ -92,7 +92,7 @@
             this.labelStatusName.Location = new System.Drawing.Point(19, 26);
             this.labelStatusName.Name = "labelStatusName";
             this.labelStatusName.Size = new System.Drawing.Size(38, 13);
-            this.labelStatusName.TabIndex = 9;
+            this.labelStatusName.TabIndex = 0;
             this.labelStatusName.Text = "Name:";
             // 
             // labelStatusDuration
@@ -101,7 +101,7 @@
             this.labelStatusDuration.Location = new System.Drawing.Point(7, 77);
             this.labelStatusDuration.Name = "labelStatusDuration";
             this.labelStatusDuration.Size = new System.Drawing.Size(50, 13);
-            this.labelStatusDuration.TabIndex = 12;
+            this.labelStatusDuration.TabIndex = 4;
             this.labelStatusDuration.Text = "Duration:";
             // 
             // labelStatusTick
@@ -110,7 +110,7 @@
             this.labelStatusTick.Location = new System.Drawing.Point(26, 103);
             this.labelStatusTick.Name = "labelStatusTick";
             this.labelStatusTick.Size = new System.Drawing.Size(31, 13);
-            this.labelStatusTick.TabIndex = 14;
+            this.labelStatusTick.TabIndex = 6;
             this.labelStatusTick.Text = "Tick:";
             // 
             // textBoxStatusScript
@@ -118,7 +118,7 @@
             this.textBoxStatusScript.Location = new System.Drawing.Point(118, 206);
             this.textBoxStatusScript.Name = "textBoxStatusScript";
             this.textBoxStatusScript.Size = new System.Drawing.Size(215, 20);
-            this.textBoxStatusScript.TabIndex = 5;
+            this.textBoxStatusScript.TabIndex = 6;
             // 
             // labelStatusScript
             // 
@@ -126,7 +126,7 @@
             this.labelStatusScript.Location = new System.Drawing.Point(75, 209);
             this.labelStatusScript.Name = "labelStatusScript";
             this.labelStatusScript.Size = new System.Drawing.Size(37, 13);
-            this.labelStatusScript.TabIndex = 4;
+            this.labelStatusScript.TabIndex = 5;
             this.labelStatusScript.Text = "Script:";
             // 
             // labelStatusProhibitedMsg
@@ -135,7 +135,7 @@
             this.labelStatusProhibitedMsg.Location = new System.Drawing.Point(9, 183);
             this.labelStatusProhibitedMsg.Name = "labelStatusProhibitedMsg";
             this.labelStatusProhibitedMsg.Size = new System.Drawing.Size(103, 13);
-            this.labelStatusProhibitedMsg.TabIndex = 2;
+            this.labelStatusProhibitedMsg.TabIndex = 3;
             this.labelStatusProhibitedMsg.Text = "Prohibited Message:";
             // 
             // textBoxStatusProhibitedMsg
@@ -143,7 +143,7 @@
             this.textBoxStatusProhibitedMsg.Location = new System.Drawing.Point(118, 180);
             this.textBoxStatusProhibitedMsg.Name = "textBoxStatusProhibitedMsg";
             this.textBoxStatusProhibitedMsg.Size = new System.Drawing.Size(215, 20);
-            this.textBoxStatusProhibitedMsg.TabIndex = 3;
+            this.textBoxStatusProhibitedMsg.TabIndex = 4;
             // 
             // labelStatusCategory
             // 
@@ -151,7 +151,7 @@
             this.labelStatusCategory.Location = new System.Drawing.Point(60, 157);
             this.labelStatusCategory.Name = "labelStatusCategory";
             this.labelStatusCategory.Size = new System.Drawing.Size(52, 13);
-            this.labelStatusCategory.TabIndex = 0;
+            this.labelStatusCategory.TabIndex = 1;
             this.labelStatusCategory.Text = "Category:";
             // 
             // textBoxStatusCategory
@@ -159,7 +159,7 @@
             this.textBoxStatusCategory.Location = new System.Drawing.Point(118, 154);
             this.textBoxStatusCategory.Name = "textBoxStatusCategory";
             this.textBoxStatusCategory.Size = new System.Drawing.Size(215, 20);
-            this.textBoxStatusCategory.TabIndex = 1;
+            this.textBoxStatusCategory.TabIndex = 2;
             // 
             // groupBoxStatusAttributes
             // 
@@ -174,7 +174,7 @@
             this.groupBoxStatusAttributes.Location = new System.Drawing.Point(12, 12);
             this.groupBoxStatusAttributes.Name = "groupBoxStatusAttributes";
             this.groupBoxStatusAttributes.Size = new System.Drawing.Size(321, 136);
-            this.groupBoxStatusAttributes.TabIndex = 15;
+            this.groupBoxStatusAttributes.TabIndex = 0;
             this.groupBoxStatusAttributes.TabStop = false;
             this.groupBoxStatusAttributes.Text = "Attributes";
             // 
@@ -183,7 +183,7 @@
             this.textBoxStatusTick.Location = new System.Drawing.Point(63, 100);
             this.textBoxStatusTick.Name = "textBoxStatusTick";
             this.textBoxStatusTick.Size = new System.Drawing.Size(100, 20);
-            this.textBoxStatusTick.TabIndex = 17;
+            this.textBoxStatusTick.TabIndex = 7;
             this.textBoxStatusTick.Leave += new System.EventHandler(this.textBoxIntValidation_Leave);
             // 
             // textBoxStatusDuration
@@ -191,7 +191,7 @@
             this.textBoxStatusDuration.Location = new System.Drawing.Point(63, 74);
             this.textBoxStatusDuration.Name = "textBoxStatusDuration";
             this.textBoxStatusDuration.Size = new System.Drawing.Size(100, 20);
-            this.textBoxStatusDuration.TabIndex = 16;
+            this.textBoxStatusDuration.TabIndex = 5;
             this.textBoxStatusDuration.Leave += new System.EventHandler(this.textBoxIntValidation_Leave);
             // 
             // textBoxStatusIcon
@@ -199,7 +199,7 @@
             this.textBoxStatusIcon.Location = new System.Drawing.Point(63, 48);
             this.textBoxStatusIcon.Name = "textBoxStatusIcon";
             this.textBoxStatusIcon.Size = new System.Drawing.Size(100, 20);
-            this.textBoxStatusIcon.TabIndex = 15;
+            this.textBoxStatusIcon.TabIndex = 3;
             this.textBoxStatusIcon.Leave += new System.EventHandler(this.textBoxUShortValidation_Leave);
             // 
             // groupBoxEffects
@@ -210,7 +210,7 @@
             this.groupBoxEffects.Location = new System.Drawing.Point(12, 232);
             this.groupBoxEffects.Name = "groupBoxEffects";
             this.groupBoxEffects.Size = new System.Drawing.Size(321, 48);
-            this.groupBoxEffects.TabIndex = 18;
+            this.groupBoxEffects.TabIndex = 7;
             this.groupBoxEffects.TabStop = false;
             this.groupBoxEffects.Text = "Effects";
             // 
@@ -219,7 +219,7 @@
             this.buttonOnRemove.Location = new System.Drawing.Point(238, 19);
             this.buttonOnRemove.Name = "buttonOnRemove";
             this.buttonOnRemove.Size = new System.Drawing.Size(75, 23);
-            this.buttonOnRemove.TabIndex = 19;
+            this.buttonOnRemove.TabIndex = 2;
             this.buttonOnRemove.Text = "OnRemove";
             this.buttonOnRemove.UseVisualStyleBackColor = true;
             this.buttonOnRemove.Click += new System.EventHandler(this.buttonOnRemove_Click);
@@ -229,7 +229,7 @@
             this.buttonOnTick.Location = new System.Drawing.Point(121, 19);
             this.buttonOnTick.Name = "buttonOnTick";
             this.buttonOnTick.Size = new System.Drawing.Size(75, 23);
-            this.buttonOnTick.TabIndex = 18;
+            this.buttonOnTick.TabIndex = 1;
             this.buttonOnTick.Text = "OnTick";
             this.buttonOnTick.UseVisualStyleBackColor = true;
             this.buttonOnTick.Click += new System.EventHandler(this.buttonOnTick_Click);
@@ -239,7 +239,7 @@
             this.buttonOnApply.Location = new System.Drawing.Point(4, 19);
             this.buttonOnApply.Name = "buttonOnApply";
             this.buttonOnApply.Size = new System.Drawing.Size(75, 23);
-            this.buttonOnApply.TabIndex = 17;
+            this.buttonOnApply.TabIndex = 0;
             this.buttonOnApply.Text = "OnApply";
             this.buttonOnApply.UseVisualStyleBackColor = true;
             this.buttonOnApply.Click += new System.EventHandler(this.buttonOnApply_Click);
@@ -253,16 +253,48 @@
             this.groupBoxCastRestriction.Location = new System.Drawing.Point(16, 286);
             this.groupBoxCastRestriction.Name = "groupBoxCastRestriction";
             this.groupBoxCastRestriction.Size = new System.Drawing.Size(321, 78);
-            this.groupBoxCastRestriction.TabIndex = 19;
+            this.groupBoxCastRestriction.TabIndex = 8;
             this.groupBoxCastRestriction.TabStop = false;
             this.groupBoxCastRestriction.Text = "Cast Restriction";
+            // 
+            // labelCastRestReceive
+            // 
+            this.labelCastRestReceive.AutoSize = true;
+            this.labelCastRestReceive.Location = new System.Drawing.Point(6, 48);
+            this.labelCastRestReceive.Name = "labelCastRestReceive";
+            this.labelCastRestReceive.Size = new System.Drawing.Size(50, 13);
+            this.labelCastRestReceive.TabIndex = 2;
+            this.labelCastRestReceive.Text = "Receive:";
+            // 
+            // labelCastRestUse
+            // 
+            this.labelCastRestUse.AutoSize = true;
+            this.labelCastRestUse.Location = new System.Drawing.Point(27, 22);
+            this.labelCastRestUse.Name = "labelCastRestUse";
+            this.labelCastRestUse.Size = new System.Drawing.Size(29, 13);
+            this.labelCastRestUse.TabIndex = 0;
+            this.labelCastRestUse.Text = "Use:";
+            // 
+            // textBoxCastRestReceive
+            // 
+            this.textBoxCastRestReceive.Location = new System.Drawing.Point(62, 45);
+            this.textBoxCastRestReceive.Name = "textBoxCastRestReceive";
+            this.textBoxCastRestReceive.Size = new System.Drawing.Size(215, 20);
+            this.textBoxCastRestReceive.TabIndex = 3;
+            // 
+            // textBoxCastRestUse
+            // 
+            this.textBoxCastRestUse.Location = new System.Drawing.Point(62, 19);
+            this.textBoxCastRestUse.Name = "textBoxCastRestUse";
+            this.textBoxCastRestUse.Size = new System.Drawing.Size(215, 20);
+            this.textBoxCastRestUse.TabIndex = 1;
             // 
             // buttonNewXML
             // 
             this.buttonNewXML.Location = new System.Drawing.Point(100, 370);
             this.buttonNewXML.Name = "buttonNewXML";
             this.buttonNewXML.Size = new System.Drawing.Size(75, 23);
-            this.buttonNewXML.TabIndex = 20;
+            this.buttonNewXML.TabIndex = 9;
             this.buttonNewXML.Text = "New XML";
             this.buttonNewXML.UseVisualStyleBackColor = true;
             this.buttonNewXML.Click += new System.EventHandler(this.buttonNewXML_Click);
@@ -272,42 +304,10 @@
             this.buttonSaveXML.Location = new System.Drawing.Point(181, 370);
             this.buttonSaveXML.Name = "buttonSaveXML";
             this.buttonSaveXML.Size = new System.Drawing.Size(75, 23);
-            this.buttonSaveXML.TabIndex = 21;
+            this.buttonSaveXML.TabIndex = 10;
             this.buttonSaveXML.Text = "Save XML";
             this.buttonSaveXML.UseVisualStyleBackColor = true;
             this.buttonSaveXML.Click += new System.EventHandler(this.buttonSaveXML_Click);
-            // 
-            // textBoxCastRestUse
-            // 
-            this.textBoxCastRestUse.Location = new System.Drawing.Point(62, 19);
-            this.textBoxCastRestUse.Name = "textBoxCastRestUse";
-            this.textBoxCastRestUse.Size = new System.Drawing.Size(215, 20);
-            this.textBoxCastRestUse.TabIndex = 6;
-            // 
-            // textBoxCastRestReceive
-            // 
-            this.textBoxCastRestReceive.Location = new System.Drawing.Point(62, 45);
-            this.textBoxCastRestReceive.Name = "textBoxCastRestReceive";
-            this.textBoxCastRestReceive.Size = new System.Drawing.Size(215, 20);
-            this.textBoxCastRestReceive.TabIndex = 7;
-            // 
-            // labelCastRestUse
-            // 
-            this.labelCastRestUse.AutoSize = true;
-            this.labelCastRestUse.Location = new System.Drawing.Point(27, 22);
-            this.labelCastRestUse.Name = "labelCastRestUse";
-            this.labelCastRestUse.Size = new System.Drawing.Size(29, 13);
-            this.labelCastRestUse.TabIndex = 22;
-            this.labelCastRestUse.Text = "Use:";
-            // 
-            // labelCastRestReceive
-            // 
-            this.labelCastRestReceive.AutoSize = true;
-            this.labelCastRestReceive.Location = new System.Drawing.Point(6, 48);
-            this.labelCastRestReceive.Name = "labelCastRestReceive";
-            this.labelCastRestReceive.Size = new System.Drawing.Size(50, 13);
-            this.labelCastRestReceive.TabIndex = 23;
-            this.labelCastRestReceive.Text = "Receive:";
             // 
             // StatusesDialog
             // 
