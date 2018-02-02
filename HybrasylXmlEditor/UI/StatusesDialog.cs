@@ -55,6 +55,7 @@ namespace HybrasylXmlEditor.UI
                     Status nullStatus = null;
                     var readStatus = Serializer.Deserialize(reader, nullStatus);
                     StatusVM.SetDisplayStatus(readStatus);
+                    loadCastRestrictions();
 
                     reader.Close();
                 }
@@ -71,6 +72,7 @@ namespace HybrasylXmlEditor.UI
             StatusVM = new StatusViewModel(new Status());
             setBindings();
             StatusVM.SetDisplayStatus(new Status());
+            loadCastRestrictions();
         }
 
         private void setBindings()
@@ -83,11 +85,9 @@ namespace HybrasylXmlEditor.UI
             textBoxStatusCategory.DataBindings.Add("Text", StatusVM, "Category");
             textBoxStatusProhibitedMsg.DataBindings.Add("Text", StatusVM, "ProhibitedMessage");
             textBoxStatusScript.DataBindings.Add("Text", StatusVM, "Script");
-        }
 
-        private void clearTextBoxValues()
-        {
-            //remove 0's from boxes...requires some values to be nullable...
+            textBoxCastRestUse.DataBindings.Add("Text", StatusVM, "CastRestriction_Use");
+            textBoxCastRestReceive.DataBindings.Add("Text", StatusVM, "CastRestriction_Receive");
         }
 
         private void buttonOnApply_Click(object sender, EventArgs e)
@@ -166,6 +166,8 @@ namespace HybrasylXmlEditor.UI
         private void buttonNewXML_Click(object sender, EventArgs e)
         {
             StatusVM.SetDisplayStatus(new Status());
+            StatusVM.CastRestriction_Receive = StatusVM.CastRestriction.Receive;
+            StatusVM.CastRestriction_Use = StatusVM.CastRestriction.Use;
         }
 
         private void textBoxUShortValidation_Leave(object sender, EventArgs e)
@@ -188,5 +190,16 @@ namespace HybrasylXmlEditor.UI
             }
         }
 
+        private void textBoxCastRestriction_Leave(object sender, EventArgs e)
+        {
+            StatusVM.CastRestriction.Receive = StatusVM.CastRestriction_Receive;
+            StatusVM.CastRestriction.Use = StatusVM.CastRestriction.Use;
+        }
+
+        private void loadCastRestrictions()
+        {
+            StatusVM.CastRestriction_Receive = StatusVM.CastRestriction.Receive;
+            StatusVM.CastRestriction_Use = StatusVM.CastRestriction.Use;
+        }
     }
 }

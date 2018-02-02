@@ -288,6 +288,7 @@
             this.textBoxCastRestUse.Name = "textBoxCastRestUse";
             this.textBoxCastRestUse.Size = new System.Drawing.Size(215, 20);
             this.textBoxCastRestUse.TabIndex = 1;
+            this.textBoxCastRestUse.Leave += new System.EventHandler(this.textBoxCastRestriction_Leave);
             // 
             // buttonNewXML
             // 
