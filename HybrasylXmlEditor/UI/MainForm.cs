@@ -17,6 +17,8 @@
  *
  */
 
+using Hybrasyl.Statuses;
+using Hybrasyl.XML;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +28,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace HybrasylXmlEditor.UI
 {
@@ -35,18 +38,21 @@ namespace HybrasylXmlEditor.UI
         public MainForm()
         {
             InitializeComponent();
+            AddTabForms();
         }
 
-        private void statusesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AddTabForms()
         {
-            StatusesDialog dlg = new StatusesDialog();
+            //Status Tab
+            StatusesDialog stdlg = new StatusesDialog();
+            stdlg.TopLevel = false;
+            stdlg.Visible = true;
+            stdlg.FormBorderStyle = FormBorderStyle.None;
+            stdlg.Dock = DockStyle.Fill;
+            tabControl1.TabPages[0].Controls.Add(stdlg);
 
-            if(dlg.ShowDialog() == DialogResult.OK)
-            {
+            //Creatures Tab
 
-            }
-
-            dlg.Dispose();
         }
     }
 }

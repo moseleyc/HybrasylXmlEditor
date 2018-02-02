@@ -201,6 +201,7 @@ namespace HybrasylXmlEditor.UI
 
             if (_effectType.Equals(onApply))
             {
+                statusVM.Effects_OnApply_Conditions_Set = new CreatureCondition();
                 foreach (var selected in listSet)
                 {
                     statusVM.Effects_OnApply_Conditions_Set |= selected;
@@ -208,6 +209,7 @@ namespace HybrasylXmlEditor.UI
             }
             else if (_effectType.Equals(onTick))
             {
+                statusVM.Effects_OnTick_Conditions_Set = new CreatureCondition();
                 foreach (var selected in listSet)
                 {
                     statusVM.Effects_OnTick_Conditions_Set |= selected;
@@ -215,6 +217,7 @@ namespace HybrasylXmlEditor.UI
             }
             else
             {
+                statusVM.Effects_OnRemove_Conditions_Set = new CreatureCondition();
                 foreach (var selected in listSet)
                 {
                     statusVM.Effects_OnRemove_Conditions_Set |= selected;
@@ -223,21 +226,24 @@ namespace HybrasylXmlEditor.UI
 
             if (_effectType.Equals(onApply))
             {
-                foreach (var selected in listSet)
+                statusVM.Effects_OnApply_Conditions_Unset = new CreatureCondition();
+                foreach (var selected in listUnset)
                 {
                     statusVM.Effects_OnApply_Conditions_Unset |= selected;
                 }
             }
             else if (_effectType.Equals(onTick))
             {
-                foreach (var selected in listSet)
+                statusVM.Effects_OnTick_Conditions_Unset = new CreatureCondition();
+                foreach (var selected in listUnset)
                 {
                     statusVM.Effects_OnTick_Conditions_Unset |= selected;
                 }
             }
             else
             {
-                foreach (var selected in listSet)
+                statusVM.Effects_OnRemove_Conditions_Unset = new CreatureCondition();
+                foreach (var selected in listUnset)
                 {
                     statusVM.Effects_OnRemove_Conditions_Unset |= selected;
                 }
