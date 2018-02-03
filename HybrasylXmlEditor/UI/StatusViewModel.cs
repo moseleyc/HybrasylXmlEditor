@@ -215,123 +215,6 @@ namespace HybrasylXmlEditor.UI
             this.Status = status;
         }
 
-        public string Category
-        {
-            get { return _category; }
-            set
-            {
-                _category = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public Effects Effects
-        {
-            get { return _effects; }
-            set
-            {
-                _effects = value;
-                OnPropertyChanged();
-            }
-        }
-        //Effects Sub-Values, created below for organizational sake
-        
-        public CastRestriction CastRestriction
-        {
-            get { return _castRestriction; }
-            set
-            {
-                _castRestriction = value;
-                OnPropertyChanged();
-            }
-        }
-
-        //CastRestriction Begin
-
-        public string CastRestriction_Receive
-        {
-            get { return _castRestriction_Receive; }
-            set
-            {
-                _castRestriction_Receive = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string CastRestriction_Use
-        {
-            get { return _castRestriction_Use; }
-            set
-            {
-                _castRestriction_Use = value;
-                OnPropertyChanged();
-            }
-        }
-
-        //CastRestriction End
-
-        public string ProhibitedMessage
-        {
-            get { return _prohibitedMessage; }
-            set
-            {
-                _prohibitedMessage = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string Script
-        {
-            get { return _script; }
-            set
-            {
-                _script = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int Duration
-        {
-            get { return _duration; }
-            set
-            {
-                _duration = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public int Tick
-        {
-            get { return _tick; }
-            set
-            {
-                _tick = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public ushort Icon
-        {
-            get { return _icon; }
-            set
-            {
-                _icon = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public string Name
-        {
-            get { return _name; }
-            set
-            {
-                _name = value;
-                OnPropertyChanged();
-            }
-        }
-
-        public Status Status { get; set; }
-
         public void SetDisplayStatus(Status status)
         {
             this.Category = status.Category;
@@ -494,6 +377,7 @@ namespace HybrasylXmlEditor.UI
             this.Icon = status.Icon;
             this.Name = status.Name;
         }
+
 
         public Status GetDisplayStatus()
         {
@@ -662,10 +546,26 @@ namespace HybrasylXmlEditor.UI
             return newStatus;
         }
 
-        public object this[string propertyName]
+
+        #region Properties
+        public string Category
         {
-            get { return this.GetType().GetProperty(propertyName).GetValue(this, null); }
-            set { this.GetType().GetProperty(propertyName).SetValue(this, value, null); }
+            get { return _category; }
+            set
+            {
+                _category = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public Effects Effects
+        {
+            get { return _effects; }
+            set
+            {
+                _effects = value;
+                OnPropertyChanged();
+            }
         }
 
         #region Effects_SubCategories
@@ -826,5 +726,98 @@ namespace HybrasylXmlEditor.UI
         #endregion
 
         #endregion
+
+        public CastRestriction CastRestriction
+        {
+            get { return _castRestriction; }
+            set
+            {
+                _castRestriction = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string CastRestriction_Receive
+        {
+            get { return _castRestriction_Receive; }
+            set
+            {
+                _castRestriction_Receive = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string CastRestriction_Use
+        {
+            get { return _castRestriction_Use; }
+            set
+            {
+                _castRestriction_Use = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string ProhibitedMessage
+        {
+            get { return _prohibitedMessage; }
+            set
+            {
+                _prohibitedMessage = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Script
+        {
+            get { return _script; }
+            set
+            {
+                _script = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int Duration
+        {
+            get { return _duration; }
+            set
+            {
+                _duration = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public int Tick
+        {
+            get { return _tick; }
+            set
+            {
+                _tick = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ushort Icon
+        {
+            get { return _icon; }
+            set
+            {
+                _icon = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string Name
+        {
+            get { return _name; }
+            set
+            {
+                _name = value;
+                OnPropertyChanged();
+            }
+        }
+        #endregion
+
+        public Status Status { get; set; }
     }
 }

@@ -48,7 +48,7 @@
             this.xmlTypesToolStripMenuItem});
             this.MainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainFormMenuStrip.Name = "MainFormMenuStrip";
-            this.MainFormMenuStrip.Size = new System.Drawing.Size(479, 24);
+            this.MainFormMenuStrip.Size = new System.Drawing.Size(566, 24);
             this.MainFormMenuStrip.TabIndex = 0;
             this.MainFormMenuStrip.Text = "menuStrip1";
             // 
@@ -88,7 +88,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(476, 522);
+            this.tabControl1.Size = new System.Drawing.Size(566, 532);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPageStatus
@@ -106,7 +106,7 @@
             this.tabPageNpc.Location = new System.Drawing.Point(4, 22);
             this.tabPageNpc.Name = "tabPageNpc";
             this.tabPageNpc.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNpc.Size = new System.Drawing.Size(468, 496);
+            this.tabPageNpc.Size = new System.Drawing.Size(558, 506);
             this.tabPageNpc.TabIndex = 1;
             this.tabPageNpc.Text = "NPC";
             this.tabPageNpc.UseVisualStyleBackColor = true;
@@ -125,9 +125,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 555);
+            this.ClientSize = new System.Drawing.Size(566, 561);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.MainFormMenuStrip);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MainMenuStrip = this.MainFormMenuStrip;
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Hybrasyl Xml Editor";

@@ -49,10 +49,17 @@ namespace HybrasylXmlEditor.UI
             stdlg.Visible = true;
             stdlg.FormBorderStyle = FormBorderStyle.None;
             stdlg.Dock = DockStyle.Fill;
+
             tabControl1.TabPages[0].Controls.Add(stdlg);
 
             //Creatures Tab
+            NpcDialog npcdlg = new NpcDialog();
+            npcdlg.TopLevel = false;
+            npcdlg.Visible = true;
+            npcdlg.FormBorderStyle = FormBorderStyle.None;
+            npcdlg.Dock = DockStyle.Fill;
 
+            tabControl1.TabPages[1].Controls.Add(npcdlg);
         }
     }
 }
