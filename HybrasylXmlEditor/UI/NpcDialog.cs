@@ -26,7 +26,7 @@ namespace HybrasylXmlEditor.UI
         {
             NpcVM = new NpcViewModel(new Npc());
             setBindings();
-            setupDataGridView();
+            //setupDataGridView();
         }
 
         private void setBindings()
@@ -37,7 +37,10 @@ namespace HybrasylXmlEditor.UI
             numericUpDownAppearanceSprite.DataBindings.Add("Value", NpcVM, "Appearance_Sprite");
             textBoxAppearancePortrait.DataBindings.Add("Text", NpcVM, "Appearance_Portrait");
 
-
+            //dataGridViewRolesTrain.AutoGenerateColumns = true;
+            setupDataGridView();
+            if (NpcVM.Roles_Train != null) dataGridViewRolesTrain.DataSource = NpcVM.Roles_Train;
+            else dataGridViewRolesTrain.DataSource = new List<NpcRoleTrainCastable>();
 
             textBoxInvItemValue.DataBindings.Add("Text", NpcVM, "Inventory_Item_Value");
             numericUpDownInvQty.DataBindings.Add("Value", NpcVM, "Inventory_Item_Quantity");
@@ -52,32 +55,33 @@ namespace HybrasylXmlEditor.UI
         {
             dataGridViewRolesTrain.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewRolesTrain.MultiSelect = false;
-            dataGridViewRolesTrain.AllowUserToAddRows = false;
-            dataGridViewRolesTrain.EditMode = DataGridViewEditMode.EditProgrammatically;
+            //dataGridViewRolesTrain.AllowUserToAddRows = false;
+            dataGridViewRolesTrain.RowHeadersVisible = false;
+            //dataGridViewRolesTrain.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridViewRolesTrain.AllowUserToOrderColumns = false;
             dataGridViewRolesTrain.AllowUserToResizeColumns = false;
             dataGridViewRolesTrain.AllowUserToResizeRows = false;
             dataGridViewRolesTrain.ColumnHeadersDefaultCellStyle.Font = new Font(DataGridView.DefaultFont, FontStyle.Bold);
 
-            DataGridViewTextBoxColumn trainType = new DataGridViewTextBoxColumn();
-            trainType.Name = "trainType";
-            trainType.DataPropertyName = "Type";
-            trainType.HeaderText = "Train Type";
-            trainType.Width = 60;
-            trainType.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            trainType.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            trainType.SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridViewRolesTrain.Columns.Add(trainType);
-
             DataGridViewTextBoxColumn trainName = new DataGridViewTextBoxColumn();
-            trainType.Name = "trainName";
-            trainType.DataPropertyName = "Name";
-            trainType.HeaderText = "Train Name";
-            trainType.Width = 60;
+            trainName.Name = "Name";
+            trainName.DataPropertyName = "Name";
+            trainName.HeaderText = "Name";
+            trainName.Width = 155;
+            trainName.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            trainName.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            trainName.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewRolesTrain.Columns.Add(trainName);
+
+            DataGridViewTextBoxColumn trainType = new DataGridViewTextBoxColumn();
+            trainType.Name = "Type";
+            trainType.DataPropertyName = "Type";
+            trainType.HeaderText = "Type";
+            trainType.Width = 80;
             trainType.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
             trainType.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             trainType.SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridViewRolesTrain.Columns.Add(trainName);
+            dataGridViewRolesTrain.Columns.Add(trainType);            
         }
 
         private void buttonLoadXML_Click(object sender, EventArgs e)
@@ -95,6 +99,7 @@ namespace HybrasylXmlEditor.UI
                     Npc nullNpc = null;
                     var readNpc = Serializer.Deserialize(reader, nullNpc);
                     NpcVM.SetDisplayNpc(readNpc);
+                    dataGridViewRolesTrain.DataSource = NpcVM.Roles_Train;
 
                     reader.Close();
                 }
@@ -108,18 +113,18 @@ namespace HybrasylXmlEditor.UI
 
         private void loadFlags()
         {
-            if(NpcVM.Appearance != null)
+            if (NpcVM.Appearance != null)
             {
                 checkBoxHasAppearance.Checked = true;
             }
-            if(NpcVM.Roles != null)
+            if (NpcVM.Roles != null)
             {
                 checkBoxHasRoles.Checked = true;
             }
-            if(NpcVM.Inventory != null)
+            if (NpcVM.Inventory != null)
             {
                 checkBoxHasInventory.Checked = true;
-                if(NpcVM.Inventory.Item != null)
+                if (NpcVM.Inventory.Item != null)
                 {
                     checkBoxHasInvItem.Checked = true;
                 }
@@ -176,7 +181,7 @@ namespace HybrasylXmlEditor.UI
 
         private void checkBoxHasInventory_CheckedChanged(object sender, EventArgs e)
         {
-            if((sender as CheckBox).Checked)
+            if ((sender as CheckBox).Checked)
             {
                 numericUpDownInvGold.ReadOnly = false;
                 if (NpcVM.Inventory == null) NpcVM.Inventory = new NpcInventory();
@@ -206,5 +211,131 @@ namespace HybrasylXmlEditor.UI
                 NpcVM.Inventory_Item = null;
             }
         }
+
+        private void checkBoxHasRoles_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+            {
+                if (NpcVM.Roles == null) NpcVM.Roles = new NpcRoleList();
+            }
+            else
+            {
+                //various fields should be marked as read-only
+                NpcVM.Roles = null;
+                if (checkBoxHasTrain.Checked)
+                {
+                    checkBoxHasTrain.Checked = false;
+                }
+            }
+        }
+
+        private void checkBoxHasTrain_CheckedChanged(object sender, EventArgs e)
+        {
+            var senderChkBox = sender as CheckBox;
+            if (senderChkBox.Checked)
+            {
+                if (checkBoxHasRoles.Checked)
+                {
+
+                }
+                else
+                {
+                    MessageBox.Show("Has Roles must be checked first.");
+                    senderChkBox.Checked = false;
+                }
+            }
+        }
+
+        private void dataGridViewRolesTrain_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = dataGridViewRolesTrain.CurrentRow.Index;
+            var currentTrainClass = NpcVM.Roles_Train[index].Class;
+
+            if (currentTrainClass != null && currentTrainClass.Count > 0)
+            {
+                if (currentTrainClass.Contains(Class.Peasant)) checkBoxTrainPeasant.Checked = true;
+                else checkBoxTrainPeasant.Checked = false;
+
+                if (currentTrainClass.Contains(Class.Wizard)) checkBoxTrainWizard.Checked = true;
+                else checkBoxTrainWizard.Checked = false;
+                if (currentTrainClass.Contains(Class.Priest)) checkBoxTrainPriest.Checked = true;
+                else checkBoxTrainPriest.Checked = false;
+                if (currentTrainClass.Contains(Class.Rogue)) checkBoxTrainRogue.Checked = true;
+                else checkBoxTrainRogue.Checked = false;
+                if (currentTrainClass.Contains(Class.Monk)) checkBoxTrainMonk.Checked = true;
+                else checkBoxTrainMonk.Checked = false;
+                if (currentTrainClass.Contains(Class.Warrior)) checkBoxTrainWarrior.Checked = true;
+                else checkBoxTrainWarrior.Checked = false;
+            }
+        }
+
+        private void checkBoxTrainPeasant_CheckedChanged(object sender, EventArgs e)
+        {
+            var currentClass = Class.Peasant;
+
+            addOrRemoveCurrentClass(currentClass, (sender as CheckBox).Checked);
+        }
+
+        private void checkBoxTrainPriest_CheckedChanged(object sender, EventArgs e)
+        {
+            var currentClass = Class.Priest;
+
+            addOrRemoveCurrentClass(currentClass, (sender as CheckBox).Checked);
+        }
+
+        private void checkBoxTrainMonk_CheckedChanged(object sender, EventArgs e)
+        {
+            var currentClass = Class.Monk;
+
+            addOrRemoveCurrentClass(currentClass, (sender as CheckBox).Checked);
+        }
+
+        private void checkBoxTrainWizard_CheckedChanged(object sender, EventArgs e)
+        {
+            var currentClass = Class.Wizard;
+
+            addOrRemoveCurrentClass(currentClass, (sender as CheckBox).Checked);
+        }
+
+        private void checkBoxTrainWarrior_CheckedChanged(object sender, EventArgs e)
+        {
+            var currentClass = Class.Warrior;
+
+            addOrRemoveCurrentClass(currentClass, (sender as CheckBox).Checked);
+        }
+
+        private void checkBoxTrainRogue_CheckedChanged(object sender, EventArgs e)
+        {
+            var currentClass = Class.Rogue;
+
+            addOrRemoveCurrentClass(currentClass, (sender as CheckBox).Checked);
+        }
+
+        /// <summary>
+        /// Helper method for the Role Training Class Selection CheckChanged Events
+        /// </summary>
+        /// <param name="npcRoleTrainCastable"></param>
+        /// <param name="classAddRemove"></param>
+        /// <param name="boxChecked"></param>
+        private void addOrRemoveCurrentClass(Class classAddRemove, bool boxChecked)
+        {
+            var currentTrain = NpcVM.Roles_Train[dataGridViewRolesTrain.CurrentRow.Index];
+
+            if (boxChecked)
+            {
+                if(!(currentTrain.Class.Contains(classAddRemove))) currentTrain.Class.Add(classAddRemove);
+            }
+            else
+            {
+                for (int i = currentTrain.Class.Count - 1; i >= 0; i--)
+                {
+                    if (currentTrain.Class[i] == classAddRemove)
+                    {
+                        currentTrain.Class.RemoveAt(i);
+                    }
+                }
+            }
+        }
+
     }
 }

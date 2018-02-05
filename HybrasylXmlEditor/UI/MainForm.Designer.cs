@@ -48,7 +48,7 @@
             this.xmlTypesToolStripMenuItem});
             this.MainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainFormMenuStrip.Name = "MainFormMenuStrip";
-            this.MainFormMenuStrip.Size = new System.Drawing.Size(594, 24);
+            this.MainFormMenuStrip.Size = new System.Drawing.Size(1137, 24);
             this.MainFormMenuStrip.TabIndex = 0;
             this.MainFormMenuStrip.Text = "menuStrip1";
             // 
@@ -88,7 +88,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 28);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(594, 814);
+            this.tabControl1.Size = new System.Drawing.Size(1137, 982);
             this.tabControl1.TabIndex = 1;
             // 
             // tabPageStatus
@@ -96,7 +96,7 @@
             this.tabPageStatus.Location = new System.Drawing.Point(4, 22);
             this.tabPageStatus.Name = "tabPageStatus";
             this.tabPageStatus.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageStatus.Size = new System.Drawing.Size(586, 788);
+            this.tabPageStatus.Size = new System.Drawing.Size(1129, 956);
             this.tabPageStatus.TabIndex = 0;
             this.tabPageStatus.Text = "Status";
             this.tabPageStatus.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             this.tabPageNpc.Location = new System.Drawing.Point(4, 22);
             this.tabPageNpc.Name = "tabPageNpc";
             this.tabPageNpc.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNpc.Size = new System.Drawing.Size(586, 658);
+            this.tabPageNpc.Size = new System.Drawing.Size(586, 788);
             this.tabPageNpc.TabIndex = 1;
             this.tabPageNpc.Text = "NPC";
             this.tabPageNpc.UseVisualStyleBackColor = true;
@@ -116,7 +116,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(586, 658);
+            this.tabPage1.Size = new System.Drawing.Size(586, 788);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 845);
+            this.ClientSize = new System.Drawing.Size(1137, 1009);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.MainFormMenuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
