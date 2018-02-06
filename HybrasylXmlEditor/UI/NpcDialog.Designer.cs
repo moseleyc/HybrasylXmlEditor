@@ -60,13 +60,20 @@
             this.checkBoxHasVendor = new System.Windows.Forms.CheckBox();
             this.checkBoxHasPost = new System.Windows.Forms.CheckBox();
             this.checkBoxHasTrain = new System.Windows.Forms.CheckBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBoxBank = new System.Windows.Forms.GroupBox();
             this.textBoxBankDiscount = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxRepair = new System.Windows.Forms.GroupBox();
+            this.groupBoxPost = new System.Windows.Forms.GroupBox();
+            this.groupBoxVendor = new System.Windows.Forms.GroupBox();
+            this.buttonVendorTabNameRemove = new System.Windows.Forms.Button();
+            this.buttonVendorTabNameAdd = new System.Windows.Forms.Button();
+            this.textBoxVendorTabName = new System.Windows.Forms.TextBox();
+            this.labelVendorTabName = new System.Windows.Forms.Label();
+            this.listBoxVendorTabNames = new System.Windows.Forms.ListBox();
+            this.checkBoxVendorHasItems = new System.Windows.Forms.CheckBox();
+            this.dataGridViewVendorItems = new System.Windows.Forms.DataGridView();
+            this.groupBoxTraining = new System.Windows.Forms.GroupBox();
             this.checkBoxTrainWarrior = new System.Windows.Forms.CheckBox();
             this.checkBoxTrainRogue = new System.Windows.Forms.CheckBox();
             this.checkBoxTrainWizard = new System.Windows.Forms.CheckBox();
@@ -92,8 +99,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInvQty)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInvGold)).BeginInit();
             this.groupBoxRoles.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxBank.SuspendLayout();
+            this.groupBoxVendor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendorItems)).BeginInit();
+            this.groupBoxTraining.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRolesTrain)).BeginInit();
             this.SuspendLayout();
             // 
@@ -348,14 +357,14 @@
             this.groupBoxRoles.Controls.Add(this.checkBoxHasVendor);
             this.groupBoxRoles.Controls.Add(this.checkBoxHasPost);
             this.groupBoxRoles.Controls.Add(this.checkBoxHasTrain);
-            this.groupBoxRoles.Controls.Add(this.groupBox5);
-            this.groupBoxRoles.Controls.Add(this.groupBox4);
-            this.groupBoxRoles.Controls.Add(this.groupBox3);
-            this.groupBoxRoles.Controls.Add(this.groupBox2);
-            this.groupBoxRoles.Controls.Add(this.groupBox1);
+            this.groupBoxRoles.Controls.Add(this.groupBoxBank);
+            this.groupBoxRoles.Controls.Add(this.groupBoxRepair);
+            this.groupBoxRoles.Controls.Add(this.groupBoxPost);
+            this.groupBoxRoles.Controls.Add(this.groupBoxVendor);
+            this.groupBoxRoles.Controls.Add(this.groupBoxTraining);
             this.groupBoxRoles.Location = new System.Drawing.Point(12, 192);
             this.groupBoxRoles.Name = "groupBoxRoles";
-            this.groupBoxRoles.Size = new System.Drawing.Size(874, 645);
+            this.groupBoxRoles.Size = new System.Drawing.Size(1113, 645);
             this.groupBoxRoles.TabIndex = 10;
             this.groupBoxRoles.TabStop = false;
             this.groupBoxRoles.Text = "Roles";
@@ -363,7 +372,7 @@
             // checkBoxHasBank
             // 
             this.checkBoxHasBank.AutoSize = true;
-            this.checkBoxHasBank.Location = new System.Drawing.Point(568, 334);
+            this.checkBoxHasBank.Location = new System.Drawing.Point(810, 528);
             this.checkBoxHasBank.Name = "checkBoxHasBank";
             this.checkBoxHasBank.Size = new System.Drawing.Size(68, 17);
             this.checkBoxHasBank.TabIndex = 19;
@@ -373,7 +382,7 @@
             // checkBoxHasRepairs
             // 
             this.checkBoxHasRepairs.AutoSize = true;
-            this.checkBoxHasRepairs.Location = new System.Drawing.Point(566, 227);
+            this.checkBoxHasRepairs.Location = new System.Drawing.Point(668, 428);
             this.checkBoxHasRepairs.Name = "checkBoxHasRepairs";
             this.checkBoxHasRepairs.Size = new System.Drawing.Size(90, 17);
             this.checkBoxHasRepairs.TabIndex = 18;
@@ -383,7 +392,7 @@
             // checkBoxHasVendor
             // 
             this.checkBoxHasVendor.AutoSize = true;
-            this.checkBoxHasVendor.Location = new System.Drawing.Point(359, 75);
+            this.checkBoxHasVendor.Location = new System.Drawing.Point(315, 19);
             this.checkBoxHasVendor.Name = "checkBoxHasVendor";
             this.checkBoxHasVendor.Size = new System.Drawing.Size(77, 17);
             this.checkBoxHasVendor.TabIndex = 17;
@@ -393,7 +402,7 @@
             // checkBoxHasPost
             // 
             this.checkBoxHasPost.AutoSize = true;
-            this.checkBoxHasPost.Location = new System.Drawing.Point(585, 38);
+            this.checkBoxHasPost.Location = new System.Drawing.Point(683, 74);
             this.checkBoxHasPost.Name = "checkBoxHasPost";
             this.checkBoxHasPost.Size = new System.Drawing.Size(75, 17);
             this.checkBoxHasPost.TabIndex = 16;
@@ -403,7 +412,7 @@
             // checkBoxHasTrain
             // 
             this.checkBoxHasTrain.AutoSize = true;
-            this.checkBoxHasTrain.Location = new System.Drawing.Point(10, 37);
+            this.checkBoxHasTrain.Location = new System.Drawing.Point(10, 19);
             this.checkBoxHasTrain.Name = "checkBoxHasTrain";
             this.checkBoxHasTrain.Size = new System.Drawing.Size(92, 17);
             this.checkBoxHasTrain.TabIndex = 15;
@@ -411,16 +420,16 @@
             this.checkBoxHasTrain.UseVisualStyleBackColor = true;
             this.checkBoxHasTrain.CheckedChanged += new System.EventHandler(this.checkBoxHasTrain_CheckedChanged);
             // 
-            // groupBox5
+            // groupBoxBank
             // 
-            this.groupBox5.Controls.Add(this.textBoxBankDiscount);
-            this.groupBox5.Controls.Add(this.label4);
-            this.groupBox5.Location = new System.Drawing.Point(567, 359);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(261, 49);
-            this.groupBox5.TabIndex = 14;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Bank";
+            this.groupBoxBank.Controls.Add(this.textBoxBankDiscount);
+            this.groupBoxBank.Controls.Add(this.label4);
+            this.groupBoxBank.Location = new System.Drawing.Point(809, 553);
+            this.groupBoxBank.Name = "groupBoxBank";
+            this.groupBoxBank.Size = new System.Drawing.Size(261, 49);
+            this.groupBoxBank.TabIndex = 14;
+            this.groupBoxBank.TabStop = false;
+            this.groupBoxBank.Text = "Bank";
             // 
             // textBoxBankDiscount
             // 
@@ -439,48 +448,117 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Discount:";
             // 
-            // groupBox4
+            // groupBoxRepair
             // 
-            this.groupBox4.Location = new System.Drawing.Point(561, 260);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(261, 49);
-            this.groupBox4.TabIndex = 13;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Repair";
+            this.groupBoxRepair.Location = new System.Drawing.Point(663, 461);
+            this.groupBoxRepair.Name = "groupBoxRepair";
+            this.groupBoxRepair.Size = new System.Drawing.Size(261, 49);
+            this.groupBoxRepair.TabIndex = 13;
+            this.groupBoxRepair.TabStop = false;
+            this.groupBoxRepair.Text = "Repair";
             // 
-            // groupBox3
+            // groupBoxPost
             // 
-            this.groupBox3.Location = new System.Drawing.Point(561, 75);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(261, 132);
-            this.groupBox3.TabIndex = 12;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Post";
+            this.groupBoxPost.Location = new System.Drawing.Point(659, 111);
+            this.groupBoxPost.Name = "groupBoxPost";
+            this.groupBoxPost.Size = new System.Drawing.Size(261, 132);
+            this.groupBoxPost.TabIndex = 12;
+            this.groupBoxPost.TabStop = false;
+            this.groupBoxPost.Text = "Post";
             // 
-            // groupBox2
+            // groupBoxVendor
             // 
-            this.groupBox2.Location = new System.Drawing.Point(375, 112);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(261, 132);
-            this.groupBox2.TabIndex = 12;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Vendor";
+            this.groupBoxVendor.Controls.Add(this.buttonVendorTabNameRemove);
+            this.groupBoxVendor.Controls.Add(this.buttonVendorTabNameAdd);
+            this.groupBoxVendor.Controls.Add(this.textBoxVendorTabName);
+            this.groupBoxVendor.Controls.Add(this.labelVendorTabName);
+            this.groupBoxVendor.Controls.Add(this.listBoxVendorTabNames);
+            this.groupBoxVendor.Controls.Add(this.checkBoxVendorHasItems);
+            this.groupBoxVendor.Controls.Add(this.dataGridViewVendorItems);
+            this.groupBoxVendor.Location = new System.Drawing.Point(315, 42);
+            this.groupBoxVendor.Name = "groupBoxVendor";
+            this.groupBoxVendor.Size = new System.Drawing.Size(292, 472);
+            this.groupBoxVendor.TabIndex = 12;
+            this.groupBoxVendor.TabStop = false;
+            this.groupBoxVendor.Text = "Vendor";
             // 
-            // groupBox1
+            // buttonVendorTabNameRemove
             // 
-            this.groupBox1.Controls.Add(this.checkBoxTrainWarrior);
-            this.groupBox1.Controls.Add(this.checkBoxTrainRogue);
-            this.groupBox1.Controls.Add(this.checkBoxTrainWizard);
-            this.groupBox1.Controls.Add(this.checkBoxTrainMonk);
-            this.groupBox1.Controls.Add(this.checkBoxTrainPriest);
-            this.groupBox1.Controls.Add(this.checkBoxTrainPeasant);
-            this.groupBox1.Controls.Add(this.dataGridViewRolesTrain);
-            this.groupBox1.Location = new System.Drawing.Point(10, 74);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(299, 565);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Train";
+            this.buttonVendorTabNameRemove.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVendorTabNameRemove.Location = new System.Drawing.Point(258, 369);
+            this.buttonVendorTabNameRemove.Name = "buttonVendorTabNameRemove";
+            this.buttonVendorTabNameRemove.Size = new System.Drawing.Size(26, 23);
+            this.buttonVendorTabNameRemove.TabIndex = 25;
+            this.buttonVendorTabNameRemove.Text = "-";
+            this.buttonVendorTabNameRemove.UseVisualStyleBackColor = true;
+            // 
+            // buttonVendorTabNameAdd
+            // 
+            this.buttonVendorTabNameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonVendorTabNameAdd.Location = new System.Drawing.Point(258, 340);
+            this.buttonVendorTabNameAdd.Name = "buttonVendorTabNameAdd";
+            this.buttonVendorTabNameAdd.Size = new System.Drawing.Size(26, 23);
+            this.buttonVendorTabNameAdd.TabIndex = 24;
+            this.buttonVendorTabNameAdd.Text = "+";
+            this.buttonVendorTabNameAdd.UseVisualStyleBackColor = true;
+            // 
+            // textBoxVendorTabName
+            // 
+            this.textBoxVendorTabName.Location = new System.Drawing.Point(9, 418);
+            this.textBoxVendorTabName.Name = "textBoxVendorTabName";
+            this.textBoxVendorTabName.Size = new System.Drawing.Size(243, 20);
+            this.textBoxVendorTabName.TabIndex = 23;
+            // 
+            // labelVendorTabName
+            // 
+            this.labelVendorTabName.AutoSize = true;
+            this.labelVendorTabName.Location = new System.Drawing.Point(6, 402);
+            this.labelVendorTabName.Name = "labelVendorTabName";
+            this.labelVendorTabName.Size = new System.Drawing.Size(60, 13);
+            this.labelVendorTabName.TabIndex = 22;
+            this.labelVendorTabName.Text = "Tab Name:";
+            // 
+            // listBoxVendorTabNames
+            // 
+            this.listBoxVendorTabNames.FormattingEnabled = true;
+            this.listBoxVendorTabNames.Location = new System.Drawing.Point(6, 297);
+            this.listBoxVendorTabNames.Name = "listBoxVendorTabNames";
+            this.listBoxVendorTabNames.Size = new System.Drawing.Size(246, 95);
+            this.listBoxVendorTabNames.TabIndex = 21;
+            // 
+            // checkBoxVendorHasItems
+            // 
+            this.checkBoxVendorHasItems.AutoSize = true;
+            this.checkBoxVendorHasItems.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxVendorHasItems.Name = "checkBoxVendorHasItems";
+            this.checkBoxVendorHasItems.Size = new System.Drawing.Size(79, 17);
+            this.checkBoxVendorHasItems.TabIndex = 20;
+            this.checkBoxVendorHasItems.Text = "Has Items?";
+            this.checkBoxVendorHasItems.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewVendorItems
+            // 
+            this.dataGridViewVendorItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewVendorItems.Location = new System.Drawing.Point(6, 42);
+            this.dataGridViewVendorItems.Name = "dataGridViewVendorItems";
+            this.dataGridViewVendorItems.Size = new System.Drawing.Size(278, 249);
+            this.dataGridViewVendorItems.TabIndex = 0;
+            // 
+            // groupBoxTraining
+            // 
+            this.groupBoxTraining.Controls.Add(this.checkBoxTrainWarrior);
+            this.groupBoxTraining.Controls.Add(this.checkBoxTrainRogue);
+            this.groupBoxTraining.Controls.Add(this.checkBoxTrainWizard);
+            this.groupBoxTraining.Controls.Add(this.checkBoxTrainMonk);
+            this.groupBoxTraining.Controls.Add(this.checkBoxTrainPriest);
+            this.groupBoxTraining.Controls.Add(this.checkBoxTrainPeasant);
+            this.groupBoxTraining.Controls.Add(this.dataGridViewRolesTrain);
+            this.groupBoxTraining.Location = new System.Drawing.Point(10, 42);
+            this.groupBoxTraining.Name = "groupBoxTraining";
+            this.groupBoxTraining.Size = new System.Drawing.Size(299, 472);
+            this.groupBoxTraining.TabIndex = 11;
+            this.groupBoxTraining.TabStop = false;
+            this.groupBoxTraining.Text = "Train";
             // 
             // checkBoxTrainWarrior
             // 
@@ -659,10 +737,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInvGold)).EndInit();
             this.groupBoxRoles.ResumeLayout(false);
             this.groupBoxRoles.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxBank.ResumeLayout(false);
+            this.groupBoxBank.PerformLayout();
+            this.groupBoxVendor.ResumeLayout(false);
+            this.groupBoxVendor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendorItems)).EndInit();
+            this.groupBoxTraining.ResumeLayout(false);
+            this.groupBoxTraining.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRolesTrain)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -699,13 +780,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown numericUpDownInvQty;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.GroupBox groupBoxBank;
         private System.Windows.Forms.TextBox textBoxBankDiscount;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxRepair;
+        private System.Windows.Forms.GroupBox groupBoxPost;
+        private System.Windows.Forms.GroupBox groupBoxVendor;
+        private System.Windows.Forms.GroupBox groupBoxTraining;
         private System.Windows.Forms.DataGridView dataGridViewRolesTrain;
         private System.Windows.Forms.CheckBox checkBoxHasAppearance;
         private System.Windows.Forms.CheckBox checkBoxHasRoles;
@@ -723,5 +804,12 @@
         private System.Windows.Forms.CheckBox checkBoxTrainMonk;
         private System.Windows.Forms.CheckBox checkBoxTrainPriest;
         private System.Windows.Forms.CheckBox checkBoxTrainPeasant;
+        private System.Windows.Forms.CheckBox checkBoxVendorHasItems;
+        private System.Windows.Forms.DataGridView dataGridViewVendorItems;
+        private System.Windows.Forms.Button buttonVendorTabNameRemove;
+        private System.Windows.Forms.Button buttonVendorTabNameAdd;
+        private System.Windows.Forms.TextBox textBoxVendorTabName;
+        private System.Windows.Forms.Label labelVendorTabName;
+        private System.Windows.Forms.ListBox listBoxVendorTabNames;
     }
 }

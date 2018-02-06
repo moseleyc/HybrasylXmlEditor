@@ -26,7 +26,7 @@ namespace HybrasylXmlEditor.UI
         {
             NpcVM = new NpcViewModel(new Npc());
             setBindings();
-            //setupDataGridView();
+            setupDataGridView();
         }
 
         private void setBindings()
@@ -37,10 +37,11 @@ namespace HybrasylXmlEditor.UI
             numericUpDownAppearanceSprite.DataBindings.Add("Value", NpcVM, "Appearance_Sprite");
             textBoxAppearancePortrait.DataBindings.Add("Text", NpcVM, "Appearance_Portrait");
 
-            //dataGridViewRolesTrain.AutoGenerateColumns = true;
-            setupDataGridView();
-            if (NpcVM.Roles_Train != null) dataGridViewRolesTrain.DataSource = NpcVM.Roles_Train;
-            else dataGridViewRolesTrain.DataSource = new List<NpcRoleTrainCastable>();
+            if (NpcVM.Roles_Train == null) NpcVM.Roles_Train = new BindingList<NpcRoleTrainCastable>();
+            dataGridViewRolesTrain.DataSource = NpcVM.Roles_Train;
+
+            if (NpcVM.Roles_Vend_Items == null) NpcVM.Roles_Vend_Items = new BindingList<NpcRoleVendItem>();
+            dataGridViewVendorItems.DataSource = NpcVM.Roles_Vend_Items;
 
             textBoxInvItemValue.DataBindings.Add("Text", NpcVM, "Inventory_Item_Value");
             numericUpDownInvQty.DataBindings.Add("Value", NpcVM, "Inventory_Item_Quantity");
@@ -53,11 +54,17 @@ namespace HybrasylXmlEditor.UI
 
         private void setupDataGridView()
         {
+            npcRolesTraining();
+            npcVendorItems();
+        }
+
+        #region DataGridSetups
+
+        private void npcRolesTraining()
+        {
             dataGridViewRolesTrain.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewRolesTrain.MultiSelect = false;
-            //dataGridViewRolesTrain.AllowUserToAddRows = false;
             dataGridViewRolesTrain.RowHeadersVisible = false;
-            //dataGridViewRolesTrain.EditMode = DataGridViewEditMode.EditProgrammatically;
             dataGridViewRolesTrain.AllowUserToOrderColumns = false;
             dataGridViewRolesTrain.AllowUserToResizeColumns = false;
             dataGridViewRolesTrain.AllowUserToResizeRows = false;
@@ -81,8 +88,61 @@ namespace HybrasylXmlEditor.UI
             trainType.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
             trainType.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             trainType.SortMode = DataGridViewColumnSortMode.NotSortable;
-            dataGridViewRolesTrain.Columns.Add(trainType);            
+            dataGridViewRolesTrain.Columns.Add(trainType);
         }
+
+        private void npcVendorItems()
+        {
+            dataGridViewVendorItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewVendorItems.MultiSelect = false;
+            dataGridViewVendorItems.RowHeadersVisible = false;
+            dataGridViewVendorItems.AllowUserToOrderColumns = false;
+            dataGridViewVendorItems.AllowUserToResizeColumns = false;
+            dataGridViewVendorItems.AllowUserToResizeRows = false;
+            dataGridViewVendorItems.ColumnHeadersDefaultCellStyle.Font = new Font(DataGridView.DefaultFont, FontStyle.Bold);
+
+            DataGridViewTextBoxColumn vendorItemsName = new DataGridViewTextBoxColumn();
+            vendorItemsName.Name = "Name";
+            vendorItemsName.DataPropertyName = "Name";
+            vendorItemsName.HeaderText = "Name";
+            vendorItemsName.Width = 60;
+            vendorItemsName.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            vendorItemsName.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            vendorItemsName.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewVendorItems.Columns.Add(vendorItemsName);
+
+            DataGridViewTextBoxColumn vendorItemsQty = new DataGridViewTextBoxColumn();
+            vendorItemsQty.Name = "Quantity";
+            vendorItemsQty.DataPropertyName = "Quantity";
+            vendorItemsQty.HeaderText = "Qty";
+            vendorItemsQty.Width = 60;
+            vendorItemsQty.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            vendorItemsQty.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            vendorItemsQty.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewVendorItems.Columns.Add(vendorItemsQty);
+
+            DataGridViewTextBoxColumn vendorItemsRestock = new DataGridViewTextBoxColumn();
+            vendorItemsRestock.Name = "Restock";
+            vendorItemsRestock.DataPropertyName = "Restock";
+            vendorItemsRestock.HeaderText = "Restock";
+            vendorItemsRestock.Width = 60;
+            vendorItemsRestock.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            vendorItemsRestock.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            vendorItemsRestock.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewVendorItems.Columns.Add(vendorItemsRestock);
+
+            DataGridViewTextBoxColumn vendorItemsTab = new DataGridViewTextBoxColumn();
+            vendorItemsTab.Name = "Tab";
+            vendorItemsTab.DataPropertyName = "Tab";
+            vendorItemsTab.HeaderText = "Tab";
+            vendorItemsTab.Width = 60;
+            vendorItemsTab.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            vendorItemsTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            vendorItemsTab.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewVendorItems.Columns.Add(vendorItemsTab);
+        }
+
+        #endregion
 
         private void buttonLoadXML_Click(object sender, EventArgs e)
         {
@@ -113,13 +173,30 @@ namespace HybrasylXmlEditor.UI
 
         private void loadFlags()
         {
-            if (NpcVM.Appearance != null)
-            {
-                checkBoxHasAppearance.Checked = true;
-            }
+            if (NpcVM.Appearance != null) checkBoxHasAppearance.Checked = true;
             if (NpcVM.Roles != null)
             {
                 checkBoxHasRoles.Checked = true;
+                if (NpcVM.Roles.Train != null)
+                {
+                    checkBoxHasTrain.Checked = true;
+                }
+                if (NpcVM.Roles.Vend != null)
+                {
+                    checkBoxHasInvItem.Checked = true;
+                }
+                if (NpcVM.Roles.Post != null)
+                {
+
+                }
+                if (NpcVM.Roles.Repair != null)
+                {
+
+                }
+                if (NpcVM.Roles.Bank != null)
+                {
+
+                }
             }
             if (NpcVM.Inventory != null)
             {
@@ -246,26 +323,30 @@ namespace HybrasylXmlEditor.UI
             }
         }
 
+        #region Training Events
         private void dataGridViewRolesTrain_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = dataGridViewRolesTrain.CurrentRow.Index;
-            var currentTrainClass = NpcVM.Roles_Train[index].Class;
-
-            if (currentTrainClass != null && currentTrainClass.Count > 0)
+            if (NpcVM.Roles_Train != null)
             {
-                if (currentTrainClass.Contains(Class.Peasant)) checkBoxTrainPeasant.Checked = true;
-                else checkBoxTrainPeasant.Checked = false;
+                var currentTrainClass = NpcVM.Roles_Train[index].Class;
 
-                if (currentTrainClass.Contains(Class.Wizard)) checkBoxTrainWizard.Checked = true;
-                else checkBoxTrainWizard.Checked = false;
-                if (currentTrainClass.Contains(Class.Priest)) checkBoxTrainPriest.Checked = true;
-                else checkBoxTrainPriest.Checked = false;
-                if (currentTrainClass.Contains(Class.Rogue)) checkBoxTrainRogue.Checked = true;
-                else checkBoxTrainRogue.Checked = false;
-                if (currentTrainClass.Contains(Class.Monk)) checkBoxTrainMonk.Checked = true;
-                else checkBoxTrainMonk.Checked = false;
-                if (currentTrainClass.Contains(Class.Warrior)) checkBoxTrainWarrior.Checked = true;
-                else checkBoxTrainWarrior.Checked = false;
+                if (currentTrainClass != null && currentTrainClass.Count > 0)
+                {
+                    if (currentTrainClass.Contains(Class.Peasant)) checkBoxTrainPeasant.Checked = true;
+                    else checkBoxTrainPeasant.Checked = false;
+
+                    if (currentTrainClass.Contains(Class.Wizard)) checkBoxTrainWizard.Checked = true;
+                    else checkBoxTrainWizard.Checked = false;
+                    if (currentTrainClass.Contains(Class.Priest)) checkBoxTrainPriest.Checked = true;
+                    else checkBoxTrainPriest.Checked = false;
+                    if (currentTrainClass.Contains(Class.Rogue)) checkBoxTrainRogue.Checked = true;
+                    else checkBoxTrainRogue.Checked = false;
+                    if (currentTrainClass.Contains(Class.Monk)) checkBoxTrainMonk.Checked = true;
+                    else checkBoxTrainMonk.Checked = false;
+                    if (currentTrainClass.Contains(Class.Warrior)) checkBoxTrainWarrior.Checked = true;
+                    else checkBoxTrainWarrior.Checked = false;
+                }
             }
         }
 
@@ -336,6 +417,7 @@ namespace HybrasylXmlEditor.UI
                 }
             }
         }
+        #endregion
 
     }
 }
