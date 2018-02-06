@@ -204,7 +204,10 @@ namespace HybrasylXmlEditor.UI
                 if (this.Roles_Vend != null)
                 {
                     if (this.Roles_Vend_Items != null || this.Roles_Vend_Items.Count > 0) newNpc.Roles.Vend.Items = this.Roles_Vend_Items.ToList();
+                    else newNpc.Roles.Vend.Items = null;
+
                     if (this.Roles_Vend_Tabs != null || this.Roles_Vend_Tabs.Count > 0) newNpc.Roles.Vend.Tabs = this.Roles_Vend_Tabs.ToList();
+                    else newNpc.Roles.Vend.Tabs = null;
                 }
 
                 newNpc.Roles.Post = this.Roles_Post;

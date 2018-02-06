@@ -492,6 +492,7 @@
             this.buttonVendorTabNameRemove.TabIndex = 25;
             this.buttonVendorTabNameRemove.Text = "-";
             this.buttonVendorTabNameRemove.UseVisualStyleBackColor = true;
+            this.buttonVendorTabNameRemove.Click += new System.EventHandler(this.buttonVendorTabNameRemove_Click);
             // 
             // buttonVendorTabNameAdd
             // 
@@ -502,6 +503,7 @@
             this.buttonVendorTabNameAdd.TabIndex = 24;
             this.buttonVendorTabNameAdd.Text = "+";
             this.buttonVendorTabNameAdd.UseVisualStyleBackColor = true;
+            this.buttonVendorTabNameAdd.Click += new System.EventHandler(this.buttonVendorTabNameAdd_Click);
             // 
             // textBoxVendorTabName
             // 
@@ -537,6 +539,7 @@
             this.checkBoxVendorHasItems.TabIndex = 20;
             this.checkBoxVendorHasItems.Text = "Has Items?";
             this.checkBoxVendorHasItems.UseVisualStyleBackColor = true;
+            this.checkBoxVendorHasItems.CheckedChanged += new System.EventHandler(this.checkBoxVendorHasItems_CheckedChanged);
             // 
             // dataGridViewVendorItems
             // 

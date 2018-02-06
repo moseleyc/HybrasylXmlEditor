@@ -37,9 +37,11 @@ namespace HybrasylXmlEditor.UI
             numericUpDownAppearanceSprite.DataBindings.Add("Value", NpcVM, "Appearance_Sprite");
             textBoxAppearancePortrait.DataBindings.Add("Text", NpcVM, "Appearance_Portrait");
 
+            dataGridViewRolesTrain.AutoGenerateColumns = false;
             if (NpcVM.Roles_Train == null) NpcVM.Roles_Train = new BindingList<NpcRoleTrainCastable>();
             dataGridViewRolesTrain.DataSource = NpcVM.Roles_Train;
 
+            dataGridViewVendorItems.AutoGenerateColumns = false;
             if (NpcVM.Roles_Vend_Items == null) NpcVM.Roles_Vend_Items = new BindingList<NpcRoleVendItem>();
             dataGridViewVendorItems.DataSource = NpcVM.Roles_Vend_Items;
 
@@ -54,14 +56,7 @@ namespace HybrasylXmlEditor.UI
 
         private void setupDataGridView()
         {
-            npcRolesTraining();
-            npcVendorItems();
-        }
-
-        #region DataGridSetups
-
-        private void npcRolesTraining()
-        {
+            #region NPC Roles Training
             dataGridViewRolesTrain.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewRolesTrain.MultiSelect = false;
             dataGridViewRolesTrain.RowHeadersVisible = false;
@@ -89,10 +84,9 @@ namespace HybrasylXmlEditor.UI
             trainType.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             trainType.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewRolesTrain.Columns.Add(trainType);
-        }
+            #endregion
 
-        private void npcVendorItems()
-        {
+            #region NPC Roles Vendor Items
             dataGridViewVendorItems.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewVendorItems.MultiSelect = false;
             dataGridViewVendorItems.RowHeadersVisible = false;
@@ -140,9 +134,8 @@ namespace HybrasylXmlEditor.UI
             vendorItemsTab.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             vendorItemsTab.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewVendorItems.Columns.Add(vendorItemsTab);
+            #endregion
         }
-
-        #endregion
 
         private void buttonLoadXML_Click(object sender, EventArgs e)
         {
@@ -418,8 +411,9 @@ namespace HybrasylXmlEditor.UI
             {
                 if (checkBoxHasRoles.Checked)
                 {
-                    dataGridViewVendorItems.ReadOnly = false;
+                    textBoxVendorTabName.ReadOnly = false;
                     if (NpcVM.Roles_Vend == null) NpcVM.Roles_Vend = new NpcRoleVend();
+                    if (NpcVM.Roles_Vend_Tabs == null) NpcVM.Roles_Vend_Tabs = new BindingList<string>();
                 }
                 else
                 {
@@ -430,9 +424,36 @@ namespace HybrasylXmlEditor.UI
             else
             {
                 dataGridViewVendorItems.ReadOnly = true;
+                textBoxVendorTabName.ReadOnly = true;
                 NpcVM.Roles_Vend = null;
+                NpcVM.Roles_Vend_Tabs.Clear();
             }
         }
+
+        private void checkBoxVendorHasItems_CheckedChanged(object sender, EventArgs e)
+        {
+            var chkboxVendorHasItems = sender as CheckBox;
+            if (chkboxVendorHasItems.Checked)
+            {
+                if (checkBoxHasVendor.Checked)
+                {
+                    if (NpcVM.Roles_Vend_Items == null) NpcVM.Roles_Vend_Items = new BindingList<NpcRoleVendItem>();
+                    dataGridViewVendorItems.ReadOnly = false;
+                }
+                else
+                {
+                    MessageBox.Show("Is Vendor must be checked first.");
+                    chkboxVendorHasItems.Checked = false;
+                }
+            }
+            else
+            {
+                dataGridViewVendorItems.ReadOnly = true;
+                NpcVM.Roles_Vend_Items.Clear();
+            }
+        }
+
+        #endregion
 
         private void checkBoxHasInventoryItem_CheckedChanged(object sender, EventArgs e)
         {
@@ -451,7 +472,30 @@ namespace HybrasylXmlEditor.UI
                 NpcVM.Inventory_Item = null;
             }
         }
-        #endregion
 
+        private void buttonVendorTabNameAdd_Click(object sender, EventArgs e)
+        {
+            if (!(NpcVM.Roles_Vend_Tabs.Contains(textBoxVendorTabName.Text)))
+            {
+                NpcVM.Roles_Vend_Tabs.Add(textBoxVendorTabName.Text);
+            }            
+            listBoxVendorTabNames.DataSource = null;
+            listBoxVendorTabNames.DataSource = NpcVM.Roles_Vend_Tabs;
+        }
+
+        private void buttonVendorTabNameRemove_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = listBoxVendorTabNames.SelectedIndex;
+            try
+            {
+                NpcVM.Roles_Vend_Tabs.RemoveAt(selectedIndex);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            listBoxVendorTabNames.DataSource = null;
+            listBoxVendorTabNames.DataSource = NpcVM.Roles_Vend_Tabs;
+        }
     }
 }
