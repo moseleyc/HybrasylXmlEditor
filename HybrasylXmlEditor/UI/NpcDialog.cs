@@ -303,6 +303,12 @@ namespace HybrasylXmlEditor.UI
             }
             else
             {
+                checkBoxTrainPeasant.Checked = false;
+                checkBoxTrainWizard.Checked = false;
+                checkBoxTrainPriest.Checked = false;
+                checkBoxTrainRogue.Checked = false;
+                checkBoxTrainMonk.Checked = false;
+                checkBoxTrainWarrior.Checked = false;
                 dataGridViewRolesTrain.ReadOnly = true;
                 NpcVM.Roles_Train.Clear();
             }
@@ -331,7 +337,17 @@ namespace HybrasylXmlEditor.UI
                     if (currentTrainClass.Contains(Class.Warrior)) checkBoxTrainWarrior.Checked = true;
                     else checkBoxTrainWarrior.Checked = false;
                 }
-            }
+                else
+                {
+                    checkBoxTrainPeasant.Checked = false;
+                    checkBoxTrainWizard.Checked = false;
+                    checkBoxTrainPriest.Checked = false;
+                    checkBoxTrainRogue.Checked = false;
+                    checkBoxTrainMonk.Checked = false;
+                    checkBoxTrainWarrior.Checked = false;
+
+                }
+            }            
         }
 
         private void checkBoxTrainPeasant_CheckedChanged(object sender, EventArgs e)
@@ -411,6 +427,8 @@ namespace HybrasylXmlEditor.UI
             {
                 if (checkBoxHasRoles.Checked)
                 {
+                    buttonVendorTabNameAdd.Visible = true;
+                    buttonVendorTabNameRemove.Visible = true;
                     textBoxVendorTabName.ReadOnly = false;
                     if (NpcVM.Roles_Vend == null) NpcVM.Roles_Vend = new NpcRoleVend();
                     if (NpcVM.Roles_Vend_Tabs == null) NpcVM.Roles_Vend_Tabs = new BindingList<string>();
@@ -425,6 +443,8 @@ namespace HybrasylXmlEditor.UI
             {
                 dataGridViewVendorItems.ReadOnly = true;
                 textBoxVendorTabName.ReadOnly = true;
+                buttonVendorTabNameAdd.Visible = false;
+                buttonVendorTabNameRemove.Visible = false;
                 NpcVM.Roles_Vend = null;
                 NpcVM.Roles_Vend_Tabs.Clear();
             }
@@ -496,6 +516,19 @@ namespace HybrasylXmlEditor.UI
             }
             listBoxVendorTabNames.DataSource = null;
             listBoxVendorTabNames.DataSource = NpcVM.Roles_Vend_Tabs;
+        }
+
+        private void dataGridViewVendorItems_DataError(object sender, DataGridViewDataErrorEventArgs error)
+        {
+            //MessageBox.Show("Error: " + error.Context.ToString());
+            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
+            var errorText = string.Empty;
+
+            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Quantity") || cellColumnName.Equals("Restock")))
+            {
+                errorText = "may only contain numeric values.";
+            }
+            MessageBox.Show(cellColumnName + " " + errorText);
         }
     }
 }

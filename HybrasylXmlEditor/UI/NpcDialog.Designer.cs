@@ -492,6 +492,7 @@
             this.buttonVendorTabNameRemove.TabIndex = 25;
             this.buttonVendorTabNameRemove.Text = "-";
             this.buttonVendorTabNameRemove.UseVisualStyleBackColor = true;
+            this.buttonVendorTabNameRemove.Visible = false;
             this.buttonVendorTabNameRemove.Click += new System.EventHandler(this.buttonVendorTabNameRemove_Click);
             // 
             // buttonVendorTabNameAdd
@@ -503,6 +504,7 @@
             this.buttonVendorTabNameAdd.TabIndex = 24;
             this.buttonVendorTabNameAdd.Text = "+";
             this.buttonVendorTabNameAdd.UseVisualStyleBackColor = true;
+            this.buttonVendorTabNameAdd.Visible = false;
             this.buttonVendorTabNameAdd.Click += new System.EventHandler(this.buttonVendorTabNameAdd_Click);
             // 
             // textBoxVendorTabName
@@ -549,6 +551,7 @@
             this.dataGridViewVendorItems.ReadOnly = true;
             this.dataGridViewVendorItems.Size = new System.Drawing.Size(278, 249);
             this.dataGridViewVendorItems.TabIndex = 0;
+            this.dataGridViewVendorItems.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewVendorItems_DataError);
             // 
             // groupBoxTraining
             // 
