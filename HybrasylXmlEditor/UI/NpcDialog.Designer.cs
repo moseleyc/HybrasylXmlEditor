@@ -87,6 +87,9 @@
             this.checkBoxHasAppearance = new System.Windows.Forms.CheckBox();
             this.checkBoxHasRoles = new System.Windows.Forms.CheckBox();
             this.checkBoxHasInventory = new System.Windows.Forms.CheckBox();
+            this.textBoxPostReceive = new System.Windows.Forms.TextBox();
+            this.labelPostReceive = new System.Windows.Forms.Label();
+            this.dataGridViewPostSurcharge = new System.Windows.Forms.DataGridView();
             this.groupBoxAttributes.SuspendLayout();
             this.groupBoxMapLocation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMapY)).BeginInit();
@@ -100,10 +103,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInvGold)).BeginInit();
             this.groupBoxRoles.SuspendLayout();
             this.groupBoxBank.SuspendLayout();
+            this.groupBoxPost.SuspendLayout();
             this.groupBoxVendor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendorItems)).BeginInit();
             this.groupBoxTraining.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRolesTrain)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostSurcharge)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxAttributes
@@ -403,12 +408,13 @@
             // checkBoxHasPost
             // 
             this.checkBoxHasPost.AutoSize = true;
-            this.checkBoxHasPost.Location = new System.Drawing.Point(683, 74);
+            this.checkBoxHasPost.Location = new System.Drawing.Point(624, 19);
             this.checkBoxHasPost.Name = "checkBoxHasPost";
             this.checkBoxHasPost.Size = new System.Drawing.Size(75, 17);
             this.checkBoxHasPost.TabIndex = 16;
             this.checkBoxHasPost.Text = "Has Post?";
             this.checkBoxHasPost.UseVisualStyleBackColor = true;
+            this.checkBoxHasPost.CheckedChanged += new System.EventHandler(this.checkBoxHasPost_CheckedChanged);
             // 
             // checkBoxHasTrain
             // 
@@ -460,9 +466,12 @@
             // 
             // groupBoxPost
             // 
-            this.groupBoxPost.Location = new System.Drawing.Point(659, 111);
+            this.groupBoxPost.Controls.Add(this.dataGridViewPostSurcharge);
+            this.groupBoxPost.Controls.Add(this.textBoxPostReceive);
+            this.groupBoxPost.Controls.Add(this.labelPostReceive);
+            this.groupBoxPost.Location = new System.Drawing.Point(613, 42);
             this.groupBoxPost.Name = "groupBoxPost";
-            this.groupBoxPost.Size = new System.Drawing.Size(261, 132);
+            this.groupBoxPost.Size = new System.Drawing.Size(387, 243);
             this.groupBoxPost.TabIndex = 12;
             this.groupBoxPost.TabStop = false;
             this.groupBoxPost.Text = "Post";
@@ -547,6 +556,7 @@
             // 
             this.dataGridViewVendorItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVendorItems.Location = new System.Drawing.Point(6, 42);
+            this.dataGridViewVendorItems.MultiSelect = false;
             this.dataGridViewVendorItems.Name = "dataGridViewVendorItems";
             this.dataGridViewVendorItems.ReadOnly = true;
             this.dataGridViewVendorItems.Size = new System.Drawing.Size(278, 249);
@@ -639,6 +649,7 @@
             // 
             this.dataGridViewRolesTrain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRolesTrain.Location = new System.Drawing.Point(9, 19);
+            this.dataGridViewRolesTrain.MultiSelect = false;
             this.dataGridViewRolesTrain.Name = "dataGridViewRolesTrain";
             this.dataGridViewRolesTrain.ReadOnly = true;
             this.dataGridViewRolesTrain.Size = new System.Drawing.Size(284, 396);
@@ -709,6 +720,33 @@
             this.checkBoxHasInventory.UseVisualStyleBackColor = true;
             this.checkBoxHasInventory.CheckedChanged += new System.EventHandler(this.checkBoxHasInventory_CheckedChanged);
             // 
+            // textBoxPostReceive
+            // 
+            this.textBoxPostReceive.Location = new System.Drawing.Point(68, 204);
+            this.textBoxPostReceive.Name = "textBoxPostReceive";
+            this.textBoxPostReceive.ReadOnly = true;
+            this.textBoxPostReceive.Size = new System.Drawing.Size(243, 20);
+            this.textBoxPostReceive.TabIndex = 25;
+            // 
+            // labelPostReceive
+            // 
+            this.labelPostReceive.AutoSize = true;
+            this.labelPostReceive.Location = new System.Drawing.Point(12, 207);
+            this.labelPostReceive.Name = "labelPostReceive";
+            this.labelPostReceive.Size = new System.Drawing.Size(50, 13);
+            this.labelPostReceive.TabIndex = 24;
+            this.labelPostReceive.Text = "Receive:";
+            // 
+            // dataGridViewPostSurcharge
+            // 
+            this.dataGridViewPostSurcharge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPostSurcharge.Location = new System.Drawing.Point(7, 20);
+            this.dataGridViewPostSurcharge.MultiSelect = false;
+            this.dataGridViewPostSurcharge.Name = "dataGridViewPostSurcharge";
+            this.dataGridViewPostSurcharge.ReadOnly = true;
+            this.dataGridViewPostSurcharge.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewPostSurcharge.TabIndex = 26;
+            // 
             // NpcDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -749,12 +787,15 @@
             this.groupBoxRoles.PerformLayout();
             this.groupBoxBank.ResumeLayout(false);
             this.groupBoxBank.PerformLayout();
+            this.groupBoxPost.ResumeLayout(false);
+            this.groupBoxPost.PerformLayout();
             this.groupBoxVendor.ResumeLayout(false);
             this.groupBoxVendor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendorItems)).EndInit();
             this.groupBoxTraining.ResumeLayout(false);
             this.groupBoxTraining.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRolesTrain)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostSurcharge)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -821,5 +862,8 @@
         private System.Windows.Forms.TextBox textBoxVendorTabName;
         private System.Windows.Forms.Label labelVendorTabName;
         private System.Windows.Forms.ListBox listBoxVendorTabNames;
+        private System.Windows.Forms.TextBox textBoxPostReceive;
+        private System.Windows.Forms.Label labelPostReceive;
+        private System.Windows.Forms.DataGridView dataGridViewPostSurcharge;
     }
 }

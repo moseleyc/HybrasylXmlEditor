@@ -198,7 +198,10 @@ namespace HybrasylXmlEditor.UI
             newNpc.Roles = this.Roles;
             if (this.Roles != null)
             {
-                newNpc.Roles.Train = this.Roles_Train.ToList();
+                if (this.Roles_Train != null)
+                {
+                    newNpc.Roles.Train = this.Roles_Train.ToList();
+                }
 
                 newNpc.Roles.Vend = this.Roles_Vend;
                 if (this.Roles_Vend != null)

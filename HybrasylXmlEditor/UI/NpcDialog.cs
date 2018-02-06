@@ -45,6 +45,12 @@ namespace HybrasylXmlEditor.UI
             if (NpcVM.Roles_Vend_Items == null) NpcVM.Roles_Vend_Items = new BindingList<NpcRoleVendItem>();
             dataGridViewVendorItems.DataSource = NpcVM.Roles_Vend_Items;
 
+            dataGridViewPostSurcharge.AutoGenerateColumns = false;
+            if (NpcVM.Roles_Post_Surcharge == null) NpcVM.Roles_Post_Surcharge = new BindingList<NpcRolePostSurcharge>();
+            dataGridViewPostSurcharge.DataSource = NpcVM.Roles_Post_Surcharge;
+
+            textBoxPostReceive.DataBindings.Add("Text", NpcVM, "Roles_Post_Receive");
+
             textBoxInvItemValue.DataBindings.Add("Text", NpcVM, "Inventory_Item_Value");
             numericUpDownInvQty.DataBindings.Add("Value", NpcVM, "Inventory_Item_Quantity");
             numericUpDownInvRefresh.DataBindings.Add("Value", NpcVM, "Inventory_Item_Refresh");
@@ -135,6 +141,36 @@ namespace HybrasylXmlEditor.UI
             vendorItemsTab.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewVendorItems.Columns.Add(vendorItemsTab);
             #endregion
+
+            #region NPC Roles Post Surcharge
+            dataGridViewPostSurcharge.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewPostSurcharge.MultiSelect = false;
+            dataGridViewPostSurcharge.RowHeadersVisible = false;
+            dataGridViewPostSurcharge.AllowUserToOrderColumns = false;
+            dataGridViewPostSurcharge.AllowUserToResizeColumns = false;
+            dataGridViewPostSurcharge.AllowUserToResizeRows = false;
+            dataGridViewPostSurcharge.ColumnHeadersDefaultCellStyle.Font = new Font(DataGridView.DefaultFont, FontStyle.Bold);
+
+            DataGridViewTextBoxColumn postSurchargeNation = new DataGridViewTextBoxColumn();
+            postSurchargeNation.Name = "Nation";
+            postSurchargeNation.DataPropertyName = "Nation";
+            postSurchargeNation.HeaderText = "Nation";
+            postSurchargeNation.Width = 60;
+            postSurchargeNation.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            postSurchargeNation.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            postSurchargeNation.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewPostSurcharge.Columns.Add(postSurchargeNation);
+
+            DataGridViewTextBoxColumn postSurchargePercentage = new DataGridViewTextBoxColumn();
+            postSurchargePercentage.Name = "Percent";
+            postSurchargePercentage.DataPropertyName = "Percent";
+            postSurchargePercentage.HeaderText = "Percent";
+            postSurchargePercentage.Width = 60;
+            postSurchargePercentage.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            postSurchargePercentage.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            postSurchargePercentage.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewPostSurcharge.Columns.Add(postSurchargePercentage);
+            #endregion
         }
 
         private void buttonLoadXML_Click(object sender, EventArgs e)
@@ -176,19 +212,19 @@ namespace HybrasylXmlEditor.UI
                 }
                 if (NpcVM.Roles.Vend != null)
                 {
-                    checkBoxHasInvItem.Checked = true;
+                    checkBoxHasVendor.Checked = true;
                 }
                 if (NpcVM.Roles.Post != null)
                 {
-
+                    checkBoxHasPost.Checked = true;
                 }
                 if (NpcVM.Roles.Repair != null)
                 {
-
+                    checkBoxHasRepairs.Checked = true;
                 }
                 if (NpcVM.Roles.Bank != null)
                 {
-
+                    checkBoxHasBank.Checked = true;
                 }
             }
             if (NpcVM.Inventory != null)
@@ -257,7 +293,6 @@ namespace HybrasylXmlEditor.UI
             }
             else
             {
-                //various fields should be marked as read-only
                 NpcVM.Roles = null;
 
                 checkBoxHasTrain.Checked = false;
@@ -294,6 +329,8 @@ namespace HybrasylXmlEditor.UI
                 {
                     dataGridViewRolesTrain.ReadOnly = false;
                     if (NpcVM.Roles_Train == null) NpcVM.Roles_Train = new BindingList<NpcRoleTrainCastable>();
+                    dataGridViewRolesTrain.DataSource = null;
+                    dataGridViewRolesTrain.DataSource = NpcVM.Roles_Train;
                 }
                 else
                 {
@@ -311,6 +348,7 @@ namespace HybrasylXmlEditor.UI
                 checkBoxTrainWarrior.Checked = false;
                 dataGridViewRolesTrain.ReadOnly = true;
                 NpcVM.Roles_Train.Clear();
+                NpcVM.Roles_Train = null;
             }
         }
 
@@ -473,6 +511,75 @@ namespace HybrasylXmlEditor.UI
             }
         }
 
+        private void dataGridViewVendorItems_DataError(object sender, DataGridViewDataErrorEventArgs error)
+        {
+            //MessageBox.Show("Error: " + error.Context.ToString());
+            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
+            var errorText = string.Empty;
+
+            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Quantity") || cellColumnName.Equals("Restock")))
+            {
+                errorText = "may only contain numeric values.";
+            }
+            MessageBox.Show(cellColumnName + " " + errorText);
+        }
+
+        private void buttonVendorTabNameAdd_Click(object sender, EventArgs e)
+        {
+            if (!(NpcVM.Roles_Vend_Tabs.Contains(textBoxVendorTabName.Text)))
+            {
+                NpcVM.Roles_Vend_Tabs.Add(textBoxVendorTabName.Text);
+            }
+            listBoxVendorTabNames.DataSource = null;
+            listBoxVendorTabNames.DataSource = NpcVM.Roles_Vend_Tabs;
+        }
+
+        private void buttonVendorTabNameRemove_Click(object sender, EventArgs e)
+        {
+            int selectedIndex = listBoxVendorTabNames.SelectedIndex;
+            try
+            {
+                NpcVM.Roles_Vend_Tabs.RemoveAt(selectedIndex);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            listBoxVendorTabNames.DataSource = null;
+            listBoxVendorTabNames.DataSource = NpcVM.Roles_Vend_Tabs;
+        }
+        #endregion
+
+        #region Post Events
+        private void checkBoxHasPost_CheckedChanged(object sender, EventArgs e)
+        {
+            var chkboxIsPost = sender as CheckBox;
+            if (chkboxIsPost.Checked)
+            {
+                if (checkBoxHasRoles.Checked)
+                {
+                    dataGridViewPostSurcharge.ReadOnly = false;
+                    textBoxPostReceive.ReadOnly = false;
+                    if (NpcVM.Roles_Post == null) NpcVM.Roles_Post = new NpcRolePost();
+                    if (NpcVM.Roles_Post_Surcharge == null) NpcVM.Roles_Post_Surcharge = new BindingList<NpcRolePostSurcharge>();
+
+                }
+                else
+                {
+                    MessageBox.Show("Has Roles must be checked first.");
+                    chkboxIsPost.Checked = false;
+                }
+            }
+            else
+            {
+                dataGridViewPostSurcharge.ReadOnly = true;
+                textBoxPostReceive.ReadOnly = true;
+                textBoxPostReceive.Text = string.Empty;
+                NpcVM.Roles_Post = null;
+                NpcVM.Roles_Post_Surcharge.Clear();
+
+            }
+        }
         #endregion
 
         private void checkBoxHasInventoryItem_CheckedChanged(object sender, EventArgs e)
@@ -493,42 +600,5 @@ namespace HybrasylXmlEditor.UI
             }
         }
 
-        private void buttonVendorTabNameAdd_Click(object sender, EventArgs e)
-        {
-            if (!(NpcVM.Roles_Vend_Tabs.Contains(textBoxVendorTabName.Text)))
-            {
-                NpcVM.Roles_Vend_Tabs.Add(textBoxVendorTabName.Text);
-            }            
-            listBoxVendorTabNames.DataSource = null;
-            listBoxVendorTabNames.DataSource = NpcVM.Roles_Vend_Tabs;
-        }
-
-        private void buttonVendorTabNameRemove_Click(object sender, EventArgs e)
-        {
-            int selectedIndex = listBoxVendorTabNames.SelectedIndex;
-            try
-            {
-                NpcVM.Roles_Vend_Tabs.RemoveAt(selectedIndex);
-            }
-            catch (Exception ex)
-            {
-
-            }
-            listBoxVendorTabNames.DataSource = null;
-            listBoxVendorTabNames.DataSource = NpcVM.Roles_Vend_Tabs;
-        }
-
-        private void dataGridViewVendorItems_DataError(object sender, DataGridViewDataErrorEventArgs error)
-        {
-            //MessageBox.Show("Error: " + error.Context.ToString());
-            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
-            var errorText = string.Empty;
-
-            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Quantity") || cellColumnName.Equals("Restock")))
-            {
-                errorText = "may only contain numeric values.";
-            }
-            MessageBox.Show(cellColumnName + " " + errorText);
-        }
     }
 }
