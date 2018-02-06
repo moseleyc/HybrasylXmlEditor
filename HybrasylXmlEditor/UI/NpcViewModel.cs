@@ -201,21 +201,21 @@ namespace HybrasylXmlEditor.UI
                 newNpc.Roles.Train = this.Roles_Train.ToList();
 
                 newNpc.Roles.Vend = this.Roles_Vend;
-                if (newNpc.Roles.Vend != null)
+                if (this.Roles_Vend != null)
                 {
-                    newNpc.Roles.Vend.Items = this.Roles_Vend_Items.ToList();
-                    newNpc.Roles.Vend.Tabs = this.Roles_Vend_Tabs.ToList();
+                    if (this.Roles_Vend_Items != null || this.Roles_Vend_Items.Count > 0) newNpc.Roles.Vend.Items = this.Roles_Vend_Items.ToList();
+                    if (this.Roles_Vend_Tabs != null || this.Roles_Vend_Tabs.Count > 0) newNpc.Roles.Vend.Tabs = this.Roles_Vend_Tabs.ToList();
                 }
 
                 newNpc.Roles.Post = this.Roles_Post;
-                if (this.Roles.Post != null)
+                if (this.Roles_Post != null)
                 {
                     newNpc.Roles.Post.Surcharge = this.Roles_Post_Surcharge.ToList();
                     newNpc.Roles.Post.Receive = this.Roles_Post_Receive;
                 }
 
                 newNpc.Roles.Repair = this.Roles_Repair;
-                if (this.Roles.Repair != null)
+                if (this.Roles_Repair != null)
                 {
                     newNpc.Roles.Repair.Nation = this.Roles_Repair_Nation;
                     newNpc.Roles.Repair.Discount = this.Roles_Repair_Discount;
@@ -223,7 +223,7 @@ namespace HybrasylXmlEditor.UI
                 }
 
                 newNpc.Roles.Bank = this.Roles_Bank;
-                if (this.Roles.Bank != null)
+                if (this.Roles_Bank != null)
                 {
                     newNpc.Roles.Bank.Discount = this.Roles_Bank_Discount;
                 }
@@ -233,7 +233,7 @@ namespace HybrasylXmlEditor.UI
             if(this.Inventory != null)
             {
                 newNpc.Inventory.Item = this.Inventory_Item;
-                if (this.Inventory.Item != null)
+                if (this.Inventory_Item != null)
                 {
                     newNpc.Inventory.Item.Quantity = this.Inventory_Item_Quantity;
                     newNpc.Inventory.Item.Refresh = this.Inventory_Item_Refresh;

@@ -398,6 +398,7 @@
             this.checkBoxHasVendor.TabIndex = 17;
             this.checkBoxHasVendor.Text = "Is Vendor?";
             this.checkBoxHasVendor.UseVisualStyleBackColor = true;
+            this.checkBoxHasVendor.CheckedChanged += new System.EventHandler(this.checkBoxIsVendor_CheckedChanged);
             // 
             // checkBoxHasPost
             // 
@@ -506,6 +507,7 @@
             // 
             this.textBoxVendorTabName.Location = new System.Drawing.Point(9, 418);
             this.textBoxVendorTabName.Name = "textBoxVendorTabName";
+            this.textBoxVendorTabName.ReadOnly = true;
             this.textBoxVendorTabName.Size = new System.Drawing.Size(243, 20);
             this.textBoxVendorTabName.TabIndex = 23;
             // 
@@ -541,6 +543,7 @@
             this.dataGridViewVendorItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewVendorItems.Location = new System.Drawing.Point(6, 42);
             this.dataGridViewVendorItems.Name = "dataGridViewVendorItems";
+            this.dataGridViewVendorItems.ReadOnly = true;
             this.dataGridViewVendorItems.Size = new System.Drawing.Size(278, 249);
             this.dataGridViewVendorItems.TabIndex = 0;
             // 
@@ -631,6 +634,7 @@
             this.dataGridViewRolesTrain.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewRolesTrain.Location = new System.Drawing.Point(9, 19);
             this.dataGridViewRolesTrain.Name = "dataGridViewRolesTrain";
+            this.dataGridViewRolesTrain.ReadOnly = true;
             this.dataGridViewRolesTrain.Size = new System.Drawing.Size(284, 396);
             this.dataGridViewRolesTrain.TabIndex = 0;
             this.dataGridViewRolesTrain.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewRolesTrain_CellContentClick);

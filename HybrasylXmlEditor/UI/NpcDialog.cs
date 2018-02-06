@@ -256,6 +256,25 @@ namespace HybrasylXmlEditor.UI
             }
         }
 
+        private void checkBoxHasRoles_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+            {
+                if (NpcVM.Roles == null) NpcVM.Roles = new NpcRoleList();
+            }
+            else
+            {
+                //various fields should be marked as read-only
+                NpcVM.Roles = null;
+
+                checkBoxHasTrain.Checked = false;
+                checkBoxHasVendor.Checked = false;
+                checkBoxHasPost.Checked = false;
+                checkBoxHasRepairs.Checked = false;
+                checkBoxHasBank.Checked = false;
+            }
+        }
+
         private void checkBoxHasInventory_CheckedChanged(object sender, EventArgs e)
         {
             if ((sender as CheckBox).Checked)
@@ -271,41 +290,8 @@ namespace HybrasylXmlEditor.UI
             }
         }
 
-        private void checkBoxHasInventoryItem_CheckedChanged(object sender, EventArgs e)
-        {
-            if ((sender as CheckBox).Checked)
-            {
-                textBoxInvItemValue.ReadOnly = false;
-                numericUpDownInvQty.ReadOnly = false;
-                numericUpDownInvRefresh.ReadOnly = false;
-                if (NpcVM.Inventory == null) NpcVM.Inventory_Item = new NpcInventoryItem();
-            }
-            else
-            {
-                textBoxInvItemValue.ReadOnly = true;
-                numericUpDownInvQty.ReadOnly = true;
-                numericUpDownInvRefresh.ReadOnly = true;
-                NpcVM.Inventory_Item = null;
-            }
-        }
-
-        private void checkBoxHasRoles_CheckedChanged(object sender, EventArgs e)
-        {
-            if ((sender as CheckBox).Checked)
-            {
-                if (NpcVM.Roles == null) NpcVM.Roles = new NpcRoleList();
-            }
-            else
-            {
-                //various fields should be marked as read-only
-                NpcVM.Roles = null;
-                if (checkBoxHasTrain.Checked)
-                {
-                    checkBoxHasTrain.Checked = false;
-                }
-            }
-        }
-
+        //Roles
+        #region Training Events
         private void checkBoxHasTrain_CheckedChanged(object sender, EventArgs e)
         {
             var senderChkBox = sender as CheckBox;
@@ -313,7 +299,8 @@ namespace HybrasylXmlEditor.UI
             {
                 if (checkBoxHasRoles.Checked)
                 {
-
+                    dataGridViewRolesTrain.ReadOnly = false;
+                    if (NpcVM.Roles_Train == null) NpcVM.Roles_Train = new BindingList<NpcRoleTrainCastable>();
                 }
                 else
                 {
@@ -321,13 +308,17 @@ namespace HybrasylXmlEditor.UI
                     senderChkBox.Checked = false;
                 }
             }
+            else
+            {
+                dataGridViewRolesTrain.ReadOnly = true;
+                NpcVM.Roles_Train.Clear();
+            }
         }
 
-        #region Training Events
         private void dataGridViewRolesTrain_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = dataGridViewRolesTrain.CurrentRow.Index;
-            if (NpcVM.Roles_Train != null)
+            if (NpcVM.Roles_Train != null && NpcVM.Roles_Train.Count > 0)
             {
                 var currentTrainClass = NpcVM.Roles_Train[index].Class;
 
@@ -415,6 +406,49 @@ namespace HybrasylXmlEditor.UI
                         currentTrain.Class.RemoveAt(i);
                     }
                 }
+            }
+        }
+        #endregion
+
+        #region Vendor Events
+        private void checkBoxIsVendor_CheckedChanged(object sender, EventArgs e)
+        {
+            var chkboxIsVen = sender as CheckBox;
+            if (chkboxIsVen.Checked)
+            {
+                if (checkBoxHasRoles.Checked)
+                {
+                    dataGridViewVendorItems.ReadOnly = false;
+                    if (NpcVM.Roles_Vend == null) NpcVM.Roles_Vend = new NpcRoleVend();
+                }
+                else
+                {
+                    MessageBox.Show("Has Roles must be checked first.");
+                    chkboxIsVen.Checked = false;
+                }
+            }
+            else
+            {
+                dataGridViewVendorItems.ReadOnly = true;
+                NpcVM.Roles_Vend = null;
+            }
+        }
+
+        private void checkBoxHasInventoryItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+            {
+                textBoxInvItemValue.ReadOnly = false;
+                numericUpDownInvQty.ReadOnly = false;
+                numericUpDownInvRefresh.ReadOnly = false;
+                if (NpcVM.Inventory == null) NpcVM.Inventory_Item = new NpcInventoryItem();
+            }
+            else
+            {
+                textBoxInvItemValue.ReadOnly = true;
+                numericUpDownInvQty.ReadOnly = true;
+                numericUpDownInvRefresh.ReadOnly = true;
+                NpcVM.Inventory_Item = null;
             }
         }
         #endregion
