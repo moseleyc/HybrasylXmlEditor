@@ -51,6 +51,11 @@ namespace HybrasylXmlEditor.UI
 
             textBoxPostReceive.DataBindings.Add("Text", NpcVM, "Roles_Post_Receive");
 
+            textBoxRepairNation.DataBindings.Add("Text", NpcVM, "Roles_Repair_Nation");
+            numericUpDownRepairDiscount.DataBindings.Add("Value", NpcVM, "Roles_Repair_Discount");
+
+            textBoxBankDiscount.DataBindings.Add("Text", NpcVM, "Roles_Bank_Discount");
+
             textBoxInvItemValue.DataBindings.Add("Text", NpcVM, "Inventory_Item_Value");
             numericUpDownInvQty.DataBindings.Add("Value", NpcVM, "Inventory_Item_Quantity");
             numericUpDownInvRefresh.DataBindings.Add("Value", NpcVM, "Inventory_Item_Refresh");
@@ -189,12 +194,14 @@ namespace HybrasylXmlEditor.UI
                     var readNpc = Serializer.Deserialize(reader, nullNpc);
                     NpcVM.SetDisplayNpc(readNpc);
                     dataGridViewRolesTrain.DataSource = NpcVM.Roles_Train;
+                    dataGridViewVendorItems.DataSource = NpcVM.Roles_Vend_Items;
+                    dataGridViewPostSurcharge.DataSource = NpcVM.Roles_Post_Surcharge;
 
                     reader.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: Could not read file");
+                    MessageBox.Show("Error: Problem with loading the file");
                 }
             }
             loadFlags();
@@ -213,6 +220,10 @@ namespace HybrasylXmlEditor.UI
                 if (NpcVM.Roles.Vend != null)
                 {
                     checkBoxHasVendor.Checked = true;
+                    if(NpcVM.Roles.Vend.Items != null)
+                    {
+                        checkBoxVendorHasItems.Checked = true;
+                    }
                 }
                 if (NpcVM.Roles.Post != null)
                 {
@@ -221,6 +232,13 @@ namespace HybrasylXmlEditor.UI
                 if (NpcVM.Roles.Repair != null)
                 {
                     checkBoxHasRepairs.Checked = true;
+                    var repairTypes = NpcVM.Roles.Repair.Type;
+                    if (repairTypes != null)
+                    {
+                        if (repairTypes.Contains(NpcRepairType.Armor)) { checkBoxRepairArmor.Checked = true; }
+                        if (repairTypes.Contains(NpcRepairType.Weapon)) { checkBoxRepairWeapon.Checked = true; }
+                        if (repairTypes.Contains(NpcRepairType.All)) { checkBoxRepairAll.Checked = true; }
+                    }
                 }
                 if (NpcVM.Roles.Bank != null)
                 {
@@ -267,6 +285,8 @@ namespace HybrasylXmlEditor.UI
         {
             NpcVM.SetDisplayNpc(new Npc());
             checkBoxHasAppearance.Checked = false;
+            checkBoxHasRoles.Checked = false;
+            checkBoxHasInventory.Checked = false;
         }
 
         private void checkBoxHasAppearance_CheckedChanged(object sender, EventArgs e)
@@ -281,6 +301,8 @@ namespace HybrasylXmlEditor.UI
             {
                 numericUpDownAppearanceSprite.ReadOnly = true;
                 textBoxAppearancePortrait.ReadOnly = true;
+                NpcVM.Appearance_Sprite = 0;
+                NpcVM.Appearance_Portrait = string.Empty;
                 NpcVM.Appearance = null;
             }
         }
@@ -303,22 +325,10 @@ namespace HybrasylXmlEditor.UI
             }
         }
 
-        private void checkBoxHasInventory_CheckedChanged(object sender, EventArgs e)
-        {
-            if ((sender as CheckBox).Checked)
-            {
-                numericUpDownInvGold.ReadOnly = false;
-                if (NpcVM.Inventory == null) NpcVM.Inventory = new NpcInventory();
-            }
-            else
-            {
-                checkBoxHasInvItem.Checked = false;
-                numericUpDownInvGold.ReadOnly = true;
-                NpcVM.Inventory = null;
-            }
-        }
+        
 
-        //Roles
+
+        //Roles Events
         #region Training Events
         private void checkBoxHasTrain_CheckedChanged(object sender, EventArgs e)
         {
@@ -470,6 +480,8 @@ namespace HybrasylXmlEditor.UI
                     textBoxVendorTabName.ReadOnly = false;
                     if (NpcVM.Roles_Vend == null) NpcVM.Roles_Vend = new NpcRoleVend();
                     if (NpcVM.Roles_Vend_Tabs == null) NpcVM.Roles_Vend_Tabs = new BindingList<string>();
+                    listBoxVendorTabNames.DataSource = null;
+                    listBoxVendorTabNames.DataSource = NpcVM.Roles_Vend_Tabs;
                 }
                 else
                 {
@@ -483,6 +495,7 @@ namespace HybrasylXmlEditor.UI
                 textBoxVendorTabName.ReadOnly = true;
                 buttonVendorTabNameAdd.Visible = false;
                 buttonVendorTabNameRemove.Visible = false;
+                checkBoxVendorHasItems.Checked = false;
                 NpcVM.Roles_Vend = null;
                 NpcVM.Roles_Vend_Tabs.Clear();
             }
@@ -574,13 +587,153 @@ namespace HybrasylXmlEditor.UI
             {
                 dataGridViewPostSurcharge.ReadOnly = true;
                 textBoxPostReceive.ReadOnly = true;
-                textBoxPostReceive.Text = string.Empty;
+                NpcVM.Roles_Post_Receive = string.Empty;
                 NpcVM.Roles_Post = null;
                 NpcVM.Roles_Post_Surcharge.Clear();
-
             }
         }
         #endregion
+
+        #region Repair Events
+
+        private void checkBoxHasRepairs_CheckedChanged(object sender, EventArgs e)
+        {
+            var chkboxHasRepair = sender as CheckBox;
+            if (chkboxHasRepair.Checked)
+            {
+                if (checkBoxHasRoles.Checked)
+                {
+                    textBoxRepairNation.ReadOnly = false;
+                    numericUpDownRepairDiscount.ReadOnly = false;
+                    if (NpcVM.Roles_Repair == null) NpcVM.Roles_Repair = new NpcRoleRepair();
+                    if (NpcVM.Roles_Repair_Nation == null) NpcVM.Roles_Repair_Nation = string.Empty;
+                    if (NpcVM.Roles_Repair_Type == null) NpcVM.Roles_Repair_Type = new BindingList<NpcRepairType>();
+                }
+                else
+                {
+                    MessageBox.Show("Has Roles must be checked first.");
+                    chkboxHasRepair.Checked = false;
+                }
+            }
+            else
+            {
+                textBoxRepairNation.ReadOnly = true;
+                NpcVM.Roles_Repair_Nation = string.Empty;
+                numericUpDownRepairDiscount.ReadOnly = true;
+                NpcVM.Roles_Repair_Discount = 0;
+                checkBoxRepairArmor.Checked = false;
+                checkBoxRepairWeapon.Checked = false;
+                checkBoxRepairAll.Checked = false;
+
+                NpcVM.Roles_Repair = null;
+                NpcVM.Roles_Repair_Type = null;
+            }
+        }
+
+        private void checkBoxRepairArmor_CheckedChanged(object sender, EventArgs e)
+        {
+            var repairOptions = NpcVM.Roles_Repair_Type;
+            var repairType = NpcRepairType.Armor;
+            if ((sender as CheckBox).Checked)
+            {
+                if (!(repairOptions.Contains(repairType))) repairOptions.Add(repairType);
+            }
+            else
+            {
+                for (int i = repairOptions.Count - 1; i >= 0; i--)
+                {
+                    if (repairOptions[i] == repairType)
+                    {
+                        repairOptions.RemoveAt(i);
+                    }
+                }
+            }
+        }
+
+        private void checkBoxRepairWeapon_CheckedChanged(object sender, EventArgs e)
+        {
+            var repairOptions = NpcVM.Roles_Repair_Type;
+            var repairType = NpcRepairType.Weapon;
+            if ((sender as CheckBox).Checked)
+            {
+                if (!(repairOptions.Contains(repairType))) repairOptions.Add(repairType);
+            }
+            else
+            {
+                for (int i = repairOptions.Count - 1; i >= 0; i--)
+                {
+                    if (repairOptions[i] == repairType)
+                    {
+                        repairOptions.RemoveAt(i);
+                    }
+                }
+            }
+        }
+
+        private void checkBoxRepairAll_CheckedChanged(object sender, EventArgs e)
+        {
+            var repairOptions = NpcVM.Roles_Repair_Type;
+            var repairType = NpcRepairType.All;
+            if ((sender as CheckBox).Checked)
+            {
+                if (!(repairOptions.Contains(repairType))) repairOptions.Add(repairType);
+            }
+            else
+            {
+                for (int i = repairOptions.Count - 1; i >= 0; i--)
+                {
+                    if (repairOptions[i] == repairType)
+                    {
+                        repairOptions.RemoveAt(i);
+                    }
+                }
+            }
+        }
+        #endregion
+
+        #region Bank Events
+        private void checkBoxHasBank_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkboxBank = sender as CheckBox;
+            if (checkboxBank.Checked)
+            {
+                if (checkBoxHasRoles.Checked)
+                {
+                    textBoxBankDiscount.ReadOnly = false;
+                    if (NpcVM.Roles_Bank == null) NpcVM.Roles_Bank = new NpcRoleBank();
+                }
+                else
+                {
+                    MessageBox.Show("Has Roles must be checked first.");
+                    checkboxBank.Checked = false;
+                }
+            }
+            else
+            {
+                textBoxBankDiscount.ReadOnly = true;
+                NpcVM.Roles_Bank_Discount = string.Empty;
+                NpcVM.Roles_Bank = null;
+            }
+        }
+        #endregion
+
+
+        #region Inventory Events
+        private void checkBoxHasInventory_CheckedChanged(object sender, EventArgs e)
+        {
+            if ((sender as CheckBox).Checked)
+            {
+                numericUpDownInvGold.ReadOnly = false;
+                if (NpcVM.Inventory == null) NpcVM.Inventory = new NpcInventory();
+            }
+            else
+            {
+                checkBoxHasInvItem.Checked = false;
+                numericUpDownInvGold.ReadOnly = true;
+                NpcVM.Inventory_Gold = 0;
+                NpcVM.Inventory = null;
+            }
+        }
 
         private void checkBoxHasInventoryItem_CheckedChanged(object sender, EventArgs e)
         {
@@ -594,11 +747,17 @@ namespace HybrasylXmlEditor.UI
             else
             {
                 textBoxInvItemValue.ReadOnly = true;
+                NpcVM.Inventory_Item_Value = string.Empty;
+                NpcVM.Inventory_Item_Quantity = 0;
+                NpcVM.Inventory_Item_Refresh = 0;
                 numericUpDownInvQty.ReadOnly = true;
                 numericUpDownInvRefresh.ReadOnly = true;
                 NpcVM.Inventory_Item = null;
             }
         }
+        #endregion
+
+
 
     }
 }

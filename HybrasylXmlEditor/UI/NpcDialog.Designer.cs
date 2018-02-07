@@ -48,10 +48,10 @@
             this.groupBoxInvItem = new System.Windows.Forms.GroupBox();
             this.numericUpDownInvRefresh = new System.Windows.Forms.NumericUpDown();
             this.textBoxInvItemValue = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.labelInventoryQuantity = new System.Windows.Forms.Label();
+            this.labelInventoryRefresh = new System.Windows.Forms.Label();
             this.numericUpDownInvQty = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
+            this.labelInventoryItemValue = new System.Windows.Forms.Label();
             this.numericUpDownInvGold = new System.Windows.Forms.NumericUpDown();
             this.labelInvGold = new System.Windows.Forms.Label();
             this.groupBoxRoles = new System.Windows.Forms.GroupBox();
@@ -62,9 +62,12 @@
             this.checkBoxHasTrain = new System.Windows.Forms.CheckBox();
             this.groupBoxBank = new System.Windows.Forms.GroupBox();
             this.textBoxBankDiscount = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.labelBankDiscount = new System.Windows.Forms.Label();
             this.groupBoxRepair = new System.Windows.Forms.GroupBox();
             this.groupBoxPost = new System.Windows.Forms.GroupBox();
+            this.dataGridViewPostSurcharge = new System.Windows.Forms.DataGridView();
+            this.textBoxPostReceive = new System.Windows.Forms.TextBox();
+            this.labelPostReceive = new System.Windows.Forms.Label();
             this.groupBoxVendor = new System.Windows.Forms.GroupBox();
             this.buttonVendorTabNameRemove = new System.Windows.Forms.Button();
             this.buttonVendorTabNameAdd = new System.Windows.Forms.Button();
@@ -87,9 +90,13 @@
             this.checkBoxHasAppearance = new System.Windows.Forms.CheckBox();
             this.checkBoxHasRoles = new System.Windows.Forms.CheckBox();
             this.checkBoxHasInventory = new System.Windows.Forms.CheckBox();
-            this.textBoxPostReceive = new System.Windows.Forms.TextBox();
-            this.labelPostReceive = new System.Windows.Forms.Label();
-            this.dataGridViewPostSurcharge = new System.Windows.Forms.DataGridView();
+            this.textBoxRepairNation = new System.Windows.Forms.TextBox();
+            this.labelRepairNation = new System.Windows.Forms.Label();
+            this.numericUpDownRepairDiscount = new System.Windows.Forms.NumericUpDown();
+            this.labelRepairDiscount = new System.Windows.Forms.Label();
+            this.checkBoxRepairAll = new System.Windows.Forms.CheckBox();
+            this.checkBoxRepairWeapon = new System.Windows.Forms.CheckBox();
+            this.checkBoxRepairArmor = new System.Windows.Forms.CheckBox();
             this.groupBoxAttributes.SuspendLayout();
             this.groupBoxMapLocation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMapY)).BeginInit();
@@ -103,12 +110,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownInvGold)).BeginInit();
             this.groupBoxRoles.SuspendLayout();
             this.groupBoxBank.SuspendLayout();
+            this.groupBoxRepair.SuspendLayout();
             this.groupBoxPost.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostSurcharge)).BeginInit();
             this.groupBoxVendor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendorItems)).BeginInit();
             this.groupBoxTraining.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRolesTrain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostSurcharge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepairDiscount)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxAttributes
@@ -264,7 +273,7 @@
             // checkBoxHasInvItem
             // 
             this.checkBoxHasInvItem.AutoSize = true;
-            this.checkBoxHasInvItem.Location = new System.Drawing.Point(10, 45);
+            this.checkBoxHasInvItem.Location = new System.Drawing.Point(6, 47);
             this.checkBoxHasInvItem.Name = "checkBoxHasInvItem";
             this.checkBoxHasInvItem.Size = new System.Drawing.Size(121, 17);
             this.checkBoxHasInvItem.TabIndex = 17;
@@ -276,10 +285,10 @@
             // 
             this.groupBoxInvItem.Controls.Add(this.numericUpDownInvRefresh);
             this.groupBoxInvItem.Controls.Add(this.textBoxInvItemValue);
-            this.groupBoxInvItem.Controls.Add(this.label2);
-            this.groupBoxInvItem.Controls.Add(this.label3);
+            this.groupBoxInvItem.Controls.Add(this.labelInventoryQuantity);
+            this.groupBoxInvItem.Controls.Add(this.labelInventoryRefresh);
             this.groupBoxInvItem.Controls.Add(this.numericUpDownInvQty);
-            this.groupBoxInvItem.Controls.Add(this.label1);
+            this.groupBoxInvItem.Controls.Add(this.labelInventoryItemValue);
             this.groupBoxInvItem.Location = new System.Drawing.Point(3, 68);
             this.groupBoxInvItem.Name = "groupBoxInvItem";
             this.groupBoxInvItem.Size = new System.Drawing.Size(261, 100);
@@ -303,23 +312,23 @@
             this.textBoxInvItemValue.Size = new System.Drawing.Size(116, 20);
             this.textBoxInvItemValue.TabIndex = 17;
             // 
-            // label2
+            // labelInventoryQuantity
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(30, 46);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(49, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Quantity:";
+            this.labelInventoryQuantity.AutoSize = true;
+            this.labelInventoryQuantity.Location = new System.Drawing.Point(30, 46);
+            this.labelInventoryQuantity.Name = "labelInventoryQuantity";
+            this.labelInventoryQuantity.Size = new System.Drawing.Size(49, 13);
+            this.labelInventoryQuantity.TabIndex = 18;
+            this.labelInventoryQuantity.Text = "Quantity:";
             // 
-            // label3
+            // labelInventoryRefresh
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 72);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 13);
-            this.label3.TabIndex = 20;
-            this.label3.Text = "Refresh:";
+            this.labelInventoryRefresh.AutoSize = true;
+            this.labelInventoryRefresh.Location = new System.Drawing.Point(32, 72);
+            this.labelInventoryRefresh.Name = "labelInventoryRefresh";
+            this.labelInventoryRefresh.Size = new System.Drawing.Size(47, 13);
+            this.labelInventoryRefresh.TabIndex = 20;
+            this.labelInventoryRefresh.Text = "Refresh:";
             // 
             // numericUpDownInvQty
             // 
@@ -329,18 +338,18 @@
             this.numericUpDownInvQty.Size = new System.Drawing.Size(49, 20);
             this.numericUpDownInvQty.TabIndex = 19;
             // 
-            // label1
+            // labelInventoryItemValue
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 16;
-            this.label1.Text = "Item Value:";
+            this.labelInventoryItemValue.AutoSize = true;
+            this.labelInventoryItemValue.Location = new System.Drawing.Point(19, 22);
+            this.labelInventoryItemValue.Name = "labelInventoryItemValue";
+            this.labelInventoryItemValue.Size = new System.Drawing.Size(60, 13);
+            this.labelInventoryItemValue.TabIndex = 16;
+            this.labelInventoryItemValue.Text = "Item Value:";
             // 
             // numericUpDownInvGold
             // 
-            this.numericUpDownInvGold.Location = new System.Drawing.Point(63, 19);
+            this.numericUpDownInvGold.Location = new System.Drawing.Point(44, 19);
             this.numericUpDownInvGold.Name = "numericUpDownInvGold";
             this.numericUpDownInvGold.ReadOnly = true;
             this.numericUpDownInvGold.Size = new System.Drawing.Size(66, 20);
@@ -349,7 +358,7 @@
             // labelInvGold
             // 
             this.labelInvGold.AutoSize = true;
-            this.labelInvGold.Location = new System.Drawing.Point(20, 21);
+            this.labelInvGold.Location = new System.Drawing.Point(6, 21);
             this.labelInvGold.Name = "labelInvGold";
             this.labelInvGold.Size = new System.Drawing.Size(32, 13);
             this.labelInvGold.TabIndex = 14;
@@ -369,7 +378,7 @@
             this.groupBoxRoles.Controls.Add(this.groupBoxTraining);
             this.groupBoxRoles.Location = new System.Drawing.Point(12, 192);
             this.groupBoxRoles.Name = "groupBoxRoles";
-            this.groupBoxRoles.Size = new System.Drawing.Size(1113, 645);
+            this.groupBoxRoles.Size = new System.Drawing.Size(905, 645);
             this.groupBoxRoles.TabIndex = 10;
             this.groupBoxRoles.TabStop = false;
             this.groupBoxRoles.Text = "Roles";
@@ -377,22 +386,24 @@
             // checkBoxHasBank
             // 
             this.checkBoxHasBank.AutoSize = true;
-            this.checkBoxHasBank.Location = new System.Drawing.Point(810, 528);
+            this.checkBoxHasBank.Location = new System.Drawing.Point(613, 463);
             this.checkBoxHasBank.Name = "checkBoxHasBank";
             this.checkBoxHasBank.Size = new System.Drawing.Size(68, 17);
             this.checkBoxHasBank.TabIndex = 19;
             this.checkBoxHasBank.Text = "Is Bank?";
             this.checkBoxHasBank.UseVisualStyleBackColor = true;
+            this.checkBoxHasBank.CheckedChanged += new System.EventHandler(this.checkBoxHasBank_CheckedChanged);
             // 
             // checkBoxHasRepairs
             // 
             this.checkBoxHasRepairs.AutoSize = true;
-            this.checkBoxHasRepairs.Location = new System.Drawing.Point(668, 428);
+            this.checkBoxHasRepairs.Location = new System.Drawing.Point(613, 291);
             this.checkBoxHasRepairs.Name = "checkBoxHasRepairs";
             this.checkBoxHasRepairs.Size = new System.Drawing.Size(90, 17);
             this.checkBoxHasRepairs.TabIndex = 18;
             this.checkBoxHasRepairs.Text = "Has Repairs?";
             this.checkBoxHasRepairs.UseVisualStyleBackColor = true;
+            this.checkBoxHasRepairs.CheckedChanged += new System.EventHandler(this.checkBoxHasRepairs_CheckedChanged);
             // 
             // checkBoxHasVendor
             // 
@@ -430,8 +441,8 @@
             // groupBoxBank
             // 
             this.groupBoxBank.Controls.Add(this.textBoxBankDiscount);
-            this.groupBoxBank.Controls.Add(this.label4);
-            this.groupBoxBank.Location = new System.Drawing.Point(809, 553);
+            this.groupBoxBank.Controls.Add(this.labelBankDiscount);
+            this.groupBoxBank.Location = new System.Drawing.Point(612, 488);
             this.groupBoxBank.Name = "groupBoxBank";
             this.groupBoxBank.Size = new System.Drawing.Size(261, 49);
             this.groupBoxBank.TabIndex = 14;
@@ -446,20 +457,27 @@
             this.textBoxBankDiscount.Size = new System.Drawing.Size(116, 20);
             this.textBoxBankDiscount.TabIndex = 13;
             // 
-            // label4
+            // labelBankDiscount
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(17, 22);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 12;
-            this.label4.Text = "Discount:";
+            this.labelBankDiscount.AutoSize = true;
+            this.labelBankDiscount.Location = new System.Drawing.Point(17, 22);
+            this.labelBankDiscount.Name = "labelBankDiscount";
+            this.labelBankDiscount.Size = new System.Drawing.Size(52, 13);
+            this.labelBankDiscount.TabIndex = 12;
+            this.labelBankDiscount.Text = "Discount:";
             // 
             // groupBoxRepair
             // 
-            this.groupBoxRepair.Location = new System.Drawing.Point(663, 461);
+            this.groupBoxRepair.Controls.Add(this.checkBoxRepairAll);
+            this.groupBoxRepair.Controls.Add(this.checkBoxRepairWeapon);
+            this.groupBoxRepair.Controls.Add(this.checkBoxRepairArmor);
+            this.groupBoxRepair.Controls.Add(this.numericUpDownRepairDiscount);
+            this.groupBoxRepair.Controls.Add(this.labelRepairDiscount);
+            this.groupBoxRepair.Controls.Add(this.labelRepairNation);
+            this.groupBoxRepair.Controls.Add(this.textBoxRepairNation);
+            this.groupBoxRepair.Location = new System.Drawing.Point(613, 314);
             this.groupBoxRepair.Name = "groupBoxRepair";
-            this.groupBoxRepair.Size = new System.Drawing.Size(261, 49);
+            this.groupBoxRepair.Size = new System.Drawing.Size(261, 143);
             this.groupBoxRepair.TabIndex = 13;
             this.groupBoxRepair.TabStop = false;
             this.groupBoxRepair.Text = "Repair";
@@ -471,10 +489,37 @@
             this.groupBoxPost.Controls.Add(this.labelPostReceive);
             this.groupBoxPost.Location = new System.Drawing.Point(613, 42);
             this.groupBoxPost.Name = "groupBoxPost";
-            this.groupBoxPost.Size = new System.Drawing.Size(387, 243);
+            this.groupBoxPost.Size = new System.Drawing.Size(261, 243);
             this.groupBoxPost.TabIndex = 12;
             this.groupBoxPost.TabStop = false;
             this.groupBoxPost.Text = "Post";
+            // 
+            // dataGridViewPostSurcharge
+            // 
+            this.dataGridViewPostSurcharge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPostSurcharge.Location = new System.Drawing.Point(7, 20);
+            this.dataGridViewPostSurcharge.MultiSelect = false;
+            this.dataGridViewPostSurcharge.Name = "dataGridViewPostSurcharge";
+            this.dataGridViewPostSurcharge.ReadOnly = true;
+            this.dataGridViewPostSurcharge.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewPostSurcharge.TabIndex = 26;
+            // 
+            // textBoxPostReceive
+            // 
+            this.textBoxPostReceive.Location = new System.Drawing.Point(68, 204);
+            this.textBoxPostReceive.Name = "textBoxPostReceive";
+            this.textBoxPostReceive.ReadOnly = true;
+            this.textBoxPostReceive.Size = new System.Drawing.Size(180, 20);
+            this.textBoxPostReceive.TabIndex = 25;
+            // 
+            // labelPostReceive
+            // 
+            this.labelPostReceive.AutoSize = true;
+            this.labelPostReceive.Location = new System.Drawing.Point(12, 207);
+            this.labelPostReceive.Name = "labelPostReceive";
+            this.labelPostReceive.Size = new System.Drawing.Size(50, 13);
+            this.labelPostReceive.TabIndex = 24;
+            this.labelPostReceive.Text = "Receive:";
             // 
             // groupBoxVendor
             // 
@@ -720,38 +765,78 @@
             this.checkBoxHasInventory.UseVisualStyleBackColor = true;
             this.checkBoxHasInventory.CheckedChanged += new System.EventHandler(this.checkBoxHasInventory_CheckedChanged);
             // 
-            // textBoxPostReceive
+            // textBoxRepairNation
             // 
-            this.textBoxPostReceive.Location = new System.Drawing.Point(68, 204);
-            this.textBoxPostReceive.Name = "textBoxPostReceive";
-            this.textBoxPostReceive.ReadOnly = true;
-            this.textBoxPostReceive.Size = new System.Drawing.Size(243, 20);
-            this.textBoxPostReceive.TabIndex = 25;
+            this.textBoxRepairNation.Location = new System.Drawing.Point(67, 19);
+            this.textBoxRepairNation.Name = "textBoxRepairNation";
+            this.textBoxRepairNation.ReadOnly = true;
+            this.textBoxRepairNation.Size = new System.Drawing.Size(162, 20);
+            this.textBoxRepairNation.TabIndex = 27;
             // 
-            // labelPostReceive
+            // labelRepairNation
             // 
-            this.labelPostReceive.AutoSize = true;
-            this.labelPostReceive.Location = new System.Drawing.Point(12, 207);
-            this.labelPostReceive.Name = "labelPostReceive";
-            this.labelPostReceive.Size = new System.Drawing.Size(50, 13);
-            this.labelPostReceive.TabIndex = 24;
-            this.labelPostReceive.Text = "Receive:";
+            this.labelRepairNation.AutoSize = true;
+            this.labelRepairNation.Location = new System.Drawing.Point(20, 22);
+            this.labelRepairNation.Name = "labelRepairNation";
+            this.labelRepairNation.Size = new System.Drawing.Size(41, 13);
+            this.labelRepairNation.TabIndex = 26;
+            this.labelRepairNation.Text = "Nation:";
             // 
-            // dataGridViewPostSurcharge
+            // numericUpDownRepairDiscount
             // 
-            this.dataGridViewPostSurcharge.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPostSurcharge.Location = new System.Drawing.Point(7, 20);
-            this.dataGridViewPostSurcharge.MultiSelect = false;
-            this.dataGridViewPostSurcharge.Name = "dataGridViewPostSurcharge";
-            this.dataGridViewPostSurcharge.ReadOnly = true;
-            this.dataGridViewPostSurcharge.Size = new System.Drawing.Size(240, 150);
-            this.dataGridViewPostSurcharge.TabIndex = 26;
+            this.numericUpDownRepairDiscount.Location = new System.Drawing.Point(67, 45);
+            this.numericUpDownRepairDiscount.Name = "numericUpDownRepairDiscount";
+            this.numericUpDownRepairDiscount.ReadOnly = true;
+            this.numericUpDownRepairDiscount.Size = new System.Drawing.Size(66, 20);
+            this.numericUpDownRepairDiscount.TabIndex = 29;
+            // 
+            // labelRepairDiscount
+            // 
+            this.labelRepairDiscount.AutoSize = true;
+            this.labelRepairDiscount.Location = new System.Drawing.Point(9, 47);
+            this.labelRepairDiscount.Name = "labelRepairDiscount";
+            this.labelRepairDiscount.Size = new System.Drawing.Size(52, 13);
+            this.labelRepairDiscount.TabIndex = 28;
+            this.labelRepairDiscount.Text = "Discount:";
+            // 
+            // checkBoxRepairAll
+            // 
+            this.checkBoxRepairAll.AutoSize = true;
+            this.checkBoxRepairAll.Location = new System.Drawing.Point(192, 78);
+            this.checkBoxRepairAll.Name = "checkBoxRepairAll";
+            this.checkBoxRepairAll.Size = new System.Drawing.Size(37, 17);
+            this.checkBoxRepairAll.TabIndex = 32;
+            this.checkBoxRepairAll.Text = "All";
+            this.checkBoxRepairAll.UseVisualStyleBackColor = true;
+            this.checkBoxRepairAll.CheckedChanged += new System.EventHandler(this.checkBoxRepairAll_CheckedChanged);
+            // 
+            // checkBoxRepairWeapon
+            // 
+            this.checkBoxRepairWeapon.AutoSize = true;
+            this.checkBoxRepairWeapon.Location = new System.Drawing.Point(104, 78);
+            this.checkBoxRepairWeapon.Name = "checkBoxRepairWeapon";
+            this.checkBoxRepairWeapon.Size = new System.Drawing.Size(67, 17);
+            this.checkBoxRepairWeapon.TabIndex = 31;
+            this.checkBoxRepairWeapon.Text = "Weapon";
+            this.checkBoxRepairWeapon.UseVisualStyleBackColor = true;
+            this.checkBoxRepairWeapon.CheckedChanged += new System.EventHandler(this.checkBoxRepairWeapon_CheckedChanged);
+            // 
+            // checkBoxRepairArmor
+            // 
+            this.checkBoxRepairArmor.AutoSize = true;
+            this.checkBoxRepairArmor.Location = new System.Drawing.Point(16, 78);
+            this.checkBoxRepairArmor.Name = "checkBoxRepairArmor";
+            this.checkBoxRepairArmor.Size = new System.Drawing.Size(53, 17);
+            this.checkBoxRepairArmor.TabIndex = 30;
+            this.checkBoxRepairArmor.Text = "Armor";
+            this.checkBoxRepairArmor.UseVisualStyleBackColor = true;
+            this.checkBoxRepairArmor.CheckedChanged += new System.EventHandler(this.checkBoxRepairArmor_CheckedChanged);
             // 
             // NpcDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1153, 849);
+            this.ClientSize = new System.Drawing.Size(902, 849);
             this.Controls.Add(this.checkBoxHasInventory);
             this.Controls.Add(this.checkBoxHasRoles);
             this.Controls.Add(this.checkBoxHasAppearance);
@@ -787,15 +872,18 @@
             this.groupBoxRoles.PerformLayout();
             this.groupBoxBank.ResumeLayout(false);
             this.groupBoxBank.PerformLayout();
+            this.groupBoxRepair.ResumeLayout(false);
+            this.groupBoxRepair.PerformLayout();
             this.groupBoxPost.ResumeLayout(false);
             this.groupBoxPost.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostSurcharge)).EndInit();
             this.groupBoxVendor.ResumeLayout(false);
             this.groupBoxVendor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendorItems)).EndInit();
             this.groupBoxTraining.ResumeLayout(false);
             this.groupBoxTraining.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRolesTrain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostSurcharge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepairDiscount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -826,14 +914,14 @@
         private System.Windows.Forms.NumericUpDown numericUpDownInvGold;
         private System.Windows.Forms.Label labelInvGold;
         private System.Windows.Forms.TextBox textBoxInvItemValue;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelInventoryItemValue;
         private System.Windows.Forms.NumericUpDown numericUpDownInvRefresh;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelInventoryRefresh;
         private System.Windows.Forms.NumericUpDown numericUpDownInvQty;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelInventoryQuantity;
         private System.Windows.Forms.GroupBox groupBoxBank;
         private System.Windows.Forms.TextBox textBoxBankDiscount;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelBankDiscount;
         private System.Windows.Forms.GroupBox groupBoxRepair;
         private System.Windows.Forms.GroupBox groupBoxPost;
         private System.Windows.Forms.GroupBox groupBoxVendor;
@@ -865,5 +953,12 @@
         private System.Windows.Forms.TextBox textBoxPostReceive;
         private System.Windows.Forms.Label labelPostReceive;
         private System.Windows.Forms.DataGridView dataGridViewPostSurcharge;
+        private System.Windows.Forms.NumericUpDown numericUpDownRepairDiscount;
+        private System.Windows.Forms.Label labelRepairDiscount;
+        private System.Windows.Forms.Label labelRepairNation;
+        private System.Windows.Forms.TextBox textBoxRepairNation;
+        private System.Windows.Forms.CheckBox checkBoxRepairAll;
+        private System.Windows.Forms.CheckBox checkBoxRepairWeapon;
+        private System.Windows.Forms.CheckBox checkBoxRepairArmor;
     }
 }
