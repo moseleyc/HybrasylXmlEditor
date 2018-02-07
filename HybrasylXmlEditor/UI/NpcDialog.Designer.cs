@@ -378,7 +378,7 @@
             this.groupBoxRoles.Controls.Add(this.groupBoxTraining);
             this.groupBoxRoles.Location = new System.Drawing.Point(12, 192);
             this.groupBoxRoles.Name = "groupBoxRoles";
-            this.groupBoxRoles.Size = new System.Drawing.Size(905, 645);
+            this.groupBoxRoles.Size = new System.Drawing.Size(883, 523);
             this.groupBoxRoles.TabIndex = 10;
             this.groupBoxRoles.TabStop = false;
             this.groupBoxRoles.Text = "Roles";
@@ -386,7 +386,7 @@
             // checkBoxHasBank
             // 
             this.checkBoxHasBank.AutoSize = true;
-            this.checkBoxHasBank.Location = new System.Drawing.Point(613, 463);
+            this.checkBoxHasBank.Location = new System.Drawing.Point(614, 440);
             this.checkBoxHasBank.Name = "checkBoxHasBank";
             this.checkBoxHasBank.Size = new System.Drawing.Size(68, 17);
             this.checkBoxHasBank.TabIndex = 19;
@@ -442,7 +442,7 @@
             // 
             this.groupBoxBank.Controls.Add(this.textBoxBankDiscount);
             this.groupBoxBank.Controls.Add(this.labelBankDiscount);
-            this.groupBoxBank.Location = new System.Drawing.Point(612, 488);
+            this.groupBoxBank.Location = new System.Drawing.Point(613, 465);
             this.groupBoxBank.Name = "groupBoxBank";
             this.groupBoxBank.Size = new System.Drawing.Size(261, 49);
             this.groupBoxBank.TabIndex = 14;
@@ -477,7 +477,7 @@
             this.groupBoxRepair.Controls.Add(this.textBoxRepairNation);
             this.groupBoxRepair.Location = new System.Drawing.Point(613, 314);
             this.groupBoxRepair.Name = "groupBoxRepair";
-            this.groupBoxRepair.Size = new System.Drawing.Size(261, 143);
+            this.groupBoxRepair.Size = new System.Drawing.Size(261, 120);
             this.groupBoxRepair.TabIndex = 13;
             this.groupBoxRepair.TabStop = false;
             this.groupBoxRepair.Text = "Repair";
@@ -622,7 +622,7 @@
             this.groupBoxTraining.Size = new System.Drawing.Size(299, 472);
             this.groupBoxTraining.TabIndex = 11;
             this.groupBoxTraining.TabStop = false;
-            this.groupBoxTraining.Text = "Train";
+            this.groupBoxTraining.Text = "Training";
             // 
             // checkBoxTrainWarrior
             // 
@@ -767,7 +767,7 @@
             // 
             // textBoxRepairNation
             // 
-            this.textBoxRepairNation.Location = new System.Drawing.Point(67, 19);
+            this.textBoxRepairNation.Location = new System.Drawing.Point(67, 26);
             this.textBoxRepairNation.Name = "textBoxRepairNation";
             this.textBoxRepairNation.ReadOnly = true;
             this.textBoxRepairNation.Size = new System.Drawing.Size(162, 20);
@@ -776,7 +776,7 @@
             // labelRepairNation
             // 
             this.labelRepairNation.AutoSize = true;
-            this.labelRepairNation.Location = new System.Drawing.Point(20, 22);
+            this.labelRepairNation.Location = new System.Drawing.Point(20, 29);
             this.labelRepairNation.Name = "labelRepairNation";
             this.labelRepairNation.Size = new System.Drawing.Size(41, 13);
             this.labelRepairNation.TabIndex = 26;
@@ -784,7 +784,7 @@
             // 
             // numericUpDownRepairDiscount
             // 
-            this.numericUpDownRepairDiscount.Location = new System.Drawing.Point(67, 45);
+            this.numericUpDownRepairDiscount.Location = new System.Drawing.Point(67, 52);
             this.numericUpDownRepairDiscount.Name = "numericUpDownRepairDiscount";
             this.numericUpDownRepairDiscount.ReadOnly = true;
             this.numericUpDownRepairDiscount.Size = new System.Drawing.Size(66, 20);
@@ -793,7 +793,7 @@
             // labelRepairDiscount
             // 
             this.labelRepairDiscount.AutoSize = true;
-            this.labelRepairDiscount.Location = new System.Drawing.Point(9, 47);
+            this.labelRepairDiscount.Location = new System.Drawing.Point(9, 54);
             this.labelRepairDiscount.Name = "labelRepairDiscount";
             this.labelRepairDiscount.Size = new System.Drawing.Size(52, 13);
             this.labelRepairDiscount.TabIndex = 28;
@@ -802,7 +802,7 @@
             // checkBoxRepairAll
             // 
             this.checkBoxRepairAll.AutoSize = true;
-            this.checkBoxRepairAll.Location = new System.Drawing.Point(192, 78);
+            this.checkBoxRepairAll.Location = new System.Drawing.Point(192, 85);
             this.checkBoxRepairAll.Name = "checkBoxRepairAll";
             this.checkBoxRepairAll.Size = new System.Drawing.Size(37, 17);
             this.checkBoxRepairAll.TabIndex = 32;
@@ -813,7 +813,7 @@
             // checkBoxRepairWeapon
             // 
             this.checkBoxRepairWeapon.AutoSize = true;
-            this.checkBoxRepairWeapon.Location = new System.Drawing.Point(104, 78);
+            this.checkBoxRepairWeapon.Location = new System.Drawing.Point(104, 85);
             this.checkBoxRepairWeapon.Name = "checkBoxRepairWeapon";
             this.checkBoxRepairWeapon.Size = new System.Drawing.Size(67, 17);
             this.checkBoxRepairWeapon.TabIndex = 31;
@@ -824,7 +824,7 @@
             // checkBoxRepairArmor
             // 
             this.checkBoxRepairArmor.AutoSize = true;
-            this.checkBoxRepairArmor.Location = new System.Drawing.Point(16, 78);
+            this.checkBoxRepairArmor.Location = new System.Drawing.Point(16, 85);
             this.checkBoxRepairArmor.Name = "checkBoxRepairArmor";
             this.checkBoxRepairArmor.Size = new System.Drawing.Size(53, 17);
             this.checkBoxRepairArmor.TabIndex = 30;
@@ -836,7 +836,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 849);
+            this.ClientSize = new System.Drawing.Size(903, 849);
             this.Controls.Add(this.checkBoxHasInventory);
             this.Controls.Add(this.checkBoxHasRoles);
             this.Controls.Add(this.checkBoxHasAppearance);
