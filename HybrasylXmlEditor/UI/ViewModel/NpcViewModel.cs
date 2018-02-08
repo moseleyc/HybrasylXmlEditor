@@ -26,7 +26,7 @@ using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace HybrasylXmlEditor.UI
+namespace HybrasylXmlEditor.UI.ViewModel
 {
     public class NpcViewModel : INotifyPropertyChanged
     {

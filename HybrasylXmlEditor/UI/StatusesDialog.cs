@@ -19,6 +19,7 @@
 
 using Hybrasyl.Statuses;
 using Hybrasyl.XML;
+using HybrasylXmlEditor.UI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

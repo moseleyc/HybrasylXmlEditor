@@ -61,5 +61,10 @@ namespace HybrasylXmlEditor.UI
 
             tabControl1.TabPages[1].Controls.Add(npcdlg);
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

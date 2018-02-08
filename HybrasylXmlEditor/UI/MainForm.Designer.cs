@@ -31,8 +31,6 @@
             this.MainFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.xmlTypesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageStatus = new System.Windows.Forms.TabPage();
             this.tabPageNpc = new System.Windows.Forms.TabPage();
@@ -44,8 +42,7 @@
             // MainFormMenuStrip
             // 
             this.MainFormMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.xmlTypesToolStripMenuItem});
+            this.fileToolStripMenuItem});
             this.MainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainFormMenuStrip.Name = "MainFormMenuStrip";
             this.MainFormMenuStrip.Size = new System.Drawing.Size(902, 24);
@@ -63,22 +60,10 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
-            // 
-            // xmlTypesToolStripMenuItem
-            // 
-            this.xmlTypesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.statusesToolStripMenuItem});
-            this.xmlTypesToolStripMenuItem.Name = "xmlTypesToolStripMenuItem";
-            this.xmlTypesToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
-            this.xmlTypesToolStripMenuItem.Text = "XmlTypes";
-            // 
-            // statusesToolStripMenuItem
-            // 
-            this.statusesToolStripMenuItem.Name = "statusesToolStripMenuItem";
-            this.statusesToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
-            this.statusesToolStripMenuItem.Text = "Statuses";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -106,7 +91,7 @@
             this.tabPageNpc.Location = new System.Drawing.Point(4, 22);
             this.tabPageNpc.Name = "tabPageNpc";
             this.tabPageNpc.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageNpc.Size = new System.Drawing.Size(1129, 956);
+            this.tabPageNpc.Size = new System.Drawing.Size(892, 904);
             this.tabPageNpc.TabIndex = 1;
             this.tabPageNpc.Text = "NPC";
             this.tabPageNpc.UseVisualStyleBackColor = true;
@@ -116,7 +101,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1129, 956);
+            this.tabPage1.Size = new System.Drawing.Size(892, 904);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -147,8 +132,6 @@
         private System.Windows.Forms.MenuStrip MainFormMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem xmlTypesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem statusesToolStripMenuItem;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageStatus;
         private System.Windows.Forms.TabPage tabPageNpc;

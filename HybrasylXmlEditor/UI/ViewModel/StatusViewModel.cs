@@ -26,7 +26,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Hybrasyl.Statuses;
 
-namespace HybrasylXmlEditor.UI
+namespace HybrasylXmlEditor.UI.ViewModel
 {
     public class StatusViewModel : INotifyPropertyChanged
     {
