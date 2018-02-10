@@ -51,14 +51,14 @@
     <Compile Include="UI\NpcDialog.Designer.cs">
       <DependentUpon>NpcDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\NpcViewModel.cs" />
+    <Compile Include="UI\ViewModel\NpcViewModel.cs" />
     <Compile Include="UI\StatusesEffectsDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\StatusesEffectsDialog.Designer.cs">
       <DependentUpon>StatusesEffectsDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\StatusViewModel.cs" />
+    <Compile Include="UI\ViewModel\StatusViewModel.cs" />
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
