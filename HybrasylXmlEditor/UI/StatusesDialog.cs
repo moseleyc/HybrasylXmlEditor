@@ -19,6 +19,7 @@
 
 using Hybrasyl.Statuses;
 using Hybrasyl.XML;
+using HybrasylXmlEditor.UI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,33 +39,6 @@ namespace HybrasylXmlEditor.UI
         public StatusesDialog()
         {
             InitializeComponent();
-        }
-
-        private void buttonLoadStatusXML_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog loadStatusXML = new OpenFileDialog();
-            loadStatusXML.Filter = "(XML)|*.xml";
-            if(loadStatusXML.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    XmlReaderSettings settings = new XmlReaderSettings();
-                    settings.IgnoreComments = true;
-                    
-                    XmlReader reader = XmlReader.Create(loadStatusXML.FileName, settings);
-                    Status nullStatus = null;
-                    var readStatus = Serializer.Deserialize(reader, nullStatus);
-                    StatusVM.SetDisplayStatus(readStatus);
-                    loadCastRestrictions();
-
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: Could not read file");
-                }
-
-            }
         }
 
         private void StatusesDialog_Load(object sender, EventArgs e)
@@ -135,6 +109,33 @@ namespace HybrasylXmlEditor.UI
             }
 
             dlg.Dispose();
+        }
+
+        private void buttonLoadStatusXML_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog loadStatusXML = new OpenFileDialog();
+            loadStatusXML.Filter = "(XML)|*.xml";
+            if (loadStatusXML.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    XmlReaderSettings settings = new XmlReaderSettings();
+                    settings.IgnoreComments = true;
+
+                    XmlReader reader = XmlReader.Create(loadStatusXML.FileName, settings);
+                    Status nullStatus = null;
+                    var readStatus = Serializer.Deserialize(reader, nullStatus);
+                    StatusVM.SetDisplayStatus(readStatus);
+                    loadCastRestrictions();
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file");
+                }
+
+            }
         }
 
         private void buttonSaveXML_Click(object sender, EventArgs e)
