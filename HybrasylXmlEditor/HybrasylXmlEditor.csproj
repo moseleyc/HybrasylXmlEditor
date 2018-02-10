@@ -45,12 +45,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UI\MonsterDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MonsterDialog.Designer.cs">
+      <DependentUpon>MonsterDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\NpcDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\NpcDialog.Designer.cs">
       <DependentUpon>NpcDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewModel\MonsterViewModel.cs" />
     <Compile Include="UI\ViewModel\NpcViewModel.cs" />
     <Compile Include="UI\StatusesEffectsDialog.cs">
       <SubType>Form</SubType>
@@ -98,6 +105,9 @@
     </Compile>
     <EmbeddedResource Include="UI\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MonsterDialog.resx">
+      <DependentUpon>MonsterDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NpcDialog.resx">
       <DependentUpon>NpcDialog.cs</DependentUpon>
