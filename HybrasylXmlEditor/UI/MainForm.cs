@@ -50,16 +50,25 @@ namespace HybrasylXmlEditor.UI
             stdlg.FormBorderStyle = FormBorderStyle.None;
             stdlg.Dock = DockStyle.Fill;
 
-            tabControl1.TabPages[0].Controls.Add(stdlg);
+            tabControlXmlEditor.TabPages[0].Controls.Add(stdlg);
 
-            //Creatures Tab
+            //NPC Tab
             NpcDialog npcdlg = new NpcDialog();
             npcdlg.TopLevel = false;
             npcdlg.Visible = true;
             npcdlg.FormBorderStyle = FormBorderStyle.None;
             npcdlg.Dock = DockStyle.Fill;
 
-            tabControl1.TabPages[1].Controls.Add(npcdlg);
+            tabControlXmlEditor.TabPages[1].Controls.Add(npcdlg);
+
+            //Monster Tab
+            MonsterDialog mstdlg = new MonsterDialog();
+            mstdlg.TopLevel = false;
+            mstdlg.Visible = true;
+            mstdlg.FormBorderStyle = FormBorderStyle.None;
+            mstdlg.Dock = DockStyle.Fill;
+
+            tabControlXmlEditor.TabPages[2].Controls.Add(mstdlg);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
