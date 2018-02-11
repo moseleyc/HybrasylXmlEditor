@@ -42,7 +42,8 @@ namespace HybrasylXmlEditor.UI
 
         private void setBindings()
         {
-
+            textBoxBase.DataBindings.Add("Text", SpawnVM, "Base");
+            numericVariance.DataBindings.Add("Value", SpawnVM, "Variance");
         }
 
         private void SpawnDialog_Load(object sender, EventArgs e)
@@ -50,5 +51,11 @@ namespace HybrasylXmlEditor.UI
             SpawnVM.SetDisplaySpawn(SpawnVM.Spawn);
             setBindings();
         }
+
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+        }
+
     }
 }

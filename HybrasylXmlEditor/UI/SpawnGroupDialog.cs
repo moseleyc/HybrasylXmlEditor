@@ -233,7 +233,7 @@ namespace HybrasylXmlEditor.UI
             {
                 int index = dataGridViewSpawns.CurrentRow.Index;
                 SpawnDialog spawnDialog = new SpawnDialog();
-                spawnDialog.SpawnVM.Spawn = SpawnGroupVM.Spawn[index];
+                spawnDialog.SpawnVM = new SpawnViewModel(SpawnGroupVM.Spawn[index]);
                 if (spawnDialog.ShowDialog() == DialogResult.OK)
                 {
                     SpawnGroupVM.Spawn.Add(spawnDialog.SpawnVM.GetDisplaySpawn());

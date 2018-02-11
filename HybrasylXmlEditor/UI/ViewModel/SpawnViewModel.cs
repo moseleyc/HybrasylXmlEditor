@@ -30,6 +30,26 @@ namespace HybrasylXmlEditor.UI.ViewModel
 {
     public class SpawnViewModel : INotifyPropertyChanged
     {
+        #region Private
+        private CreatureScript _script;
+        private IntentList _intents;
+        private Respawn _respawn;
+        private Damage _damage;
+        private Defense _defense;
+        private Stats _stats;
+        private LootList _loot;
+        private List<Castable> _castables;
+        private string _base;
+        private float _variance;
+        #endregion
+
+        #region Properties
+
+
+        public string Base { get { return _base; } set { _base = value; OnPropertyChanged(); } }
+        public float Variance { get { return _variance; } set { _variance = value; OnPropertyChanged(); } }
+        #endregion
+
         public Spawn Spawn { get; set; }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -46,12 +66,17 @@ namespace HybrasylXmlEditor.UI.ViewModel
 
         public Spawn GetDisplaySpawn()
         {
-            return new Spawn();
+            var newSpawn = new Spawn();
+            newSpawn.Base = this.Base;
+            newSpawn.Variance = this.Variance;
+
+            return newSpawn;
         }
 
         public void SetDisplaySpawn(Spawn spawn)
         {
-
+            this.Base = spawn.Base;
+            this.Variance = spawn.Variance;
         }
     }
 }
