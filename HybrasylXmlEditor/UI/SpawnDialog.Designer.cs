@@ -44,10 +44,6 @@ namespace HybrasylXmlEditor.UI
             this.labelValue = new System.Windows.Forms.Label();
             this.textBoxScriptValue = new System.Windows.Forms.TextBox();
             this.groupBoxIntents = new System.Windows.Forms.GroupBox();
-            this.labelIntentMonsterType = new System.Windows.Forms.Label();
-            this.comboBoxIntentMonsterType = new System.Windows.Forms.ComboBox();
-            this.labelIntentMonsterValue = new System.Windows.Forms.Label();
-            this.textBoxIntentMonsterValue = new System.Windows.Forms.TextBox();
             this.labelIntentPlayerType = new System.Windows.Forms.Label();
             this.comboBoxIntentPlayerType = new System.Windows.Forms.ComboBox();
             this.labelIntentPlayerValue = new System.Windows.Forms.Label();
@@ -56,9 +52,6 @@ namespace HybrasylXmlEditor.UI
             this.comboBoxIntentNpcType = new System.Windows.Forms.ComboBox();
             this.labelIntentNpcValue = new System.Windows.Forms.Label();
             this.textBoxIntentNpcValue = new System.Windows.Forms.TextBox();
-            this.labelIntentMonster = new System.Windows.Forms.Label();
-            this.labelIntentPlayer = new System.Windows.Forms.Label();
-            this.labelIntentNpc = new System.Windows.Forms.Label();
             this.groupBoxRespawn = new System.Windows.Forms.GroupBox();
             this.labelRespawnMax = new System.Windows.Forms.Label();
             this.numericRespawnMax = new System.Windows.Forms.NumericUpDown();
@@ -126,6 +119,16 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxHasCastables = new System.Windows.Forms.CheckBox();
             this.checkBoxHasLootImport = new System.Windows.Forms.CheckBox();
             this.checkBoxHasLootTable = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxIntentHasNpc = new System.Windows.Forms.CheckBox();
+            this.checkBoxIntentPlayer = new System.Windows.Forms.CheckBox();
+            this.groupBoxIntentPlayer = new System.Windows.Forms.GroupBox();
+            this.groupBoxIntentMonster = new System.Windows.Forms.GroupBox();
+            this.checkBoxIntentHasMonster = new System.Windows.Forms.CheckBox();
+            this.labelIntentMonsterType = new System.Windows.Forms.Label();
+            this.comboBoxIntentMonsterType = new System.Windows.Forms.ComboBox();
+            this.labelIntentMonsterValue = new System.Windows.Forms.Label();
+            this.textBoxIntentMonsterValue = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericVariance)).BeginInit();
             this.groupBoxAttributes.SuspendLayout();
             this.groupBoxScript.SuspendLayout();
@@ -163,6 +166,9 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMin)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBoxIntentPlayer.SuspendLayout();
+            this.groupBoxIntentMonster.SuspendLayout();
             this.SuspendLayout();
             // 
             // labelBase
@@ -264,6 +270,7 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxHasScript.TabIndex = 8;
             this.checkBoxHasScript.Text = "Has Script?";
             this.checkBoxHasScript.UseVisualStyleBackColor = true;
+            this.checkBoxHasScript.CheckedChanged += new System.EventHandler(this.checkBoxHasScript_CheckedChanged);
             // 
             // labelType
             // 
@@ -277,6 +284,7 @@ namespace HybrasylXmlEditor.UI
             // comboBoxScriptType
             // 
             this.comboBoxScriptType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxScriptType.Enabled = false;
             this.comboBoxScriptType.FormattingEnabled = true;
             this.comboBoxScriptType.Items.AddRange(new object[] {
             Hybrasyl.Creatures.ScriptType.Override,
@@ -299,76 +307,27 @@ namespace HybrasylXmlEditor.UI
             // 
             this.textBoxScriptValue.Location = new System.Drawing.Point(46, 42);
             this.textBoxScriptValue.Name = "textBoxScriptValue";
+            this.textBoxScriptValue.ReadOnly = true;
             this.textBoxScriptValue.Size = new System.Drawing.Size(100, 20);
             this.textBoxScriptValue.TabIndex = 5;
             // 
             // groupBoxIntents
             // 
+            this.groupBoxIntents.Controls.Add(this.groupBoxIntentMonster);
+            this.groupBoxIntents.Controls.Add(this.groupBoxIntentPlayer);
+            this.groupBoxIntents.Controls.Add(this.groupBox1);
             this.groupBoxIntents.Controls.Add(this.checkBoxHasIntents);
-            this.groupBoxIntents.Controls.Add(this.labelIntentMonsterType);
-            this.groupBoxIntents.Controls.Add(this.comboBoxIntentMonsterType);
-            this.groupBoxIntents.Controls.Add(this.labelIntentMonsterValue);
-            this.groupBoxIntents.Controls.Add(this.textBoxIntentMonsterValue);
-            this.groupBoxIntents.Controls.Add(this.labelIntentPlayerType);
-            this.groupBoxIntents.Controls.Add(this.comboBoxIntentPlayerType);
-            this.groupBoxIntents.Controls.Add(this.labelIntentPlayerValue);
-            this.groupBoxIntents.Controls.Add(this.textBoxIntentPlayerValue);
-            this.groupBoxIntents.Controls.Add(this.labelIntentNpcType);
-            this.groupBoxIntents.Controls.Add(this.comboBoxIntentNpcType);
-            this.groupBoxIntents.Controls.Add(this.labelIntentNpcValue);
-            this.groupBoxIntents.Controls.Add(this.textBoxIntentNpcValue);
-            this.groupBoxIntents.Controls.Add(this.labelIntentMonster);
-            this.groupBoxIntents.Controls.Add(this.labelIntentPlayer);
-            this.groupBoxIntents.Controls.Add(this.labelIntentNpc);
             this.groupBoxIntents.Location = new System.Drawing.Point(6, 153);
             this.groupBoxIntents.Name = "groupBoxIntents";
-            this.groupBoxIntents.Size = new System.Drawing.Size(431, 139);
+            this.groupBoxIntents.Size = new System.Drawing.Size(431, 211);
             this.groupBoxIntents.TabIndex = 8;
             this.groupBoxIntents.TabStop = false;
             this.groupBoxIntents.Text = "Intents";
             // 
-            // labelIntentMonsterType
-            // 
-            this.labelIntentMonsterType.AutoSize = true;
-            this.labelIntentMonsterType.Location = new System.Drawing.Point(224, 100);
-            this.labelIntentMonsterType.Name = "labelIntentMonsterType";
-            this.labelIntentMonsterType.Size = new System.Drawing.Size(34, 13);
-            this.labelIntentMonsterType.TabIndex = 19;
-            this.labelIntentMonsterType.Text = "Type:";
-            // 
-            // comboBoxIntentMonsterType
-            // 
-            this.comboBoxIntentMonsterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxIntentMonsterType.FormattingEnabled = true;
-            this.comboBoxIntentMonsterType.Items.AddRange(new object[] {
-            Hybrasyl.Creatures.IntentType.Hostile,
-            Hybrasyl.Creatures.IntentType.Passive,
-            Hybrasyl.Creatures.IntentType.Neutral});
-            this.comboBoxIntentMonsterType.Location = new System.Drawing.Point(267, 97);
-            this.comboBoxIntentMonsterType.Name = "comboBoxIntentMonsterType";
-            this.comboBoxIntentMonsterType.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxIntentMonsterType.TabIndex = 18;
-            // 
-            // labelIntentMonsterValue
-            // 
-            this.labelIntentMonsterValue.AutoSize = true;
-            this.labelIntentMonsterValue.Location = new System.Drawing.Point(61, 101);
-            this.labelIntentMonsterValue.Name = "labelIntentMonsterValue";
-            this.labelIntentMonsterValue.Size = new System.Drawing.Size(37, 13);
-            this.labelIntentMonsterValue.TabIndex = 16;
-            this.labelIntentMonsterValue.Text = "Value:";
-            // 
-            // textBoxIntentMonsterValue
-            // 
-            this.textBoxIntentMonsterValue.Location = new System.Drawing.Point(104, 98);
-            this.textBoxIntentMonsterValue.Name = "textBoxIntentMonsterValue";
-            this.textBoxIntentMonsterValue.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIntentMonsterValue.TabIndex = 17;
-            // 
             // labelIntentPlayerType
             // 
             this.labelIntentPlayerType.AutoSize = true;
-            this.labelIntentPlayerType.Location = new System.Drawing.Point(224, 74);
+            this.labelIntentPlayerType.Location = new System.Drawing.Point(239, 20);
             this.labelIntentPlayerType.Name = "labelIntentPlayerType";
             this.labelIntentPlayerType.Size = new System.Drawing.Size(34, 13);
             this.labelIntentPlayerType.TabIndex = 15;
@@ -382,7 +341,7 @@ namespace HybrasylXmlEditor.UI
             Hybrasyl.Creatures.IntentType.Hostile,
             Hybrasyl.Creatures.IntentType.Passive,
             Hybrasyl.Creatures.IntentType.Neutral});
-            this.comboBoxIntentPlayerType.Location = new System.Drawing.Point(267, 71);
+            this.comboBoxIntentPlayerType.Location = new System.Drawing.Point(282, 17);
             this.comboBoxIntentPlayerType.Name = "comboBoxIntentPlayerType";
             this.comboBoxIntentPlayerType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxIntentPlayerType.TabIndex = 14;
@@ -390,7 +349,7 @@ namespace HybrasylXmlEditor.UI
             // labelIntentPlayerValue
             // 
             this.labelIntentPlayerValue.AutoSize = true;
-            this.labelIntentPlayerValue.Location = new System.Drawing.Point(61, 75);
+            this.labelIntentPlayerValue.Location = new System.Drawing.Point(76, 21);
             this.labelIntentPlayerValue.Name = "labelIntentPlayerValue";
             this.labelIntentPlayerValue.Size = new System.Drawing.Size(37, 13);
             this.labelIntentPlayerValue.TabIndex = 12;
@@ -398,15 +357,16 @@ namespace HybrasylXmlEditor.UI
             // 
             // textBoxIntentPlayerValue
             // 
-            this.textBoxIntentPlayerValue.Location = new System.Drawing.Point(104, 72);
+            this.textBoxIntentPlayerValue.Location = new System.Drawing.Point(119, 18);
             this.textBoxIntentPlayerValue.Name = "textBoxIntentPlayerValue";
+            this.textBoxIntentPlayerValue.ReadOnly = true;
             this.textBoxIntentPlayerValue.Size = new System.Drawing.Size(100, 20);
             this.textBoxIntentPlayerValue.TabIndex = 13;
             // 
             // labelIntentNpcType
             // 
             this.labelIntentNpcType.AutoSize = true;
-            this.labelIntentNpcType.Location = new System.Drawing.Point(224, 46);
+            this.labelIntentNpcType.Location = new System.Drawing.Point(241, 20);
             this.labelIntentNpcType.Name = "labelIntentNpcType";
             this.labelIntentNpcType.Size = new System.Drawing.Size(34, 13);
             this.labelIntentNpcType.TabIndex = 11;
@@ -420,7 +380,7 @@ namespace HybrasylXmlEditor.UI
             Hybrasyl.Creatures.IntentType.Hostile,
             Hybrasyl.Creatures.IntentType.Passive,
             Hybrasyl.Creatures.IntentType.Neutral});
-            this.comboBoxIntentNpcType.Location = new System.Drawing.Point(267, 43);
+            this.comboBoxIntentNpcType.Location = new System.Drawing.Point(284, 17);
             this.comboBoxIntentNpcType.Name = "comboBoxIntentNpcType";
             this.comboBoxIntentNpcType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxIntentNpcType.TabIndex = 10;
@@ -428,7 +388,7 @@ namespace HybrasylXmlEditor.UI
             // labelIntentNpcValue
             // 
             this.labelIntentNpcValue.AutoSize = true;
-            this.labelIntentNpcValue.Location = new System.Drawing.Point(61, 47);
+            this.labelIntentNpcValue.Location = new System.Drawing.Point(78, 21);
             this.labelIntentNpcValue.Name = "labelIntentNpcValue";
             this.labelIntentNpcValue.Size = new System.Drawing.Size(37, 13);
             this.labelIntentNpcValue.TabIndex = 8;
@@ -436,37 +396,11 @@ namespace HybrasylXmlEditor.UI
             // 
             // textBoxIntentNpcValue
             // 
-            this.textBoxIntentNpcValue.Location = new System.Drawing.Point(104, 44);
+            this.textBoxIntentNpcValue.Location = new System.Drawing.Point(121, 18);
             this.textBoxIntentNpcValue.Name = "textBoxIntentNpcValue";
+            this.textBoxIntentNpcValue.ReadOnly = true;
             this.textBoxIntentNpcValue.Size = new System.Drawing.Size(100, 20);
             this.textBoxIntentNpcValue.TabIndex = 9;
-            // 
-            // labelIntentMonster
-            // 
-            this.labelIntentMonster.AutoSize = true;
-            this.labelIntentMonster.Location = new System.Drawing.Point(7, 101);
-            this.labelIntentMonster.Name = "labelIntentMonster";
-            this.labelIntentMonster.Size = new System.Drawing.Size(48, 13);
-            this.labelIntentMonster.TabIndex = 2;
-            this.labelIntentMonster.Text = "Monster:";
-            // 
-            // labelIntentPlayer
-            // 
-            this.labelIntentPlayer.AutoSize = true;
-            this.labelIntentPlayer.Location = new System.Drawing.Point(16, 74);
-            this.labelIntentPlayer.Name = "labelIntentPlayer";
-            this.labelIntentPlayer.Size = new System.Drawing.Size(39, 13);
-            this.labelIntentPlayer.TabIndex = 1;
-            this.labelIntentPlayer.Text = "Player:";
-            // 
-            // labelIntentNpc
-            // 
-            this.labelIntentNpc.AutoSize = true;
-            this.labelIntentNpc.Location = new System.Drawing.Point(25, 47);
-            this.labelIntentNpc.Name = "labelIntentNpc";
-            this.labelIntentNpc.Size = new System.Drawing.Size(30, 13);
-            this.labelIntentNpc.TabIndex = 0;
-            this.labelIntentNpc.Text = "Npc:";
             // 
             // groupBoxRespawn
             // 
@@ -478,7 +412,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxRespawn.Controls.Add(this.numericRespawnPercentage);
             this.groupBoxRespawn.Controls.Add(this.labelRespawnInterval);
             this.groupBoxRespawn.Controls.Add(this.numericRespawnInterval);
-            this.groupBoxRespawn.Location = new System.Drawing.Point(6, 298);
+            this.groupBoxRespawn.Location = new System.Drawing.Point(6, 370);
             this.groupBoxRespawn.Name = "groupBoxRespawn";
             this.groupBoxRespawn.Size = new System.Drawing.Size(431, 100);
             this.groupBoxRespawn.TabIndex = 8;
@@ -574,7 +508,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxDamage.Controls.Add(this.numericDamageMin);
             this.groupBoxDamage.Controls.Add(this.labelDamageMax);
             this.groupBoxDamage.Controls.Add(this.numericDamageMax);
-            this.groupBoxDamage.Location = new System.Drawing.Point(6, 404);
+            this.groupBoxDamage.Location = new System.Drawing.Point(6, 476);
             this.groupBoxDamage.Name = "groupBoxDamage";
             this.groupBoxDamage.Size = new System.Drawing.Size(431, 179);
             this.groupBoxDamage.TabIndex = 8;
@@ -708,7 +642,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxDefense.Controls.Add(this.numericUpDown3);
             this.groupBoxDefense.Controls.Add(this.labelDefenseElements);
             this.groupBoxDefense.Controls.Add(this.listBoxDefenseElements);
-            this.groupBoxDefense.Location = new System.Drawing.Point(6, 589);
+            this.groupBoxDefense.Location = new System.Drawing.Point(6, 661);
             this.groupBoxDefense.Name = "groupBoxDefense";
             this.groupBoxDefense.Size = new System.Drawing.Size(431, 114);
             this.groupBoxDefense.TabIndex = 8;
@@ -979,6 +913,7 @@ namespace HybrasylXmlEditor.UI
             this.dataGridViewCastables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCastables.Location = new System.Drawing.Point(6, 58);
             this.dataGridViewCastables.Name = "dataGridViewCastables";
+            this.dataGridViewCastables.ReadOnly = true;
             this.dataGridViewCastables.Size = new System.Drawing.Size(373, 84);
             this.dataGridViewCastables.TabIndex = 0;
             // 
@@ -987,6 +922,7 @@ namespace HybrasylXmlEditor.UI
             this.dataGridViewLootImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewLootImport.Location = new System.Drawing.Point(6, 160);
             this.dataGridViewLootImport.Name = "dataGridViewLootImport";
+            this.dataGridViewLootImport.ReadOnly = true;
             this.dataGridViewLootImport.Size = new System.Drawing.Size(374, 80);
             this.dataGridViewLootImport.TabIndex = 0;
             // 
@@ -1098,6 +1034,7 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxHasIntents.TabIndex = 20;
             this.checkBoxHasIntents.Text = "Has Intents?";
             this.checkBoxHasIntents.UseVisualStyleBackColor = true;
+            this.checkBoxHasIntents.CheckedChanged += new System.EventHandler(this.checkBoxHasIntents_CheckedChanged);
             // 
             // checkBoxHasCastables
             // 
@@ -1108,6 +1045,7 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxHasCastables.TabIndex = 21;
             this.checkBoxHasCastables.Text = "Has Castables?";
             this.checkBoxHasCastables.UseVisualStyleBackColor = true;
+            this.checkBoxHasCastables.CheckedChanged += new System.EventHandler(this.checkBoxHasCastables_CheckedChanged);
             // 
             // checkBoxHasLootImport
             // 
@@ -1118,6 +1056,7 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxHasLootImport.TabIndex = 31;
             this.checkBoxHasLootImport.Text = "Has Loot Import?";
             this.checkBoxHasLootImport.UseVisualStyleBackColor = true;
+            this.checkBoxHasLootImport.CheckedChanged += new System.EventHandler(this.checkBoxHasLootImport_CheckedChanged);
             // 
             // checkBoxHasLootTable
             // 
@@ -1128,6 +1067,118 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxHasLootTable.TabIndex = 32;
             this.checkBoxHasLootTable.Text = "Has Loot Table?";
             this.checkBoxHasLootTable.UseVisualStyleBackColor = true;
+            this.checkBoxHasLootTable.CheckedChanged += new System.EventHandler(this.checkBoxHasLootTable_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkBoxIntentHasNpc);
+            this.groupBox1.Controls.Add(this.comboBoxIntentNpcType);
+            this.groupBox1.Controls.Add(this.textBoxIntentNpcValue);
+            this.groupBox1.Controls.Add(this.labelIntentNpcValue);
+            this.groupBox1.Controls.Add(this.labelIntentNpcType);
+            this.groupBox1.Location = new System.Drawing.Point(7, 39);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(411, 48);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Npc";
+            // 
+            // checkBoxIntentHasNpc
+            // 
+            this.checkBoxIntentHasNpc.AutoSize = true;
+            this.checkBoxIntentHasNpc.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxIntentHasNpc.Name = "checkBoxIntentHasNpc";
+            this.checkBoxIntentHasNpc.Size = new System.Drawing.Size(52, 17);
+            this.checkBoxIntentHasNpc.TabIndex = 21;
+            this.checkBoxIntentHasNpc.Text = "Npc?";
+            this.checkBoxIntentHasNpc.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxIntentPlayer
+            // 
+            this.checkBoxIntentPlayer.AutoSize = true;
+            this.checkBoxIntentPlayer.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxIntentPlayer.Name = "checkBoxIntentPlayer";
+            this.checkBoxIntentPlayer.Size = new System.Drawing.Size(61, 17);
+            this.checkBoxIntentPlayer.TabIndex = 21;
+            this.checkBoxIntentPlayer.Text = "Player?";
+            this.checkBoxIntentPlayer.UseVisualStyleBackColor = true;
+            // 
+            // groupBoxIntentPlayer
+            // 
+            this.groupBoxIntentPlayer.Controls.Add(this.checkBoxIntentPlayer);
+            this.groupBoxIntentPlayer.Controls.Add(this.comboBoxIntentPlayerType);
+            this.groupBoxIntentPlayer.Controls.Add(this.textBoxIntentPlayerValue);
+            this.groupBoxIntentPlayer.Controls.Add(this.labelIntentPlayerValue);
+            this.groupBoxIntentPlayer.Controls.Add(this.labelIntentPlayerType);
+            this.groupBoxIntentPlayer.Location = new System.Drawing.Point(9, 93);
+            this.groupBoxIntentPlayer.Name = "groupBoxIntentPlayer";
+            this.groupBoxIntentPlayer.Size = new System.Drawing.Size(411, 48);
+            this.groupBoxIntentPlayer.TabIndex = 22;
+            this.groupBoxIntentPlayer.TabStop = false;
+            this.groupBoxIntentPlayer.Text = "Player";
+            // 
+            // groupBoxIntentMonster
+            // 
+            this.groupBoxIntentMonster.Controls.Add(this.labelIntentMonsterType);
+            this.groupBoxIntentMonster.Controls.Add(this.comboBoxIntentMonsterType);
+            this.groupBoxIntentMonster.Controls.Add(this.labelIntentMonsterValue);
+            this.groupBoxIntentMonster.Controls.Add(this.textBoxIntentMonsterValue);
+            this.groupBoxIntentMonster.Controls.Add(this.checkBoxIntentHasMonster);
+            this.groupBoxIntentMonster.Location = new System.Drawing.Point(9, 147);
+            this.groupBoxIntentMonster.Name = "groupBoxIntentMonster";
+            this.groupBoxIntentMonster.Size = new System.Drawing.Size(411, 55);
+            this.groupBoxIntentMonster.TabIndex = 23;
+            this.groupBoxIntentMonster.TabStop = false;
+            this.groupBoxIntentMonster.Text = "Monster";
+            // 
+            // checkBoxIntentHasMonster
+            // 
+            this.checkBoxIntentHasMonster.AutoSize = true;
+            this.checkBoxIntentHasMonster.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxIntentHasMonster.Name = "checkBoxIntentHasMonster";
+            this.checkBoxIntentHasMonster.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxIntentHasMonster.TabIndex = 21;
+            this.checkBoxIntentHasMonster.Text = "Monster?";
+            this.checkBoxIntentHasMonster.UseVisualStyleBackColor = true;
+            // 
+            // labelIntentMonsterType
+            // 
+            this.labelIntentMonsterType.AutoSize = true;
+            this.labelIntentMonsterType.Location = new System.Drawing.Point(239, 20);
+            this.labelIntentMonsterType.Name = "labelIntentMonsterType";
+            this.labelIntentMonsterType.Size = new System.Drawing.Size(34, 13);
+            this.labelIntentMonsterType.TabIndex = 25;
+            this.labelIntentMonsterType.Text = "Type:";
+            // 
+            // comboBoxIntentMonsterType
+            // 
+            this.comboBoxIntentMonsterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIntentMonsterType.FormattingEnabled = true;
+            this.comboBoxIntentMonsterType.Items.AddRange(new object[] {
+            Hybrasyl.Creatures.IntentType.Hostile,
+            Hybrasyl.Creatures.IntentType.Passive,
+            Hybrasyl.Creatures.IntentType.Neutral});
+            this.comboBoxIntentMonsterType.Location = new System.Drawing.Point(282, 17);
+            this.comboBoxIntentMonsterType.Name = "comboBoxIntentMonsterType";
+            this.comboBoxIntentMonsterType.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxIntentMonsterType.TabIndex = 24;
+            // 
+            // labelIntentMonsterValue
+            // 
+            this.labelIntentMonsterValue.AutoSize = true;
+            this.labelIntentMonsterValue.Location = new System.Drawing.Point(76, 21);
+            this.labelIntentMonsterValue.Name = "labelIntentMonsterValue";
+            this.labelIntentMonsterValue.Size = new System.Drawing.Size(37, 13);
+            this.labelIntentMonsterValue.TabIndex = 22;
+            this.labelIntentMonsterValue.Text = "Value:";
+            // 
+            // textBoxIntentMonsterValue
+            // 
+            this.textBoxIntentMonsterValue.Location = new System.Drawing.Point(119, 18);
+            this.textBoxIntentMonsterValue.Name = "textBoxIntentMonsterValue";
+            this.textBoxIntentMonsterValue.ReadOnly = true;
+            this.textBoxIntentMonsterValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIntentMonsterValue.TabIndex = 23;
             // 
             // SpawnDialog
             // 
@@ -1200,6 +1251,12 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMin)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBoxIntentPlayer.ResumeLayout(false);
+            this.groupBoxIntentPlayer.PerformLayout();
+            this.groupBoxIntentMonster.ResumeLayout(false);
+            this.groupBoxIntentMonster.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1230,13 +1287,6 @@ namespace HybrasylXmlEditor.UI
         private System.Windows.Forms.ComboBox comboBoxIntentNpcType;
         private System.Windows.Forms.Label labelIntentNpcValue;
         private System.Windows.Forms.TextBox textBoxIntentNpcValue;
-        private System.Windows.Forms.Label labelIntentMonster;
-        private System.Windows.Forms.Label labelIntentPlayer;
-        private System.Windows.Forms.Label labelIntentNpc;
-        private System.Windows.Forms.Label labelIntentMonsterType;
-        private System.Windows.Forms.ComboBox comboBoxIntentMonsterType;
-        private System.Windows.Forms.Label labelIntentMonsterValue;
-        private System.Windows.Forms.TextBox textBoxIntentMonsterValue;
         private System.Windows.Forms.Label labelIntentPlayerType;
         private System.Windows.Forms.ComboBox comboBoxIntentPlayerType;
         private System.Windows.Forms.Label labelIntentPlayerValue;
@@ -1302,5 +1352,15 @@ namespace HybrasylXmlEditor.UI
         private System.Windows.Forms.CheckBox checkBoxHasCastables;
         private System.Windows.Forms.CheckBox checkBoxHasLootImport;
         private System.Windows.Forms.CheckBox checkBoxHasLootTable;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBoxIntentHasNpc;
+        private System.Windows.Forms.GroupBox groupBoxIntentMonster;
+        private System.Windows.Forms.Label labelIntentMonsterType;
+        private System.Windows.Forms.ComboBox comboBoxIntentMonsterType;
+        private System.Windows.Forms.Label labelIntentMonsterValue;
+        private System.Windows.Forms.TextBox textBoxIntentMonsterValue;
+        private System.Windows.Forms.CheckBox checkBoxIntentHasMonster;
+        private System.Windows.Forms.GroupBox groupBoxIntentPlayer;
+        private System.Windows.Forms.CheckBox checkBoxIntentPlayer;
     }
 }

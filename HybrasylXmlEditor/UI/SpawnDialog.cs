@@ -44,6 +44,9 @@ namespace HybrasylXmlEditor.UI
         {
             textBoxBase.DataBindings.Add("Text", SpawnVM, "Base");
             numericVariance.DataBindings.Add("Value", SpawnVM, "Variance");
+
+            textBoxScriptValue.DataBindings.Add("Text", SpawnVM, "Script_Value");
+            comboBoxScriptType.DataBindings.Add("SelectedItem", SpawnVM, "Script_Type");
         }
 
         private void SpawnDialog_Load(object sender, EventArgs e)
@@ -57,5 +60,55 @@ namespace HybrasylXmlEditor.UI
             this.DialogResult = DialogResult.OK;
         }
 
+        private void checkBoxHasScript_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkbox = sender as CheckBox;
+            if (checkbox.Checked)
+            {
+                if (SpawnVM.Script == null)
+                {
+                    SpawnVM.Script = new CreatureScript();
+                }
+                textBoxScriptValue.ReadOnly = false;
+                comboBoxScriptType.Enabled = true;
+            }
+            else
+            {
+                SpawnVM.Script = null;
+                textBoxScriptValue.ReadOnly = true;
+                comboBoxScriptType.Enabled = false;
+            }
+        }
+
+        private void checkBoxHasIntents_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkbox = sender as CheckBox;
+            if (checkbox.Checked)
+            {
+                if(SpawnVM.Intents == null)
+                {
+                    SpawnVM.Intents = new IntentList();
+                }
+            }
+            else
+            {
+                SpawnVM.Intents = null;
+            }
+        }
+
+        private void checkBoxHasCastables_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxHasLootImport_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkBoxHasLootTable_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
