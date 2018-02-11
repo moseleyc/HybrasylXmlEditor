@@ -1,4 +1,23 @@
-﻿using Hybrasyl.Creatures;
+﻿/*
+ * This file is part of Project Hybrasyl.
+ *
+ * This program is free software; you can redistribute it and/or modify
+ * it under the terms of the Affero General Public License as published by
+ * the Free Software Foundation, version 3.
+ *
+ * This program is distributed in the hope that it will be useful, but
+ * without ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ * or FITNESS FOR A PARTICULAR PURPOSE. See the Affero General Public License
+ * for more details.
+ *
+ * You should have received a copy of the Affero General Public License along
+ * with this program. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * (C) 2016 Project Hybrasyl (info@hybrasyl.com)
+ *
+ */
+
+using Hybrasyl.Creatures;
 using Hybrasyl.XML;
 using HybrasylXmlEditor.UI.ViewModel;
 using System;
@@ -193,6 +212,27 @@ namespace HybrasylXmlEditor.UI
                     MessageBox.Show("Error: Problem with loading the file");
                 }
             }
+        }
+
+        private void buttonAddSpawn_Click(object sender, EventArgs e)
+        {
+            SpawnDialog spawnDialog = new SpawnDialog();
+            spawnDialog.SpawnVM = new Spawn();
+
+
+        }
+
+        private void buttonEditSpawn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonDeleteSpawn_Click(object sender, EventArgs e)
+        {
+            int index = dataGridViewSpawns.CurrentRow.Index;
+            SpawnGroupVM.Spawn.RemoveAt(index);
+
+            dataGridViewSpawns.DataSource = SpawnGroupVM.Spawn;
         }
     }
 }

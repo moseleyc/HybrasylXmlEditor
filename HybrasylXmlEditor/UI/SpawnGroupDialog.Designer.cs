@@ -119,6 +119,7 @@
             this.buttonAddSpawn.TabIndex = 4;
             this.buttonAddSpawn.Text = "Add Spawn";
             this.buttonAddSpawn.UseVisualStyleBackColor = true;
+            this.buttonAddSpawn.Click += new System.EventHandler(this.buttonAddSpawn_Click);
             // 
             // buttonEditSpawn
             // 
@@ -128,6 +129,7 @@
             this.buttonEditSpawn.TabIndex = 5;
             this.buttonEditSpawn.Text = "Edit Spawn";
             this.buttonEditSpawn.UseVisualStyleBackColor = true;
+            this.buttonEditSpawn.Click += new System.EventHandler(this.buttonEditSpawn_Click);
             // 
             // buttonDeleteSpawn
             // 
@@ -137,6 +139,7 @@
             this.buttonDeleteSpawn.TabIndex = 6;
             this.buttonDeleteSpawn.Text = "Delete Spawn";
             this.buttonDeleteSpawn.UseVisualStyleBackColor = true;
+            this.buttonDeleteSpawn.Click += new System.EventHandler(this.buttonDeleteSpawn_Click);
             // 
             // SpawnGroupDialog
             // 
