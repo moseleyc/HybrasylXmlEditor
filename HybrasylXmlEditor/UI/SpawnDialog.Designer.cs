@@ -121,7 +121,7 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxHasLootTable = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.checkBoxIntentHasNpc = new System.Windows.Forms.CheckBox();
-            this.checkBoxIntentPlayer = new System.Windows.Forms.CheckBox();
+            this.checkBoxIntentHasPlayer = new System.Windows.Forms.CheckBox();
             this.groupBoxIntentPlayer = new System.Windows.Forms.GroupBox();
             this.groupBoxIntentMonster = new System.Windows.Forms.GroupBox();
             this.checkBoxIntentHasMonster = new System.Windows.Forms.CheckBox();
@@ -336,6 +336,7 @@ namespace HybrasylXmlEditor.UI
             // comboBoxIntentPlayerType
             // 
             this.comboBoxIntentPlayerType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIntentPlayerType.Enabled = false;
             this.comboBoxIntentPlayerType.FormattingEnabled = true;
             this.comboBoxIntentPlayerType.Items.AddRange(new object[] {
             Hybrasyl.Creatures.IntentType.Hostile,
@@ -375,6 +376,7 @@ namespace HybrasylXmlEditor.UI
             // comboBoxIntentNpcType
             // 
             this.comboBoxIntentNpcType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIntentNpcType.Enabled = false;
             this.comboBoxIntentNpcType.FormattingEnabled = true;
             this.comboBoxIntentNpcType.Items.AddRange(new object[] {
             Hybrasyl.Creatures.IntentType.Hostile,
@@ -1092,20 +1094,22 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxIntentHasNpc.TabIndex = 21;
             this.checkBoxIntentHasNpc.Text = "Npc?";
             this.checkBoxIntentHasNpc.UseVisualStyleBackColor = true;
+            this.checkBoxIntentHasNpc.CheckedChanged += new System.EventHandler(this.checkBoxIntentHasNpc_CheckedChanged);
             // 
-            // checkBoxIntentPlayer
+            // checkBoxIntentHasPlayer
             // 
-            this.checkBoxIntentPlayer.AutoSize = true;
-            this.checkBoxIntentPlayer.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxIntentPlayer.Name = "checkBoxIntentPlayer";
-            this.checkBoxIntentPlayer.Size = new System.Drawing.Size(61, 17);
-            this.checkBoxIntentPlayer.TabIndex = 21;
-            this.checkBoxIntentPlayer.Text = "Player?";
-            this.checkBoxIntentPlayer.UseVisualStyleBackColor = true;
+            this.checkBoxIntentHasPlayer.AutoSize = true;
+            this.checkBoxIntentHasPlayer.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxIntentHasPlayer.Name = "checkBoxIntentHasPlayer";
+            this.checkBoxIntentHasPlayer.Size = new System.Drawing.Size(61, 17);
+            this.checkBoxIntentHasPlayer.TabIndex = 21;
+            this.checkBoxIntentHasPlayer.Text = "Player?";
+            this.checkBoxIntentHasPlayer.UseVisualStyleBackColor = true;
+            this.checkBoxIntentHasPlayer.CheckedChanged += new System.EventHandler(this.checkBoxIntentHasPlayer_CheckedChanged);
             // 
             // groupBoxIntentPlayer
             // 
-            this.groupBoxIntentPlayer.Controls.Add(this.checkBoxIntentPlayer);
+            this.groupBoxIntentPlayer.Controls.Add(this.checkBoxIntentHasPlayer);
             this.groupBoxIntentPlayer.Controls.Add(this.comboBoxIntentPlayerType);
             this.groupBoxIntentPlayer.Controls.Add(this.textBoxIntentPlayerValue);
             this.groupBoxIntentPlayer.Controls.Add(this.labelIntentPlayerValue);
@@ -1140,6 +1144,7 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxIntentHasMonster.TabIndex = 21;
             this.checkBoxIntentHasMonster.Text = "Monster?";
             this.checkBoxIntentHasMonster.UseVisualStyleBackColor = true;
+            this.checkBoxIntentHasMonster.CheckedChanged += new System.EventHandler(this.checkBoxIntentHasMonster_CheckedChanged);
             // 
             // labelIntentMonsterType
             // 
@@ -1153,6 +1158,7 @@ namespace HybrasylXmlEditor.UI
             // comboBoxIntentMonsterType
             // 
             this.comboBoxIntentMonsterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIntentMonsterType.Enabled = false;
             this.comboBoxIntentMonsterType.FormattingEnabled = true;
             this.comboBoxIntentMonsterType.Items.AddRange(new object[] {
             Hybrasyl.Creatures.IntentType.Hostile,
@@ -1361,6 +1367,6 @@ namespace HybrasylXmlEditor.UI
         private System.Windows.Forms.TextBox textBoxIntentMonsterValue;
         private System.Windows.Forms.CheckBox checkBoxIntentHasMonster;
         private System.Windows.Forms.GroupBox groupBoxIntentPlayer;
-        private System.Windows.Forms.CheckBox checkBoxIntentPlayer;
+        private System.Windows.Forms.CheckBox checkBoxIntentHasPlayer;
     }
 }

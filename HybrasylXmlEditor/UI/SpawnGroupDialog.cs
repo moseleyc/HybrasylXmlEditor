@@ -191,6 +191,7 @@ namespace HybrasylXmlEditor.UI
         {
             OpenFileDialog loadSpawnGroupXML = new OpenFileDialog();
             loadSpawnGroupXML.Filter = "(XML)|*.xml";
+            XmlReader reader = null;
             if (loadSpawnGroupXML.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -198,18 +199,20 @@ namespace HybrasylXmlEditor.UI
                     XmlReaderSettings settings = new XmlReaderSettings();
                     settings.IgnoreComments = true;
 
-                    XmlReader reader = XmlReader.Create(loadSpawnGroupXML.FileName, settings);
+                    reader = XmlReader.Create(loadSpawnGroupXML.FileName, settings);
                     SpawnGroup nullSpawnGroup = null;
                     var readSpawnGroup = Serializer.Deserialize(reader, nullSpawnGroup);
                     SpawnGroupVM.SetDisplaySpawnGroup(readSpawnGroup);
                     dataGridViewMaps.DataSource = SpawnGroupVM.Maps;
                     dataGridViewSpawns.DataSource = SpawnGroupVM.Spawn;
-
-                    reader.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: Problem with loading the file");
+                }
+                finally
+                {
+                    if(reader != null) reader.Close();
                 }
             }
         }

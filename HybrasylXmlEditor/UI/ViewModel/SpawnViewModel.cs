@@ -161,17 +161,34 @@ namespace HybrasylXmlEditor.UI.ViewModel
 
         public void SetDisplaySpawn(Spawn spawn)
         {
-            this.Script = spawn.Script;
             if(spawn.Script != null)
             {
+                this.Script = spawn.Script;
                 this.Script_Value = spawn.Script.Value;
                 this.Script_Type = spawn.Script.type;
             }
 
-            this.Intents = spawn.Intents;
             if(spawn.Intents != null)
             {
-
+                this.Intents = spawn.Intents;
+                if (spawn.Intents.Npc != null)
+                {
+                    this.Intents_Npc = spawn.Intents.Npc;
+                    this.Intents_Npc_Value = spawn.Intents.Npc.Value;
+                    this.Intents_Npc_Type = spawn.Intents.Npc.intent;
+                }
+                if (spawn.Intents.Player != null)
+                {
+                    this.Intents_Player = spawn.Intents.Player;
+                    this.Intents_Player_Value = spawn.Intents.Player.Value;
+                    this.Intents_Player_Type = spawn.Intents.Player.intent;
+                }
+                if (spawn.Intents.Monster != null)
+                {
+                    this.Intents_Monster = spawn.Intents.Monster;
+                    this.Intents_Monster_Value = spawn.Intents.Monster.Value;
+                    this.Intents_Monster_Type = spawn.Intents.Monster.intent;
+                }
             }
 
             this.Respawn = spawn.Respawn;
