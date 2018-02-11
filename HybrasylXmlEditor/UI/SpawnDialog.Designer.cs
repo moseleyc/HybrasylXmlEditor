@@ -37,6 +37,7 @@
             this.ClientSize = new System.Drawing.Size(540, 487);
             this.Name = "SpawnDialog";
             this.Text = "SpawnDialog";
+            this.Load += new System.EventHandler(this.SpawnDialog_Load);
             this.ResumeLayout(false);
 
         }

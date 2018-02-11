@@ -217,22 +217,51 @@ namespace HybrasylXmlEditor.UI
         private void buttonAddSpawn_Click(object sender, EventArgs e)
         {
             SpawnDialog spawnDialog = new SpawnDialog();
-            spawnDialog.SpawnVM = new Spawn();
+            spawnDialog.SpawnVM = new SpawnViewModel(new Spawn());
 
-
+            if (spawnDialog.ShowDialog() == DialogResult.OK)
+            {
+                SpawnGroupVM.Spawn.Add(spawnDialog.SpawnVM.GetDisplaySpawn());
+                dataGridViewSpawns.DataSource = SpawnGroupVM.Spawn;
+            }
+            spawnDialog.Dispose();
         }
 
         private void buttonEditSpawn_Click(object sender, EventArgs e)
         {
-
+            if(dataGridViewSpawns.CurrentRow != null)
+            {
+                int index = dataGridViewSpawns.CurrentRow.Index;
+                SpawnDialog spawnDialog = new SpawnDialog();
+                spawnDialog.SpawnVM.Spawn = SpawnGroupVM.Spawn[index];
+                if (spawnDialog.ShowDialog() == DialogResult.OK)
+                {
+                    SpawnGroupVM.Spawn.Add(spawnDialog.SpawnVM.GetDisplaySpawn());
+                    dataGridViewSpawns.DataSource = SpawnGroupVM.Spawn;
+                    SpawnGroupVM.Spawn.ResetItem(index);
+                }
+                spawnDialog.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("No rows or no row selected.");
+            }
+            
         }
 
         private void buttonDeleteSpawn_Click(object sender, EventArgs e)
         {
-            int index = dataGridViewSpawns.CurrentRow.Index;
-            SpawnGroupVM.Spawn.RemoveAt(index);
+            if (dataGridViewSpawns.CurrentRow != null)
+            {
+                int index = dataGridViewSpawns.CurrentRow.Index;
+                SpawnGroupVM.Spawn.RemoveAt(index);
 
-            dataGridViewSpawns.DataSource = SpawnGroupVM.Spawn;
+                dataGridViewSpawns.DataSource = SpawnGroupVM.Spawn;
+            }
+            else
+            {
+                MessageBox.Show("No rows or no row selected.");
+            }
         }
     }
 }

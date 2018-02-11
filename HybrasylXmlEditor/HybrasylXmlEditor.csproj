@@ -78,6 +78,7 @@
       <DependentUpon>StatusesEffectsDialog.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\ViewModel\SpawnGroupViewModel.cs" />
+    <Compile Include="UI\ViewModel\SpawnViewModel.cs" />
     <Compile Include="UI\ViewModel\StatusViewModel.cs" />
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>

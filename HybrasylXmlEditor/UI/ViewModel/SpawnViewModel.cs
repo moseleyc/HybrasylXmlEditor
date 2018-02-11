@@ -38,5 +38,20 @@ namespace HybrasylXmlEditor.UI.ViewModel
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public SpawnViewModel(Spawn spawn)
+        {
+            this.Spawn = spawn;
+        }
+
+        public Spawn GetDisplaySpawn()
+        {
+            return new Spawn();
+        }
+
+        public void SetDisplaySpawn(Spawn spawn)
+        {
+
+        }
     }
 }

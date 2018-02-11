@@ -18,6 +18,7 @@
  */
 
 using Hybrasyl.Creatures;
+using HybrasylXmlEditor.UI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,11 +33,22 @@ namespace HybrasylXmlEditor.UI
 {
     public partial class SpawnDialog : Form
     {
-        public Spawn Spawn { get; set; }
+        public SpawnViewModel SpawnVM { get; set; }
 
         public SpawnDialog()
         {
             InitializeComponent();
+        }
+
+        private void setBindings()
+        {
+
+        }
+
+        private void SpawnDialog_Load(object sender, EventArgs e)
+        {
+            SpawnVM.SetDisplaySpawn(SpawnVM.Spawn);
+            setBindings();
         }
     }
 }
