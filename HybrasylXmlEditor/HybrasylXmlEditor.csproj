@@ -57,6 +57,18 @@
     <Compile Include="UI\NpcDialog.Designer.cs">
       <DependentUpon>NpcDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\SpawnDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SpawnDialog.Designer.cs">
+      <DependentUpon>SpawnDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SpawnGroupDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\SpawnGroupDialog.Designer.cs">
+      <DependentUpon>SpawnGroupDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\ViewModel\MonsterViewModel.cs" />
     <Compile Include="UI\ViewModel\NpcViewModel.cs" />
     <Compile Include="UI\StatusesEffectsDialog.cs">
@@ -65,6 +77,7 @@
     <Compile Include="UI\StatusesEffectsDialog.Designer.cs">
       <DependentUpon>StatusesEffectsDialog.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\ViewModel\SpawnGroupViewModel.cs" />
     <Compile Include="UI\ViewModel\StatusViewModel.cs" />
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
@@ -111,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\NpcDialog.resx">
       <DependentUpon>NpcDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SpawnDialog.resx">
+      <DependentUpon>SpawnDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\SpawnGroupDialog.resx">
+      <DependentUpon>SpawnGroupDialog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\StatusesDialog.resx">
       <DependentUpon>StatusesDialog.cs</DependentUpon>
