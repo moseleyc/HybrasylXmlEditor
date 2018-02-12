@@ -49,10 +49,15 @@ namespace HybrasylXmlEditor.UI.ViewModel
         private string _intents_Monster_Value;
         private IntentType _intents_Monster_Type;
         #endregion
-
-
-
+        
         private Respawn _respawn;
+        #region Respawn Sub-Properties
+        private int _respawn_Interval;
+        private int _respawn_Min;
+        private int _respawn_Max;
+        private float _respawn_Percentage;
+        #endregion
+
         private Damage _damage;
         private Defense _defense;
         private Stats _stats;
@@ -83,6 +88,12 @@ namespace HybrasylXmlEditor.UI.ViewModel
         #endregion
 
         public Respawn Respawn { get { return _respawn; } set { _respawn = value; OnPropertyChanged(); } }
+        #region Respawn Sub-Properties
+        public int Respawn_Interval { get { return _respawn_Interval; } set { _respawn_Interval = value; OnPropertyChanged(); } }
+        public int Respawn_Min { get { return _respawn_Min; } set { _respawn_Min = value; OnPropertyChanged(); } }
+        public int Respawn_Max { get { return _respawn_Max; } set { _respawn_Max = value; OnPropertyChanged(); } }
+        public float Respawn_Percentage { get { return _respawn_Percentage; } set { _respawn_Percentage = value; OnPropertyChanged(); } }
+        #endregion
 
         public Damage Damage { get { return _damage; } set { _damage = value; OnPropertyChanged(); } }
 
@@ -144,6 +155,12 @@ namespace HybrasylXmlEditor.UI.ViewModel
                 }
             }
 
+            newSpawn.Respawn = this.Respawn;
+            newSpawn.Respawn.Interval = this.Respawn_Interval;
+            newSpawn.Respawn.Min = this.Respawn_Min;
+            newSpawn.Respawn.Max = this.Respawn_Max;
+            newSpawn.Respawn.Percentage = this.Respawn_Percentage;
+
             //if(this.Damage_Element.Count > 0)
             //{
             //    newSpawn.Damage.Element = this.Damage_Element.ToList();
@@ -192,6 +209,10 @@ namespace HybrasylXmlEditor.UI.ViewModel
             }
 
             this.Respawn = spawn.Respawn;
+            this.Respawn_Interval = spawn.Respawn.Interval;
+            this.Respawn_Min = spawn.Respawn.Min;
+            this.Respawn_Max = spawn.Respawn.Max;
+            this.Respawn_Interval = spawn.Respawn.Interval;
 
             this.Damage = spawn.Damage;
 

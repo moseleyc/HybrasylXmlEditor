@@ -56,6 +56,11 @@ namespace HybrasylXmlEditor.UI
 
             textBoxIntentMonsterValue.DataBindings.Add("Text", SpawnVM, "Intents_Monster_Value");
             comboBoxIntentMonsterType.DataBindings.Add("SelectedItem", SpawnVM, "Intents_Monster_Type");
+
+            numericRespawnInterval.DataBindings.Add("Value", SpawnVM, "Respawn_Interval");
+            numericRespawnMin.DataBindings.Add("Value", SpawnVM, "Respawn_Min");
+            numericRespawnMax.DataBindings.Add("Value", SpawnVM, "Respawn_Max");
+            numericRespawnPercentage.DataBindings.Add("Value", SpawnVM, "Respawn_Percentage");
         }
 
         private void SpawnDialog_Load(object sender, EventArgs e)
