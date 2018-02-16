@@ -61,6 +61,19 @@ namespace HybrasylXmlEditor.UI
             numericRespawnMin.DataBindings.Add("Value", SpawnVM, "Respawn_Min");
             numericRespawnMax.DataBindings.Add("Value", SpawnVM, "Respawn_Max");
             numericRespawnPercentage.DataBindings.Add("Value", SpawnVM, "Respawn_Percentage");
+
+            numericDamageMin.DataBindings.Add("Value", SpawnVM, "Damage_Min");
+            numericDamageMax.DataBindings.Add("Value", SpawnVM, "Damage_Max");
+            //listBoxDamageElements.DataBindings.Add("SelectedItem", SpawnVM, "Damage_Elements"); //Enum List
+            comboBoxDamageType.DataBindings.Add("SelectedItem", SpawnVM, "Damage_Type"); 
+            numericDamageDmg.DataBindings.Add("Value", SpawnVM, "Damage_Dmg");
+            numericDamageHit.DataBindings.Add("Value", SpawnVM, "Damage_Hit");
+
+            numericDefenseMr.DataBindings.Add("Value", SpawnVM, "Defense_Mr");
+            numericDefenseAc.DataBindings.Add("Value", SpawnVM, "Defense_Ac");
+            //
+            numericDefenseRegen.DataBindings.Add("Value", SpawnVM, "Defense_Regen");
+
         }
 
         private void SpawnDialog_Load(object sender, EventArgs e)
@@ -87,10 +100,30 @@ namespace HybrasylXmlEditor.UI
                     checkBoxIntentHasMonster.Checked = true;
                 }
             }
+
+            //Select the elements in the multi-select listbox for Damage
+            for (int i = 0; i < listBoxDamageElements.Items.Count; i++)
+            {
+                if (SpawnVM.Damage_Elements.Contains((Element)listBoxDamageElements.Items[i]))
+                {
+                    listBoxDamageElements.SetSelected(i, true);
+                }
+            }
+
+            //Select the elements in the multi-select listbox for Defense
+            for (int i = 0; i < listBoxDefenseElements.Items.Count; i++)
+            {
+                if (SpawnVM.Defense_Elements.Contains((Element)listBoxDefenseElements.Items[i]))
+                {
+                    listBoxDefenseElements.SetSelected(i, true);
+                }
+            }
         }
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            SpawnVM.Damage_Elements = new BindingList<Element>(listBoxDamageElements.SelectedItems.Cast<Element>().ToList());
+            SpawnVM.Defense_Elements = new BindingList<Element>(listBoxDefenseElements.SelectedItems.Cast<Element>().ToList());
             this.DialogResult = DialogResult.OK;
         }
 

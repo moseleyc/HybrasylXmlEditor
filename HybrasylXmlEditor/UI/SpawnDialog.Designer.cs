@@ -44,14 +44,25 @@ namespace HybrasylXmlEditor.UI
             this.labelValue = new System.Windows.Forms.Label();
             this.textBoxScriptValue = new System.Windows.Forms.TextBox();
             this.groupBoxIntents = new System.Windows.Forms.GroupBox();
-            this.labelIntentPlayerType = new System.Windows.Forms.Label();
+            this.groupBoxIntentMonster = new System.Windows.Forms.GroupBox();
+            this.labelIntentMonsterType = new System.Windows.Forms.Label();
+            this.comboBoxIntentMonsterType = new System.Windows.Forms.ComboBox();
+            this.labelIntentMonsterValue = new System.Windows.Forms.Label();
+            this.textBoxIntentMonsterValue = new System.Windows.Forms.TextBox();
+            this.checkBoxIntentHasMonster = new System.Windows.Forms.CheckBox();
+            this.groupBoxIntentPlayer = new System.Windows.Forms.GroupBox();
+            this.checkBoxIntentHasPlayer = new System.Windows.Forms.CheckBox();
             this.comboBoxIntentPlayerType = new System.Windows.Forms.ComboBox();
-            this.labelIntentPlayerValue = new System.Windows.Forms.Label();
             this.textBoxIntentPlayerValue = new System.Windows.Forms.TextBox();
-            this.labelIntentNpcType = new System.Windows.Forms.Label();
+            this.labelIntentPlayerValue = new System.Windows.Forms.Label();
+            this.labelIntentPlayerType = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBoxIntentHasNpc = new System.Windows.Forms.CheckBox();
             this.comboBoxIntentNpcType = new System.Windows.Forms.ComboBox();
-            this.labelIntentNpcValue = new System.Windows.Forms.Label();
             this.textBoxIntentNpcValue = new System.Windows.Forms.TextBox();
+            this.labelIntentNpcValue = new System.Windows.Forms.Label();
+            this.labelIntentNpcType = new System.Windows.Forms.Label();
+            this.checkBoxHasIntents = new System.Windows.Forms.CheckBox();
             this.groupBoxRespawn = new System.Windows.Forms.GroupBox();
             this.labelRespawnMax = new System.Windows.Forms.Label();
             this.numericRespawnMax = new System.Windows.Forms.NumericUpDown();
@@ -76,11 +87,11 @@ namespace HybrasylXmlEditor.UI
             this.numericDamageMax = new System.Windows.Forms.NumericUpDown();
             this.groupBoxDefense = new System.Windows.Forms.GroupBox();
             this.labelDefenseRegen = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericDefenseRegen = new System.Windows.Forms.NumericUpDown();
             this.labelDefenseMr = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericDefenseMr = new System.Windows.Forms.NumericUpDown();
             this.labelDefenseAc = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericDefenseAc = new System.Windows.Forms.NumericUpDown();
             this.labelDefenseElements = new System.Windows.Forms.Label();
             this.listBoxDefenseElements = new System.Windows.Forms.ListBox();
             this.groupBoxStats = new System.Windows.Forms.GroupBox();
@@ -101,38 +112,30 @@ namespace HybrasylXmlEditor.UI
             this.labelStatsMp = new System.Windows.Forms.Label();
             this.numericStatsMp = new System.Windows.Forms.NumericUpDown();
             this.groupBoxLootList = new System.Windows.Forms.GroupBox();
-            this.groupBoxCastables = new System.Windows.Forms.GroupBox();
-            this.dataGridViewCastables = new System.Windows.Forms.DataGridView();
-            this.dataGridViewLootImport = new System.Windows.Forms.DataGridView();
-            this.groupBoxLootXP = new System.Windows.Forms.GroupBox();
+            this.checkBoxHasLootTable = new System.Windows.Forms.CheckBox();
+            this.checkBoxHasLootImport = new System.Windows.Forms.CheckBox();
+            this.labelLootImport = new System.Windows.Forms.Label();
             this.groupBoxLootGold = new System.Windows.Forms.GroupBox();
-            this.labelLootXpMax = new System.Windows.Forms.Label();
-            this.numericLootXpMax = new System.Windows.Forms.NumericUpDown();
-            this.labelLootXpMin = new System.Windows.Forms.Label();
-            this.numericLootXpMin = new System.Windows.Forms.NumericUpDown();
             this.labelLootGoldMax = new System.Windows.Forms.Label();
             this.numericLootGoldMax = new System.Windows.Forms.NumericUpDown();
             this.labelLootGoldMin = new System.Windows.Forms.Label();
             this.numericLootGoldMin = new System.Windows.Forms.NumericUpDown();
-            this.labelLootImport = new System.Windows.Forms.Label();
-            this.checkBoxHasIntents = new System.Windows.Forms.CheckBox();
+            this.groupBoxLootXP = new System.Windows.Forms.GroupBox();
+            this.labelLootXpMax = new System.Windows.Forms.Label();
+            this.numericLootXpMin = new System.Windows.Forms.NumericUpDown();
+            this.numericLootXpMax = new System.Windows.Forms.NumericUpDown();
+            this.labelLootXpMin = new System.Windows.Forms.Label();
+            this.dataGridViewLootImport = new System.Windows.Forms.DataGridView();
+            this.groupBoxCastables = new System.Windows.Forms.GroupBox();
             this.checkBoxHasCastables = new System.Windows.Forms.CheckBox();
-            this.checkBoxHasLootImport = new System.Windows.Forms.CheckBox();
-            this.checkBoxHasLootTable = new System.Windows.Forms.CheckBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.checkBoxIntentHasNpc = new System.Windows.Forms.CheckBox();
-            this.checkBoxIntentHasPlayer = new System.Windows.Forms.CheckBox();
-            this.groupBoxIntentPlayer = new System.Windows.Forms.GroupBox();
-            this.groupBoxIntentMonster = new System.Windows.Forms.GroupBox();
-            this.checkBoxIntentHasMonster = new System.Windows.Forms.CheckBox();
-            this.labelIntentMonsterType = new System.Windows.Forms.Label();
-            this.comboBoxIntentMonsterType = new System.Windows.Forms.ComboBox();
-            this.labelIntentMonsterValue = new System.Windows.Forms.Label();
-            this.textBoxIntentMonsterValue = new System.Windows.Forms.TextBox();
+            this.dataGridViewCastables = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.numericVariance)).BeginInit();
             this.groupBoxAttributes.SuspendLayout();
             this.groupBoxScript.SuspendLayout();
             this.groupBoxIntents.SuspendLayout();
+            this.groupBoxIntentMonster.SuspendLayout();
+            this.groupBoxIntentPlayer.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBoxRespawn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRespawnMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericRespawnMin)).BeginInit();
@@ -144,9 +147,9 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.numericDamageMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDamageMax)).BeginInit();
             this.groupBoxDefense.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefenseRegen)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefenseMr)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefenseAc)).BeginInit();
             this.groupBoxStats.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericStatsDex)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericStatsCon)).BeginInit();
@@ -157,18 +160,15 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.numericStatsHp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericStatsMp)).BeginInit();
             this.groupBoxLootList.SuspendLayout();
-            this.groupBoxCastables.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCastables)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootImport)).BeginInit();
-            this.groupBoxLootXP.SuspendLayout();
             this.groupBoxLootGold.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMax)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMin)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBoxIntentPlayer.SuspendLayout();
-            this.groupBoxIntentMonster.SuspendLayout();
+            this.groupBoxLootXP.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMax)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootImport)).BeginInit();
+            this.groupBoxCastables.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCastables)).BeginInit();
             this.SuspendLayout();
             // 
             // labelBase
@@ -324,14 +324,95 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxIntents.TabStop = false;
             this.groupBoxIntents.Text = "Intents";
             // 
-            // labelIntentPlayerType
+            // groupBoxIntentMonster
             // 
-            this.labelIntentPlayerType.AutoSize = true;
-            this.labelIntentPlayerType.Location = new System.Drawing.Point(239, 20);
-            this.labelIntentPlayerType.Name = "labelIntentPlayerType";
-            this.labelIntentPlayerType.Size = new System.Drawing.Size(34, 13);
-            this.labelIntentPlayerType.TabIndex = 15;
-            this.labelIntentPlayerType.Text = "Type:";
+            this.groupBoxIntentMonster.Controls.Add(this.labelIntentMonsterType);
+            this.groupBoxIntentMonster.Controls.Add(this.comboBoxIntentMonsterType);
+            this.groupBoxIntentMonster.Controls.Add(this.labelIntentMonsterValue);
+            this.groupBoxIntentMonster.Controls.Add(this.textBoxIntentMonsterValue);
+            this.groupBoxIntentMonster.Controls.Add(this.checkBoxIntentHasMonster);
+            this.groupBoxIntentMonster.Location = new System.Drawing.Point(9, 147);
+            this.groupBoxIntentMonster.Name = "groupBoxIntentMonster";
+            this.groupBoxIntentMonster.Size = new System.Drawing.Size(411, 55);
+            this.groupBoxIntentMonster.TabIndex = 23;
+            this.groupBoxIntentMonster.TabStop = false;
+            this.groupBoxIntentMonster.Text = "Monster";
+            // 
+            // labelIntentMonsterType
+            // 
+            this.labelIntentMonsterType.AutoSize = true;
+            this.labelIntentMonsterType.Location = new System.Drawing.Point(239, 20);
+            this.labelIntentMonsterType.Name = "labelIntentMonsterType";
+            this.labelIntentMonsterType.Size = new System.Drawing.Size(34, 13);
+            this.labelIntentMonsterType.TabIndex = 25;
+            this.labelIntentMonsterType.Text = "Type:";
+            // 
+            // comboBoxIntentMonsterType
+            // 
+            this.comboBoxIntentMonsterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxIntentMonsterType.Enabled = false;
+            this.comboBoxIntentMonsterType.FormattingEnabled = true;
+            this.comboBoxIntentMonsterType.Items.AddRange(new object[] {
+            Hybrasyl.Creatures.IntentType.Hostile,
+            Hybrasyl.Creatures.IntentType.Passive,
+            Hybrasyl.Creatures.IntentType.Neutral});
+            this.comboBoxIntentMonsterType.Location = new System.Drawing.Point(282, 17);
+            this.comboBoxIntentMonsterType.Name = "comboBoxIntentMonsterType";
+            this.comboBoxIntentMonsterType.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxIntentMonsterType.TabIndex = 24;
+            // 
+            // labelIntentMonsterValue
+            // 
+            this.labelIntentMonsterValue.AutoSize = true;
+            this.labelIntentMonsterValue.Location = new System.Drawing.Point(76, 21);
+            this.labelIntentMonsterValue.Name = "labelIntentMonsterValue";
+            this.labelIntentMonsterValue.Size = new System.Drawing.Size(37, 13);
+            this.labelIntentMonsterValue.TabIndex = 22;
+            this.labelIntentMonsterValue.Text = "Value:";
+            // 
+            // textBoxIntentMonsterValue
+            // 
+            this.textBoxIntentMonsterValue.Location = new System.Drawing.Point(119, 18);
+            this.textBoxIntentMonsterValue.Name = "textBoxIntentMonsterValue";
+            this.textBoxIntentMonsterValue.ReadOnly = true;
+            this.textBoxIntentMonsterValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIntentMonsterValue.TabIndex = 23;
+            // 
+            // checkBoxIntentHasMonster
+            // 
+            this.checkBoxIntentHasMonster.AutoSize = true;
+            this.checkBoxIntentHasMonster.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxIntentHasMonster.Name = "checkBoxIntentHasMonster";
+            this.checkBoxIntentHasMonster.Size = new System.Drawing.Size(70, 17);
+            this.checkBoxIntentHasMonster.TabIndex = 21;
+            this.checkBoxIntentHasMonster.Text = "Monster?";
+            this.checkBoxIntentHasMonster.UseVisualStyleBackColor = true;
+            this.checkBoxIntentHasMonster.CheckedChanged += new System.EventHandler(this.checkBoxIntentHasMonster_CheckedChanged);
+            // 
+            // groupBoxIntentPlayer
+            // 
+            this.groupBoxIntentPlayer.Controls.Add(this.checkBoxIntentHasPlayer);
+            this.groupBoxIntentPlayer.Controls.Add(this.comboBoxIntentPlayerType);
+            this.groupBoxIntentPlayer.Controls.Add(this.textBoxIntentPlayerValue);
+            this.groupBoxIntentPlayer.Controls.Add(this.labelIntentPlayerValue);
+            this.groupBoxIntentPlayer.Controls.Add(this.labelIntentPlayerType);
+            this.groupBoxIntentPlayer.Location = new System.Drawing.Point(9, 93);
+            this.groupBoxIntentPlayer.Name = "groupBoxIntentPlayer";
+            this.groupBoxIntentPlayer.Size = new System.Drawing.Size(411, 48);
+            this.groupBoxIntentPlayer.TabIndex = 22;
+            this.groupBoxIntentPlayer.TabStop = false;
+            this.groupBoxIntentPlayer.Text = "Player";
+            // 
+            // checkBoxIntentHasPlayer
+            // 
+            this.checkBoxIntentHasPlayer.AutoSize = true;
+            this.checkBoxIntentHasPlayer.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxIntentHasPlayer.Name = "checkBoxIntentHasPlayer";
+            this.checkBoxIntentHasPlayer.Size = new System.Drawing.Size(61, 17);
+            this.checkBoxIntentHasPlayer.TabIndex = 21;
+            this.checkBoxIntentHasPlayer.Text = "Player?";
+            this.checkBoxIntentHasPlayer.UseVisualStyleBackColor = true;
+            this.checkBoxIntentHasPlayer.CheckedChanged += new System.EventHandler(this.checkBoxIntentHasPlayer_CheckedChanged);
             // 
             // comboBoxIntentPlayerType
             // 
@@ -347,6 +428,14 @@ namespace HybrasylXmlEditor.UI
             this.comboBoxIntentPlayerType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxIntentPlayerType.TabIndex = 14;
             // 
+            // textBoxIntentPlayerValue
+            // 
+            this.textBoxIntentPlayerValue.Location = new System.Drawing.Point(119, 18);
+            this.textBoxIntentPlayerValue.Name = "textBoxIntentPlayerValue";
+            this.textBoxIntentPlayerValue.ReadOnly = true;
+            this.textBoxIntentPlayerValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIntentPlayerValue.TabIndex = 13;
+            // 
             // labelIntentPlayerValue
             // 
             this.labelIntentPlayerValue.AutoSize = true;
@@ -356,22 +445,39 @@ namespace HybrasylXmlEditor.UI
             this.labelIntentPlayerValue.TabIndex = 12;
             this.labelIntentPlayerValue.Text = "Value:";
             // 
-            // textBoxIntentPlayerValue
+            // labelIntentPlayerType
             // 
-            this.textBoxIntentPlayerValue.Location = new System.Drawing.Point(119, 18);
-            this.textBoxIntentPlayerValue.Name = "textBoxIntentPlayerValue";
-            this.textBoxIntentPlayerValue.ReadOnly = true;
-            this.textBoxIntentPlayerValue.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIntentPlayerValue.TabIndex = 13;
+            this.labelIntentPlayerType.AutoSize = true;
+            this.labelIntentPlayerType.Location = new System.Drawing.Point(239, 20);
+            this.labelIntentPlayerType.Name = "labelIntentPlayerType";
+            this.labelIntentPlayerType.Size = new System.Drawing.Size(34, 13);
+            this.labelIntentPlayerType.TabIndex = 15;
+            this.labelIntentPlayerType.Text = "Type:";
             // 
-            // labelIntentNpcType
+            // groupBox1
             // 
-            this.labelIntentNpcType.AutoSize = true;
-            this.labelIntentNpcType.Location = new System.Drawing.Point(241, 20);
-            this.labelIntentNpcType.Name = "labelIntentNpcType";
-            this.labelIntentNpcType.Size = new System.Drawing.Size(34, 13);
-            this.labelIntentNpcType.TabIndex = 11;
-            this.labelIntentNpcType.Text = "Type:";
+            this.groupBox1.Controls.Add(this.checkBoxIntentHasNpc);
+            this.groupBox1.Controls.Add(this.comboBoxIntentNpcType);
+            this.groupBox1.Controls.Add(this.textBoxIntentNpcValue);
+            this.groupBox1.Controls.Add(this.labelIntentNpcValue);
+            this.groupBox1.Controls.Add(this.labelIntentNpcType);
+            this.groupBox1.Location = new System.Drawing.Point(7, 39);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(411, 48);
+            this.groupBox1.TabIndex = 21;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Npc";
+            // 
+            // checkBoxIntentHasNpc
+            // 
+            this.checkBoxIntentHasNpc.AutoSize = true;
+            this.checkBoxIntentHasNpc.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxIntentHasNpc.Name = "checkBoxIntentHasNpc";
+            this.checkBoxIntentHasNpc.Size = new System.Drawing.Size(52, 17);
+            this.checkBoxIntentHasNpc.TabIndex = 21;
+            this.checkBoxIntentHasNpc.Text = "Npc?";
+            this.checkBoxIntentHasNpc.UseVisualStyleBackColor = true;
+            this.checkBoxIntentHasNpc.CheckedChanged += new System.EventHandler(this.checkBoxIntentHasNpc_CheckedChanged);
             // 
             // comboBoxIntentNpcType
             // 
@@ -387,6 +493,14 @@ namespace HybrasylXmlEditor.UI
             this.comboBoxIntentNpcType.Size = new System.Drawing.Size(121, 21);
             this.comboBoxIntentNpcType.TabIndex = 10;
             // 
+            // textBoxIntentNpcValue
+            // 
+            this.textBoxIntentNpcValue.Location = new System.Drawing.Point(121, 18);
+            this.textBoxIntentNpcValue.Name = "textBoxIntentNpcValue";
+            this.textBoxIntentNpcValue.ReadOnly = true;
+            this.textBoxIntentNpcValue.Size = new System.Drawing.Size(100, 20);
+            this.textBoxIntentNpcValue.TabIndex = 9;
+            // 
             // labelIntentNpcValue
             // 
             this.labelIntentNpcValue.AutoSize = true;
@@ -396,13 +510,25 @@ namespace HybrasylXmlEditor.UI
             this.labelIntentNpcValue.TabIndex = 8;
             this.labelIntentNpcValue.Text = "Value:";
             // 
-            // textBoxIntentNpcValue
+            // labelIntentNpcType
             // 
-            this.textBoxIntentNpcValue.Location = new System.Drawing.Point(121, 18);
-            this.textBoxIntentNpcValue.Name = "textBoxIntentNpcValue";
-            this.textBoxIntentNpcValue.ReadOnly = true;
-            this.textBoxIntentNpcValue.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIntentNpcValue.TabIndex = 9;
+            this.labelIntentNpcType.AutoSize = true;
+            this.labelIntentNpcType.Location = new System.Drawing.Point(241, 20);
+            this.labelIntentNpcType.Name = "labelIntentNpcType";
+            this.labelIntentNpcType.Size = new System.Drawing.Size(34, 13);
+            this.labelIntentNpcType.TabIndex = 11;
+            this.labelIntentNpcType.Text = "Type:";
+            // 
+            // checkBoxHasIntents
+            // 
+            this.checkBoxHasIntents.AutoSize = true;
+            this.checkBoxHasIntents.Location = new System.Drawing.Point(9, 19);
+            this.checkBoxHasIntents.Name = "checkBoxHasIntents";
+            this.checkBoxHasIntents.Size = new System.Drawing.Size(86, 17);
+            this.checkBoxHasIntents.TabIndex = 20;
+            this.checkBoxHasIntents.Text = "Has Intents?";
+            this.checkBoxHasIntents.UseVisualStyleBackColor = true;
+            this.checkBoxHasIntents.CheckedChanged += new System.EventHandler(this.checkBoxHasIntents_CheckedChanged);
             // 
             // groupBoxRespawn
             // 
@@ -563,8 +689,10 @@ namespace HybrasylXmlEditor.UI
             this.comboBoxDamageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDamageType.FormattingEnabled = true;
             this.comboBoxDamageType.Items.AddRange(new object[] {
-            Hybrasyl.Creatures.ScriptType.Override,
-            Hybrasyl.Creatures.ScriptType.Supplement});
+            Hybrasyl.Creatures.DamageType.Direct,
+            Hybrasyl.Creatures.DamageType.Physical,
+            Hybrasyl.Creatures.DamageType.Magical,
+            Hybrasyl.Creatures.DamageType.Elemental});
             this.comboBoxDamageType.Location = new System.Drawing.Point(70, 128);
             this.comboBoxDamageType.Name = "comboBoxDamageType";
             this.comboBoxDamageType.Size = new System.Drawing.Size(120, 21);
@@ -637,11 +765,11 @@ namespace HybrasylXmlEditor.UI
             // groupBoxDefense
             // 
             this.groupBoxDefense.Controls.Add(this.labelDefenseRegen);
-            this.groupBoxDefense.Controls.Add(this.numericUpDown1);
+            this.groupBoxDefense.Controls.Add(this.numericDefenseRegen);
             this.groupBoxDefense.Controls.Add(this.labelDefenseMr);
-            this.groupBoxDefense.Controls.Add(this.numericUpDown2);
+            this.groupBoxDefense.Controls.Add(this.numericDefenseMr);
             this.groupBoxDefense.Controls.Add(this.labelDefenseAc);
-            this.groupBoxDefense.Controls.Add(this.numericUpDown3);
+            this.groupBoxDefense.Controls.Add(this.numericDefenseAc);
             this.groupBoxDefense.Controls.Add(this.labelDefenseElements);
             this.groupBoxDefense.Controls.Add(this.listBoxDefenseElements);
             this.groupBoxDefense.Location = new System.Drawing.Point(6, 661);
@@ -660,12 +788,12 @@ namespace HybrasylXmlEditor.UI
             this.labelDefenseRegen.TabIndex = 24;
             this.labelDefenseRegen.Text = "Regen:";
             // 
-            // numericUpDown1
+            // numericDefenseRegen
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(70, 69);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown1.TabIndex = 25;
+            this.numericDefenseRegen.Location = new System.Drawing.Point(70, 69);
+            this.numericDefenseRegen.Name = "numericDefenseRegen";
+            this.numericDefenseRegen.Size = new System.Drawing.Size(120, 20);
+            this.numericDefenseRegen.TabIndex = 25;
             // 
             // labelDefenseMr
             // 
@@ -676,12 +804,12 @@ namespace HybrasylXmlEditor.UI
             this.labelDefenseMr.TabIndex = 22;
             this.labelDefenseMr.Text = "Mr:";
             // 
-            // numericUpDown2
+            // numericDefenseMr
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(70, 17);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown2.TabIndex = 23;
+            this.numericDefenseMr.Location = new System.Drawing.Point(70, 17);
+            this.numericDefenseMr.Name = "numericDefenseMr";
+            this.numericDefenseMr.Size = new System.Drawing.Size(120, 20);
+            this.numericDefenseMr.TabIndex = 23;
             // 
             // labelDefenseAc
             // 
@@ -692,12 +820,12 @@ namespace HybrasylXmlEditor.UI
             this.labelDefenseAc.TabIndex = 20;
             this.labelDefenseAc.Text = "Ac:";
             // 
-            // numericUpDown3
+            // numericDefenseAc
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(70, 43);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(120, 20);
-            this.numericUpDown3.TabIndex = 21;
+            this.numericDefenseAc.Location = new System.Drawing.Point(70, 43);
+            this.numericDefenseAc.Name = "numericDefenseAc";
+            this.numericDefenseAc.Size = new System.Drawing.Size(120, 20);
+            this.numericDefenseAc.TabIndex = 21;
             // 
             // labelDefenseElements
             // 
@@ -899,47 +1027,36 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxLootList.TabStop = false;
             this.groupBoxLootList.Text = "Loot List";
             // 
-            // groupBoxCastables
+            // checkBoxHasLootTable
             // 
-            this.groupBoxCastables.Controls.Add(this.checkBoxHasCastables);
-            this.groupBoxCastables.Controls.Add(this.dataGridViewCastables);
-            this.groupBoxCastables.Location = new System.Drawing.Point(443, 549);
-            this.groupBoxCastables.Name = "groupBoxCastables";
-            this.groupBoxCastables.Size = new System.Drawing.Size(386, 154);
-            this.groupBoxCastables.TabIndex = 8;
-            this.groupBoxCastables.TabStop = false;
-            this.groupBoxCastables.Text = "Castables";
+            this.checkBoxHasLootTable.AutoSize = true;
+            this.checkBoxHasLootTable.Location = new System.Drawing.Point(6, 246);
+            this.checkBoxHasLootTable.Name = "checkBoxHasLootTable";
+            this.checkBoxHasLootTable.Size = new System.Drawing.Size(105, 17);
+            this.checkBoxHasLootTable.TabIndex = 32;
+            this.checkBoxHasLootTable.Text = "Has Loot Table?";
+            this.checkBoxHasLootTable.UseVisualStyleBackColor = true;
+            this.checkBoxHasLootTable.CheckedChanged += new System.EventHandler(this.checkBoxHasLootTable_CheckedChanged);
             // 
-            // dataGridViewCastables
+            // checkBoxHasLootImport
             // 
-            this.dataGridViewCastables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCastables.Location = new System.Drawing.Point(6, 58);
-            this.dataGridViewCastables.Name = "dataGridViewCastables";
-            this.dataGridViewCastables.ReadOnly = true;
-            this.dataGridViewCastables.Size = new System.Drawing.Size(373, 84);
-            this.dataGridViewCastables.TabIndex = 0;
+            this.checkBoxHasLootImport.AutoSize = true;
+            this.checkBoxHasLootImport.Location = new System.Drawing.Point(6, 124);
+            this.checkBoxHasLootImport.Name = "checkBoxHasLootImport";
+            this.checkBoxHasLootImport.Size = new System.Drawing.Size(107, 17);
+            this.checkBoxHasLootImport.TabIndex = 31;
+            this.checkBoxHasLootImport.Text = "Has Loot Import?";
+            this.checkBoxHasLootImport.UseVisualStyleBackColor = true;
+            this.checkBoxHasLootImport.CheckedChanged += new System.EventHandler(this.checkBoxHasLootImport_CheckedChanged);
             // 
-            // dataGridViewLootImport
+            // labelLootImport
             // 
-            this.dataGridViewLootImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLootImport.Location = new System.Drawing.Point(6, 160);
-            this.dataGridViewLootImport.Name = "dataGridViewLootImport";
-            this.dataGridViewLootImport.ReadOnly = true;
-            this.dataGridViewLootImport.Size = new System.Drawing.Size(374, 80);
-            this.dataGridViewLootImport.TabIndex = 0;
-            // 
-            // groupBoxLootXP
-            // 
-            this.groupBoxLootXP.Controls.Add(this.labelLootXpMax);
-            this.groupBoxLootXP.Controls.Add(this.numericLootXpMin);
-            this.groupBoxLootXP.Controls.Add(this.numericLootXpMax);
-            this.groupBoxLootXP.Controls.Add(this.labelLootXpMin);
-            this.groupBoxLootXP.Location = new System.Drawing.Point(7, 20);
-            this.groupBoxLootXP.Name = "groupBoxLootXP";
-            this.groupBoxLootXP.Size = new System.Drawing.Size(373, 46);
-            this.groupBoxLootXP.TabIndex = 1;
-            this.groupBoxLootXP.TabStop = false;
-            this.groupBoxLootXP.Text = "XP";
+            this.labelLootImport.AutoSize = true;
+            this.labelLootImport.Location = new System.Drawing.Point(6, 144);
+            this.labelLootImport.Name = "labelLootImport";
+            this.labelLootImport.Size = new System.Drawing.Size(63, 13);
+            this.labelLootImport.TabIndex = 30;
+            this.labelLootImport.Text = "Loot Import:";
             // 
             // groupBoxLootGold
             // 
@@ -953,38 +1070,6 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxLootGold.TabIndex = 2;
             this.groupBoxLootGold.TabStop = false;
             this.groupBoxLootGold.Text = "Gold";
-            // 
-            // labelLootXpMax
-            // 
-            this.labelLootXpMax.AutoSize = true;
-            this.labelLootXpMax.Location = new System.Drawing.Point(201, 21);
-            this.labelLootXpMax.Name = "labelLootXpMax";
-            this.labelLootXpMax.Size = new System.Drawing.Size(30, 13);
-            this.labelLootXpMax.TabIndex = 32;
-            this.labelLootXpMax.Text = "Max:";
-            // 
-            // numericLootXpMax
-            // 
-            this.numericLootXpMax.Location = new System.Drawing.Point(237, 19);
-            this.numericLootXpMax.Name = "numericLootXpMax";
-            this.numericLootXpMax.Size = new System.Drawing.Size(120, 20);
-            this.numericLootXpMax.TabIndex = 33;
-            // 
-            // labelLootXpMin
-            // 
-            this.labelLootXpMin.AutoSize = true;
-            this.labelLootXpMin.Location = new System.Drawing.Point(9, 21);
-            this.labelLootXpMin.Name = "labelLootXpMin";
-            this.labelLootXpMin.Size = new System.Drawing.Size(27, 13);
-            this.labelLootXpMin.TabIndex = 30;
-            this.labelLootXpMin.Text = "Min:";
-            // 
-            // numericLootXpMin
-            // 
-            this.numericLootXpMin.Location = new System.Drawing.Point(42, 19);
-            this.numericLootXpMin.Name = "numericLootXpMin";
-            this.numericLootXpMin.Size = new System.Drawing.Size(120, 20);
-            this.numericLootXpMin.TabIndex = 31;
             // 
             // labelLootGoldMax
             // 
@@ -1018,25 +1103,70 @@ namespace HybrasylXmlEditor.UI
             this.numericLootGoldMin.Size = new System.Drawing.Size(120, 20);
             this.numericLootGoldMin.TabIndex = 27;
             // 
-            // labelLootImport
+            // groupBoxLootXP
             // 
-            this.labelLootImport.AutoSize = true;
-            this.labelLootImport.Location = new System.Drawing.Point(6, 144);
-            this.labelLootImport.Name = "labelLootImport";
-            this.labelLootImport.Size = new System.Drawing.Size(63, 13);
-            this.labelLootImport.TabIndex = 30;
-            this.labelLootImport.Text = "Loot Import:";
+            this.groupBoxLootXP.Controls.Add(this.labelLootXpMax);
+            this.groupBoxLootXP.Controls.Add(this.numericLootXpMin);
+            this.groupBoxLootXP.Controls.Add(this.numericLootXpMax);
+            this.groupBoxLootXP.Controls.Add(this.labelLootXpMin);
+            this.groupBoxLootXP.Location = new System.Drawing.Point(7, 20);
+            this.groupBoxLootXP.Name = "groupBoxLootXP";
+            this.groupBoxLootXP.Size = new System.Drawing.Size(373, 46);
+            this.groupBoxLootXP.TabIndex = 1;
+            this.groupBoxLootXP.TabStop = false;
+            this.groupBoxLootXP.Text = "XP";
             // 
-            // checkBoxHasIntents
+            // labelLootXpMax
             // 
-            this.checkBoxHasIntents.AutoSize = true;
-            this.checkBoxHasIntents.Location = new System.Drawing.Point(9, 19);
-            this.checkBoxHasIntents.Name = "checkBoxHasIntents";
-            this.checkBoxHasIntents.Size = new System.Drawing.Size(86, 17);
-            this.checkBoxHasIntents.TabIndex = 20;
-            this.checkBoxHasIntents.Text = "Has Intents?";
-            this.checkBoxHasIntents.UseVisualStyleBackColor = true;
-            this.checkBoxHasIntents.CheckedChanged += new System.EventHandler(this.checkBoxHasIntents_CheckedChanged);
+            this.labelLootXpMax.AutoSize = true;
+            this.labelLootXpMax.Location = new System.Drawing.Point(201, 21);
+            this.labelLootXpMax.Name = "labelLootXpMax";
+            this.labelLootXpMax.Size = new System.Drawing.Size(30, 13);
+            this.labelLootXpMax.TabIndex = 32;
+            this.labelLootXpMax.Text = "Max:";
+            // 
+            // numericLootXpMin
+            // 
+            this.numericLootXpMin.Location = new System.Drawing.Point(42, 19);
+            this.numericLootXpMin.Name = "numericLootXpMin";
+            this.numericLootXpMin.Size = new System.Drawing.Size(120, 20);
+            this.numericLootXpMin.TabIndex = 31;
+            // 
+            // numericLootXpMax
+            // 
+            this.numericLootXpMax.Location = new System.Drawing.Point(237, 19);
+            this.numericLootXpMax.Name = "numericLootXpMax";
+            this.numericLootXpMax.Size = new System.Drawing.Size(120, 20);
+            this.numericLootXpMax.TabIndex = 33;
+            // 
+            // labelLootXpMin
+            // 
+            this.labelLootXpMin.AutoSize = true;
+            this.labelLootXpMin.Location = new System.Drawing.Point(9, 21);
+            this.labelLootXpMin.Name = "labelLootXpMin";
+            this.labelLootXpMin.Size = new System.Drawing.Size(27, 13);
+            this.labelLootXpMin.TabIndex = 30;
+            this.labelLootXpMin.Text = "Min:";
+            // 
+            // dataGridViewLootImport
+            // 
+            this.dataGridViewLootImport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLootImport.Location = new System.Drawing.Point(6, 160);
+            this.dataGridViewLootImport.Name = "dataGridViewLootImport";
+            this.dataGridViewLootImport.ReadOnly = true;
+            this.dataGridViewLootImport.Size = new System.Drawing.Size(374, 80);
+            this.dataGridViewLootImport.TabIndex = 0;
+            // 
+            // groupBoxCastables
+            // 
+            this.groupBoxCastables.Controls.Add(this.checkBoxHasCastables);
+            this.groupBoxCastables.Controls.Add(this.dataGridViewCastables);
+            this.groupBoxCastables.Location = new System.Drawing.Point(443, 549);
+            this.groupBoxCastables.Name = "groupBoxCastables";
+            this.groupBoxCastables.Size = new System.Drawing.Size(386, 154);
+            this.groupBoxCastables.TabIndex = 8;
+            this.groupBoxCastables.TabStop = false;
+            this.groupBoxCastables.Text = "Castables";
             // 
             // checkBoxHasCastables
             // 
@@ -1049,142 +1179,14 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxHasCastables.UseVisualStyleBackColor = true;
             this.checkBoxHasCastables.CheckedChanged += new System.EventHandler(this.checkBoxHasCastables_CheckedChanged);
             // 
-            // checkBoxHasLootImport
+            // dataGridViewCastables
             // 
-            this.checkBoxHasLootImport.AutoSize = true;
-            this.checkBoxHasLootImport.Location = new System.Drawing.Point(6, 124);
-            this.checkBoxHasLootImport.Name = "checkBoxHasLootImport";
-            this.checkBoxHasLootImport.Size = new System.Drawing.Size(107, 17);
-            this.checkBoxHasLootImport.TabIndex = 31;
-            this.checkBoxHasLootImport.Text = "Has Loot Import?";
-            this.checkBoxHasLootImport.UseVisualStyleBackColor = true;
-            this.checkBoxHasLootImport.CheckedChanged += new System.EventHandler(this.checkBoxHasLootImport_CheckedChanged);
-            // 
-            // checkBoxHasLootTable
-            // 
-            this.checkBoxHasLootTable.AutoSize = true;
-            this.checkBoxHasLootTable.Location = new System.Drawing.Point(6, 246);
-            this.checkBoxHasLootTable.Name = "checkBoxHasLootTable";
-            this.checkBoxHasLootTable.Size = new System.Drawing.Size(105, 17);
-            this.checkBoxHasLootTable.TabIndex = 32;
-            this.checkBoxHasLootTable.Text = "Has Loot Table?";
-            this.checkBoxHasLootTable.UseVisualStyleBackColor = true;
-            this.checkBoxHasLootTable.CheckedChanged += new System.EventHandler(this.checkBoxHasLootTable_CheckedChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.checkBoxIntentHasNpc);
-            this.groupBox1.Controls.Add(this.comboBoxIntentNpcType);
-            this.groupBox1.Controls.Add(this.textBoxIntentNpcValue);
-            this.groupBox1.Controls.Add(this.labelIntentNpcValue);
-            this.groupBox1.Controls.Add(this.labelIntentNpcType);
-            this.groupBox1.Location = new System.Drawing.Point(7, 39);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(411, 48);
-            this.groupBox1.TabIndex = 21;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Npc";
-            // 
-            // checkBoxIntentHasNpc
-            // 
-            this.checkBoxIntentHasNpc.AutoSize = true;
-            this.checkBoxIntentHasNpc.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxIntentHasNpc.Name = "checkBoxIntentHasNpc";
-            this.checkBoxIntentHasNpc.Size = new System.Drawing.Size(52, 17);
-            this.checkBoxIntentHasNpc.TabIndex = 21;
-            this.checkBoxIntentHasNpc.Text = "Npc?";
-            this.checkBoxIntentHasNpc.UseVisualStyleBackColor = true;
-            this.checkBoxIntentHasNpc.CheckedChanged += new System.EventHandler(this.checkBoxIntentHasNpc_CheckedChanged);
-            // 
-            // checkBoxIntentHasPlayer
-            // 
-            this.checkBoxIntentHasPlayer.AutoSize = true;
-            this.checkBoxIntentHasPlayer.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxIntentHasPlayer.Name = "checkBoxIntentHasPlayer";
-            this.checkBoxIntentHasPlayer.Size = new System.Drawing.Size(61, 17);
-            this.checkBoxIntentHasPlayer.TabIndex = 21;
-            this.checkBoxIntentHasPlayer.Text = "Player?";
-            this.checkBoxIntentHasPlayer.UseVisualStyleBackColor = true;
-            this.checkBoxIntentHasPlayer.CheckedChanged += new System.EventHandler(this.checkBoxIntentHasPlayer_CheckedChanged);
-            // 
-            // groupBoxIntentPlayer
-            // 
-            this.groupBoxIntentPlayer.Controls.Add(this.checkBoxIntentHasPlayer);
-            this.groupBoxIntentPlayer.Controls.Add(this.comboBoxIntentPlayerType);
-            this.groupBoxIntentPlayer.Controls.Add(this.textBoxIntentPlayerValue);
-            this.groupBoxIntentPlayer.Controls.Add(this.labelIntentPlayerValue);
-            this.groupBoxIntentPlayer.Controls.Add(this.labelIntentPlayerType);
-            this.groupBoxIntentPlayer.Location = new System.Drawing.Point(9, 93);
-            this.groupBoxIntentPlayer.Name = "groupBoxIntentPlayer";
-            this.groupBoxIntentPlayer.Size = new System.Drawing.Size(411, 48);
-            this.groupBoxIntentPlayer.TabIndex = 22;
-            this.groupBoxIntentPlayer.TabStop = false;
-            this.groupBoxIntentPlayer.Text = "Player";
-            // 
-            // groupBoxIntentMonster
-            // 
-            this.groupBoxIntentMonster.Controls.Add(this.labelIntentMonsterType);
-            this.groupBoxIntentMonster.Controls.Add(this.comboBoxIntentMonsterType);
-            this.groupBoxIntentMonster.Controls.Add(this.labelIntentMonsterValue);
-            this.groupBoxIntentMonster.Controls.Add(this.textBoxIntentMonsterValue);
-            this.groupBoxIntentMonster.Controls.Add(this.checkBoxIntentHasMonster);
-            this.groupBoxIntentMonster.Location = new System.Drawing.Point(9, 147);
-            this.groupBoxIntentMonster.Name = "groupBoxIntentMonster";
-            this.groupBoxIntentMonster.Size = new System.Drawing.Size(411, 55);
-            this.groupBoxIntentMonster.TabIndex = 23;
-            this.groupBoxIntentMonster.TabStop = false;
-            this.groupBoxIntentMonster.Text = "Monster";
-            // 
-            // checkBoxIntentHasMonster
-            // 
-            this.checkBoxIntentHasMonster.AutoSize = true;
-            this.checkBoxIntentHasMonster.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxIntentHasMonster.Name = "checkBoxIntentHasMonster";
-            this.checkBoxIntentHasMonster.Size = new System.Drawing.Size(70, 17);
-            this.checkBoxIntentHasMonster.TabIndex = 21;
-            this.checkBoxIntentHasMonster.Text = "Monster?";
-            this.checkBoxIntentHasMonster.UseVisualStyleBackColor = true;
-            this.checkBoxIntentHasMonster.CheckedChanged += new System.EventHandler(this.checkBoxIntentHasMonster_CheckedChanged);
-            // 
-            // labelIntentMonsterType
-            // 
-            this.labelIntentMonsterType.AutoSize = true;
-            this.labelIntentMonsterType.Location = new System.Drawing.Point(239, 20);
-            this.labelIntentMonsterType.Name = "labelIntentMonsterType";
-            this.labelIntentMonsterType.Size = new System.Drawing.Size(34, 13);
-            this.labelIntentMonsterType.TabIndex = 25;
-            this.labelIntentMonsterType.Text = "Type:";
-            // 
-            // comboBoxIntentMonsterType
-            // 
-            this.comboBoxIntentMonsterType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxIntentMonsterType.Enabled = false;
-            this.comboBoxIntentMonsterType.FormattingEnabled = true;
-            this.comboBoxIntentMonsterType.Items.AddRange(new object[] {
-            Hybrasyl.Creatures.IntentType.Hostile,
-            Hybrasyl.Creatures.IntentType.Passive,
-            Hybrasyl.Creatures.IntentType.Neutral});
-            this.comboBoxIntentMonsterType.Location = new System.Drawing.Point(282, 17);
-            this.comboBoxIntentMonsterType.Name = "comboBoxIntentMonsterType";
-            this.comboBoxIntentMonsterType.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxIntentMonsterType.TabIndex = 24;
-            // 
-            // labelIntentMonsterValue
-            // 
-            this.labelIntentMonsterValue.AutoSize = true;
-            this.labelIntentMonsterValue.Location = new System.Drawing.Point(76, 21);
-            this.labelIntentMonsterValue.Name = "labelIntentMonsterValue";
-            this.labelIntentMonsterValue.Size = new System.Drawing.Size(37, 13);
-            this.labelIntentMonsterValue.TabIndex = 22;
-            this.labelIntentMonsterValue.Text = "Value:";
-            // 
-            // textBoxIntentMonsterValue
-            // 
-            this.textBoxIntentMonsterValue.Location = new System.Drawing.Point(119, 18);
-            this.textBoxIntentMonsterValue.Name = "textBoxIntentMonsterValue";
-            this.textBoxIntentMonsterValue.ReadOnly = true;
-            this.textBoxIntentMonsterValue.Size = new System.Drawing.Size(100, 20);
-            this.textBoxIntentMonsterValue.TabIndex = 23;
+            this.dataGridViewCastables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCastables.Location = new System.Drawing.Point(6, 58);
+            this.dataGridViewCastables.Name = "dataGridViewCastables";
+            this.dataGridViewCastables.ReadOnly = true;
+            this.dataGridViewCastables.Size = new System.Drawing.Size(373, 84);
+            this.dataGridViewCastables.TabIndex = 0;
             // 
             // SpawnDialog
             // 
@@ -1216,6 +1218,12 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxScript.PerformLayout();
             this.groupBoxIntents.ResumeLayout(false);
             this.groupBoxIntents.PerformLayout();
+            this.groupBoxIntentMonster.ResumeLayout(false);
+            this.groupBoxIntentMonster.PerformLayout();
+            this.groupBoxIntentPlayer.ResumeLayout(false);
+            this.groupBoxIntentPlayer.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBoxRespawn.ResumeLayout(false);
             this.groupBoxRespawn.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericRespawnMax)).EndInit();
@@ -1230,9 +1238,9 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.numericDamageMax)).EndInit();
             this.groupBoxDefense.ResumeLayout(false);
             this.groupBoxDefense.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefenseRegen)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefenseMr)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefenseAc)).EndInit();
             this.groupBoxStats.ResumeLayout(false);
             this.groupBoxStats.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericStatsDex)).EndInit();
@@ -1245,24 +1253,18 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.numericStatsMp)).EndInit();
             this.groupBoxLootList.ResumeLayout(false);
             this.groupBoxLootList.PerformLayout();
+            this.groupBoxLootGold.ResumeLayout(false);
+            this.groupBoxLootGold.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMin)).EndInit();
+            this.groupBoxLootXP.ResumeLayout(false);
+            this.groupBoxLootXP.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMax)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootImport)).EndInit();
             this.groupBoxCastables.ResumeLayout(false);
             this.groupBoxCastables.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCastables)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootImport)).EndInit();
-            this.groupBoxLootXP.ResumeLayout(false);
-            this.groupBoxLootXP.PerformLayout();
-            this.groupBoxLootGold.ResumeLayout(false);
-            this.groupBoxLootGold.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericLootXpMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMax)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMin)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBoxIntentPlayer.ResumeLayout(false);
-            this.groupBoxIntentPlayer.PerformLayout();
-            this.groupBoxIntentMonster.ResumeLayout(false);
-            this.groupBoxIntentMonster.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1318,11 +1320,11 @@ namespace HybrasylXmlEditor.UI
         private System.Windows.Forms.NumericUpDown numericDamageMax;
         private System.Windows.Forms.Label labelDamageElements;
         private System.Windows.Forms.Label labelDefenseRegen;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericDefenseRegen;
         private System.Windows.Forms.Label labelDefenseMr;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericDefenseMr;
         private System.Windows.Forms.Label labelDefenseAc;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericDefenseAc;
         private System.Windows.Forms.Label labelDefenseElements;
         private System.Windows.Forms.ListBox listBoxDefenseElements;
         private System.Windows.Forms.Label labelStatsDex;

@@ -59,7 +59,23 @@ namespace HybrasylXmlEditor.UI.ViewModel
         #endregion
 
         private Damage _damage;
+        #region Damage Sub-Properties;
+        private int _damage_Min;
+        private int _damage_Max;
+        private BindingList<Element> _damage_Elements;
+        private DamageType _damage_Type;
+        private byte _damage_Dmg;
+        private byte _damage_Hit;
+        #endregion
+
         private Defense _defense;
+        #region Defense Sub-Properties
+        private int _defense_Mr;
+        private int _defense_Ac;
+        private BindingList<Element> _defense_Elements;
+        private byte _defense_Regen;
+        #endregion
+
         private Stats _stats;
         private LootList _loot;
         private BindingList<Castable> _castables;
@@ -96,8 +112,23 @@ namespace HybrasylXmlEditor.UI.ViewModel
         #endregion
 
         public Damage Damage { get { return _damage; } set { _damage = value; OnPropertyChanged(); } }
+        #region Damage Sub-Properties
+        public int Damage_Min { get { return _damage_Min; } set { _damage_Min = value; OnPropertyChanged(); } }
+        public int Damage_Max { get { return _damage_Max; } set { _damage_Max = value; OnPropertyChanged(); } }
+        public BindingList<Element> Damage_Elements { get { return _damage_Elements; } set { _damage_Elements = value; OnPropertyChanged(); } }
+        public DamageType Damage_Type { get { return _damage_Type; } set { _damage_Type = value; OnPropertyChanged(); } }
+        public byte Damage_Dmg { get { return _damage_Dmg; } set { _damage_Dmg = value; OnPropertyChanged(); } }
+        public byte Damage_Hit { get { return _damage_Hit; } set { _damage_Hit = value; OnPropertyChanged(); } }
+
+        #endregion
 
         public Defense Defense { get { return _defense; } set { _defense = value; OnPropertyChanged(); } }
+        #region Defense Sub-Properties
+        public int Defense_Mr { get { return _defense_Mr; } set { _defense_Mr = value; OnPropertyChanged(); } }
+        public int Defense_Ac { get { return _defense_Ac; } set { _defense_Ac = value; OnPropertyChanged(); } }
+        public BindingList<Element> Defense_Elements { get { return _defense_Elements; } set { _defense_Elements = value; OnPropertyChanged(); } }
+        public byte Defense_Regen { get { return _defense_Regen; } set { _defense_Regen = value; OnPropertyChanged(); } }
+        #endregion
 
         public Stats Stats { get { return _stats; } set { _stats = value; OnPropertyChanged(); } }
 
@@ -161,10 +192,18 @@ namespace HybrasylXmlEditor.UI.ViewModel
             newSpawn.Respawn.Max = this.Respawn_Max;
             newSpawn.Respawn.Percentage = this.Respawn_Percentage;
 
-            //if(this.Damage_Element.Count > 0)
-            //{
-            //    newSpawn.Damage.Element = this.Damage_Element.ToList();
-            //}
+            newSpawn.Damage = this.Damage;
+            newSpawn.Damage.Min = this.Damage_Min;
+            newSpawn.Damage.Max = this.Damage_Max;
+            newSpawn.Damage.Element = this.Damage_Elements.ToList();
+            newSpawn.Damage.Type = this.Damage_Type;
+            newSpawn.Damage.Dmg = this.Damage_Dmg;
+            newSpawn.Damage.Hit = this.Damage_Hit;
+
+            newSpawn.Defense.Mr = this.Defense_Mr;
+            newSpawn.Defense.Ac = this.Defense_Ac;
+            newSpawn.Defense.Element = this.Defense_Elements.ToList();
+            newSpawn.Defense.Regen = this.Defense_Regen;
 
             if(this.Castables != null)
             {
@@ -215,8 +254,19 @@ namespace HybrasylXmlEditor.UI.ViewModel
             this.Respawn_Interval = spawn.Respawn.Interval;
 
             this.Damage = spawn.Damage;
+            this.Damage_Min = spawn.Damage.Min;
+            this.Damage_Max = spawn.Damage.Max;
+            this.Damage_Elements = new BindingList<Element>(spawn.Damage.Element);
+            this.Damage_Type = spawn.Damage.Type;
+            this.Damage_Dmg = spawn.Damage.Dmg;
+            this.Damage_Hit = spawn.Damage.Hit;
 
             this.Defense = spawn.Defense;
+            this.Defense_Mr = spawn.Defense.Mr;
+            this.Defense_Ac = spawn.Defense.Ac;
+            this.Defense_Elements = new BindingList<Element>(spawn.Defense.Element);
+            this.Defense_Regen = spawn.Defense.Regen;
+
 
             this.Stats = spawn.Stats;
 
