@@ -74,13 +74,78 @@ namespace HybrasylXmlEditor.UI
             //
             numericDefenseRegen.DataBindings.Add("Value", SpawnVM, "Defense_Regen");
 
+            numericStatsHp.DataBindings.Add("Value", SpawnVM, "Stats_Hp");
+            numericStatsMp.DataBindings.Add("Value", SpawnVM, "Stats_Mp");
+            numericStatsLevel.DataBindings.Add("Value", SpawnVM, "Stats_Level");
+            numericStatsStr.DataBindings.Add("Value", SpawnVM, "Stats_Str");
+            numericStatsInt.DataBindings.Add("Value", SpawnVM, "Stats_Int");
+            numericStatsWis.DataBindings.Add("Value", SpawnVM, "Stats_Wis");
+            numericStatsCon.DataBindings.Add("Value", SpawnVM, "Stats_Con");
+            numericStatsDex.DataBindings.Add("Value", SpawnVM, "Stats_Dex");
+
+            //dataGridViewCastables.AutoGenerateColumns = false;
+            //dataGridViewCastables.DataSource = SpawnVM.Castables;
+
+        }
+
+        private void setDataGridSettings()
+        {
+            dataGridViewCastables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewCastables.AllowUserToAddRows = true;
+            dataGridViewCastables.MultiSelect = false;
+            dataGridViewCastables.RowHeadersVisible = false;
+            dataGridViewCastables.AllowUserToOrderColumns = false;
+            dataGridViewCastables.AllowUserToResizeColumns = false;
+            dataGridViewCastables.AllowUserToResizeRows = false;
+            dataGridViewCastables.ColumnHeadersDefaultCellStyle.Font = new Font(DataGridView.DefaultFont, FontStyle.Bold);
+
+            DataGridViewTextBoxColumn castableValue = new DataGridViewTextBoxColumn();
+            castableValue.Name = "Value";
+            castableValue.DataPropertyName = "Value";
+            castableValue.HeaderText = "Value";
+            castableValue.Width = 200;
+            castableValue.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            castableValue.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            castableValue.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewCastables.Columns.Add(castableValue);
+
+            DataGridViewTextBoxColumn castableCooldown = new DataGridViewTextBoxColumn();
+            castableCooldown.Name = "Cooldown";
+            castableCooldown.DataPropertyName = "Cooldown";
+            castableCooldown.HeaderText = "Cooldown";
+            castableCooldown.Width = 60;
+            castableCooldown.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            castableCooldown.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            castableCooldown.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewCastables.Columns.Add(castableCooldown);
+
+            DataGridViewTextBoxColumn castableChance = new DataGridViewTextBoxColumn();
+            castableChance.Name = "Chance";
+            castableChance.DataPropertyName = "Chance";
+            castableChance.HeaderText = "Chance";
+            castableChance.Width = 60;
+            castableChance.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            castableChance.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            castableChance.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewCastables.Columns.Add(castableChance);
+
+            DataGridViewCheckBoxColumn castableAlways = new DataGridViewCheckBoxColumn();
+            castableAlways.Name = "Always";
+            castableAlways.DataPropertyName = "Always";
+            castableAlways.HeaderText = "Always";
+            castableAlways.Width = 60;
+            castableAlways.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            castableAlways.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            castableAlways.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewCastables.Columns.Add(castableAlways);
         }
 
         private void SpawnDialog_Load(object sender, EventArgs e)
         {
             SpawnVM.SetDisplaySpawn(SpawnVM.Spawn);
             setBindings();
-            if(SpawnVM.Script != null)
+            setDataGridSettings();
+            if (SpawnVM.Script != null)
             {
                 checkBoxHasScript.Checked = true;
             }
@@ -117,6 +182,11 @@ namespace HybrasylXmlEditor.UI
                 {
                     listBoxDefenseElements.SetSelected(i, true);
                 }
+            }
+
+            if(SpawnVM.Castables != null)
+            {
+                checkBoxHasCastables.Checked = true;
             }
         }
 
@@ -245,7 +315,18 @@ namespace HybrasylXmlEditor.UI
 
         private void checkBoxHasCastables_CheckedChanged(object sender, EventArgs e)
         {
-
+            var checkbox = sender as CheckBox;
+            if (checkbox.Checked)
+            {
+                if (SpawnVM.Castables == null) SpawnVM.Castables = new BindingList<Castable>();
+                dataGridViewCastables.ReadOnly = false;
+                dataGridViewCastables.DataSource = SpawnVM.Castables;
+            }
+            else
+            {
+                SpawnVM.Castables = null;
+                dataGridViewCastables.ReadOnly = true;
+            }
         }
 
         #region Loot Events

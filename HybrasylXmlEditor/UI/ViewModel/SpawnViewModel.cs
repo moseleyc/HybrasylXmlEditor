@@ -77,6 +77,17 @@ namespace HybrasylXmlEditor.UI.ViewModel
         #endregion
 
         private Stats _stats;
+        #region Stat Sub-Properties
+        private uint _stats_Hp;
+        private uint _stats_Mp;
+        private byte _stats_Level;
+        private byte _stats_Str;
+        private byte _stats_Int;
+        private byte _stats_Wis;
+        private byte _stats_Con;
+        private byte _stats_Dex;
+        #endregion
+
         private LootList _loot;
         private BindingList<Castable> _castables;
         private string _base;
@@ -131,6 +142,17 @@ namespace HybrasylXmlEditor.UI.ViewModel
         #endregion
 
         public Stats Stats { get { return _stats; } set { _stats = value; OnPropertyChanged(); } }
+        #region Stat Sub-Properties
+        public uint Stats_Hp { get { return _stats_Hp; } set { _stats_Hp = value; OnPropertyChanged(); } }
+        public uint Stats_Mp { get { return _stats_Mp; } set { _stats_Mp = value; OnPropertyChanged(); } }
+        public byte Stats_Level { get { return _stats_Level; } set { _stats_Level = value; OnPropertyChanged(); } }
+        public byte Stats_Str { get { return _stats_Str; } set { _stats_Str = value; OnPropertyChanged(); } }
+        public byte Stats_Int { get { return _stats_Int; } set { _stats_Int = value; OnPropertyChanged(); } }
+        public byte Stats_Wis { get { return _stats_Wis; } set { _stats_Wis = value; OnPropertyChanged(); } }
+        public byte Stats_Con { get { return _stats_Con; } set { _stats_Con = value; OnPropertyChanged(); } }
+        public byte Stats_Dex { get { return _stats_Dex; } set { _stats_Dex = value; OnPropertyChanged(); } }
+
+        #endregion
 
         public LootList LootList { get { return _loot; } set { _loot = value; OnPropertyChanged(); } }
 
@@ -200,14 +222,25 @@ namespace HybrasylXmlEditor.UI.ViewModel
             newSpawn.Damage.Dmg = this.Damage_Dmg;
             newSpawn.Damage.Hit = this.Damage_Hit;
 
+            newSpawn.Defense = this.Defense;
             newSpawn.Defense.Mr = this.Defense_Mr;
             newSpawn.Defense.Ac = this.Defense_Ac;
             newSpawn.Defense.Element = this.Defense_Elements.ToList();
             newSpawn.Defense.Regen = this.Defense_Regen;
 
-            if(this.Castables != null)
-            {
+            newSpawn.Stats = this.Stats;
+            newSpawn.Stats.Hp = this.Stats_Hp;
+            newSpawn.Stats.Mp = this.Stats_Mp;
+            newSpawn.Stats.Level = this.Stats_Level;
+            newSpawn.Stats.Str = this.Stats_Str;
+            newSpawn.Stats.Int = this.Stats_Int;
+            newSpawn.Stats.Wis = this.Stats_Wis;
+            newSpawn.Stats.Con = this.Stats_Con;
+            newSpawn.Stats.Dex = this.Stats_Dex;
 
+            if (this.Castables != null)
+            {
+                newSpawn.Castables = this.Castables.ToList();
             }
             newSpawn.Base = this.Base;
             newSpawn.Variance = this.Variance;
@@ -267,8 +300,15 @@ namespace HybrasylXmlEditor.UI.ViewModel
             this.Defense_Elements = new BindingList<Element>(spawn.Defense.Element);
             this.Defense_Regen = spawn.Defense.Regen;
 
-
             this.Stats = spawn.Stats;
+            this.Stats_Hp = spawn.Stats.Hp;
+            this.Stats_Mp = spawn.Stats.Mp;
+            this.Stats_Level = spawn.Stats.Level;
+            this.Stats_Str = spawn.Stats.Str;
+            this.Stats_Int = spawn.Stats.Int;
+            this.Stats_Wis = spawn.Stats.Wis;
+            this.Stats_Con = spawn.Stats.Con;
+            this.Stats_Dex = spawn.Stats.Dex;
 
             this.LootList = spawn.Loot;
             
