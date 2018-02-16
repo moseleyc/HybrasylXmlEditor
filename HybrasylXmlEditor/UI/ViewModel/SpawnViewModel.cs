@@ -89,6 +89,16 @@ namespace HybrasylXmlEditor.UI.ViewModel
         #endregion
 
         private LootList _loot;
+        #region Loot Sub-Properties
+        private BindingList<LootImport> _loot_Set;
+        private BindingList<LootTable> _loot_Table;
+        private LootXp _loot_Xp;
+        private uint _loot_Xp_Min;
+        private uint _loot_Xp_Max;
+        private LootGold _loot_Gold;
+        private uint _loot_Gold_Min;
+        private uint _loot_Gold_Max;
+        #endregion
         private BindingList<Castable> _castables;
         private string _base;
         private float _variance;
@@ -154,7 +164,17 @@ namespace HybrasylXmlEditor.UI.ViewModel
 
         #endregion
 
-        public LootList LootList { get { return _loot; } set { _loot = value; OnPropertyChanged(); } }
+        public LootList Loot { get { return _loot; } set { _loot = value; OnPropertyChanged(); } }
+        #region Loot Sub-Properties
+        public BindingList<LootImport> Loot_Set { get { return _loot_Set; } set { _loot_Set = value; OnPropertyChanged(); } }
+        public BindingList<LootTable> Loot_Table { get { return _loot_Table; } set { _loot_Table = value; OnPropertyChanged(); } }
+        public LootXp Loot_Xp { get { return _loot_Xp; } set { _loot_Xp = value; OnPropertyChanged(); } }
+        public uint Loot_Xp_Min { get { return _loot_Xp_Min; } set { _loot_Xp_Min = value; OnPropertyChanged(); } }
+        public uint Loot_Xp_Max { get { return _loot_Xp_Max; } set { _loot_Xp_Max = value; OnPropertyChanged(); } }
+        public LootGold Loot_Gold { get { return _loot_Gold; } set { _loot_Gold = value; OnPropertyChanged(); } }
+        public uint Loot_Gold_Min { get { return _loot_Gold_Min; } set { _loot_Gold_Min = value; OnPropertyChanged(); } }
+        public uint Loot_Gold_Max { get { return _loot_Gold_Max; } set { _loot_Gold_Max = value; OnPropertyChanged(); } }
+        #endregion
 
         public BindingList<Castable> Castables { get { return _castables; } set { _castables = value; OnPropertyChanged(); } }
 
@@ -217,7 +237,8 @@ namespace HybrasylXmlEditor.UI.ViewModel
             newSpawn.Damage = this.Damage;
             newSpawn.Damage.Min = this.Damage_Min;
             newSpawn.Damage.Max = this.Damage_Max;
-            newSpawn.Damage.Element = this.Damage_Elements.ToList();
+            if(this.Damage_Elements != null) { newSpawn.Damage.Element = this.Damage_Elements.ToList(); }
+            else { newSpawn.Damage.Element = null; }
             newSpawn.Damage.Type = this.Damage_Type;
             newSpawn.Damage.Dmg = this.Damage_Dmg;
             newSpawn.Damage.Hit = this.Damage_Hit;
@@ -225,7 +246,8 @@ namespace HybrasylXmlEditor.UI.ViewModel
             newSpawn.Defense = this.Defense;
             newSpawn.Defense.Mr = this.Defense_Mr;
             newSpawn.Defense.Ac = this.Defense_Ac;
-            newSpawn.Defense.Element = this.Defense_Elements.ToList();
+            if(this.Defense_Elements != null) { newSpawn.Defense.Element = this.Defense_Elements.ToList(); }
+            else { newSpawn.Defense.Element = null; }
             newSpawn.Defense.Regen = this.Defense_Regen;
 
             newSpawn.Stats = this.Stats;
@@ -237,6 +259,32 @@ namespace HybrasylXmlEditor.UI.ViewModel
             newSpawn.Stats.Wis = this.Stats_Wis;
             newSpawn.Stats.Con = this.Stats_Con;
             newSpawn.Stats.Dex = this.Stats_Dex;
+
+            newSpawn.Loot = this.Loot;
+
+            if(this.Loot_Set != null)
+            {
+
+            }
+
+            if(this.Loot_Table != null)
+            {
+
+            }
+
+            if(this.Loot_Xp != null)
+            {
+                newSpawn.Loot.Xp = this.Loot_Xp;
+                newSpawn.Loot.Xp.Min = this.Loot_Xp_Min;
+                newSpawn.Loot.Xp.Max = this.Loot_Xp_Max;
+            }
+
+            if(this.Loot_Gold != null)
+            {
+                newSpawn.Loot.Gold = this.Loot_Gold;
+                newSpawn.Loot.Gold.Min = this.Loot_Gold_Min;
+                newSpawn.Loot.Gold.Max = this.Loot_Gold_Max;
+            }
 
             if (this.Castables != null)
             {
@@ -289,7 +337,7 @@ namespace HybrasylXmlEditor.UI.ViewModel
             this.Damage = spawn.Damage;
             this.Damage_Min = spawn.Damage.Min;
             this.Damage_Max = spawn.Damage.Max;
-            this.Damage_Elements = new BindingList<Element>(spawn.Damage.Element);
+            if(spawn.Damage.Element != null) { this.Damage_Elements = new BindingList<Element>(spawn.Damage.Element); }            
             this.Damage_Type = spawn.Damage.Type;
             this.Damage_Dmg = spawn.Damage.Dmg;
             this.Damage_Hit = spawn.Damage.Hit;
@@ -297,7 +345,7 @@ namespace HybrasylXmlEditor.UI.ViewModel
             this.Defense = spawn.Defense;
             this.Defense_Mr = spawn.Defense.Mr;
             this.Defense_Ac = spawn.Defense.Ac;
-            this.Defense_Elements = new BindingList<Element>(spawn.Defense.Element);
+            if (spawn.Defense.Element != null) { this.Defense_Elements = new BindingList<Element>(spawn.Defense.Element); }
             this.Defense_Regen = spawn.Defense.Regen;
 
             this.Stats = spawn.Stats;
@@ -310,9 +358,34 @@ namespace HybrasylXmlEditor.UI.ViewModel
             this.Stats_Con = spawn.Stats.Con;
             this.Stats_Dex = spawn.Stats.Dex;
 
-            this.LootList = spawn.Loot;
+            this.Loot = spawn.Loot;
             
-            if(spawn.Castables != null)
+            if(spawn.Loot.Set != null)
+            {
+
+            }
+
+            if(spawn.Loot.Table != null)
+            {
+
+            }
+
+            if(spawn.Loot.Xp != null)
+            {
+                this.Loot_Xp = spawn.Loot.Xp;
+                this.Loot_Xp_Min = spawn.Loot.Xp.Min;
+                this.Loot_Xp_Max = spawn.Loot.Xp.Max;
+            }
+
+            if(spawn.Loot.Gold != null)
+            {
+                this.Loot_Gold = spawn.Loot.Gold;
+                this.Loot_Gold_Min = spawn.Loot.Gold.Min;
+                this.Loot_Gold_Max = spawn.Loot.Gold.Max;
+            }
+
+
+            if (spawn.Castables != null)
             {
                 this.Castables = new BindingList<Castable>(spawn.Castables);
             }

@@ -86,6 +86,10 @@ namespace HybrasylXmlEditor.UI
             //dataGridViewCastables.AutoGenerateColumns = false;
             //dataGridViewCastables.DataSource = SpawnVM.Castables;
 
+            numericLootXpMin.DataBindings.Add("Value", SpawnVM, "Loot_Xp_Min");
+            numericLootXpMax.DataBindings.Add("Value", SpawnVM, "Loot_Xp_Max");
+            numericLootGoldMin.DataBindings.Add("Value", SpawnVM, "Loot_Gold_Min");
+            numericLootGoldMax.DataBindings.Add("Value", SpawnVM, "Loot_Gold_Max");
         }
 
         private void setDataGridSettings()
@@ -169,7 +173,7 @@ namespace HybrasylXmlEditor.UI
             //Select the elements in the multi-select listbox for Damage
             for (int i = 0; i < listBoxDamageElements.Items.Count; i++)
             {
-                if (SpawnVM.Damage_Elements.Contains((Element)listBoxDamageElements.Items[i]))
+                if (SpawnVM.Damage_Elements != null && SpawnVM.Damage_Elements.Contains((Element)listBoxDamageElements.Items[i]))
                 {
                     listBoxDamageElements.SetSelected(i, true);
                 }
@@ -178,22 +182,36 @@ namespace HybrasylXmlEditor.UI
             //Select the elements in the multi-select listbox for Defense
             for (int i = 0; i < listBoxDefenseElements.Items.Count; i++)
             {
-                if (SpawnVM.Defense_Elements.Contains((Element)listBoxDefenseElements.Items[i]))
+                if (SpawnVM.Defense_Elements != null && SpawnVM.Defense_Elements.Contains((Element)listBoxDefenseElements.Items[i]))
                 {
                     listBoxDefenseElements.SetSelected(i, true);
                 }
             }
 
-            if(SpawnVM.Castables != null)
+            if(SpawnVM.Loot_Xp != null)
+            {
+                checkBoxLootHasXp.Checked = true;
+            }
+
+            if(SpawnVM.Loot_Gold != null)
+            {
+                checkBoxLootHasGold.Checked = true;
+            }
+
+            if(SpawnVM.Castables != null && SpawnVM.Castables.Count > 0)
             {
                 checkBoxHasCastables.Checked = true;
             }
         }
 
-        private void buttonAdd_Click(object sender, EventArgs e)
+        private void buttonOk_Click(object sender, EventArgs e)
         {
-            SpawnVM.Damage_Elements = new BindingList<Element>(listBoxDamageElements.SelectedItems.Cast<Element>().ToList());
-            SpawnVM.Defense_Elements = new BindingList<Element>(listBoxDefenseElements.SelectedItems.Cast<Element>().ToList());
+            if(listBoxDamageElements.SelectedItems.Count > 0) { SpawnVM.Damage_Elements = new BindingList<Element>(listBoxDamageElements.SelectedItems.Cast<Element>().ToList()); }
+            else { SpawnVM.Damage_Elements = null; }
+
+            if (listBoxDefenseElements.SelectedItems.Count > 0) { SpawnVM.Defense_Elements = new BindingList<Element>(listBoxDefenseElements.SelectedItems.Cast<Element>().ToList()); }
+            else { SpawnVM.Defense_Elements = null; }
+            
             this.DialogResult = DialogResult.OK;
         }
 
@@ -339,6 +357,42 @@ namespace HybrasylXmlEditor.UI
         {
 
         }
+
+        private void checkBoxLootHasXp_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkbox = sender as CheckBox;
+            if (checkbox.Checked)
+            {
+                if (SpawnVM.Loot_Xp == null) SpawnVM.Loot_Xp = new LootXp();
+                numericLootXpMin.ReadOnly = false;
+                numericLootXpMax.ReadOnly = false;
+            }
+            else
+            {
+                SpawnVM.Loot_Xp = null;
+                numericLootXpMin.ReadOnly = true;
+                numericLootXpMax.ReadOnly = true;
+            }
+        }
+
+        private void checkBoxLootHasGold_CheckedChanged(object sender, EventArgs e)
+        {
+            var checkbox = sender as CheckBox;
+            if (checkbox.Checked)
+            {
+                if(SpawnVM.Loot_Gold == null) SpawnVM.Loot_Gold = new LootGold();
+                numericLootGoldMin.ReadOnly = false;
+                numericLootGoldMax.ReadOnly = false;
+            }
+            else
+            {
+                SpawnVM.Loot_Gold = null;
+                numericLootGoldMin.ReadOnly = true;
+                numericLootGoldMax.ReadOnly = true;
+            }
+        }
         #endregion
+
+
     }
 }

@@ -57,6 +57,7 @@ namespace HybrasylXmlEditor.UI
 
             dataGridViewSpawns.AutoGenerateColumns = false;
             dataGridViewSpawns.AllowUserToAddRows = false;
+            dataGridViewSpawns.ReadOnly = true;
             dataGridViewSpawns.DataSource = SpawnGroupVM.Spawn;
         }
 
@@ -239,7 +240,7 @@ namespace HybrasylXmlEditor.UI
                 spawnDialog.SpawnVM = new SpawnViewModel(SpawnGroupVM.Spawn[index]);
                 if (spawnDialog.ShowDialog() == DialogResult.OK)
                 {
-                    SpawnGroupVM.Spawn.Add(spawnDialog.SpawnVM.GetDisplaySpawn());
+                    SpawnGroupVM.Spawn[index] = spawnDialog.SpawnVM.GetDisplaySpawn();
                     dataGridViewSpawns.DataSource = SpawnGroupVM.Spawn;
                     SpawnGroupVM.Spawn.ResetItem(index);
                 }
