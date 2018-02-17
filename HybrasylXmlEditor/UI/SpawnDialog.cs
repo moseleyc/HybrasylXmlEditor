@@ -64,14 +64,12 @@ namespace HybrasylXmlEditor.UI
 
             numericDamageMin.DataBindings.Add("Value", SpawnVM, "Damage_Min");
             numericDamageMax.DataBindings.Add("Value", SpawnVM, "Damage_Max");
-            //listBoxDamageElements.DataBindings.Add("SelectedItem", SpawnVM, "Damage_Elements"); //Enum List
             comboBoxDamageType.DataBindings.Add("SelectedItem", SpawnVM, "Damage_Type"); 
             numericDamageDmg.DataBindings.Add("Value", SpawnVM, "Damage_Dmg");
             numericDamageHit.DataBindings.Add("Value", SpawnVM, "Damage_Hit");
 
             numericDefenseMr.DataBindings.Add("Value", SpawnVM, "Defense_Mr");
             numericDefenseAc.DataBindings.Add("Value", SpawnVM, "Defense_Ac");
-            //
             numericDefenseRegen.DataBindings.Add("Value", SpawnVM, "Defense_Regen");
 
             numericStatsHp.DataBindings.Add("Value", SpawnVM, "Stats_Hp");
@@ -83,9 +81,6 @@ namespace HybrasylXmlEditor.UI
             numericStatsCon.DataBindings.Add("Value", SpawnVM, "Stats_Con");
             numericStatsDex.DataBindings.Add("Value", SpawnVM, "Stats_Dex");
 
-            //dataGridViewCastables.AutoGenerateColumns = false;
-            //dataGridViewCastables.DataSource = SpawnVM.Castables;
-
             numericLootXpMin.DataBindings.Add("Value", SpawnVM, "Loot_Xp_Min");
             numericLootXpMax.DataBindings.Add("Value", SpawnVM, "Loot_Xp_Max");
             numericLootGoldMin.DataBindings.Add("Value", SpawnVM, "Loot_Gold_Min");
@@ -94,6 +89,80 @@ namespace HybrasylXmlEditor.UI
 
         private void setDataGridSettings()
         {
+            #region Loot-Import
+            dataGridViewLootImport.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewLootImport.AllowUserToAddRows = true;
+            dataGridViewLootImport.MultiSelect = false;
+            dataGridViewLootImport.RowHeadersVisible = false;
+            dataGridViewLootImport.AllowUserToOrderColumns = false;
+            dataGridViewLootImport.AllowUserToResizeColumns = false;
+            dataGridViewLootImport.AllowUserToResizeRows = false;
+            dataGridViewLootImport.ColumnHeadersDefaultCellStyle.Font = new Font(DataGridView.DefaultFont, FontStyle.Bold);
+
+            DataGridViewTextBoxColumn lootName = new DataGridViewTextBoxColumn();
+            lootName.Name = "Name";
+            lootName.DataPropertyName = "Name";
+            lootName.HeaderText = "Name";
+            lootName.Width = 200;
+            lootName.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootName.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootName.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewLootImport.Columns.Add(lootName);
+
+            DataGridViewTextBoxColumn lootRolls = new DataGridViewTextBoxColumn();
+            lootRolls.Name = "Rolls";
+            lootRolls.DataPropertyName = "Rolls";
+            lootRolls.HeaderText = "Rolls";
+            lootRolls.Width = 60;
+            lootRolls.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootRolls.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootRolls.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewLootImport.Columns.Add(lootRolls);
+
+            DataGridViewTextBoxColumn lootChance = new DataGridViewTextBoxColumn();
+            lootChance.Name = "Chance";
+            lootChance.DataPropertyName = "Chance";
+            lootChance.HeaderText = "Chance";
+            lootChance.Width = 60;
+            lootChance.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootChance.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootChance.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewLootImport.Columns.Add(lootChance);
+            #endregion
+
+            #region LootTable
+            dataGridViewLootTable.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridViewLootTable.AllowUserToAddRows = false;
+            dataGridViewLootTable.AutoGenerateColumns = false;
+            dataGridViewLootTable.MultiSelect = false;
+            dataGridViewLootTable.RowHeadersVisible = false;
+            dataGridViewLootTable.AllowUserToOrderColumns = false;
+            dataGridViewLootTable.AllowUserToResizeColumns = false;
+            dataGridViewLootTable.AllowUserToResizeRows = false;
+            dataGridViewLootTable.ColumnHeadersDefaultCellStyle.Font = new Font(DataGridView.DefaultFont, FontStyle.Bold);
+
+            DataGridViewTextBoxColumn lootTableRolls = new DataGridViewTextBoxColumn();
+            lootTableRolls.Name = "Rolls";
+            lootTableRolls.DataPropertyName = "Rolls";
+            lootTableRolls.HeaderText = "Rolls";
+            lootTableRolls.Width = 100;
+            lootTableRolls.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootTableRolls.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootTableRolls.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewLootTable.Columns.Add(lootTableRolls);
+
+            DataGridViewTextBoxColumn lootTableChance = new DataGridViewTextBoxColumn();
+            lootTableChance.Name = "Chance";
+            lootTableChance.DataPropertyName = "Chance";
+            lootTableChance.HeaderText = "Chance";
+            lootTableChance.Width = 100;
+            lootTableChance.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootTableChance.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            lootTableChance.SortMode = DataGridViewColumnSortMode.NotSortable;
+            dataGridViewLootTable.Columns.Add(lootTableChance);
+            #endregion
+
+            #region Castables
             dataGridViewCastables.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridViewCastables.AllowUserToAddRows = true;
             dataGridViewCastables.MultiSelect = false;
@@ -142,6 +211,7 @@ namespace HybrasylXmlEditor.UI
             castableAlways.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             castableAlways.SortMode = DataGridViewColumnSortMode.NotSortable;
             dataGridViewCastables.Columns.Add(castableAlways);
+            #endregion
         }
 
         private void SpawnDialog_Load(object sender, EventArgs e)
@@ -196,6 +266,16 @@ namespace HybrasylXmlEditor.UI
             if(SpawnVM.Loot_Gold != null)
             {
                 checkBoxLootHasGold.Checked = true;
+            }
+
+            if(SpawnVM.Loot_Set != null)
+            {
+                checkBoxHasLootImport.Checked = true;
+            }
+
+            if(SpawnVM.Loot_Table != null)
+            {
+                checkBoxHasLootTable.Checked = true;
             }
 
             if(SpawnVM.Castables != null && SpawnVM.Castables.Count > 0)
@@ -350,12 +430,34 @@ namespace HybrasylXmlEditor.UI
         #region Loot Events
         private void checkBoxHasLootImport_CheckedChanged(object sender, EventArgs e)
         {
-
+            var checkbox = sender as CheckBox;
+            if (checkbox.Checked)
+            {
+                if (SpawnVM.Loot_Set == null) SpawnVM.Loot_Set = new BindingList<LootImport>();
+                dataGridViewLootImport.DataSource = SpawnVM.Loot_Set;
+                dataGridViewLootImport.ReadOnly = false;
+            }
+            else
+            {
+                SpawnVM.Loot_Set = null;
+                dataGridViewLootImport.ReadOnly = true;
+            }
         }
 
         private void checkBoxHasLootTable_CheckedChanged(object sender, EventArgs e)
         {
-
+            var checkbox = sender as CheckBox;
+            if (checkbox.Checked)
+            {
+                if (SpawnVM.Loot_Table == null) SpawnVM.Loot_Table = new BindingList<LootTable>();
+                dataGridViewLootTable.DataSource = SpawnVM.Loot_Table;
+                dataGridViewLootTable.ReadOnly = false;
+            }
+            else
+            {
+                SpawnVM.Loot_Table = null;
+                dataGridViewLootTable.ReadOnly = true;
+            }
         }
 
         private void checkBoxLootHasXp_CheckedChanged(object sender, EventArgs e)
@@ -391,8 +493,37 @@ namespace HybrasylXmlEditor.UI
                 numericLootGoldMax.ReadOnly = true;
             }
         }
+
         #endregion
 
+        private void buttonLootTableAdd_Click(object sender, EventArgs e)
+        {
+            if (checkBoxHasLootTable.Checked)
+            {
+                LootTableDialog lootTableDialog = new LootTableDialog();
+                lootTableDialog.LootTableVM = new LootTableViewModel(new LootTable());
 
+                if (lootTableDialog.ShowDialog() == DialogResult.OK)
+                {
+                    SpawnVM.Loot_Table.Add(lootTableDialog.LootTableVM.GetDisplayLootTable());
+                    dataGridViewLootTable.DataSource = SpawnVM.Loot_Table;
+                }
+                lootTableDialog.Dispose();
+            }
+            else
+            {
+                MessageBox.Show("Need to check Has Loot Table first.");
+            }
+        }
+
+        private void buttonLootTableEdit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonLootTableRemove_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -177,7 +177,7 @@ namespace HybrasylXmlEditor.UI.ViewModel
         #endregion
 
         public BindingList<Castable> Castables { get { return _castables; } set { _castables = value; OnPropertyChanged(); } }
-
+        
         public string Base { get { return _base; } set { _base = value; OnPropertyChanged(); } }
         public float Variance { get { return _variance; } set { _variance = value; OnPropertyChanged(); } }
         #endregion
@@ -264,7 +264,7 @@ namespace HybrasylXmlEditor.UI.ViewModel
 
             if(this.Loot_Set != null)
             {
-
+                newSpawn.Loot.Set = this.Loot_Set.ToList();
             }
 
             if(this.Loot_Table != null)
@@ -362,7 +362,7 @@ namespace HybrasylXmlEditor.UI.ViewModel
             
             if(spawn.Loot.Set != null)
             {
-
+                this.Loot_Set = new BindingList<LootImport>(spawn.Loot.Set);
             }
 
             if(spawn.Loot.Table != null)

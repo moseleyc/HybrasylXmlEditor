@@ -116,11 +116,13 @@ namespace HybrasylXmlEditor.UI
             this.checkBoxHasLootImport = new System.Windows.Forms.CheckBox();
             this.labelLootImport = new System.Windows.Forms.Label();
             this.groupBoxLootGold = new System.Windows.Forms.GroupBox();
+            this.checkBoxLootHasGold = new System.Windows.Forms.CheckBox();
             this.labelLootGoldMax = new System.Windows.Forms.Label();
             this.numericLootGoldMax = new System.Windows.Forms.NumericUpDown();
             this.labelLootGoldMin = new System.Windows.Forms.Label();
             this.numericLootGoldMin = new System.Windows.Forms.NumericUpDown();
             this.groupBoxLootXP = new System.Windows.Forms.GroupBox();
+            this.checkBoxLootHasXp = new System.Windows.Forms.CheckBox();
             this.labelLootXpMax = new System.Windows.Forms.Label();
             this.numericLootXpMin = new System.Windows.Forms.NumericUpDown();
             this.numericLootXpMax = new System.Windows.Forms.NumericUpDown();
@@ -129,8 +131,10 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxCastables = new System.Windows.Forms.GroupBox();
             this.checkBoxHasCastables = new System.Windows.Forms.CheckBox();
             this.dataGridViewCastables = new System.Windows.Forms.DataGridView();
-            this.checkBoxLootHasXp = new System.Windows.Forms.CheckBox();
-            this.checkBoxLootHasGold = new System.Windows.Forms.CheckBox();
+            this.dataGridViewLootTable = new System.Windows.Forms.DataGridView();
+            this.buttonLootTableAdd = new System.Windows.Forms.Button();
+            this.buttonLootTableEdit = new System.Windows.Forms.Button();
+            this.buttonLootTableRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericVariance)).BeginInit();
             this.groupBoxAttributes.SuspendLayout();
             this.groupBoxScript.SuspendLayout();
@@ -171,6 +175,7 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootImport)).BeginInit();
             this.groupBoxCastables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCastables)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootTable)).BeginInit();
             this.SuspendLayout();
             // 
             // labelBase
@@ -1016,6 +1021,10 @@ namespace HybrasylXmlEditor.UI
             // 
             // groupBoxLootList
             // 
+            this.groupBoxLootList.Controls.Add(this.buttonLootTableRemove);
+            this.groupBoxLootList.Controls.Add(this.buttonLootTableEdit);
+            this.groupBoxLootList.Controls.Add(this.buttonLootTableAdd);
+            this.groupBoxLootList.Controls.Add(this.dataGridViewLootTable);
             this.groupBoxLootList.Controls.Add(this.checkBoxHasLootTable);
             this.groupBoxLootList.Controls.Add(this.checkBoxHasLootImport);
             this.groupBoxLootList.Controls.Add(this.labelLootImport);
@@ -1024,7 +1033,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxLootList.Controls.Add(this.dataGridViewLootImport);
             this.groupBoxLootList.Location = new System.Drawing.Point(443, 153);
             this.groupBoxLootList.Name = "groupBoxLootList";
-            this.groupBoxLootList.Size = new System.Drawing.Size(386, 390);
+            this.groupBoxLootList.Size = new System.Drawing.Size(386, 432);
             this.groupBoxLootList.TabIndex = 8;
             this.groupBoxLootList.TabStop = false;
             this.groupBoxLootList.Text = "Loot List";
@@ -1074,6 +1083,17 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxLootGold.TabStop = false;
             this.groupBoxLootGold.Text = "Gold";
             // 
+            // checkBoxLootHasGold
+            // 
+            this.checkBoxLootHasGold.AutoSize = true;
+            this.checkBoxLootHasGold.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxLootHasGold.Name = "checkBoxLootHasGold";
+            this.checkBoxLootHasGold.Size = new System.Drawing.Size(76, 17);
+            this.checkBoxLootHasGold.TabIndex = 5;
+            this.checkBoxLootHasGold.Text = "Has Gold?";
+            this.checkBoxLootHasGold.UseVisualStyleBackColor = true;
+            this.checkBoxLootHasGold.CheckedChanged += new System.EventHandler(this.checkBoxLootHasGold_CheckedChanged);
+            // 
             // labelLootGoldMax
             // 
             this.labelLootGoldMax.AutoSize = true;
@@ -1122,6 +1142,17 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxLootXP.TabStop = false;
             this.groupBoxLootXP.Text = "XP";
             // 
+            // checkBoxLootHasXp
+            // 
+            this.checkBoxLootHasXp.AutoSize = true;
+            this.checkBoxLootHasXp.Location = new System.Drawing.Point(6, 19);
+            this.checkBoxLootHasXp.Name = "checkBoxLootHasXp";
+            this.checkBoxLootHasXp.Size = new System.Drawing.Size(68, 17);
+            this.checkBoxLootHasXp.TabIndex = 4;
+            this.checkBoxLootHasXp.Text = "Has XP?";
+            this.checkBoxLootHasXp.UseVisualStyleBackColor = true;
+            this.checkBoxLootHasXp.CheckedChanged += new System.EventHandler(this.checkBoxLootHasXp_CheckedChanged);
+            // 
             // labelLootXpMax
             // 
             this.labelLootXpMax.AutoSize = true;
@@ -1169,7 +1200,7 @@ namespace HybrasylXmlEditor.UI
             // 
             this.groupBoxCastables.Controls.Add(this.checkBoxHasCastables);
             this.groupBoxCastables.Controls.Add(this.dataGridViewCastables);
-            this.groupBoxCastables.Location = new System.Drawing.Point(443, 549);
+            this.groupBoxCastables.Location = new System.Drawing.Point(443, 591);
             this.groupBoxCastables.Name = "groupBoxCastables";
             this.groupBoxCastables.Size = new System.Drawing.Size(386, 154);
             this.groupBoxCastables.TabIndex = 9;
@@ -1196,27 +1227,44 @@ namespace HybrasylXmlEditor.UI
             this.dataGridViewCastables.Size = new System.Drawing.Size(373, 84);
             this.dataGridViewCastables.TabIndex = 1;
             // 
-            // checkBoxLootHasXp
+            // dataGridViewLootTable
             // 
-            this.checkBoxLootHasXp.AutoSize = true;
-            this.checkBoxLootHasXp.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxLootHasXp.Name = "checkBoxLootHasXp";
-            this.checkBoxLootHasXp.Size = new System.Drawing.Size(68, 17);
-            this.checkBoxLootHasXp.TabIndex = 4;
-            this.checkBoxLootHasXp.Text = "Has XP?";
-            this.checkBoxLootHasXp.UseVisualStyleBackColor = true;
-            this.checkBoxLootHasXp.CheckedChanged += new System.EventHandler(this.checkBoxLootHasXp_CheckedChanged);
+            this.dataGridViewLootTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLootTable.Location = new System.Drawing.Point(7, 336);
+            this.dataGridViewLootTable.Name = "dataGridViewLootTable";
+            this.dataGridViewLootTable.ReadOnly = true;
+            this.dataGridViewLootTable.Size = new System.Drawing.Size(254, 83);
+            this.dataGridViewLootTable.TabIndex = 6;
             // 
-            // checkBoxLootHasGold
+            // buttonLootTableAdd
             // 
-            this.checkBoxLootHasGold.AutoSize = true;
-            this.checkBoxLootHasGold.Location = new System.Drawing.Point(6, 19);
-            this.checkBoxLootHasGold.Name = "checkBoxLootHasGold";
-            this.checkBoxLootHasGold.Size = new System.Drawing.Size(76, 17);
-            this.checkBoxLootHasGold.TabIndex = 5;
-            this.checkBoxLootHasGold.Text = "Has Gold?";
-            this.checkBoxLootHasGold.UseVisualStyleBackColor = true;
-            this.checkBoxLootHasGold.CheckedChanged += new System.EventHandler(this.checkBoxLootHasGold_CheckedChanged);
+            this.buttonLootTableAdd.Location = new System.Drawing.Point(267, 336);
+            this.buttonLootTableAdd.Name = "buttonLootTableAdd";
+            this.buttonLootTableAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonLootTableAdd.TabIndex = 7;
+            this.buttonLootTableAdd.Text = "Add";
+            this.buttonLootTableAdd.UseVisualStyleBackColor = true;
+            this.buttonLootTableAdd.Click += new System.EventHandler(this.buttonLootTableAdd_Click);
+            // 
+            // buttonLootTableEdit
+            // 
+            this.buttonLootTableEdit.Location = new System.Drawing.Point(267, 365);
+            this.buttonLootTableEdit.Name = "buttonLootTableEdit";
+            this.buttonLootTableEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonLootTableEdit.TabIndex = 8;
+            this.buttonLootTableEdit.Text = "Edit";
+            this.buttonLootTableEdit.UseVisualStyleBackColor = true;
+            this.buttonLootTableEdit.Click += new System.EventHandler(this.buttonLootTableEdit_Click);
+            // 
+            // buttonLootTableRemove
+            // 
+            this.buttonLootTableRemove.Location = new System.Drawing.Point(267, 394);
+            this.buttonLootTableRemove.Name = "buttonLootTableRemove";
+            this.buttonLootTableRemove.Size = new System.Drawing.Size(75, 23);
+            this.buttonLootTableRemove.TabIndex = 9;
+            this.buttonLootTableRemove.Text = "Remove";
+            this.buttonLootTableRemove.UseVisualStyleBackColor = true;
+            this.buttonLootTableRemove.Click += new System.EventHandler(this.buttonLootTableRemove_Click);
             // 
             // SpawnDialog
             // 
@@ -1295,6 +1343,7 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxCastables.ResumeLayout(false);
             this.groupBoxCastables.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCastables)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootTable)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1402,5 +1451,9 @@ namespace HybrasylXmlEditor.UI
         private System.Windows.Forms.CheckBox checkBoxIntentHasPlayer;
         private System.Windows.Forms.CheckBox checkBoxLootHasXp;
         private System.Windows.Forms.CheckBox checkBoxLootHasGold;
+        private System.Windows.Forms.DataGridView dataGridViewLootTable;
+        private System.Windows.Forms.Button buttonLootTableRemove;
+        private System.Windows.Forms.Button buttonLootTableEdit;
+        private System.Windows.Forms.Button buttonLootTableAdd;
     }
 }
