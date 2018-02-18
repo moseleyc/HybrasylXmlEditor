@@ -69,6 +69,15 @@ namespace HybrasylXmlEditor.UI
             mstdlg.Dock = DockStyle.Fill;
 
             tabControlXmlEditor.TabPages[2].Controls.Add(mstdlg);
+
+            //SpawnGroup Tab
+            SpawnGroupDialog spngrpdlg = new SpawnGroupDialog();
+            spngrpdlg.TopLevel = false;
+            spngrpdlg.Visible = true;
+            spngrpdlg.FormBorderStyle = FormBorderStyle.None;
+            spngrpdlg.Dock = DockStyle.Fill;
+
+            tabControlXmlEditor.TabPages[3].Controls.Add(spngrpdlg);
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
