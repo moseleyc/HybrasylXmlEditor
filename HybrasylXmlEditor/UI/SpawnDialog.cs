@@ -273,7 +273,7 @@ namespace HybrasylXmlEditor.UI
                 checkBoxHasLootImport.Checked = true;
             }
 
-            if(SpawnVM.Loot_Table != null)
+            if (SpawnVM.Loot_Table != null)
             {
                 checkBoxHasLootTable.Checked = true;
             }
@@ -518,7 +518,32 @@ namespace HybrasylXmlEditor.UI
 
         private void buttonLootTableEdit_Click(object sender, EventArgs e)
         {
+            if (checkBoxHasLootTable.Checked)
+            {
+                if (dataGridViewLootTable.CurrentRow != null)
+                {
+                    int index = dataGridViewLootTable.CurrentRow.Index;
+                    LootTableDialog lootTableDialog = new LootTableDialog();
+                    var spawnLootTableAtIndex = SpawnVM.Loot_Table[index];
+                    lootTableDialog.LootTableVM = new LootTableViewModel(spawnLootTableAtIndex);
+                    //lootTableDialog.LootTableVM.SetDisplayLootTable(spawnLootTableAtIndex);
 
+                    if (lootTableDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        SpawnVM.Loot_Table[index] = lootTableDialog.LootTableVM.GetDisplayLootTable();
+                        dataGridViewLootTable.DataSource = SpawnVM.Loot_Table;
+                    }
+                    lootTableDialog.Dispose();
+                }
+                else
+                {
+                    MessageBox.Show("A Row must be selected to edit.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Need to check Has Loot Table first.");
+            }            
         }
 
         private void buttonLootTableRemove_Click(object sender, EventArgs e)

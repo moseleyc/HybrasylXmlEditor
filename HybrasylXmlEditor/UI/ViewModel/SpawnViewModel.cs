@@ -269,7 +269,7 @@ namespace HybrasylXmlEditor.UI.ViewModel
 
             if(this.Loot_Table != null)
             {
-
+                newSpawn.Loot.Table = this.Loot_Table.ToList();
             }
 
             if(this.Loot_Xp != null)
@@ -367,7 +367,7 @@ namespace HybrasylXmlEditor.UI.ViewModel
 
             if(spawn.Loot.Table != null)
             {
-
+                this.Loot_Table = new BindingList<LootTable>(spawn.Loot.Table);
             }
 
             if(spawn.Loot.Xp != null)

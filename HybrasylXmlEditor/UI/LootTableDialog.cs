@@ -123,6 +123,10 @@ namespace HybrasylXmlEditor.UI
             LootTableVM.SetDisplayLootTable(LootTableVM.LootTable);
             setBindings();
             setupDataGridView();
+            if(LootTableVM.Items != null)
+            {
+                checkBoxHasItemList.Checked = true;
+            }
         }
 
         private void dataGridViewItemList_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -132,20 +136,16 @@ namespace HybrasylXmlEditor.UI
             if (LootTableVM.Items_Items != null)
             {
                 int indexPlus = index + 1;
-                if (LootTableVM.Items_Items.Count > 0 && LootTableVM.Items_Items.Count < indexPlus)
+                if (LootTableVM.Items_Items.Count > 0)
                 {
                     if (LootTableVM.Items_Items[index].Variants != null)
                     {
-                        dataGridViewItemListItemVariants.DataSource = LootTableVM.Items_Items[index].Variants.Select(x => new { Value = x }).ToList();
+                        listBoxItemVariantText.DataSource = LootTableVM.Items_Items[index].Variants;
                     }
                     else
                     {
-                        dataGridViewItemListItemVariants.DataSource = new BindingList<string>();
+                        listBoxItemVariantText.DataSource = new BindingList<string>();
                     }
-                }
-                else
-                {
-                    LootTableVM.Items_Items.Add(new LootItem());
                 }
             }
             else
@@ -162,26 +162,56 @@ namespace HybrasylXmlEditor.UI
             if (checkbox.Checked)
             {
                 dataGridViewItemList.ReadOnly = false;
-                dataGridViewItemListItemVariants.ReadOnly = false;
+                listBoxItemVariantText.Enabled = true;
+                textBoxItemVariantText.ReadOnly = false;
                 buttonVariantAdd.Enabled = true;
-                buttonVariantEdit.Enabled = true;
                 buttonVariantRemove.Enabled = true;
                 if (LootTableVM.Items == null)
                 {
                     LootTableVM.Items = new LootTableItemList();
                     LootTableVM.Items_Items = new BindingList<LootItem>(LootTableVM.Items.Items);
+
                 }
                 dataGridViewItemList.DataSource = LootTableVM.Items_Items;
             }
             else
             {
                 dataGridViewItemList.ReadOnly = true;
-                dataGridViewItemListItemVariants.ReadOnly = true;
+                listBoxItemVariantText.Enabled = false;
+                textBoxItemVariantText.ReadOnly = true;
                 buttonVariantAdd.Enabled = false;
-                buttonVariantEdit.Enabled = false;
                 buttonVariantRemove.Enabled = false;
                 LootTableVM.Items = null;
                 LootTableVM.Items_Items = null;
+            }
+        }
+
+        private void buttonVariantAdd_Click(object sender, EventArgs e)
+        {
+            if (LootTableVM.Items_Items.Count > 0)
+            {
+                listBoxItemVariantText.DataSource = null;
+                int itemIndex = dataGridViewItemList.CurrentRow.Index;
+                var itemVariantsList = LootTableVM.Items_Items[itemIndex].Variants;
+                itemVariantsList.Add(textBoxItemVariantText.Text);
+                listBoxItemVariantText.DataSource = itemVariantsList;
+            }
+        }
+
+        private void buttonVariantRemove_Click(object sender, EventArgs e)
+        {
+            if (listBoxItemVariantText.SelectedItem != null)
+            {
+                int itemIndex = dataGridViewItemList.CurrentRow.Index;
+                var itemVariantsList = LootTableVM.Items_Items[itemIndex].Variants;
+                itemVariantsList.Remove((string)listBoxItemVariantText.SelectedItem);
+
+                listBoxItemVariantText.DataSource = null;
+                listBoxItemVariantText.DataSource = itemVariantsList;
+            }
+            else
+            {
+                MessageBox.Show("No rows or no row selected.");
             }
         }
     }
