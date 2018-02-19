@@ -110,38 +110,19 @@ namespace HybrasylXmlEditor.UI
 
             dlg.Dispose();
         }
-
-        private void buttonLoadStatusXML_Click(object sender, EventArgs e)
+        
+        private void buttonNewXML_Click(object sender, EventArgs e)
         {
-            OpenFileDialog loadStatusXML = new OpenFileDialog();
-            loadStatusXML.Filter = "(XML)|*.xml";
-            if (loadStatusXML.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    XmlReaderSettings settings = new XmlReaderSettings();
-                    settings.IgnoreComments = true;
-
-                    XmlReader reader = XmlReader.Create(loadStatusXML.FileName, settings);
-                    Status nullStatus = null;
-                    var readStatus = Serializer.Deserialize(reader, nullStatus);
-                    StatusVM.SetDisplayStatus(readStatus);
-                    loadCastRestrictions();
-
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: Could not read file");
-                }
-
-            }
+            StatusVM.SetDisplayStatus(new Status());
+            StatusVM.CastRestriction_Receive = StatusVM.CastRestriction.Receive;
+            StatusVM.CastRestriction_Use = StatusVM.CastRestriction.Use;
         }
 
         private void buttonSaveXML_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveStatusXML = new SaveFileDialog();
             saveStatusXML.Filter = "(XML)|*.xml";
+            XmlWriter xmlWriter = null;
             if (saveStatusXML.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -151,24 +132,47 @@ namespace HybrasylXmlEditor.UI
                     xmlSettings.Indent = true;
                     xmlSettings.IndentChars = "\t";
 
-                    XmlWriter xmlWriter = XmlWriter.Create(fileName, xmlSettings);
+                    xmlWriter = XmlWriter.Create(fileName, xmlSettings);
                     Serializer.Serialize(xmlWriter, StatusVM.GetDisplayStatus());
-
-                    xmlWriter.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: Could not read file");
+                    MessageBox.Show("Error: Problem saving the file");
                 }
-
+                finally
+                {
+                    if (xmlWriter != null) xmlWriter.Close();
+                }
             }
         }
 
-        private void buttonNewXML_Click(object sender, EventArgs e)
+        private void buttonLoadStatusXML_Click(object sender, EventArgs e)
         {
-            StatusVM.SetDisplayStatus(new Status());
-            StatusVM.CastRestriction_Receive = StatusVM.CastRestriction.Receive;
-            StatusVM.CastRestriction_Use = StatusVM.CastRestriction.Use;
+            OpenFileDialog loadStatusXML = new OpenFileDialog();
+            loadStatusXML.Filter = "(XML)|*.xml";
+            XmlReader reader = null;
+            if (loadStatusXML.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    XmlReaderSettings settings = new XmlReaderSettings();
+                    settings.IgnoreComments = true;
+
+                    reader = XmlReader.Create(loadStatusXML.FileName, settings);
+                    Status nullStatus = null;
+                    var readStatus = Serializer.Deserialize(reader, nullStatus);
+                    StatusVM.SetDisplayStatus(readStatus);
+                    loadCastRestrictions();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Problem loading the file");
+                }
+                finally
+                {
+                    if (reader != null) reader.Close();
+                }
+            }
         }
 
         private void textBoxUShortValidation_Leave(object sender, EventArgs e)

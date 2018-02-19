@@ -165,6 +165,7 @@ namespace HybrasylXmlEditor.UI
         {
             SaveFileDialog saveSpawnGroupXML = new SaveFileDialog();
             saveSpawnGroupXML.Filter = "(XML)|*.xml";
+            XmlWriter xmlWriter = null;
             if (saveSpawnGroupXML.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -174,17 +175,18 @@ namespace HybrasylXmlEditor.UI
                     xmlSettings.Indent = true;
                     xmlSettings.IndentChars = "\t";
 
-                    XmlWriter xmlWriter = XmlWriter.Create(fileName, xmlSettings);
+                    xmlWriter = XmlWriter.Create(fileName, xmlSettings);
                     var test = SpawnGroupVM;
                     Serializer.Serialize(xmlWriter, SpawnGroupVM.GetDisplaySpawnGroup());
-
-                    xmlWriter.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: Problem saving file");
                 }
-
+                finally
+                {
+                    if (xmlWriter != null) xmlWriter.Close();
+                }
             }
         }
 
