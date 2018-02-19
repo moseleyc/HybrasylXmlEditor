@@ -214,5 +214,17 @@ namespace HybrasylXmlEditor.UI
                 MessageBox.Show("No rows or no row selected.");
             }
         }
+
+        private void dataGridViewItemList_DataError(object sender, DataGridViewDataErrorEventArgs error)
+        {
+            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
+            var errorText = string.Empty;
+
+            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Min") || cellColumnName.Equals("Max")))
+            {
+                errorText = "may only contain numeric values \nbetween -2,147,483,648 and 2,147,483,647";
+            }
+            MessageBox.Show(cellColumnName + " " + errorText);
+        }
     }
 }

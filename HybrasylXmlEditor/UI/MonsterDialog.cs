@@ -64,6 +64,7 @@ namespace HybrasylXmlEditor.UI
         {
             SaveFileDialog saveMonsterXML = new SaveFileDialog();
             saveMonsterXML.Filter = "(XML)|*.xml";
+            XmlWriter xmlWriter = null;
             if (saveMonsterXML.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -73,7 +74,7 @@ namespace HybrasylXmlEditor.UI
                     xmlSettings.Indent = true;
                     xmlSettings.IndentChars = "\t";
 
-                    XmlWriter xmlWriter = XmlWriter.Create(fileName, xmlSettings);
+                    xmlWriter = XmlWriter.Create(fileName, xmlSettings);
                     var monster = MonsterVM.GetDisplayMonster();
                     Serializer.Serialize(xmlWriter, MonsterVM.GetDisplayMonster());
 
@@ -81,9 +82,12 @@ namespace HybrasylXmlEditor.UI
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: Could not read file");
+                    MessageBox.Show("Error: Problem with saving the file");
                 }
-
+                finally
+                {
+                    if (xmlWriter != null) xmlWriter.Close();
+                }
             }
         }
 
@@ -91,6 +95,7 @@ namespace HybrasylXmlEditor.UI
         {
             OpenFileDialog loadMonsterXML = new OpenFileDialog();
             loadMonsterXML.Filter = "(XML)|*.xml";
+            XmlReader reader = null;
             if (loadMonsterXML.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -98,16 +103,18 @@ namespace HybrasylXmlEditor.UI
                     XmlReaderSettings settings = new XmlReaderSettings();
                     settings.IgnoreComments = true;
 
-                    XmlReader reader = XmlReader.Create(loadMonsterXML.FileName, settings);
+                    reader = XmlReader.Create(loadMonsterXML.FileName, settings);
                     Creature nullMonster = null;
                     var readMonster = Serializer.Deserialize(reader, nullMonster);
                     MonsterVM.SetDisplayMonster(readMonster);
-
-                    reader.Close();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error: Problem with loading the file");
+                }
+                finally
+                {
+                    if(reader != null) reader.Close();
                 }
             }
         }

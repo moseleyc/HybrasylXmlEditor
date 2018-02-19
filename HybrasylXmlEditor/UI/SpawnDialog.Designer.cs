@@ -112,6 +112,10 @@ namespace HybrasylXmlEditor.UI
             this.labelStatsMp = new System.Windows.Forms.Label();
             this.numericStatsMp = new System.Windows.Forms.NumericUpDown();
             this.groupBoxLootList = new System.Windows.Forms.GroupBox();
+            this.buttonLootTableRemove = new System.Windows.Forms.Button();
+            this.buttonLootTableEdit = new System.Windows.Forms.Button();
+            this.buttonLootTableAdd = new System.Windows.Forms.Button();
+            this.dataGridViewLootTable = new System.Windows.Forms.DataGridView();
             this.checkBoxHasLootTable = new System.Windows.Forms.CheckBox();
             this.checkBoxHasLootImport = new System.Windows.Forms.CheckBox();
             this.labelLootImport = new System.Windows.Forms.Label();
@@ -131,10 +135,6 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxCastables = new System.Windows.Forms.GroupBox();
             this.checkBoxHasCastables = new System.Windows.Forms.CheckBox();
             this.dataGridViewCastables = new System.Windows.Forms.DataGridView();
-            this.dataGridViewLootTable = new System.Windows.Forms.DataGridView();
-            this.buttonLootTableAdd = new System.Windows.Forms.Button();
-            this.buttonLootTableEdit = new System.Windows.Forms.Button();
-            this.buttonLootTableRemove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericVariance)).BeginInit();
             this.groupBoxAttributes.SuspendLayout();
             this.groupBoxScript.SuspendLayout();
@@ -166,6 +166,7 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.numericStatsHp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericStatsMp)).BeginInit();
             this.groupBoxLootList.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootTable)).BeginInit();
             this.groupBoxLootGold.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMin)).BeginInit();
@@ -175,7 +176,6 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootImport)).BeginInit();
             this.groupBoxCastables.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCastables)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootTable)).BeginInit();
             this.SuspendLayout();
             // 
             // labelBase
@@ -213,13 +213,18 @@ namespace HybrasylXmlEditor.UI
             131072});
             this.numericVariance.Location = new System.Drawing.Point(210, 20);
             this.numericVariance.Maximum = new decimal(new int[] {
-            1,
+            2147483647,
             0,
             0,
             0});
             this.numericVariance.Name = "numericVariance";
             this.numericVariance.Size = new System.Drawing.Size(120, 20);
             this.numericVariance.TabIndex = 3;
+            this.numericVariance.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // buttonOk
             // 
@@ -566,6 +571,11 @@ namespace HybrasylXmlEditor.UI
             // numericRespawnMax
             // 
             this.numericRespawnMax.Location = new System.Drawing.Point(298, 62);
+            this.numericRespawnMax.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericRespawnMax.Name = "numericRespawnMax";
             this.numericRespawnMax.Size = new System.Drawing.Size(120, 20);
             this.numericRespawnMax.TabIndex = 7;
@@ -582,6 +592,11 @@ namespace HybrasylXmlEditor.UI
             // numericRespawnMin
             // 
             this.numericRespawnMin.Location = new System.Drawing.Point(70, 62);
+            this.numericRespawnMin.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericRespawnMin.Name = "numericRespawnMin";
             this.numericRespawnMin.Size = new System.Drawing.Size(120, 20);
             this.numericRespawnMin.TabIndex = 3;
@@ -605,7 +620,7 @@ namespace HybrasylXmlEditor.UI
             131072});
             this.numericRespawnPercentage.Location = new System.Drawing.Point(298, 27);
             this.numericRespawnPercentage.Maximum = new decimal(new int[] {
-            1,
+            2147483647,
             0,
             0,
             0});
@@ -625,6 +640,11 @@ namespace HybrasylXmlEditor.UI
             // numericRespawnInterval
             // 
             this.numericRespawnInterval.Location = new System.Drawing.Point(70, 27);
+            this.numericRespawnInterval.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericRespawnInterval.Name = "numericRespawnInterval";
             this.numericRespawnInterval.Size = new System.Drawing.Size(120, 20);
             this.numericRespawnInterval.TabIndex = 1;
@@ -717,6 +737,11 @@ namespace HybrasylXmlEditor.UI
             // numericDamageHit
             // 
             this.numericDamageHit.Location = new System.Drawing.Point(70, 102);
+            this.numericDamageHit.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericDamageHit.Name = "numericDamageHit";
             this.numericDamageHit.Size = new System.Drawing.Size(120, 20);
             this.numericDamageHit.TabIndex = 7;
@@ -733,6 +758,11 @@ namespace HybrasylXmlEditor.UI
             // numericDamageDmg
             // 
             this.numericDamageDmg.Location = new System.Drawing.Point(70, 76);
+            this.numericDamageDmg.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericDamageDmg.Name = "numericDamageDmg";
             this.numericDamageDmg.Size = new System.Drawing.Size(120, 20);
             this.numericDamageDmg.TabIndex = 5;
@@ -749,6 +779,11 @@ namespace HybrasylXmlEditor.UI
             // numericDamageMin
             // 
             this.numericDamageMin.Location = new System.Drawing.Point(70, 24);
+            this.numericDamageMin.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericDamageMin.Name = "numericDamageMin";
             this.numericDamageMin.Size = new System.Drawing.Size(120, 20);
             this.numericDamageMin.TabIndex = 1;
@@ -765,6 +800,11 @@ namespace HybrasylXmlEditor.UI
             // numericDamageMax
             // 
             this.numericDamageMax.Location = new System.Drawing.Point(70, 50);
+            this.numericDamageMax.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericDamageMax.Name = "numericDamageMax";
             this.numericDamageMax.Size = new System.Drawing.Size(120, 20);
             this.numericDamageMax.TabIndex = 3;
@@ -798,6 +838,11 @@ namespace HybrasylXmlEditor.UI
             // numericDefenseRegen
             // 
             this.numericDefenseRegen.Location = new System.Drawing.Point(70, 69);
+            this.numericDefenseRegen.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericDefenseRegen.Name = "numericDefenseRegen";
             this.numericDefenseRegen.Size = new System.Drawing.Size(120, 20);
             this.numericDefenseRegen.TabIndex = 5;
@@ -814,6 +859,11 @@ namespace HybrasylXmlEditor.UI
             // numericDefenseMr
             // 
             this.numericDefenseMr.Location = new System.Drawing.Point(70, 17);
+            this.numericDefenseMr.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericDefenseMr.Name = "numericDefenseMr";
             this.numericDefenseMr.Size = new System.Drawing.Size(120, 20);
             this.numericDefenseMr.TabIndex = 1;
@@ -830,6 +880,11 @@ namespace HybrasylXmlEditor.UI
             // numericDefenseAc
             // 
             this.numericDefenseAc.Location = new System.Drawing.Point(70, 43);
+            this.numericDefenseAc.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericDefenseAc.Name = "numericDefenseAc";
             this.numericDefenseAc.Size = new System.Drawing.Size(120, 20);
             this.numericDefenseAc.TabIndex = 3;
@@ -903,6 +958,11 @@ namespace HybrasylXmlEditor.UI
             // numericStatsDex
             // 
             this.numericStatsDex.Location = new System.Drawing.Point(244, 97);
+            this.numericStatsDex.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericStatsDex.Name = "numericStatsDex";
             this.numericStatsDex.Size = new System.Drawing.Size(120, 20);
             this.numericStatsDex.TabIndex = 15;
@@ -919,6 +979,11 @@ namespace HybrasylXmlEditor.UI
             // numericStatsCon
             // 
             this.numericStatsCon.Location = new System.Drawing.Point(244, 71);
+            this.numericStatsCon.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericStatsCon.Name = "numericStatsCon";
             this.numericStatsCon.Size = new System.Drawing.Size(120, 20);
             this.numericStatsCon.TabIndex = 13;
@@ -935,6 +1000,11 @@ namespace HybrasylXmlEditor.UI
             // numericStatsInt
             // 
             this.numericStatsInt.Location = new System.Drawing.Point(244, 19);
+            this.numericStatsInt.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericStatsInt.Name = "numericStatsInt";
             this.numericStatsInt.Size = new System.Drawing.Size(120, 20);
             this.numericStatsInt.TabIndex = 9;
@@ -951,6 +1021,11 @@ namespace HybrasylXmlEditor.UI
             // numericStatsWis
             // 
             this.numericStatsWis.Location = new System.Drawing.Point(244, 45);
+            this.numericStatsWis.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericStatsWis.Name = "numericStatsWis";
             this.numericStatsWis.Size = new System.Drawing.Size(120, 20);
             this.numericStatsWis.TabIndex = 11;
@@ -967,6 +1042,11 @@ namespace HybrasylXmlEditor.UI
             // numericStatsStr
             // 
             this.numericStatsStr.Location = new System.Drawing.Point(49, 97);
+            this.numericStatsStr.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericStatsStr.Name = "numericStatsStr";
             this.numericStatsStr.Size = new System.Drawing.Size(120, 20);
             this.numericStatsStr.TabIndex = 7;
@@ -983,6 +1063,11 @@ namespace HybrasylXmlEditor.UI
             // numericStatsLevel
             // 
             this.numericStatsLevel.Location = new System.Drawing.Point(49, 71);
+            this.numericStatsLevel.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericStatsLevel.Name = "numericStatsLevel";
             this.numericStatsLevel.Size = new System.Drawing.Size(120, 20);
             this.numericStatsLevel.TabIndex = 5;
@@ -999,6 +1084,11 @@ namespace HybrasylXmlEditor.UI
             // numericStatsHp
             // 
             this.numericStatsHp.Location = new System.Drawing.Point(49, 19);
+            this.numericStatsHp.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
             this.numericStatsHp.Name = "numericStatsHp";
             this.numericStatsHp.Size = new System.Drawing.Size(120, 20);
             this.numericStatsHp.TabIndex = 1;
@@ -1015,6 +1105,11 @@ namespace HybrasylXmlEditor.UI
             // numericStatsMp
             // 
             this.numericStatsMp.Location = new System.Drawing.Point(49, 45);
+            this.numericStatsMp.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
             this.numericStatsMp.Name = "numericStatsMp";
             this.numericStatsMp.Size = new System.Drawing.Size(120, 20);
             this.numericStatsMp.TabIndex = 3;
@@ -1037,6 +1132,45 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxLootList.TabIndex = 8;
             this.groupBoxLootList.TabStop = false;
             this.groupBoxLootList.Text = "Loot List";
+            // 
+            // buttonLootTableRemove
+            // 
+            this.buttonLootTableRemove.Location = new System.Drawing.Point(267, 394);
+            this.buttonLootTableRemove.Name = "buttonLootTableRemove";
+            this.buttonLootTableRemove.Size = new System.Drawing.Size(75, 23);
+            this.buttonLootTableRemove.TabIndex = 9;
+            this.buttonLootTableRemove.Text = "Remove";
+            this.buttonLootTableRemove.UseVisualStyleBackColor = true;
+            this.buttonLootTableRemove.Click += new System.EventHandler(this.buttonLootTableRemove_Click);
+            // 
+            // buttonLootTableEdit
+            // 
+            this.buttonLootTableEdit.Location = new System.Drawing.Point(267, 365);
+            this.buttonLootTableEdit.Name = "buttonLootTableEdit";
+            this.buttonLootTableEdit.Size = new System.Drawing.Size(75, 23);
+            this.buttonLootTableEdit.TabIndex = 8;
+            this.buttonLootTableEdit.Text = "Edit";
+            this.buttonLootTableEdit.UseVisualStyleBackColor = true;
+            this.buttonLootTableEdit.Click += new System.EventHandler(this.buttonLootTableEdit_Click);
+            // 
+            // buttonLootTableAdd
+            // 
+            this.buttonLootTableAdd.Location = new System.Drawing.Point(267, 336);
+            this.buttonLootTableAdd.Name = "buttonLootTableAdd";
+            this.buttonLootTableAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonLootTableAdd.TabIndex = 7;
+            this.buttonLootTableAdd.Text = "Add";
+            this.buttonLootTableAdd.UseVisualStyleBackColor = true;
+            this.buttonLootTableAdd.Click += new System.EventHandler(this.buttonLootTableAdd_Click);
+            // 
+            // dataGridViewLootTable
+            // 
+            this.dataGridViewLootTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewLootTable.Location = new System.Drawing.Point(7, 336);
+            this.dataGridViewLootTable.Name = "dataGridViewLootTable";
+            this.dataGridViewLootTable.ReadOnly = true;
+            this.dataGridViewLootTable.Size = new System.Drawing.Size(254, 83);
+            this.dataGridViewLootTable.TabIndex = 6;
             // 
             // checkBoxHasLootTable
             // 
@@ -1106,6 +1240,11 @@ namespace HybrasylXmlEditor.UI
             // numericLootGoldMax
             // 
             this.numericLootGoldMax.Location = new System.Drawing.Point(237, 42);
+            this.numericLootGoldMax.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
             this.numericLootGoldMax.Name = "numericLootGoldMax";
             this.numericLootGoldMax.ReadOnly = true;
             this.numericLootGoldMax.Size = new System.Drawing.Size(120, 20);
@@ -1123,6 +1262,11 @@ namespace HybrasylXmlEditor.UI
             // numericLootGoldMin
             // 
             this.numericLootGoldMin.Location = new System.Drawing.Point(42, 42);
+            this.numericLootGoldMin.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
             this.numericLootGoldMin.Name = "numericLootGoldMin";
             this.numericLootGoldMin.ReadOnly = true;
             this.numericLootGoldMin.Size = new System.Drawing.Size(120, 20);
@@ -1165,6 +1309,11 @@ namespace HybrasylXmlEditor.UI
             // numericLootXpMin
             // 
             this.numericLootXpMin.Location = new System.Drawing.Point(42, 42);
+            this.numericLootXpMin.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
             this.numericLootXpMin.Name = "numericLootXpMin";
             this.numericLootXpMin.ReadOnly = true;
             this.numericLootXpMin.Size = new System.Drawing.Size(120, 20);
@@ -1173,6 +1322,11 @@ namespace HybrasylXmlEditor.UI
             // numericLootXpMax
             // 
             this.numericLootXpMax.Location = new System.Drawing.Point(237, 42);
+            this.numericLootXpMax.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
             this.numericLootXpMax.Name = "numericLootXpMax";
             this.numericLootXpMax.ReadOnly = true;
             this.numericLootXpMax.Size = new System.Drawing.Size(120, 20);
@@ -1195,6 +1349,7 @@ namespace HybrasylXmlEditor.UI
             this.dataGridViewLootImport.ReadOnly = true;
             this.dataGridViewLootImport.Size = new System.Drawing.Size(374, 80);
             this.dataGridViewLootImport.TabIndex = 4;
+            this.dataGridViewLootImport.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewLootImport_DataError);
             // 
             // groupBoxCastables
             // 
@@ -1226,45 +1381,7 @@ namespace HybrasylXmlEditor.UI
             this.dataGridViewCastables.ReadOnly = true;
             this.dataGridViewCastables.Size = new System.Drawing.Size(373, 84);
             this.dataGridViewCastables.TabIndex = 1;
-            // 
-            // dataGridViewLootTable
-            // 
-            this.dataGridViewLootTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewLootTable.Location = new System.Drawing.Point(7, 336);
-            this.dataGridViewLootTable.Name = "dataGridViewLootTable";
-            this.dataGridViewLootTable.ReadOnly = true;
-            this.dataGridViewLootTable.Size = new System.Drawing.Size(254, 83);
-            this.dataGridViewLootTable.TabIndex = 6;
-            // 
-            // buttonLootTableAdd
-            // 
-            this.buttonLootTableAdd.Location = new System.Drawing.Point(267, 336);
-            this.buttonLootTableAdd.Name = "buttonLootTableAdd";
-            this.buttonLootTableAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonLootTableAdd.TabIndex = 7;
-            this.buttonLootTableAdd.Text = "Add";
-            this.buttonLootTableAdd.UseVisualStyleBackColor = true;
-            this.buttonLootTableAdd.Click += new System.EventHandler(this.buttonLootTableAdd_Click);
-            // 
-            // buttonLootTableEdit
-            // 
-            this.buttonLootTableEdit.Location = new System.Drawing.Point(267, 365);
-            this.buttonLootTableEdit.Name = "buttonLootTableEdit";
-            this.buttonLootTableEdit.Size = new System.Drawing.Size(75, 23);
-            this.buttonLootTableEdit.TabIndex = 8;
-            this.buttonLootTableEdit.Text = "Edit";
-            this.buttonLootTableEdit.UseVisualStyleBackColor = true;
-            this.buttonLootTableEdit.Click += new System.EventHandler(this.buttonLootTableEdit_Click);
-            // 
-            // buttonLootTableRemove
-            // 
-            this.buttonLootTableRemove.Location = new System.Drawing.Point(267, 394);
-            this.buttonLootTableRemove.Name = "buttonLootTableRemove";
-            this.buttonLootTableRemove.Size = new System.Drawing.Size(75, 23);
-            this.buttonLootTableRemove.TabIndex = 9;
-            this.buttonLootTableRemove.Text = "Remove";
-            this.buttonLootTableRemove.UseVisualStyleBackColor = true;
-            this.buttonLootTableRemove.Click += new System.EventHandler(this.buttonLootTableRemove_Click);
+            this.dataGridViewCastables.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewCastables_DataError);
             // 
             // SpawnDialog
             // 
@@ -1331,6 +1448,7 @@ namespace HybrasylXmlEditor.UI
             ((System.ComponentModel.ISupportInitialize)(this.numericStatsMp)).EndInit();
             this.groupBoxLootList.ResumeLayout(false);
             this.groupBoxLootList.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootTable)).EndInit();
             this.groupBoxLootGold.ResumeLayout(false);
             this.groupBoxLootGold.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericLootGoldMax)).EndInit();
@@ -1343,7 +1461,6 @@ namespace HybrasylXmlEditor.UI
             this.groupBoxCastables.ResumeLayout(false);
             this.groupBoxCastables.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCastables)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewLootTable)).EndInit();
             this.ResumeLayout(false);
 
         }

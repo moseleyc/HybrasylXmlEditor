@@ -198,35 +198,6 @@ namespace HybrasylXmlEditor.UI
             #endregion
         }
 
-        private void buttonLoadXML_Click(object sender, EventArgs e)
-        {
-            OpenFileDialog loadNpcXML = new OpenFileDialog();
-            loadNpcXML.Filter = "(XML)|*.xml";
-            if (loadNpcXML.ShowDialog() == DialogResult.OK)
-            {
-                try
-                {
-                    XmlReaderSettings settings = new XmlReaderSettings();
-                    settings.IgnoreComments = true;
-
-                    XmlReader reader = XmlReader.Create(loadNpcXML.FileName, settings);
-                    Npc nullNpc = null;
-                    var readNpc = Serializer.Deserialize(reader, nullNpc);
-                    NpcVM.SetDisplayNpc(readNpc);
-                    dataGridViewRolesTrain.DataSource = NpcVM.Roles_Train;
-                    dataGridViewVendorItems.DataSource = NpcVM.Roles_Vend_Items;
-                    dataGridViewPostSurcharge.DataSource = NpcVM.Roles_Post_Surcharge;
-
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: Problem with loading the file");
-                }
-            }
-            loadFlags();
-        }
-
         private void loadFlags()
         {
             if (NpcVM.Appearance != null) checkBoxHasAppearance.Checked = true;
@@ -275,10 +246,19 @@ namespace HybrasylXmlEditor.UI
             }
         }
 
+        private void buttonNewXML_Click(object sender, EventArgs e)
+        {
+            NpcVM.SetDisplayNpc(new Npc());
+            checkBoxHasAppearance.Checked = false;
+            checkBoxHasRoles.Checked = false;
+            checkBoxHasInventory.Checked = false;
+        }
+
         private void buttonSaveXML_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveNpcXML = new SaveFileDialog();
             saveNpcXML.Filter = "(XML)|*.xml";
+            XmlWriter xmlWriter = null;
             if (saveNpcXML.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -288,25 +268,50 @@ namespace HybrasylXmlEditor.UI
                     xmlSettings.Indent = true;
                     xmlSettings.IndentChars = "\t";
 
-                    XmlWriter xmlWriter = XmlWriter.Create(fileName, xmlSettings);
+                    xmlWriter = XmlWriter.Create(fileName, xmlSettings);
                     Serializer.Serialize(xmlWriter, NpcVM.GetDisplayNpc());
-
-                    xmlWriter.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error: Could not read file");
+                    MessageBox.Show("Error: Problem saving the file.");
                 }
-
+                finally
+                {
+                    if (xmlWriter != null) xmlWriter.Close();
+                }
             }
         }
 
-        private void buttonNewXML_Click(object sender, EventArgs e)
+        private void buttonLoadXML_Click(object sender, EventArgs e)
         {
-            NpcVM.SetDisplayNpc(new Npc());
-            checkBoxHasAppearance.Checked = false;
-            checkBoxHasRoles.Checked = false;
-            checkBoxHasInventory.Checked = false;
+            OpenFileDialog loadNpcXML = new OpenFileDialog();
+            loadNpcXML.Filter = "(XML)|*.xml";
+            XmlReader reader = null;
+            if (loadNpcXML.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    XmlReaderSettings settings = new XmlReaderSettings();
+                    settings.IgnoreComments = true;
+
+                    reader = XmlReader.Create(loadNpcXML.FileName, settings);
+                    Npc nullNpc = null;
+                    var readNpc = Serializer.Deserialize(reader, nullNpc);
+                    NpcVM.SetDisplayNpc(readNpc);
+                    dataGridViewRolesTrain.DataSource = NpcVM.Roles_Train;
+                    dataGridViewVendorItems.DataSource = NpcVM.Roles_Vend_Items;
+                    dataGridViewPostSurcharge.DataSource = NpcVM.Roles_Post_Surcharge;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Problem with loading the file");
+                }
+                finally
+                {
+                    if (reader != null) reader.Close();
+                }
+            }
+            loadFlags();
         }
 
         private void checkBoxHasAppearance_CheckedChanged(object sender, EventArgs e)
@@ -344,9 +349,6 @@ namespace HybrasylXmlEditor.UI
                 checkBoxHasBank.Checked = false;
             }
         }
-
-        
-
 
         //Roles Events
         #region Training Events
@@ -517,7 +519,14 @@ namespace HybrasylXmlEditor.UI
                 buttonVendorTabNameRemove.Visible = false;
                 checkBoxVendorHasItems.Checked = false;
                 NpcVM.Roles_Vend = null;
-                NpcVM.Roles_Vend_Tabs.Clear();
+                try
+                {
+                    NpcVM.Roles_Vend_Tabs.Clear();
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
 
@@ -542,19 +551,6 @@ namespace HybrasylXmlEditor.UI
                 dataGridViewVendorItems.ReadOnly = true;
                 NpcVM.Roles_Vend_Items.Clear();
             }
-        }
-
-        private void dataGridViewVendorItems_DataError(object sender, DataGridViewDataErrorEventArgs error)
-        {
-            //MessageBox.Show("Error: " + error.Context.ToString());
-            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
-            var errorText = string.Empty;
-
-            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Quantity") || cellColumnName.Equals("Restock")))
-            {
-                errorText = "may only contain numeric values.";
-            }
-            MessageBox.Show(cellColumnName + " " + errorText);
         }
 
         private void buttonVendorTabNameAdd_Click(object sender, EventArgs e)
@@ -778,6 +774,30 @@ namespace HybrasylXmlEditor.UI
         #endregion
 
 
+        #region Error Events
+        private void dataGridViewVendorItems_DataError(object sender, DataGridViewDataErrorEventArgs error)
+        {
+            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
+            var errorText = string.Empty;
 
+            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Quantity") || cellColumnName.Equals("Restock")))
+            {
+                errorText = "may only contain numeric values \nbetween -2,147,483,648 and 2,147,483,647";
+            }
+            MessageBox.Show(cellColumnName + " " + errorText);
+        }
+
+        private void dataGridViewPostSurcharge_DataError(object sender, DataGridViewDataErrorEventArgs error)
+        {
+            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
+            var errorText = string.Empty;
+
+            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && cellColumnName.Equals("Percent"))
+            {
+                errorText = "may only contain numeric values \nbetween -2,147,483,648 and 2,147,483,647";
+            }
+            MessageBox.Show(cellColumnName + " " + errorText);
+        }
+        #endregion
     }
 }

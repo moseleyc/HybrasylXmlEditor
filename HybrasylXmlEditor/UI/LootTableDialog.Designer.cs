@@ -39,6 +39,8 @@
             this.numericGoldMin = new System.Windows.Forms.NumericUpDown();
             this.labelGoldMin = new System.Windows.Forms.Label();
             this.groupBoxItemList = new System.Windows.Forms.GroupBox();
+            this.textBoxItemVariantText = new System.Windows.Forms.TextBox();
+            this.listBoxItemVariantText = new System.Windows.Forms.ListBox();
             this.checkBoxHasItemList = new System.Windows.Forms.CheckBox();
             this.buttonVariantRemove = new System.Windows.Forms.Button();
             this.buttonVariantAdd = new System.Windows.Forms.Button();
@@ -52,8 +54,6 @@
             this.labelItemListAttributeRolls = new System.Windows.Forms.Label();
             this.buttonOk = new System.Windows.Forms.Button();
             this.buttonCancel = new System.Windows.Forms.Button();
-            this.listBoxItemVariantText = new System.Windows.Forms.ListBox();
-            this.textBoxItemVariantText = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericAttributeChance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericAttributeRolls)).BeginInit();
@@ -82,22 +82,33 @@
             // 
             // numericAttributeChance
             // 
-            this.numericAttributeChance.Location = new System.Drawing.Point(226, 19);
+            this.numericAttributeChance.DecimalPlaces = 2;
+            this.numericAttributeChance.Location = new System.Drawing.Point(276, 19);
+            this.numericAttributeChance.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericAttributeChance.Name = "numericAttributeChance";
-            this.numericAttributeChance.Size = new System.Drawing.Size(98, 20);
+            this.numericAttributeChance.Size = new System.Drawing.Size(120, 20);
             this.numericAttributeChance.TabIndex = 4;
             // 
             // numericAttributeRolls
             // 
             this.numericAttributeRolls.Location = new System.Drawing.Point(63, 19);
+            this.numericAttributeRolls.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericAttributeRolls.Name = "numericAttributeRolls";
-            this.numericAttributeRolls.Size = new System.Drawing.Size(98, 20);
+            this.numericAttributeRolls.Size = new System.Drawing.Size(120, 20);
             this.numericAttributeRolls.TabIndex = 3;
             // 
             // labelAttributeChance
             // 
             this.labelAttributeChance.AutoSize = true;
-            this.labelAttributeChance.Location = new System.Drawing.Point(173, 21);
+            this.labelAttributeChance.Location = new System.Drawing.Point(223, 21);
             this.labelAttributeChance.Name = "labelAttributeChance";
             this.labelAttributeChance.Size = new System.Drawing.Size(47, 13);
             this.labelAttributeChance.TabIndex = 1;
@@ -127,15 +138,20 @@
             // 
             // numericGoldMax
             // 
-            this.numericGoldMax.Location = new System.Drawing.Point(226, 19);
+            this.numericGoldMax.Location = new System.Drawing.Point(276, 19);
+            this.numericGoldMax.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericGoldMax.Name = "numericGoldMax";
-            this.numericGoldMax.Size = new System.Drawing.Size(98, 20);
+            this.numericGoldMax.Size = new System.Drawing.Size(120, 20);
             this.numericGoldMax.TabIndex = 6;
             // 
             // labelGoldMax
             // 
             this.labelGoldMax.AutoSize = true;
-            this.labelGoldMax.Location = new System.Drawing.Point(190, 21);
+            this.labelGoldMax.Location = new System.Drawing.Point(240, 21);
             this.labelGoldMax.Name = "labelGoldMax";
             this.labelGoldMax.Size = new System.Drawing.Size(30, 13);
             this.labelGoldMax.TabIndex = 3;
@@ -144,8 +160,13 @@
             // numericGoldMin
             // 
             this.numericGoldMin.Location = new System.Drawing.Point(63, 19);
+            this.numericGoldMin.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericGoldMin.Name = "numericGoldMin";
-            this.numericGoldMin.Size = new System.Drawing.Size(98, 20);
+            this.numericGoldMin.Size = new System.Drawing.Size(120, 20);
             this.numericGoldMin.TabIndex = 5;
             // 
             // labelGoldMin
@@ -174,6 +195,23 @@
             this.groupBoxItemList.TabIndex = 2;
             this.groupBoxItemList.TabStop = false;
             this.groupBoxItemList.Text = "Item List";
+            // 
+            // textBoxItemVariantText
+            // 
+            this.textBoxItemVariantText.Location = new System.Drawing.Point(113, 333);
+            this.textBoxItemVariantText.Name = "textBoxItemVariantText";
+            this.textBoxItemVariantText.ReadOnly = true;
+            this.textBoxItemVariantText.Size = new System.Drawing.Size(239, 20);
+            this.textBoxItemVariantText.TabIndex = 12;
+            // 
+            // listBoxItemVariantText
+            // 
+            this.listBoxItemVariantText.Enabled = false;
+            this.listBoxItemVariantText.FormattingEnabled = true;
+            this.listBoxItemVariantText.Location = new System.Drawing.Point(113, 257);
+            this.listBoxItemVariantText.Name = "listBoxItemVariantText";
+            this.listBoxItemVariantText.Size = new System.Drawing.Size(239, 69);
+            this.listBoxItemVariantText.TabIndex = 11;
             // 
             // checkBoxHasItemList
             // 
@@ -230,9 +268,10 @@
             this.dataGridViewItemList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewItemList.Location = new System.Drawing.Point(6, 100);
             this.dataGridViewItemList.Name = "dataGridViewItemList";
-            this.dataGridViewItemList.Size = new System.Drawing.Size(346, 150);
+            this.dataGridViewItemList.Size = new System.Drawing.Size(427, 150);
             this.dataGridViewItemList.TabIndex = 4;
             this.dataGridViewItemList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewItemList_CellClick);
+            this.dataGridViewItemList.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewItemList_DataError);
             // 
             // groupBoxItemListAttributes
             // 
@@ -242,22 +281,28 @@
             this.groupBoxItemListAttributes.Controls.Add(this.labelItemListAttributeRolls);
             this.groupBoxItemListAttributes.Location = new System.Drawing.Point(6, 43);
             this.groupBoxItemListAttributes.Name = "groupBoxItemListAttributes";
-            this.groupBoxItemListAttributes.Size = new System.Drawing.Size(347, 51);
+            this.groupBoxItemListAttributes.Size = new System.Drawing.Size(427, 51);
             this.groupBoxItemListAttributes.TabIndex = 3;
             this.groupBoxItemListAttributes.TabStop = false;
             this.groupBoxItemListAttributes.Text = "Attributes";
             // 
             // numericItemListAttributeChance
             // 
-            this.numericItemListAttributeChance.Location = new System.Drawing.Point(220, 19);
+            this.numericItemListAttributeChance.DecimalPlaces = 2;
+            this.numericItemListAttributeChance.Location = new System.Drawing.Point(270, 19);
+            this.numericItemListAttributeChance.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericItemListAttributeChance.Name = "numericItemListAttributeChance";
-            this.numericItemListAttributeChance.Size = new System.Drawing.Size(98, 20);
+            this.numericItemListAttributeChance.Size = new System.Drawing.Size(120, 20);
             this.numericItemListAttributeChance.TabIndex = 8;
             // 
             // labelItemListAttributeChance
             // 
             this.labelItemListAttributeChance.AutoSize = true;
-            this.labelItemListAttributeChance.Location = new System.Drawing.Point(167, 21);
+            this.labelItemListAttributeChance.Location = new System.Drawing.Point(217, 21);
             this.labelItemListAttributeChance.Name = "labelItemListAttributeChance";
             this.labelItemListAttributeChance.Size = new System.Drawing.Size(47, 13);
             this.labelItemListAttributeChance.TabIndex = 5;
@@ -266,8 +311,13 @@
             // numericItemListAttributeRolls
             // 
             this.numericItemListAttributeRolls.Location = new System.Drawing.Point(57, 19);
+            this.numericItemListAttributeRolls.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
             this.numericItemListAttributeRolls.Name = "numericItemListAttributeRolls";
-            this.numericItemListAttributeRolls.Size = new System.Drawing.Size(98, 20);
+            this.numericItemListAttributeRolls.Size = new System.Drawing.Size(120, 20);
             this.numericItemListAttributeRolls.TabIndex = 7;
             // 
             // labelItemListAttributeRolls
@@ -298,23 +348,6 @@
             this.buttonCancel.TabIndex = 4;
             this.buttonCancel.Text = "Cancel";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            // 
-            // listBoxItemVariantText
-            // 
-            this.listBoxItemVariantText.Enabled = false;
-            this.listBoxItemVariantText.FormattingEnabled = true;
-            this.listBoxItemVariantText.Location = new System.Drawing.Point(113, 257);
-            this.listBoxItemVariantText.Name = "listBoxItemVariantText";
-            this.listBoxItemVariantText.Size = new System.Drawing.Size(239, 69);
-            this.listBoxItemVariantText.TabIndex = 11;
-            // 
-            // textBoxItemVariantText
-            // 
-            this.textBoxItemVariantText.Location = new System.Drawing.Point(113, 333);
-            this.textBoxItemVariantText.Name = "textBoxItemVariantText";
-            this.textBoxItemVariantText.ReadOnly = true;
-            this.textBoxItemVariantText.Size = new System.Drawing.Size(239, 20);
-            this.textBoxItemVariantText.TabIndex = 12;
             // 
             // LootTableDialog
             // 

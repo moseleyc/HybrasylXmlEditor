@@ -550,5 +550,32 @@ namespace HybrasylXmlEditor.UI
         {
 
         }
+        #region Error Events
+        private void dataGridViewLootImport_DataError(object sender, DataGridViewDataErrorEventArgs error)
+        {
+            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
+            var errorText = string.Empty;
+
+            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Rolls") || cellColumnName.Equals("Chance")))
+            {
+                errorText = "may only contain numeric values \nbetween -2,147,483,648 and 2,147,483,647";
+            }
+            MessageBox.Show(cellColumnName + " " + errorText);
+        }
+
+        private void dataGridViewCastables_DataError(object sender, DataGridViewDataErrorEventArgs error)
+        {
+            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
+            var errorText = string.Empty;
+
+            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Chance") || cellColumnName.Equals("Cooldown")))
+            {
+                errorText = "may only contain numeric values \nbetween -2,147,483,648 and 2,147,483,647";
+            }
+            MessageBox.Show(cellColumnName + " " + errorText);
+        }
+        #endregion
+
+
     }
 }

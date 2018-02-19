@@ -84,6 +84,11 @@
             // numericSprite
             // 
             this.numericSprite.Location = new System.Drawing.Point(79, 95);
+            this.numericSprite.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.numericSprite.Name = "numericSprite";
             this.numericSprite.Size = new System.Drawing.Size(120, 20);
             this.numericSprite.TabIndex = 5;
