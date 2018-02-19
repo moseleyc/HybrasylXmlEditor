@@ -517,7 +517,14 @@ namespace HybrasylXmlEditor.UI
                 buttonVendorTabNameRemove.Visible = false;
                 checkBoxVendorHasItems.Checked = false;
                 NpcVM.Roles_Vend = null;
-                NpcVM.Roles_Vend_Tabs.Clear();
+                try
+                {
+                    NpcVM.Roles_Vend_Tabs.Clear();
+                }
+                catch (Exception ex)
+                {
+
+                }
             }
         }
 
@@ -542,19 +549,6 @@ namespace HybrasylXmlEditor.UI
                 dataGridViewVendorItems.ReadOnly = true;
                 NpcVM.Roles_Vend_Items.Clear();
             }
-        }
-
-        private void dataGridViewVendorItems_DataError(object sender, DataGridViewDataErrorEventArgs error)
-        {
-            //MessageBox.Show("Error: " + error.Context.ToString());
-            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
-            var errorText = string.Empty;
-
-            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Quantity") || cellColumnName.Equals("Restock")))
-            {
-                errorText = "may only contain numeric values.";
-            }
-            MessageBox.Show(cellColumnName + " " + errorText);
         }
 
         private void buttonVendorTabNameAdd_Click(object sender, EventArgs e)
@@ -778,6 +772,30 @@ namespace HybrasylXmlEditor.UI
         #endregion
 
 
+        #region Error Events
+        private void dataGridViewVendorItems_DataError(object sender, DataGridViewDataErrorEventArgs error)
+        {
+            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
+            var errorText = string.Empty;
 
+            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && (cellColumnName.Equals("Quantity") || cellColumnName.Equals("Restock")))
+            {
+                errorText = "may only contain numeric values \nbetween -2,147,483,648 and 2,147,483,647";
+            }
+            MessageBox.Show(cellColumnName + " " + errorText);
+        }
+
+        private void dataGridViewPostSurcharge_DataError(object sender, DataGridViewDataErrorEventArgs error)
+        {
+            var cellColumnName = (sender as DataGridView).Columns[error.ColumnIndex].Name;
+            var errorText = string.Empty;
+
+            if (error.Context.HasFlag(DataGridViewDataErrorContexts.CurrentCellChange) && cellColumnName.Equals("Percent"))
+            {
+                errorText = "may only contain numeric values \nbetween -2,147,483,648 and 2,147,483,647";
+            }
+            MessageBox.Show(cellColumnName + " " + errorText);
+        }
+        #endregion
     }
 }

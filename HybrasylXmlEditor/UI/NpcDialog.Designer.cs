@@ -64,6 +64,13 @@
             this.textBoxBankDiscount = new System.Windows.Forms.TextBox();
             this.labelBankDiscount = new System.Windows.Forms.Label();
             this.groupBoxRepair = new System.Windows.Forms.GroupBox();
+            this.checkBoxRepairAll = new System.Windows.Forms.CheckBox();
+            this.checkBoxRepairWeapon = new System.Windows.Forms.CheckBox();
+            this.checkBoxRepairArmor = new System.Windows.Forms.CheckBox();
+            this.numericUpDownRepairDiscount = new System.Windows.Forms.NumericUpDown();
+            this.labelRepairDiscount = new System.Windows.Forms.Label();
+            this.labelRepairNation = new System.Windows.Forms.Label();
+            this.textBoxRepairNation = new System.Windows.Forms.TextBox();
             this.groupBoxPost = new System.Windows.Forms.GroupBox();
             this.dataGridViewPostSurcharge = new System.Windows.Forms.DataGridView();
             this.textBoxPostReceive = new System.Windows.Forms.TextBox();
@@ -90,13 +97,6 @@
             this.checkBoxHasAppearance = new System.Windows.Forms.CheckBox();
             this.checkBoxHasRoles = new System.Windows.Forms.CheckBox();
             this.checkBoxHasInventory = new System.Windows.Forms.CheckBox();
-            this.textBoxRepairNation = new System.Windows.Forms.TextBox();
-            this.labelRepairNation = new System.Windows.Forms.Label();
-            this.numericUpDownRepairDiscount = new System.Windows.Forms.NumericUpDown();
-            this.labelRepairDiscount = new System.Windows.Forms.Label();
-            this.checkBoxRepairAll = new System.Windows.Forms.CheckBox();
-            this.checkBoxRepairWeapon = new System.Windows.Forms.CheckBox();
-            this.checkBoxRepairArmor = new System.Windows.Forms.CheckBox();
             this.groupBoxAttributes.SuspendLayout();
             this.groupBoxMapLocation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownMapY)).BeginInit();
@@ -111,13 +111,13 @@
             this.groupBoxRoles.SuspendLayout();
             this.groupBoxBank.SuspendLayout();
             this.groupBoxRepair.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepairDiscount)).BeginInit();
             this.groupBoxPost.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostSurcharge)).BeginInit();
             this.groupBoxVendor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewVendorItems)).BeginInit();
             this.groupBoxTraining.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRolesTrain)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepairDiscount)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBoxAttributes
@@ -199,6 +199,11 @@
             // numericUpDownMapY
             // 
             this.numericUpDownMapY.Location = new System.Drawing.Point(37, 45);
+            this.numericUpDownMapY.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownMapY.Name = "numericUpDownMapY";
             this.numericUpDownMapY.Size = new System.Drawing.Size(49, 20);
             this.numericUpDownMapY.TabIndex = 8;
@@ -206,6 +211,11 @@
             // numericUpDownMapX
             // 
             this.numericUpDownMapX.Location = new System.Drawing.Point(37, 19);
+            this.numericUpDownMapX.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownMapX.Name = "numericUpDownMapX";
             this.numericUpDownMapX.Size = new System.Drawing.Size(49, 20);
             this.numericUpDownMapX.TabIndex = 7;
@@ -226,6 +236,11 @@
             // numericUpDownAppearanceSprite
             // 
             this.numericUpDownAppearanceSprite.Location = new System.Drawing.Point(64, 20);
+            this.numericUpDownAppearanceSprite.Maximum = new decimal(new int[] {
+            65535,
+            0,
+            0,
+            0});
             this.numericUpDownAppearanceSprite.Name = "numericUpDownAppearanceSprite";
             this.numericUpDownAppearanceSprite.ReadOnly = true;
             this.numericUpDownAppearanceSprite.Size = new System.Drawing.Size(49, 20);
@@ -299,9 +314,14 @@
             // numericUpDownInvRefresh
             // 
             this.numericUpDownInvRefresh.Location = new System.Drawing.Point(85, 70);
+            this.numericUpDownInvRefresh.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
             this.numericUpDownInvRefresh.Name = "numericUpDownInvRefresh";
             this.numericUpDownInvRefresh.ReadOnly = true;
-            this.numericUpDownInvRefresh.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDownInvRefresh.Size = new System.Drawing.Size(170, 20);
             this.numericUpDownInvRefresh.TabIndex = 21;
             // 
             // textBoxInvItemValue
@@ -309,7 +329,7 @@
             this.textBoxInvItemValue.Location = new System.Drawing.Point(85, 19);
             this.textBoxInvItemValue.Name = "textBoxInvItemValue";
             this.textBoxInvItemValue.ReadOnly = true;
-            this.textBoxInvItemValue.Size = new System.Drawing.Size(116, 20);
+            this.textBoxInvItemValue.Size = new System.Drawing.Size(170, 20);
             this.textBoxInvItemValue.TabIndex = 17;
             // 
             // labelInventoryQuantity
@@ -333,9 +353,14 @@
             // numericUpDownInvQty
             // 
             this.numericUpDownInvQty.Location = new System.Drawing.Point(85, 44);
+            this.numericUpDownInvQty.Maximum = new decimal(new int[] {
+            -1,
+            0,
+            0,
+            0});
             this.numericUpDownInvQty.Name = "numericUpDownInvQty";
             this.numericUpDownInvQty.ReadOnly = true;
-            this.numericUpDownInvQty.Size = new System.Drawing.Size(49, 20);
+            this.numericUpDownInvQty.Size = new System.Drawing.Size(170, 20);
             this.numericUpDownInvQty.TabIndex = 19;
             // 
             // labelInventoryItemValue
@@ -350,9 +375,14 @@
             // numericUpDownInvGold
             // 
             this.numericUpDownInvGold.Location = new System.Drawing.Point(44, 19);
+            this.numericUpDownInvGold.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.numericUpDownInvGold.Name = "numericUpDownInvGold";
             this.numericUpDownInvGold.ReadOnly = true;
-            this.numericUpDownInvGold.Size = new System.Drawing.Size(66, 20);
+            this.numericUpDownInvGold.Size = new System.Drawing.Size(83, 20);
             this.numericUpDownInvGold.TabIndex = 15;
             // 
             // labelInvGold
@@ -454,7 +484,7 @@
             this.textBoxBankDiscount.Location = new System.Drawing.Point(75, 19);
             this.textBoxBankDiscount.Name = "textBoxBankDiscount";
             this.textBoxBankDiscount.ReadOnly = true;
-            this.textBoxBankDiscount.Size = new System.Drawing.Size(116, 20);
+            this.textBoxBankDiscount.Size = new System.Drawing.Size(154, 20);
             this.textBoxBankDiscount.TabIndex = 13;
             // 
             // labelBankDiscount
@@ -482,6 +512,78 @@
             this.groupBoxRepair.TabStop = false;
             this.groupBoxRepair.Text = "Repair";
             // 
+            // checkBoxRepairAll
+            // 
+            this.checkBoxRepairAll.AutoSize = true;
+            this.checkBoxRepairAll.Location = new System.Drawing.Point(192, 85);
+            this.checkBoxRepairAll.Name = "checkBoxRepairAll";
+            this.checkBoxRepairAll.Size = new System.Drawing.Size(37, 17);
+            this.checkBoxRepairAll.TabIndex = 32;
+            this.checkBoxRepairAll.Text = "All";
+            this.checkBoxRepairAll.UseVisualStyleBackColor = true;
+            this.checkBoxRepairAll.CheckedChanged += new System.EventHandler(this.checkBoxRepairAll_CheckedChanged);
+            // 
+            // checkBoxRepairWeapon
+            // 
+            this.checkBoxRepairWeapon.AutoSize = true;
+            this.checkBoxRepairWeapon.Location = new System.Drawing.Point(104, 85);
+            this.checkBoxRepairWeapon.Name = "checkBoxRepairWeapon";
+            this.checkBoxRepairWeapon.Size = new System.Drawing.Size(67, 17);
+            this.checkBoxRepairWeapon.TabIndex = 31;
+            this.checkBoxRepairWeapon.Text = "Weapon";
+            this.checkBoxRepairWeapon.UseVisualStyleBackColor = true;
+            this.checkBoxRepairWeapon.CheckedChanged += new System.EventHandler(this.checkBoxRepairWeapon_CheckedChanged);
+            // 
+            // checkBoxRepairArmor
+            // 
+            this.checkBoxRepairArmor.AutoSize = true;
+            this.checkBoxRepairArmor.Location = new System.Drawing.Point(16, 85);
+            this.checkBoxRepairArmor.Name = "checkBoxRepairArmor";
+            this.checkBoxRepairArmor.Size = new System.Drawing.Size(53, 17);
+            this.checkBoxRepairArmor.TabIndex = 30;
+            this.checkBoxRepairArmor.Text = "Armor";
+            this.checkBoxRepairArmor.UseVisualStyleBackColor = true;
+            this.checkBoxRepairArmor.CheckedChanged += new System.EventHandler(this.checkBoxRepairArmor_CheckedChanged);
+            // 
+            // numericUpDownRepairDiscount
+            // 
+            this.numericUpDownRepairDiscount.Location = new System.Drawing.Point(67, 52);
+            this.numericUpDownRepairDiscount.Maximum = new decimal(new int[] {
+            2147483647,
+            0,
+            0,
+            0});
+            this.numericUpDownRepairDiscount.Name = "numericUpDownRepairDiscount";
+            this.numericUpDownRepairDiscount.ReadOnly = true;
+            this.numericUpDownRepairDiscount.Size = new System.Drawing.Size(162, 20);
+            this.numericUpDownRepairDiscount.TabIndex = 29;
+            // 
+            // labelRepairDiscount
+            // 
+            this.labelRepairDiscount.AutoSize = true;
+            this.labelRepairDiscount.Location = new System.Drawing.Point(9, 54);
+            this.labelRepairDiscount.Name = "labelRepairDiscount";
+            this.labelRepairDiscount.Size = new System.Drawing.Size(52, 13);
+            this.labelRepairDiscount.TabIndex = 28;
+            this.labelRepairDiscount.Text = "Discount:";
+            // 
+            // labelRepairNation
+            // 
+            this.labelRepairNation.AutoSize = true;
+            this.labelRepairNation.Location = new System.Drawing.Point(20, 29);
+            this.labelRepairNation.Name = "labelRepairNation";
+            this.labelRepairNation.Size = new System.Drawing.Size(41, 13);
+            this.labelRepairNation.TabIndex = 26;
+            this.labelRepairNation.Text = "Nation:";
+            // 
+            // textBoxRepairNation
+            // 
+            this.textBoxRepairNation.Location = new System.Drawing.Point(67, 26);
+            this.textBoxRepairNation.Name = "textBoxRepairNation";
+            this.textBoxRepairNation.ReadOnly = true;
+            this.textBoxRepairNation.Size = new System.Drawing.Size(162, 20);
+            this.textBoxRepairNation.TabIndex = 27;
+            // 
             // groupBoxPost
             // 
             this.groupBoxPost.Controls.Add(this.dataGridViewPostSurcharge);
@@ -503,6 +605,7 @@
             this.dataGridViewPostSurcharge.ReadOnly = true;
             this.dataGridViewPostSurcharge.Size = new System.Drawing.Size(240, 150);
             this.dataGridViewPostSurcharge.TabIndex = 26;
+            this.dataGridViewPostSurcharge.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridViewPostSurcharge_DataError);
             // 
             // textBoxPostReceive
             // 
@@ -765,73 +868,6 @@
             this.checkBoxHasInventory.UseVisualStyleBackColor = true;
             this.checkBoxHasInventory.CheckedChanged += new System.EventHandler(this.checkBoxHasInventory_CheckedChanged);
             // 
-            // textBoxRepairNation
-            // 
-            this.textBoxRepairNation.Location = new System.Drawing.Point(67, 26);
-            this.textBoxRepairNation.Name = "textBoxRepairNation";
-            this.textBoxRepairNation.ReadOnly = true;
-            this.textBoxRepairNation.Size = new System.Drawing.Size(162, 20);
-            this.textBoxRepairNation.TabIndex = 27;
-            // 
-            // labelRepairNation
-            // 
-            this.labelRepairNation.AutoSize = true;
-            this.labelRepairNation.Location = new System.Drawing.Point(20, 29);
-            this.labelRepairNation.Name = "labelRepairNation";
-            this.labelRepairNation.Size = new System.Drawing.Size(41, 13);
-            this.labelRepairNation.TabIndex = 26;
-            this.labelRepairNation.Text = "Nation:";
-            // 
-            // numericUpDownRepairDiscount
-            // 
-            this.numericUpDownRepairDiscount.Location = new System.Drawing.Point(67, 52);
-            this.numericUpDownRepairDiscount.Name = "numericUpDownRepairDiscount";
-            this.numericUpDownRepairDiscount.ReadOnly = true;
-            this.numericUpDownRepairDiscount.Size = new System.Drawing.Size(66, 20);
-            this.numericUpDownRepairDiscount.TabIndex = 29;
-            // 
-            // labelRepairDiscount
-            // 
-            this.labelRepairDiscount.AutoSize = true;
-            this.labelRepairDiscount.Location = new System.Drawing.Point(9, 54);
-            this.labelRepairDiscount.Name = "labelRepairDiscount";
-            this.labelRepairDiscount.Size = new System.Drawing.Size(52, 13);
-            this.labelRepairDiscount.TabIndex = 28;
-            this.labelRepairDiscount.Text = "Discount:";
-            // 
-            // checkBoxRepairAll
-            // 
-            this.checkBoxRepairAll.AutoSize = true;
-            this.checkBoxRepairAll.Location = new System.Drawing.Point(192, 85);
-            this.checkBoxRepairAll.Name = "checkBoxRepairAll";
-            this.checkBoxRepairAll.Size = new System.Drawing.Size(37, 17);
-            this.checkBoxRepairAll.TabIndex = 32;
-            this.checkBoxRepairAll.Text = "All";
-            this.checkBoxRepairAll.UseVisualStyleBackColor = true;
-            this.checkBoxRepairAll.CheckedChanged += new System.EventHandler(this.checkBoxRepairAll_CheckedChanged);
-            // 
-            // checkBoxRepairWeapon
-            // 
-            this.checkBoxRepairWeapon.AutoSize = true;
-            this.checkBoxRepairWeapon.Location = new System.Drawing.Point(104, 85);
-            this.checkBoxRepairWeapon.Name = "checkBoxRepairWeapon";
-            this.checkBoxRepairWeapon.Size = new System.Drawing.Size(67, 17);
-            this.checkBoxRepairWeapon.TabIndex = 31;
-            this.checkBoxRepairWeapon.Text = "Weapon";
-            this.checkBoxRepairWeapon.UseVisualStyleBackColor = true;
-            this.checkBoxRepairWeapon.CheckedChanged += new System.EventHandler(this.checkBoxRepairWeapon_CheckedChanged);
-            // 
-            // checkBoxRepairArmor
-            // 
-            this.checkBoxRepairArmor.AutoSize = true;
-            this.checkBoxRepairArmor.Location = new System.Drawing.Point(16, 85);
-            this.checkBoxRepairArmor.Name = "checkBoxRepairArmor";
-            this.checkBoxRepairArmor.Size = new System.Drawing.Size(53, 17);
-            this.checkBoxRepairArmor.TabIndex = 30;
-            this.checkBoxRepairArmor.Text = "Armor";
-            this.checkBoxRepairArmor.UseVisualStyleBackColor = true;
-            this.checkBoxRepairArmor.CheckedChanged += new System.EventHandler(this.checkBoxRepairArmor_CheckedChanged);
-            // 
             // NpcDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -874,6 +910,7 @@
             this.groupBoxBank.PerformLayout();
             this.groupBoxRepair.ResumeLayout(false);
             this.groupBoxRepair.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepairDiscount)).EndInit();
             this.groupBoxPost.ResumeLayout(false);
             this.groupBoxPost.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPostSurcharge)).EndInit();
@@ -883,7 +920,6 @@
             this.groupBoxTraining.ResumeLayout(false);
             this.groupBoxTraining.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRolesTrain)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRepairDiscount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -488,6 +488,7 @@ namespace HybrasylXmlEditor.UI
             // 
             // comboBoxDamageType
             // 
+            this.comboBoxDamageType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDamageType.FormattingEnabled = true;
             this.comboBoxDamageType.Items.AddRange(new object[] {
             Hybrasyl.Statuses.DamageType.Direct,
@@ -571,6 +572,7 @@ namespace HybrasylXmlEditor.UI
             // 
             // comboBoxDamageFlags
             // 
+            this.comboBoxDamageFlags.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDamageFlags.FormattingEnabled = true;
             this.comboBoxDamageFlags.Items.AddRange(new object[] {
             Hybrasyl.Statuses.DamageFlags.None,
@@ -641,6 +643,7 @@ namespace HybrasylXmlEditor.UI
             // 
             // comboBoxStatModDmgType
             // 
+            this.comboBoxStatModDmgType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxStatModDmgType.FormattingEnabled = true;
             this.comboBoxStatModDmgType.Items.AddRange(new object[] {
             Hybrasyl.Statuses.DamageType.Direct,
