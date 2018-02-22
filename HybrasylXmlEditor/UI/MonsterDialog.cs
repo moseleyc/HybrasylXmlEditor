@@ -36,6 +36,7 @@ namespace HybrasylXmlEditor.UI
     public partial class MonsterDialog : Form
     {
         public MonsterViewModel MonsterVM { get; set; }
+        public bool isUnderscoreSelected { get; set; }
 
         public MonsterDialog()
         {
@@ -62,7 +63,12 @@ namespace HybrasylXmlEditor.UI
 
         private void buttonSaveXml_Click(object sender, EventArgs e)
         {
+            string stringName;
+            if (isUnderscoreSelected) stringName = MonsterVM.Name.Replace(' ', '_');
+            else stringName = MonsterVM.Name;
+
             SaveFileDialog saveMonsterXML = new SaveFileDialog();
+            saveMonsterXML.FileName = stringName;
             saveMonsterXML.Filter = "(XML)|*.xml";
             XmlWriter xmlWriter = null;
             if (saveMonsterXML.ShowDialog() == DialogResult.OK)

@@ -36,6 +36,7 @@ namespace HybrasylXmlEditor.UI
     public partial class NpcDialog : Form
     {
         public NpcViewModel NpcVM { get; set; }
+        public bool isUnderscoreSelected { get; set; }
 
         public NpcDialog()
         {
@@ -256,7 +257,12 @@ namespace HybrasylXmlEditor.UI
 
         private void buttonSaveXML_Click(object sender, EventArgs e)
         {
+            string stringName;
+            if (isUnderscoreSelected) stringName = NpcVM.Name.Replace(' ', '_');
+            else stringName = NpcVM.Name;
+
             SaveFileDialog saveNpcXML = new SaveFileDialog();
+            saveNpcXML.FileName = stringName;
             saveNpcXML.Filter = "(XML)|*.xml";
             XmlWriter xmlWriter = null;
             if (saveNpcXML.ShowDialog() == DialogResult.OK)

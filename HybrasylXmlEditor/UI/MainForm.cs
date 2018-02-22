@@ -34,6 +34,11 @@ namespace HybrasylXmlEditor.UI
 {
     public partial class MainForm : Form
     {
+        private StatusesDialog stdlg;
+        private NpcDialog npcdlg;
+        private MonsterDialog mstdlg;
+        private SpawnGroupDialog spngrpdlg;
+
 
         public MainForm()
         {
@@ -44,7 +49,7 @@ namespace HybrasylXmlEditor.UI
         private void AddTabForms()
         {
             //Status Tab
-            StatusesDialog stdlg = new StatusesDialog();
+            stdlg = new StatusesDialog();
             stdlg.TopLevel = false;
             stdlg.Visible = true;
             stdlg.FormBorderStyle = FormBorderStyle.None;
@@ -53,7 +58,7 @@ namespace HybrasylXmlEditor.UI
             tabControlXmlEditor.TabPages[0].Controls.Add(stdlg);
 
             //NPC Tab
-            NpcDialog npcdlg = new NpcDialog();
+            npcdlg = new NpcDialog();
             npcdlg.TopLevel = false;
             npcdlg.Visible = true;
             npcdlg.FormBorderStyle = FormBorderStyle.None;
@@ -62,7 +67,7 @@ namespace HybrasylXmlEditor.UI
             tabControlXmlEditor.TabPages[1].Controls.Add(npcdlg);
 
             //Monster Tab
-            MonsterDialog mstdlg = new MonsterDialog();
+            mstdlg = new MonsterDialog();
             mstdlg.TopLevel = false;
             mstdlg.Visible = true;
             mstdlg.FormBorderStyle = FormBorderStyle.None;
@@ -71,18 +76,43 @@ namespace HybrasylXmlEditor.UI
             tabControlXmlEditor.TabPages[2].Controls.Add(mstdlg);
 
             //SpawnGroup Tab
-            SpawnGroupDialog spngrpdlg = new SpawnGroupDialog();
+            spngrpdlg = new SpawnGroupDialog();
             spngrpdlg.TopLevel = false;
             spngrpdlg.Visible = true;
             spngrpdlg.FormBorderStyle = FormBorderStyle.None;
             spngrpdlg.Dock = DockStyle.Fill;
 
             tabControlXmlEditor.TabPages[3].Controls.Add(spngrpdlg);
+
+            setUnderscoreValue();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void toolStripMenuItemFileDialogAutoPopulateFormat_Click(object sender, EventArgs e)
+        {
+            var menuItem = sender as ToolStripMenuItem;
+            if (menuItem.Checked)
+            {
+                menuItem.Checked = false;
+                setUnderscoreValue();
+            }
+            else
+            {
+                menuItem.Checked = true;
+                setUnderscoreValue();
+            }
+        }
+
+        private void setUnderscoreValue()
+        {
+            stdlg.isUnderscoreSelected = toolStripMenuItemFileDialogAutoPopulateFormat.Checked;
+            npcdlg.isUnderscoreSelected = toolStripMenuItemFileDialogAutoPopulateFormat.Checked;
+            mstdlg.isUnderscoreSelected = toolStripMenuItemFileDialogAutoPopulateFormat.Checked;
+            spngrpdlg.isUnderscoreSelected = toolStripMenuItemFileDialogAutoPopulateFormat.Checked;
         }
     }
 }

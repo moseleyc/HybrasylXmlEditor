@@ -36,6 +36,7 @@ namespace HybrasylXmlEditor.UI
     public partial class StatusesDialog : Form
     {
         public StatusViewModel StatusVM { get; set; }
+        public bool isUnderscoreSelected { get; set; }
         public StatusesDialog()
         {
             InitializeComponent();
@@ -120,13 +121,18 @@ namespace HybrasylXmlEditor.UI
 
         private void buttonSaveXML_Click(object sender, EventArgs e)
         {
+            string stringName;
+            if (isUnderscoreSelected) stringName = StatusVM.Name.Replace(' ', '_');
+            else stringName = StatusVM.Name;
+
             SaveFileDialog saveStatusXML = new SaveFileDialog();
+            saveStatusXML.FileName = stringName;
             saveStatusXML.Filter = "(XML)|*.xml";
             XmlWriter xmlWriter = null;
             if (saveStatusXML.ShowDialog() == DialogResult.OK)
             {
                 try
-                {
+                {                    
                     var fileName = saveStatusXML.FileName;
                     XmlWriterSettings xmlSettings = new XmlWriterSettings();
                     xmlSettings.Indent = true;
