@@ -35,7 +35,9 @@ namespace HybrasylXmlEditor.UI
 {
     public partial class SpawnGroupDialog : Form
     {
-        private SpawnGroupViewModel SpawnGroupVM;
+        public bool isUnderscoreSelected { get; set; }
+
+        private SpawnGroupViewModel SpawnGroupVM;        
 
         public SpawnGroupDialog()
         {

@@ -31,12 +31,15 @@
             this.MainFormMenuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileDialogPreferenceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItemFileDialogAutoPopulateFormat = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlXmlEditor = new System.Windows.Forms.TabControl();
             this.tabPageStatus = new System.Windows.Forms.TabPage();
             this.tabPageNpc = new System.Windows.Forms.TabPage();
             this.tabPageMonster = new System.Windows.Forms.TabPage();
             this.tabPageSpawnGroup = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPageLootImport = new System.Windows.Forms.TabPage();
             this.MainFormMenuStrip.SuspendLayout();
             this.tabControlXmlEditor.SuspendLayout();
             this.SuspendLayout();
@@ -44,7 +47,8 @@
             // MainFormMenuStrip
             // 
             this.MainFormMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.optionsToolStripMenuItem});
             this.MainFormMenuStrip.Location = new System.Drawing.Point(0, 0);
             this.MainFormMenuStrip.Name = "MainFormMenuStrip";
             this.MainFormMenuStrip.Size = new System.Drawing.Size(902, 24);
@@ -67,13 +71,38 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // optionsToolStripMenuItem
+            // 
+            this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileDialogPreferenceToolStripMenuItem});
+            this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.optionsToolStripMenuItem.Text = "Options";
+            // 
+            // fileDialogPreferenceToolStripMenuItem
+            // 
+            this.fileDialogPreferenceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItemFileDialogAutoPopulateFormat});
+            this.fileDialogPreferenceToolStripMenuItem.Name = "fileDialogPreferenceToolStripMenuItem";
+            this.fileDialogPreferenceToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.fileDialogPreferenceToolStripMenuItem.Text = "File Dialog Preference";
+            // 
+            // toolStripMenuItemFileDialogAutoPopulateFormat
+            // 
+            this.toolStripMenuItemFileDialogAutoPopulateFormat.Checked = true;
+            this.toolStripMenuItemFileDialogAutoPopulateFormat.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.toolStripMenuItemFileDialogAutoPopulateFormat.Name = "toolStripMenuItemFileDialogAutoPopulateFormat";
+            this.toolStripMenuItemFileDialogAutoPopulateFormat.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItemFileDialogAutoPopulateFormat.Text = "Underscore";
+            this.toolStripMenuItemFileDialogAutoPopulateFormat.Click += new System.EventHandler(this.toolStripMenuItemFileDialogAutoPopulateFormat_Click);
+            // 
             // tabControlXmlEditor
             // 
             this.tabControlXmlEditor.Controls.Add(this.tabPageStatus);
             this.tabControlXmlEditor.Controls.Add(this.tabPageNpc);
             this.tabControlXmlEditor.Controls.Add(this.tabPageMonster);
             this.tabControlXmlEditor.Controls.Add(this.tabPageSpawnGroup);
-            this.tabControlXmlEditor.Controls.Add(this.tabPage2);
+            this.tabControlXmlEditor.Controls.Add(this.tabPageLootImport);
             this.tabControlXmlEditor.Location = new System.Drawing.Point(0, 28);
             this.tabControlXmlEditor.Name = "tabControlXmlEditor";
             this.tabControlXmlEditor.SelectedIndex = 0;
@@ -120,15 +149,15 @@
             this.tabPageSpawnGroup.Text = "SpawnGroup";
             this.tabPageSpawnGroup.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // tabPageLootImport
             // 
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(892, 904);
-            this.tabPage2.TabIndex = 4;
-            this.tabPage2.Text = "tabPage2";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPageLootImport.Location = new System.Drawing.Point(4, 22);
+            this.tabPageLootImport.Name = "tabPageLootImport";
+            this.tabPageLootImport.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageLootImport.Size = new System.Drawing.Size(892, 904);
+            this.tabPageLootImport.TabIndex = 4;
+            this.tabPageLootImport.Text = "Loot Import";
+            this.tabPageLootImport.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -161,7 +190,10 @@
         private System.Windows.Forms.TabPage tabPageNpc;
         private System.Windows.Forms.TabPage tabPageMonster;
         private System.Windows.Forms.TabPage tabPageSpawnGroup;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPageLootImport;
+        private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileDialogPreferenceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemFileDialogAutoPopulateFormat;
     }
 }
 
